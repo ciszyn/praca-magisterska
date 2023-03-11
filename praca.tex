@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{pdfpages}
+\usepackage[utf8]{inputenc}                                      
+\usepackage[T1]{fontenc} 
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+% \usepackage[polish,british]{babel} 
+\usepackage{graphicx} 
+\usepackage{hyperref}
+\usepackage[page]{appendix} 
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage[backend=bibtex]{biblatex}
+
+\nocite{*}
+\addbibresource{bibliography.bib}
+
+\fancypagestyle{phdthesis}{%
+% \fancyhf
+\fancyhead[C]{\thepage} %prints the page number on the right side of the header
+}
+
+\hyphenpenalty=10000
+\widowpenalty=10000
+\clubpenalty=10000
+% \raggedbottom
+
+\begin{document}
+
+\begin{titlepage}
+    \includepdf{titlepage.pdf}
+\end{titlepage}
+
+\section{Wstęp}
+
+\section{Zbiór danych}
+\section{Analiza problemu}
+\section{Implementacja}
+\section{Wyniki}
+\section{Analiza wyników}
+\section{Wnioski}
+
+something\cite{something}
+
+\printbibliography[title={Bibliografia}]
+
+\section*{Dodatki}
+
+\end{document}
