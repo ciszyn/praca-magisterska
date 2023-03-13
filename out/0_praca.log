@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.3.11)  13 MAR 2023 11:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.3.11)  13 MAR 2023 13:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/ciszyn/Documents/praca magisterska/praca.tex"
-(/home/ciszyn/Documents/praca magisterska/praca.tex
+**"/home/ciszyn/Documents/praca magisterska/0_praca.tex"
+(/home/ciszyn/Documents/praca magisterska/0_praca.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-07-15> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -566,8 +566,8 @@ Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 ))
 \@quotelevel=\count423
 \@quotereset=\count424
- (out/praca.aux)
-\openout1 = `praca.aux'.
+ (out/0_praca.aux (out/1_wstep.aux) (out/2_przeglad_literatury.aux) (out/3_analiza_problemu.aux) (out/4_zbior_danych.aux) (out/5_implementacja.aux) (out/6_wyniki.aux) (out/7_analiza_wynikow.aux) (out/8_wnioski.aux))
+\openout1 = `0_praca.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
@@ -613,9 +613,9 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 Package hyperref Info: Link coloring OFF on input line 25.
- (out/praca.out) (out/praca.out)
+ (out/0_praca.out) (out/0_praca.out)
 \@outlinefile=\write4
-\openout4 = `praca.out'.
+\openout4 = `0_praca.out'.
 
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
@@ -628,11 +628,11 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Data encoding 'utf8' specified.
 (biblatex)             No need to reencode data.
-\openout3 = `praca-blx.bib'.
+\openout3 = `0_praca-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'praca.bbl' found.
- (out/praca.bbl)
+Package biblatex Info: ... file '0_praca.bbl' found.
+ (out/0_praca.bbl)
 Package biblatex Info: Reference section=0 on input line 25.
 Package biblatex Info: Reference segment=0 on input line 25.
 <titlepage.pdf, id=36, 598.235pt x 845.1575pt>
@@ -668,35 +668,92 @@ Package pdftex.def Info: titlepage.pdf , page1 used on input line 28.
  [1
 
  <./titlepage.pdf>]
-Overfull \hbox (22.13663pt too wide) in paragraph at lines 351--351
-[]\T1/cmr/m/n/10 Riitta Katila and Gau-tam Ahuja. ``Some-thing old, some-thing new: A lon-gi-tu-di-nal
- []
+\openout2 = `1_wstep.aux'.
 
-
+ (./1_wstep.tex)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.355 \end{document}
-                     [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (out/praca.aux)
-Package rerunfilecheck Info: File `praca.out' has not changed.
+l.31 \include{1_wstep.tex}
+                           [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+\openout2 = `2_przeglad_literatury.aux'.
+
+ (./2_przeglad_literatury.tex) [2
+
+
+
+]
+\openout2 = `3_analiza_problemu.aux'.
+
+ (./3_analiza_problemu.tex) [3
+
+
+
+]
+\openout2 = `4_zbior_danych.aux'.
+
+ (./4_zbior_danych.tex) [4
+
+
+
+]
+\openout2 = `5_implementacja.aux'.
+
+ (./5_implementacja.tex) [5
+
+
+
+]
+\openout2 = `6_wyniki.aux'.
+
+ (./6_wyniki.tex) [6
+
+
+
+]
+\openout2 = `7_analiza_wynikow.aux'.
+
+ (./7_analiza_wynikow.tex) [7
+
+
+
+]
+\openout2 = `8_wnioski.aux'.
+
+ (./8_wnioski.tex) [8
+
+
+
+]
+Overfull \hbox (22.13663pt too wide) in paragraph at lines 42--42
+[]\T1/cmr/m/n/10 Riitta Katila and Gau-tam Ahuja. ``Some-thing old, some-thing new: A lon-gi-tu-di-nal
+ []
+
+[9
+
+
+] (out/0_praca.aux (out/1_wstep.aux) (out/2_przeglad_literatury.aux) (out/3_analiza_problemu.aux) (out/4_zbior_danych.aux) (out/5_implementacja.aux) (out/6_wyniki.aux) (out/7_analiza_wynikow.aux) (out/8_wnioski.aux))
+Package rerunfilecheck Info: File `0_praca.out' has not changed.
 (rerunfilecheck)             Checksum: 88F46297FA2D72F767A8956BC3E5C8C0;833.
-Package logreq Info: Writing requests to 'praca.run.xml'.
-\openout1 = `praca.run.xml'.
+Package logreq Info: Writing requests to '0_praca.run.xml'.
+\openout1 = `0_praca.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18886 strings out of 479907
- 324817 string characters out of 5886408
- 819227 words of memory out of 5000000
- 36876 multiletter control sequences out of 15000+600000
+ 19118 strings out of 479907
+ 332133 string characters out of 5886408
+ 837075 words of memory out of 5000000
+ 37044 multiletter control sequences out of 15000+600000
  472251 words of font info for 32 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 72i,17n,77p,1894b,1218s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,17n,77p,1896b,1218s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk>
-Output written on out/praca.pdf (2 pages, 192692 bytes).
+Output written on out/0_praca.pdf (10 pages, 195049 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
+ 21 named destinations out of 1000 (max. 500000)
  85 words of extra memory for PDF output out of 10000 (max. 10000000)
 

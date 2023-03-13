@@ -1,10 +1,9 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage[utf8]{inputenc}                                      
 \usepackage[T1]{fontenc} 
 \usepackage{amsmath,amsfonts,amssymb,amsthm}
-% \usepackage[polish,british]{babel} 
 \usepackage{graphicx} 
 \usepackage{hyperref}
 \usepackage[page]{appendix} 
@@ -15,15 +14,13 @@
 \nocite{*}
 \addbibresource{bibliography.bib}
 
-\fancypagestyle{phdthesis}{%
-% \fancyhf
-\fancyhead[C]{\thepage} %prints the page number on the right side of the header
+\fancypagestyle{phdthesis}{
+\fancyhead[C]{\thepage}
 }
 
 \hyphenpenalty=10000
 \widowpenalty=10000
 \clubpenalty=10000
-% \raggedbottom
 
 \begin{document}
 
@@ -31,19 +28,19 @@
     \includepdf{titlepage.pdf}
 \end{titlepage}
 
-\section{Wstęp}
+\include{1_wstep.tex}
+\include{2_przeglad_literatury.tex}
+\include{3_analiza_problemu.tex}
+\include{4_zbior_danych.tex}
+\include{5_implementacja.tex}
+\include{6_wyniki.tex}
+\include{7_analiza_wynikow.tex}
+\include{8_wnioski.tex}
 
-\section{Zbiór danych}
-\section{Analiza problemu}
-\section{Implementacja}
-\section{Wyniki}
-\section{Analiza wyników}
-\section{Wnioski}
-
-something\cite{something}
+something else\cite{something}
 
 \printbibliography[title={Bibliografia}]
 
-\section*{Dodatki}
+\section*{Appendix}
 
 \end{document}
