@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.3.11)  13 MAR 2023 13:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.3.11)  13 MAR 2023 13:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -635,7 +635,7 @@ Package biblatex Info: ... file '0_praca.bbl' found.
  (out/0_praca.bbl)
 Package biblatex Info: Reference section=0 on input line 25.
 Package biblatex Info: Reference segment=0 on input line 25.
-<titlepage.pdf, id=36, 598.235pt x 845.1575pt>
+<titlepage.pdf, id=200, 598.235pt x 845.1575pt>
 File: titlepage.pdf Graphic file (type pdf)
 <use titlepage.pdf>
 Package pdftex.def Info: titlepage.pdf  used on input line 28.
@@ -644,7 +644,7 @@ File: titlepage.pdf Graphic file (type pdf)
 <use titlepage.pdf>
 Package pdftex.def Info: titlepage.pdf  used on input line 28.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
-<titlepage.pdf, id=39, page=1, 598.235pt x 845.1575pt>
+<titlepage.pdf, id=203, page=1, 598.235pt x 845.1575pt>
 File: titlepage.pdf Graphic file (type pdf)
 <use titlepage.pdf, page 1>
 Package pdftex.def Info: titlepage.pdf , page1 used on input line 28.
@@ -667,93 +667,105 @@ Package pdftex.def Info: titlepage.pdf , page1 used on input line 28.
 (pdftex.def)             Requested size: 562.80652pt x 795.10587pt.
  [1
 
- <./titlepage.pdf>]
-\openout2 = `1_wstep.aux'.
-
- (./1_wstep.tex)
+ <./titlepage.pdf>] (out/0_praca.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.31 \include{1_wstep.tex}
-                           [1
+l.41 ...³wnianie z literaturÄ…}{9}{subsection.7.2}
+                                                  % [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+\tf@toc=\write5
+\openout5 = `0_praca.toc'.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+ [2]
+\openout2 = `1_wstep.aux'.
+
+ (./1_wstep.tex) [3
+
+]
 \openout2 = `2_przeglad_literatury.aux'.
 
- (./2_przeglad_literatury.tex) [2
+ (./2_przeglad_literatury.tex) [4
 
 
 
 ]
 \openout2 = `3_analiza_problemu.aux'.
 
- (./3_analiza_problemu.tex) [3
+ (./3_analiza_problemu.tex) [5
 
 
 
 ]
 \openout2 = `4_zbior_danych.aux'.
 
- (./4_zbior_danych.tex) [4
+ (./4_zbior_danych.tex) [6
 
 
 
 ]
 \openout2 = `5_implementacja.aux'.
 
- (./5_implementacja.tex) [5
+ (./5_implementacja.tex) [7
 
 
 
 ]
 \openout2 = `6_wyniki.aux'.
 
- (./6_wyniki.tex) [6
+ (./6_wyniki.tex) [8
 
 
 
 ]
 \openout2 = `7_analiza_wynikow.aux'.
 
- (./7_analiza_wynikow.tex) [7
+ (./7_analiza_wynikow.tex) [9
 
 
 
 ]
 \openout2 = `8_wnioski.aux'.
 
- (./8_wnioski.tex) [8
+ (./8_wnioski.tex) [10
 
 
 
 ]
-Overfull \hbox (22.13663pt too wide) in paragraph at lines 42--42
+Overfull \hbox (22.13663pt too wide) in paragraph at lines 44--44
 []\T1/cmr/m/n/10 Riitta Katila and Gau-tam Ahuja. ``Some-thing old, some-thing new: A lon-gi-tu-di-nal
  []
 
-[9
+[11
 
 
 ] (out/0_praca.aux (out/1_wstep.aux) (out/2_przeglad_literatury.aux) (out/3_analiza_problemu.aux) (out/4_zbior_danych.aux) (out/5_implementacja.aux) (out/6_wyniki.aux) (out/7_analiza_wynikow.aux) (out/8_wnioski.aux))
 Package rerunfilecheck Info: File `0_praca.out' has not changed.
-(rerunfilecheck)             Checksum: 88F46297FA2D72F767A8956BC3E5C8C0;833.
+(rerunfilecheck)             Checksum: D891A40451581B55924DF015318660EC;6645.
 Package logreq Info: Writing requests to '0_praca.run.xml'.
 \openout1 = `0_praca.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19118 strings out of 479907
- 332133 string characters out of 5886408
- 837075 words of memory out of 5000000
- 37044 multiletter control sequences out of 15000+600000
- 472251 words of font info for 32 fonts, out of 8000000 for 9000
+ 19246 strings out of 479907
+ 334033 string characters out of 5886408
+ 850109 words of memory out of 5000000
+ 37109 multiletter control sequences out of 15000+600000
+ 476266 words of font info for 43 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 72i,17n,77p,1896b,1218s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk>
-Output written on out/0_praca.pdf (10 pages, 195049 bytes).
+ 72i,17n,77p,1896b,1216s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/ciszyn/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk>
+Output written on out/0_praca.pdf (12 pages, 240165 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 592 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 413 words of extra memory for PDF output out of 10000 (max. 10000000)
 
