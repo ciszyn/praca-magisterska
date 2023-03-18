@@ -1,0 +1,86 @@
+ai-revolutionises-weather-forecast
+
+Practical weather forecast relies on the assimilation of a large number of observations
+from various types into Numerical Weather Prediction (NWP) models. Since the end of the
+Century, a breakthrough in the assimilation of global satellite data has resulted in the
+convergence of the Northern and Southern Hemisphere prediction skill [5]. The current
+state-of-the-art data assimilation method is the co-called 4D-Var data assimilation [6,7]. For
+each of the observation types, a so-called observation operator is implemented, allowing
+relating the NWP model’s internal parameters to the specic observation type. In the varia-
+tional data assimilation process, the internal parameters are tuned in order to reproduce
+the available observations. For the high-density satellite remote sensing observations, some
+form of data thinning [ 8] is needed. The current horizontal resolution of the European
+Center for Mid-Range Weather Forecasting (ECMWF) deterministic forecast is 9 km [ 9 ]. A
+probabilistic ensemble forecast is obtained by running the forecast model multiple times
+with slightly different initial conditions. To reduce the computational cost, the resolution is
+reduced to 18 km for the ECMWF ensemble forecast [9].
+
+An example where the information retrieval and data fusion are combined through
+a single DL network was given in [32], where Meteosat Spinning Enhanced Visible and
+Infrared (SEVIRI) [ 33 ] geostationary satellite images were combined with rain gauges for
+the estimation of the amount of precipitation. In [ 32], a multiscale DL network of the U-Net
+type [34] combines spectral and spatial information from three selected SEVIRI channels
+at 8.7, 10.8, and 12.0 μm with surface rain gauges. The U-Net architecture is a popular
+example of a Convolutional Neural Network (CNN), illustrated in Figure 1. We note that
+those SEVIRI channels are usable day and night and contain information on microphysical
+parameters relevant to precipitation processes [35]. The network simultaneously performs
+different tasks
+
+
+weather-forecasting-using-ml
+
+real time predictions using microcontrollers and ml
+
+
+smart-weather-forecasting
+
+In future, we have plans to utilize low-cost Internet of Things
+(IoT) devices, such as temperature and humidity sensors, in collect-
+ing weather data from dierent parts of a city. The use of dierent
+sensors could increase the number of local features in the training
+dataset. This data, along with the weather station data, will further
+improve the performance of our prediction models
+
+
+can-ml-beat-numerical
+
+We think that it is not
+inconceivable that numerical weather models may one
+day become obsolete, but a number of fundamental
+breakthroughs are needed before this goal comes into
+reach.
+
+First,
+manual NWP was attempted by Lewis Fry Richardson in Britain in 1922, and 
+early computer-aided weather forecasts were produced in 1950 [1].
+These were soon followed by operational weather forecasts in Sweden, the USA and Japan.
+While there has been steady progress in the development of NWP (cf. [2]), the history of
+ML (cf. [3]) has been more disruptive: the rst neural network (NN) was proposed in 1943 by
+McCulloch & Pitts [4]. The eld expanded until the early 1960s, when the existing algorithms
+proved inefcient and unstable. The invention of backpropagation in 1970 [5,6] led to a second
+wave of ML applications as it became possible to build more extensive NNs and train them
+to recognize nonlinear relationships in data
+ighly complex NNs with greater than 106 parameters
+enabled a breakthrough in image recognition [8], soon followed by remarkable success stories
+in speech recognition [9], gaming [10,11], and video analysis and prediction [12,13]
+
+most of these studies were restricted to
+short-term forecasts and a few individual target sites, and none has yet attempted to explore the
+wealth of combined meteorological observations from the plethora of instruments and sensors,
+which is routinely used in operational weather forecasts
+
+NWP model improvements can in part be related to resolution enhancements. The continuous
+renement of the grid spacing has also required re-formulating the dynamical cores of NWP
+models where the discretized Navier–Stokes equations are solved. Simulating the atmosphere
+on kilometre-scale comes along with the demand of highly parallelizable algorithms of the
+dynamical core 
+
+In addition to the improvement of dynamical cores, further gains in accuracy have
+been achieved by ne-tuning physical parameterizations which are mandatory to represent
+atmospheric processes that cannot be captured by the grid-scale thermodynamics. Among others,
+these parameterizations encompass the representation of (deep) convection, turbulent mixing,
+smaller-scale atmosphere-land/ocean coupling, the representation of cloud microphysics and
+radiative transfer. Advances in capturing the diurnal cycle of convection (e.g. [36,37]), the
+turbulent transports in the planetary boundary layer (e.g. [38]) and in simulating the bulk
+properties of hydrometeors (e.g. [39]), i.e. clouds and precipitation, are only a small sample of
+recent progress in tuning physical parameterization schemes.

@@ -1,0 +1,117 @@
+ai-revolutionises-weather-forecast
+
+The broad eld of Earth system science appears to be well suited for the application
+of DL techniques [ 26 ]. Ever-increasing amounts of Earth system data are available, from
+heterogeneous sources ranging from sophisticated Earth Observation (EO) satellites [ 27 ]
+to massively deployed low-cost crowdsourcing sensors [ 28 ]. Most of the algorithms and
+models used to exploit those data are still designed by hand and suffer from insufcient
+scalability when large amounts of data are considered.
+
+ml-applied-to-weather-forecasting
+
+The maximum temperature, minimum temperature,
+mean humidity, mean atmospheric pressure, and weather
+classication for each day in the years 2011-2015 for Stan-
+ford, CA were obtained from Weather Underground. [7]
+Originally, there were nine weather classications: clear,
+scattered clouds, partly cloudy, mostly cloudy, fog, over-
+cast, rain, thunderstorm, and snow. Since many of these
+classications are similar and some are sparsely popu-
+lated, these were reduced to four weather classications
+by combining scattered clouds and partly cloudy into
+moderately cloudy; mostly cloudy, foggy, and overcast
+into very cloudy; and rain, thunderstorm, and snow into
+precipitation. The data from the rst four years were
+used to train the algorithms, and the data from the last
+year was used as a test set.
+
+predicting-weather-forecast
+
+As reference forecast data we use the second version of the GEFS reforecast dataset (Hamill et al., 2013). Operational NWP
+models are updated regularly (roughly every 6 months), and thus cannot provide a continuous set of homogeneous forecasts.
+Reforecasts mitigate this problem. They are forecasts that use observations from the past in combination with a single version of
+a state-of-the-art NWP model, thus producing a long series of relatively homogeneous forecasts. The use of the term “relatively”
+is dictated by changes in the observation system, which may introduce inhomogeneities. Still, reforecasts are currently the best
+available long-term forecast timeseries. The GEFS reforecasts provide 16-day forecasts initialized daily at 00:00 UTC from Dec
+1984 to present. They are updated operationally every day. The forecasts consist of 10 members and one unperturbed control
+forecast. The resolution of the model is T254L42 (∼ 40km) for the rst 8 forecast days. We chose the GEFS reforecast dataset
+because it is currently the longest publicly available set of daily reforecasts.
+
+For machine-learning tasks, data is often split up randomly in train, test and validation sets. However, both our input
+data (atmospheric elds) and target values (spread and error) have non-zero autocorrelation. Therefore, random splitting is
+inappropriate. If, for example, for a specic test case both the day before and afterwards are in the training data, it would be much
+easier for any learning algorithm to predict the target value for the test case. Therefore, we split our data in the following way:
+the years 1990 and 2008 are used for validation, the years 2010-2016 for testing, and all other years for training. This is inspired
+by an operational context. In this case, past forecasts and the corresponding spreads/errors are available, and predictions are
+to be made for future elds.
+
+
+can-dl-beat-numerical
+
+Modern supervised ML studies generally divide the available data into three different datasets
+to train, develop and evaluate an ML model [113]. The training set is the largest and is used to
+update the model parameters by back propagation or other learning algorithms. The second set,
+which is often referred to as the validation or development set, is used exclusively for hyper-
+parameter tuning. The hyper-parameters, i.e. number of layers, type of layer, activation function,
+loss function, learning rate etc. are set manually by the model developer. A key target of this
+hyper-parameter tuning is the optimization of the network’s generalization capabilities to ensure
+that the network will function well on previously unseen data. Both parameters and hyper-
+parameters are essential for building a suitable DL model. The third dataset is the test set, a
+collection of previously unseen data which is used to evaluate the network after the tuning to
+assess the true generalization capability of the network. The three datasets should be independent
+of each other, but at the same time they should reect the same statistical distribution. Therefore,
+one has to be careful how to split the data before starting to train a new network, especially if, as
+in meteorological time series, the data are auto-correlated.
+
+However, as noted in §4, meteorological data constitutes a continuous time
+series with auto-correlation on different time scales. Therefore, randomly drawn samples would
+overlap and therefore no longer be independent. Consequently, results obtained with such a
+test set over-estimate the true generalization capability of the NN, because the test set contains
+information already used for training. When researching for this article, we found several
+studies on ML and DL for environmental data analysis, where this principle was violated
+and which therefore made overly optimistic conclusions concerning the capabilities of (often
+simple) NNs
+
+Another point of concern, which also has implications for the data preparation, is the multi-
+scale aspect of data in the time domain. While a typical forecast application considers time
+scales of a few hours to several days, there are longer-term quasi-periodic patterns, such as
+the El Niño Southern Oscillation (ENSO), and also continuous trends such as global warming.
+When training NNs with long-term data series (so that a sufcient number of samples becomes
+available), it is not trivial to nd a good data split, which on the one hand fulls the requirement
+of independence, while on the other hand allows the network to be trained on as many parts of
+the underlying data distribution as possible. For example, the model developer should ensure
+that all seasons are sampled appropriately, and, when using multi-year data, that the training
+data contains different phases of ENSO as one example out of many other oscillations
+
+ What is largely missing in the eld of meteorological
+DL are benchmark datasets with a specication of appropriate baseline scores and software
+frameworks which make it easy for the DL community to adopt a meteorological problem and try
+out different approaches. One notable exception is Weatherbench [142]. Such benchmark datasets
+and frameworks are well established in the ML community (e.g. MNIST [143] or ImageNet [144])
+and they contributed substantially to the rapid pace of DL developments in application areas
+such as image recognition, video prediction, speech recognition, gaming and robotics.
+
+
+ml-based-algorithms-for-uncertainty
+
+We use a machine learning algorithm to approximate the unction φ error .
+The learning model is trained using a dataset that consists o the
+ollowing inputs:
+• WRF physical packages that aect the physical quantity o interest
+(Θ),
+• historical WRF orecasts (o τ or τ ≤ t  1),
+• historical model discrepancies (Δ τ or τ ≤ t  1),
+• WRF orecast at the current time (o t ),
+• the available model discrepancy at the current time (Δ t ) since we
+have access to the observations rom reality y t at the current time
+step.
+
+
+dl-for-improving-numerical-weather
+
+Atmospheric variables simulated as reforecasts by a ten-member ensemble of the IFS of the model cycle CY41R2
+from the ECMWF (European Centre for Medium-Range Weather Forecasts, 2012) are taken as inputs of the
+DNN. The data is provided by the ECMWF at three-hourly time steps and 0.5° horizontal resolution. It is initial-
+ized twice daily at 06 and 18 UTC with a 12 hr lead time and small perturbations in the initial conditions. In this
+work, the ensemble mean of the variables is used, since taking the individual ensemble members as inputs would
+not be computationally feasible at present

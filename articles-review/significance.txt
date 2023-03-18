@@ -1,0 +1,43 @@
+machine-learning-for-applied-weather-prediction
+
+The Dynamic Integrated
+foreCasting (DICast®) System was one of the first automated
+weather forecasting engines. It is now in use in quite a few
+companies with many applications. Some applications being
+accomplished at NCAR that include DICast and other artificial
+intelligence technologies include renewable energy, surface
+transportation, and wildland fire forecasting.
+Such applications include hydrometeorological forecasting for
+agricultural decision support [2], forecasting road weather to
+enhance the safety of surface transportation [3-5], forecasting
+movement of wildland fires, and predicting wind [6] and solar
+power [7] for utilities and grid operators to facilitate grid
+integration. An example of using multiple AI methods for targeted
+forecasts is predicting solar power production.
+
+ai-revolutionises-weather-forecast
+
+The Paris Agreement [3 ] is
+a legally binding  international treaty on climate change. Its goal is
+to limit global warming to well below 2, preferably to 1.5 ◦ C, compared to pre-industrial
+levels. In Europe, the Green Deal [4] aims to bring the net emission of greenhouse gasses to
+zero by 2050.
+
+use of DL to learn from data how to predict surface weather extremes over North America
+with lead times of 1–5 d ahead.
+
+using-artificial-intelligence-to-improve
+
+cloud classification, tornado prediction, hail size, storm duration prediction
+
+
+predicting-weather-forecast
+
+Given a new weather situation, it assigns a scalar
+value of condence to medium range forecasts initialised from said
+atmospheric state, indicating whether the predictability is higher or
+lower than usual for the time of the year. While our method has
+a lower skill than ensemble weather forecast models in predicting
+forecast uncertainty, it is computationally very ecient and outper-
+forms a range of alternative methods that do not involve performing
+numerical forecasts. 

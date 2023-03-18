@@ -1,0 +1,31 @@
+ml-in-weather-prediction
+
+The 10 most common phrases are presented in Figure 2. Since the
+topic of post-processing NWP results to improve forecasts concerning renewable energy
+is very common among scientists, the phrase “Wind Forecasting” had the highest count
+(Figure 2). The phrase with the second highest count turned out to be “Ensemble Forecast-
+ing”, due to the growing interest in improving probabilistic forecasts and in the methods
+required to interpret them correctly. Slightly fewer counts were recorded for phrases such
+as “Data Assimilation”, “Extreme Events”, “Remote Sensing”, and “Land Cover”. Less
+than 10 counts were found for the phrases “Tropical Cyclones”, “Coupled Models”, “Cloud
+Physics”, and “Boundary Layer”
+
+For the second group of research papers related to machine learning methods in cli-
+mate, a similar histogram is presented in Figure 3. Unsurprisingly, the most common phrase
+in this group was “Climate Change”, with more than 140 counts. Almost three times more
+counts were recorded for the phrase “Global Climate Models” than for “Regional Climate
+Models”. Slightly less common phrases were “Climate Impact”, “Remote Sensing”, “Land
+Cover”, and “Extreme Events”, while phrases such as “Coupled Models”, “Convection”,
+and “Calibration” had less than 10 counts.
+
+In addition to text mining of research topics and phrases, similar word counts in the
+abstracts of selected publications can also give an interesting insight into the most common
+topics of interest. Some of the most interesting results derived using this method are pre-
+sented in the following section. Figure 4 presents the most commonly used meteorological
+elds in NWP studies. Scientists mentioned the term ‘wind’ more than 200 times, and this
+term is related to an important group of renewable energy and wind forecasting studies, as
+presented in Figure 2. The term ‘precipitation’ was used almost 150 times, usually with
+regards to applications for short-range prediction, and downscaling or post-processing.
+Several papers on bias correction of temperature and air pressure were present, as well as
+studies on radiation, both using photovoltaic application and emulating this scheme in
+NWP models.

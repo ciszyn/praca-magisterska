@@ -1,0 +1,74 @@
+machine-learning-for-applied-weather-prediction
+
+It begins by correcting the output of each NWP
+model according to past performance. DICast then optimizes
+blending of the various model outputs, again building on the
+past performance record. DICast has been applied to predict
+the major variables of interest (such as temperature, dew point,
+wind speed, irradiance, and probability of precipitation) at sites
+throughout the world.
+
+ai-revolutionises-weather-forecast
+
+A DL-based architecture for nowcasting was rst proposed in [ 41] and consists of an
+encoder–decoder architecture, where the encoder performs motion detection or a more
+complicated spatiotemporal analysis and the decoder performs motion extrapolation or
+a more complicated spatiotemporal forecasting. Both the encoder and the decoder used
+stacked ConvLSTM units, which were based on Long Short-Term Memory (LSTM) [ 42 ]
+recurrent neural networks for time forecasting and which have convolutional structures in
+both the input-to-state and the state-to-state transitions
+
+use of machine learning to derive the poorly known parts of a numerical Earth
+system model, in combination with physics-based modelling for the well-known parts of
+the model.
+
+using-artificial-intelligence-to-improve
+
+Statistical models for postpro- cessing NWP model output have evolved within two general frameworks. 
+"Perfect prog" models fit rela- tionships between observed or analyzed variables and observations of a 
+weather feature, such as temperature or precipitation (Klein et al. 1959). The models are then applied 
+to NWP forecasts, thus implicitly assuming that the NWP model is perfect. In contrast, MOS fits a 
+statistical model between NWP output at a given time horizon and subsequent observations at that time 
+(Glahn and Lowry 1972), often using linear regression. Because MOS fits use the NWP output directly, 
+they can correct for systematic biases in a model. When NWP model configurations are updated, MOS must 
+be retrained after a sufficient number of new model forecasts are collected. Perfect-prog models are gener- 
+ally less accurate than a well-tuned MOS model, but they are less sensitive to model configuration changes 
+and tend to be more robust over time. AI techniques can be used in both frameworks.
+
+
+can-dl-beat-numerical
+
+data preprocessing and interpolation:
+the central task of DA is to ll the gap between the
+incomplete, heterogeneous, and scattered observations and the initial value elds which are
+required by the NWP models. To achieve this, the observation data must be projected onto the
+discrete model grid, interpolated in time and adjusted to be consistent in terms of state variables
+(e.g. temperature, pressure, wind etc.). DA also has to take into account measurement errors
+such as biases between different space instruments or malfunctions of individual ground-based
+sensors. The obtained initial state of the Earth system after the DA step therefore constitutes an
+optimized estimate of the real conditions 
+
+Current DA systems are primarily
+based on three- or four-dimensional variational approaches (3D-Var and 4D-Var, respectively) and
+on ensemble methods (commonly Kalman lter). In the 3D-Var approach, a single deterministic
+state is estimated by minimizing a cost function which generally consists of the three terms
+background, observation, and model error. 4D-Var additionally captures observation changes in
+time
+
+Given the initial conditions, the NWP model can perform a simulation of atmospheric
+processes. By solving numerically the coupled partial differential equation system describing
+the atmosphere in terms of momentum, mass and enthalphy (the Navier–Stokes equations), the
+future atmospheric state is obtained in each model grid cell. Processes occurring at scales smaller
+than the model grid size are captured by empirical parameterizations. The direct model output
+constitutes the rst forecast product of the NWP workow. In contemporary global NWP models,
+the grid boxes cover an area of several square kilometres.
+In order to arrive at ner scale end-user forecast products, a post-processing step is added to
+the NWP workow. The outcome of such post-processing can cover a variety of forecast products
+starting with the conversion of the vertical axis from sigma-coordinates to pressure levels or
+geometric height (above mean sea level) or bias corrections. Statistical methods are applied to
+remove systematic biases of the NWP output and to incorporate local scale adjustments (statistical
+downscaling). Furthermore, limited-area models which allow for ner grid spacings (x ∼
+O(1–5 km) compared to x O ∼ (10 km) in global models) provide added value on forecasting
+meteorological features on ner scales. The output of ensemble simulations can be used to
+estimate forecast uncertainties which are of major interest especially for high impact weather
+situations, or for the renewable energy sector [19,20] (see also §7)

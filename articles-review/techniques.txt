@@ -1,0 +1,123 @@
+machine-learning-for-applied-weather-prediction
+
+The first big advance was in terms of numerical
+weather prediction (NWP), i.e., integrating the equations of
+motion forward in time with good initial conditions. But the
+more recent improvements have come from applying artificial
+intelligence (AI) techniques to improve forecasting and to
+enable large quantities of machine-based forecasts.
+
+ai-revolutionises-weather-forecast
+
+For short forecast ranges typically up to 4–6 h in the future, the direct extrapolation
+of observations—referred to as nowcasting—is considered more accurate than an NWP
+forecast [39]. For satellite-based nowcasting, the extrapolation of satellite images with
+optical ow methods provided better skill scores than NWP models, in particular for
+phenomena dealing with clouds [ 40], e.g., surface radiation, heavy precipitation and
+thunderstorms. An example of the application of thunderstorm nowcasting is the use in
+aviation to avoid hazardous weather situations.
+
+ common way to improve the output of NWP models is to apply Model Output
+Statistics (MOS) [ 57] to correct the systematic errors of the NWP forecasts at different lead
+times
+
+A prerequisite for the training of a DL method is the availability of a sufcient amount
+of training data. Today, not enough training data are available to train a “big bang” or
+“hard AI” method that can completely replace a traditional NWP method [ 45 ]. Instead,
+the available training data should be used to enhance existing NWP physical models,
+in a “residual learning” approach [ 81 ], where the DL network innovates on top of the
+physical model
+
+n [ 79 ], a CNN was successfully used to skilfully predict El Niño Southern Oscillation
+(ENSO) events with lead times up to one and a half years and with considerably better
+skill than dynamical physical forecast models. A particular problem for the training of
+decadal climate prediction is that the available observation period is too short to achieve
+proper training. In [79], this problem was solved through the use of transfer learning. First,
+the CNN was pretrained on model simulations; next, the training was rened using the
+available observations
+
+using-artificial-intelligence-to-improve
+
+Haupt et al. (2008) provide an overview of AI
+techniques applied to the environmental sciences, including artificial neural networks (ANNs), 
+decision trees, genetic algorithms (Allen et al. 2007), fuzzy logic, and principal component 
+analysis (Elmore and Richman 2001). Baldwin et al. (2005) used hierarchical clustering to classify 
+precipitation areas, Gagne et al. (2009) used k-means clustering to segment a radar image, 
+Lakshmanan et al. (2010, 2014) used k-means clustering to segment a map of radar-echo classifica- 
+tions, and Miller et al. (2013) used clustering to identify storm tracks.
+
+
+ml-applied-to-weather-forecasting
+
+Since weather forecasting inherently involves time se-
+ries, k-fold cross-validation is a poor technique to analyze
+whether our model will generalize to an independent test
+set. Instead, a 4-fold forward chaining time-series cross
+validation was performed, wherein the test set consisted
+of the data from the year immediately following the train-
+ing set, as in table II. This method more accurately
+models the weather at prediction time, since the model
+is based on past data and predicts on future data. A
+learning curve can also be generated, providing a useful
+gauge of the dependence of the model on the training set
+size
+
+predicting-weather-forecast
+
+This problem has been alleviated by the introduction of ensemble forecasts in
+the 1990s. Instead of producing a single forecast, a weather forecast model is run multiple times with slightly dierent initial
+conditions and/or slightly dierent model formulations or stochastic parameterizations. This results in an ensemble of forecasts
+being produced (see for example Gneiting and Raftery (2005)). If all (or at least most of) the ensemble members show good
+agreement - that is, they have a low spread and thus produce very similar forecasts - the weather situation is highly predictable,
+and the condence in the forecast high. If they show very dierent forecasts (high spread), the current weather situation is less
+predictable and condence in the forecast is low. While once in a while a NWP model can produce a very accurate forecast in
+an inherently unpredictable situation (i.e. a situation with large forecast spread), on average the forecast error correlates with
+the forecast uncertainty (and spread).
+
+weather-forecasting-using-ml-techniques
+
+using neural networks
+
+
+can-dl-beat-numerical
+
+CNNs have been used
+in weather and climate applications, where the NN was trained to recognize spatial features, for
+example in the analysis of satellite imagery [41] or weather model output
+
+The family of recurrent neural networks (RNN) was designed specically for the learning of
+time-dependent features 
+
+they included numerical model results as
+constraints for sparse observations and added a loss term to punish non-physical behaviour of
+the DL model. 
+
+Classical statistical modelling tries to strike a balance between a sufciently explicit
+formulation of the time-dependent system evolution and the remaining degrees of freedom
+to accommodate the intrinsic variability of the data. For example, to t hourly temperature
+observations, a classical statistical model will usually include (at least) two periodic terms to
+capture the diurnal and seasonal cycles. In addition, there may be terms to describe correlations
+of temperature with other variables. On the other hand, the statistician will avoid over-tting the
+data by adding too many terms into the statistical model.
+Even though in DL one expects the NN to learn many of the inherent data relations by itself,
+the system nevertheless must get some guidance to be able to identify meaningful patterns.
+Knowingly or not, the researcher always imposes constraints on the NN, for example through
+data selection and choice of NN architecture. NNs learn faster when patterns are clearly visible
+in the data. However, with meteorological data the most obvious patterns are usually the least
+interesting ones, therefore it makes sense to let the NN know in advance that such patterns will
+occur. A similar argument applies to physical constraints: if the NN is forced, for example to
+conserve mass, it will not need to waste parameters and training cycles on learning this rule and
+can instead concentrate on analysing relevant and less obvious relations.
+
+
+ml-based-algorithm-for-uncertainty
+
+Numerical experiments are carried out with the WRF model using the
+NCEP analyses as a proxy or the real state o the atmosphere. Ensembles
+o model runs with dierent parameter congurations are used to
+generate the training data. Random orests and Articial neural network
+models are used to learn the relationships between physical processes
+and orecast errors. The experiments validate the new approach, and
+illustrates how it is able to estimate model errors, indicate best model
+congurations, and pinpoint to those physical packages that infuence
+most the WRF prediction accuracy

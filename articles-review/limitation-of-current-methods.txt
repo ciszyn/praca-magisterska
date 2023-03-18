@@ -1,0 +1,123 @@
+smart-weather-forecasting
+
+the (numerical) models are
+generally run on hundreds of nodes in a large High Performance
+Computing (HPC) environment which consumes a large amount of
+energy.
+Despite using these costly and complex devices,
+there are often inaccurate forecasts because of incorrect initial mea-
+surements of the conditions or an incomplete understanding of
+atmospheric processes. Moreover, it generally takes a long time to
+solve complex models like these
+
+
+predicting-weather-forecast
+
+Currently, the best method to
+provide a condence estimate for individual forecasts is to produce
+an ensemble of numerical weather simulations, which is computa-
+tionally very expensive. 
+
+We have to note that ensemble forecasts contain more information than only an uncertainty measure. They can be used to
+compute the likelihood of certain events, or to create individual scenarios based on single members. Therefore, our proposed
+methods are not to be seen as a replacement of ensemble forecasts, but rather as tools that exploit already existing past forecasts
+to provide complementary guidance. To conclude, we note that this study is to be seen as a proof-of-concept to show that it is
+possible to extract information on forecast uncertainty from past forecasts with machine learning techniques. Indeed, there are a
+number of potential ways to improve the skill of the methods proposed here. 
+
+can-dl-beat-numerical
+
+- many different processes determine the future evolution - 
+        some variables (e.g. temperature) are nearly
+        normally distributed, while others (e.g. precipitation and cloud droplet size) might be better
+        approximated by gamma or beta distributions [91]. The fraction of cloud cover is often reported
+        in eighths and therefore needs to be treated as a discrete variable. Ignoring the different properties
+        of meteorological data can cause erroneous results when they are not accounted for in a statistical
+        analysis or forecasting procedure
+
+- coupling across wide range of spatiotemporal scales -  
+        Consider sea ice as an example, which may change little during the time of a typical
+        forecast lead time, but whose mid- to longer-term variations can have a profound inuence on
+        the local and non-local atmospheric state
+
+- auto correlation of time series
+- imbalanced data : scarcity of extreme events - Another challenge for a DL weather forecast application is the scarcity of extreme events,
+        which are, however, very important to get right as extreme weather phenomena have the largest
+        impact on civil safety and economy. For example, to accurately predict heavy precipitation
+        events (>25 mm h−1 ) over Germany, the DL model must be trained with less than 10 episodes
+        at any given location during a full decade 
+
+- dynamic correlations - temperatures at different altitudes may exhibit very similar patterns
+        (possibly with a time lag) in a well-mixed boundary layer (i.e. summer, daytime), while different
+        vertical levels can be almost completely decoupled during an inversion (often during winter or
+        at night). This can also be seen in larger scale features such as tropical cyclones
+
+- missing and erroneous values in observation data - Meteorological features may appear and vanish on time scales much shorter than the forecast
+        range. Prominent examples are the triggering of convective cells or the transition between
+        convective and relief precipitation in the presence of orography. An NWP model has some skill
+        in predicting such features, because it can diagnose their potential occurrence from relations
+        between other variables
+
+- non – Gaussian PDFs
+- periodicity - 
+        NNs generally have difculties
+        extrapolating periodic features correctly. However, as the authors show, replacing common
+        monotonic activation functions with functions which include a periodic term can solve such
+        problems and produce, for example, better temperature forecasts
+- need to quantify uncertainties
+
+While it is relatively straightforward to evaluate the success of an image classication (e.g. [8,69])
+or a video prediction task (cf. [12,79]), the evaluation metrics used in these studies (e.g. MSE
+or Peak Signal to Noise Ratio, PSNR) are usually not appropriate for weather and climate
+applications. Quantifying the success of a weather prediction model is highly non-trivial and an
+area of active research. Meteorological centres have developed a plethora of scores and skill scores
+over the last decades, which elucidate different aspects of weather forecast quality (cf. [21,91,114]).
+In addition to verication methods based on point by point comparisons (e.g. [115]), various
+methods have been introduced to account for the intrinsic spatial and temporal correlation in
+meteorological datasets (e.g. [116–118]). Other verication metrics also account for the stochastic
+nature of meteorological quantities by estimating probabilities of binary events, such as rain, no-
+rain [119]. Evaluating spatiotemporal patterns, for example, precipitation forecasts, with the help
+of radar data is particularly challenging due to the double penalty problem (cf. [116,120]). Indeed,
+verication of precipitation forecasts is still a hot topic in the meteorological community [121].
+The evaluation of extreme events suffers from the ‘forecaster’s dilemma’, which discredits skilful
+forecasts when they are evaluated only under the condition that an extreme event occurred.
+This conditioning on outcomes and observations violates the theoretical assumptions of forecast
+verication methods 
+
+NNs can be prone
+to learning spurious relationships in data. A purely data-driven model for weather forecasting
+might fail to adhere to the underlying physical principles and thus generate false forecasts as
+it lacks understanding of the fact that every atmospheric process obeys physical laws described
+in terms of conservation of momentum, enthalpy and mass. The incorporation of physical laws
+in NNs is becoming a vibrant area of research (e.g. [125–128]) and is now often denoted as
+scientic ML
+
+Newcomers to the eld of NWP often think that such numerical simulation models are
+inherently self-consistent, because they are based on a well-dened set of differential equations.
+However, the discretization of partial differential equations describing the ow dynamics in NWP
+models is not always fully mass or energy conserving, and parameterization schemes, which
+are needed to incorporate the effects of unresolved sub-grid scale processes on the grid-scale
+variables, may lead to spurious competition between grid-scale and sub-grid-scale processes, for
+example in cloud schemes [132,133]. Furthermore, there can be a grey zone between different
+parameterizations describing related aspects, such as the classical distinction of shallow and deep
+convection. Also, physically related parameterization schemes may be derived from different
+empirical data. Furthermore, internal consistency of classical NWP no longer applies if one
+considers the entire NWP workow, i.e. if statistical models are used to post-process the model
+output, remove biases and apply other, non-physical corrections to the model forecasts. This
+discussion does not intend to devalue classical NWP, but it should inspire some reection on
+the exact meaning and the value of consistency in the weather forecasting and DL communities.
+
+As we argue in §4, there are specic properties of weather
+data which require the development of new approaches beyond the classical concepts from
+computer vision, speech recognition, and other typical ML tasks. Even though DL solutions for
+many of these issues are being developed, there is no DL method up to now which can deal with
+all of these issues concurrently as it would be required in a complete weather forecast system
+
+
+dl-for-improving-numerical-weather
+
+As noted by several authors, a single metric that captures all characteristics of a forecast does not exist, which
+renders the evaluation of purely data-driven weather forecasts particularly challenging (Ebert-Uphoff &
+Hilburn, 2020; Rasp & Thuerey, 2021; Ravuri et al., 2021). In particular, physical consistency, that is often
+assumed in established metrics, is not always guaranteed in neural network-based predictions. In this study, the
+DNN performance was manually evaluated using several metrics, both continuous and categorical. 

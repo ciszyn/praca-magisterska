@@ -1,0 +1,90 @@
+ai-revolutionises-weather-forecast
+
+Articial Intelligence (AI) is an explosively growing eld of computer technology, which
+is expected to transform many aspects of our society in a profound way. AI techniques are used to
+analyse large amounts of unstructured and heterogeneous data and discover and exploit complex
+and intricate relations among these data, without recourse to an explicit analytical treatment of those
+relations. These AI techniques are unavoidable to make sense of the rapidly increasing data deluge
+and to respond to the challenging new demands in Weather Forecast (WF), Climate Monitoring (CM)
+and Decadal Prediction (DP). The use of AI techniques can lead simultaneously to: (1) a reduction
+of human development effort, (2) a more efcient use of computing resources and (3) an increased
+forecast quality. To realise this potential, a new generation of scientists combining atmospheric
+science domain knowledge and state-of-the-art AI skills needs to be trained. AI should become a
+cornerstone of future weather and climate observation and modelling systems.
+
+Deep Learning (DL) [24 ], as a particular form of Machine Learning (ML) and Articial
+Intelligence (AI), has recently emerged as a powerful evolution of neural networks. It
+has dramatically improved the state-of-the-art in image, video and speech processing
+and is now rapidly spreading to other application domains. DL is a purely data-driven
+technique, which discovers relations—often intractable by explicit analytic or physical
+analysis—between the input and output data, by training on reference input datasets and
+corresponding labelled output data. Several training algorithms are emerging, but the
+Remote Sens. 2021, 13, 3209 3 of 12
+backpropagation algorithm has been the most popular one for many years [ 25 ]. Given the
+ever-increasing availability of “big data” and computing power—particularly on dedicated
+hardware such as GPUs—needed for the training of the DL networks, the discovery of
+hidden relations in the data themselves has become more efcient in terms of human
+effort compared to the traditional approach requiring the handcrafted design of feature
+extractors used in traditional machine learning, classication and pattern recognition or
+models translating the available input data into the desired output data.
+
+As opposed to the conventional NWP approach [1], where observations are assimilated
+into an NWP model based on a physical modelling of the behaviour of the atmosphere,
+it is possible to completely replace the physical NWP model with a pure data-driven
+AI-based model without any a priori physical knowledge included [ 44 ]. In [45 ], it was
+demonstrated that a pure AI forecasting model can have comparable performance to a
+conventional NWP model, provided that the models have a comparable resolution. A
+bottleneck for the development of pure AI-based forecasts at a resolution and performance
+comparable to state-of-the-art operational NWP forecasts is the availability of sufcient
+training data [ 45 ]. The best practical results can therefore be expected from a combination
+of NWP and AI techniques [ 46 ]. This might also facilitate the acceptance of AI in a domain
+hitherto dominated by numerical (physical) modelling. In [ 47], a benchmark dataset for
+the evaluation of pure AI forecasting was provided. Pure AI forecasting is an area of active
+development. 
+
+Operational weather and climate organisations are increasingly including the use of AI
+in their strategies. The number of workshops, benchmark datasets and journal Special
+Issues dedicated to the subject of AI for weather and climate application is increasing. It is
+very likely that within the next ve to ten years, AI will become an indispensable part of
+state-of-the-art weather forecasting and climate monitoring and prediction. Techniques
+such as transfer learning and data augmentation, which have given a boost to many other
+applications, could accelerate the impact of AI techniques in climate and weather prediction
+and reduce the need for extra-large labelled datasets.
+
+weather-monitoring-using-artificial-intelligence
+
+Monitoring and
+predicting weather helps in various fields like
+agriculture, travel, pollution dispersal,
+communication, disaster management, etc.
+
+using-artifical-intelligence-to-improve
+
+(American)
+7.9 billion dollars caused by property damage in 2015 (National centers for environmental information)
+forecasting solar powers will save 455 million by 2040
+
+ml-applied-to-weather-forecasting
+
+Weather forecasting has traditionally been done by physical models of the atmosphere, which are
+unstable to perturbations, and thus are inaccurate for large periods of time. Since machine learning
+techniques are more robust to perturbations, in this paper we explore their application to weather
+forecasting to potentially generate more accurate weather forecasts for large periods of time. The
+scope of this paper was restricted to forecasting the maximum temperature and the minimum tem-
+perature for seven days, given weather data for the past two days. A linear regression model and
+a variation on a functional regression model were used, with the latter able to capture trends in
+the weather. Both of our models were outperformed by professional weather forecasting services,
+although the discrepancy between our models and the professional ones diminished rapidly for fore-
+casts of later days, and perhaps for even longer time scales our models could outperform professional
+ones. The linear regression model outperformed the functional regression model, suggesting that
+two days were too short for the latter to capture signicant weather trends, and perhaps basing
+our forecasts on weather data for four or ve days would allow the functional regression model to
+outperform the linear regression model.
+ the system of ordinary dierential equa-
+tions that govern this physical model is unstable under
+perturbations, and uncertainties in the initial measure-
+ments of the atmospheric conditions and an incomplete
+understanding of complex atmospheric processes restrict
+the extent of accurate weather forecasting to a 10 day pe-
+riod, beyond which weather forecasts are signicantly un-
+reliable

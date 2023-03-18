@@ -1,0 +1,142 @@
+machine-learning-for-applied-weather-prediction
+
+It is typical for DICast to outperform the best
+individual model by 10-15%, which is considered a large
+improvement in weather forecasting. One advantage of DICast
+is that it can be trained on a relatively limited dataset (as little
+as 30 to 90 days) and updates dynamically to include the most
+recent forecast information.
+
+ai-revolutionises-weather-forecast
+
+the performance of the DL nowcasting, compared to reference radar observations, is superior
+to a convection-permitting NWP with radar data assimilation.
+
+Compared to the NWP baseline, Reference [ 55 ] improved the forecast for temperature
+by 24.4%, for relative humidity by 12.4% and for wind speed by 6.2%. Reference [55] used
+a combination of a Spatiotemporal Attention Network (STAN) and a Multilayer Perceptron
+(MLP).
+Compared to the NWP baseline, Reference [ 56 ] improved the forecast for temperature
+by 17.0% and for relative humidity by 9.7%. Reference [56 ] used a combination of Recurrent
+Neural Networks (RNNs)
+
+weather-monitoring-using-artificial-intelligence
+
+Among the various tools,
+we have chosen linear regression technique. One
+thing which is to be done mandatorily by the user is
+to update the previous day’s weather paramaters or
+else the module fails to apply linear regression to
+predict, as every tool dealing with machine learning
+involves the constant renewal of past data. (3.5% deviation for the next day)
+
+developing-machine-learning-algorithms
+
+e accuracy of ML models, namely MLP-NN, RBF-NN, G.B.T., L.R. and R.F., were investigated to predict air
+temperatures and relative humidity in dierent time horizons (daily and monthly) using historical meteorological
+data. Dierent input combinations were investigated with varying times of lag. e results showed that MLP-NN
+is a leading algorithm compared with other models in predicting monthly relative humidity with a correlation
+coecient equal to 0.8462
+
+ml-applied-to-weather-forecasting
+
+The professional weather forecasting service consis-
+tently outperformed our models across all seven days,
+with a large discrepancy in earlier days and a small dis-
+crepancy in later days. This was expected since the phys-
+ical models of the atmosphere can be accurately solved
+for short time periods, but the instability of the physi-
+cal models causes errors to accumulate quickly for longer
+time periods. On the contrary, machine learning algo-
+rithms are robust to perturbations in initial conditions,
+and over longer periods of time, perhaps our models
+would outperform the professional weather forecasting
+services.
+
+weather-forecasting-using-dl
+
+recurrent neural network showed good accuracy for forecasting rainfall
+
+can-dl-beat-numerical
+
+the deterministic forecasts of the Integrated
+Forecast System provided by the European Centre for Medium-Range Weather Forecasts
+maintains an anomaly correlation coefcient of the 500 hPa geopotential height of 80% for about
+7 days, while the root-mean square error for 2 m temperature predictions of 72 h forecasts is close
+to 2 K [21]. Larger scale high-impact events such as hurricane tracks can be predicted with an
+accuracy of 150 km up to 4 days in advance
+
+Some recent studies explored the BDL concept for weather forecasting applications. A model
+built on GRU and 3D CNN, along with variational Bayesian inference for estimating posterior
+parameter distributions, has been presented by Liu et al. [141] for probabilistic wind speed
+forecasting of up to 3 h. A study from Vandal et al. [92] demonstrates the use of BDL to capture
+the uncertainty from observation data and unknown model parameters in the context of statistical
+downscaling of precipitation forecasts. These are relevant contributions, but a lot remains to be
+done before the uncertainty of DL weather forecasts can be assessed at a level similar to current
+NWP ensemble systems
+
+Whether DL will evolve enough to replace most or all of the current NWP
+systems cannot be answered at this point.
+
+
+comparison-of-machine-learning-methods
+
+This paper presents a comparison of 24 easy-to-applicable machine learning (ML) models for 
+day-ahead photovoltaic (PV) power fore- casting based on numerical weather predictions (NWP). 
+The models are tested for two-years data of 16 Hungarian ground-mounted PV plants and evaluated 
+by five commonly used verification metrics. In addition to the models, the selection of the 
+predictors and the significance of the hyperparameter are also examined. The main findings 
+of this study are summarized as follows:
+The overall most accurate model is kernel ridge (KR), but it has an extremely long training time 
+and high memory usage. The multilayer perceptron (MLP, the basic type of feedforward neural networks) 
+has an almost identical accuracy with significantly lower training time; thus, this model is 
+recommended for practical applications. How- ever, KR is worthy for further, more specified investigations.
+• Input data selection is even more important than model selection. Extending the basic NWP outputs with the 
+angles calculated from the position of the Sun (elevation, azimuth, and declination) and the time-shifted and 
+averaged versions of the global horizontal irradi- ance (GHI) leads to an RMSE reduction of 13.1% compared to the
+basic input case that only uses the GHI, ambient temperature and wind speed as predictors. Moreover, using only 
+daily mean GHI forecasts and the Sun position angles as predictors increases RMSE by only 1.5% compared to the 
+best input case that relies on a full set of 15-min GHI forecasts. In other words, the added value of high- 
+resolution irradiance forecasts is limited for PV power forecasting in a day-ahead time horizon.
+Hyperparameter tuning is essential to exploit the full potential of the ML models, as the best RMSE achieved without 
+tuning is 3.1% higher than the best with tuning. The more robust models (e.g., MLP, gradient boosting regressor) 
+are quite accurate even without tuning, while for some other models (e.g., lasso, decision tree), training is a must, 
+as they have enormous errors with their default parameters. Overall, tuning equalizes the RMSE of the different models 
+compared to the default case.
+The overall best results (tuned KR or MLP with the complex pre- dictors) has 13.9% lower RMSE than the simplest 
+solution, i.e., the linear regression fitted on the basic NWP data. The importance of the ML model and input 
+selection falls into the same range as model chain selection for physical irradiance-to-power conversion [10].
+
+
+survey-on-weather-forecasting
+
+This complete paper narrates different data
+mining techniques and methodology for weather
+prediction. Based on result, it can be concluded that
+the support vector machine algorithm can gives better
+weather prediction with higher than 90% accuracy
+and provides better result
+
+
+coupling-data-science
+
+One of the
+key parameter choices was nding a good balance between the smoothness and
+sharpness of the forecasts. Biasing toward smoothness resulted in predictions
+clustering near the average solar irradiance value, which led to underestimation
+of both clear and cloudy days. All statistical models struggled at capturing the
+right number of cloudy and partly cloudy events, which is due to errors in the un-
+derlying NWP forecasts and the assumptions underlying the statistical learning
+models. Further explorations of data transformations, sample weighting, and
+loss functions are needed to capture the crucial extreme events better. Given
+the bounded nature of solar irradiance and clearness index, more performance
+improvements should be possible
+
+
+an-efficient-weather-forecasting
+
+This approach is able to determine the non-
+linear relationship that exists between the historical data
+(temperature, wind speed, humidity, etc.,) supplied to the
+system during the training phase and on that basis, make a
+prediction of what the temperature would be in future.

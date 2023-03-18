@@ -1,0 +1,115 @@
+ai-revolutionises-weather-forecast
+
+In order to realistically simulate the long-term changes,
+a climate model needs to describe not only changes in the atmosphere, but also changes in
+the oceans and land cover.
+In general, it is considered that a higher spatial resolution used in NWP models
+results in a higher realism of the produced weather forecasts, in particular for precipitation
+forecasts [13 –18 ]. Convection-permitting spatial resolutions of the order of 1 km are used
+for high-resolution NWP models over limited areas. Ideally, they would also be used in
+global NWP models. However, this is considered to be at the limit of what is feasible
+following the traditional Central Processing Unit (CPU)-based computing approach, and
+therefore, alternative computing architectures using Graphical Processing Units (GPUs)
+have been investigated [19 ]. For global climate models as well, a convection-permitting
+spatial resolution is considered highly desirable [20].
+Midrange weather forecasts have skill for a forecast range of the order of two weeks;
+long-range or seasonal ones have skill for a forecast range of the order of three to six months.
+There is a growing interest in developing so-called subseasonal to seasonal forecasts to ll
+in the gap between the midrange and seasonal forecasts 
+
+Another example of AI-based data fusion is the Multi-Instrument Inversion and Data
+Assimilation Preprocessing System (MIIDAPS-AI) [37 ]. MIIDAPS-AI provides an AI-based
+data fusion of microwave and infrared imagers and sounders and produces the analysis
+of a variety of atmospheric parameters. The algorithms for the data fusion of around
+ten satellite sensors was built by two people in less than ten months. The processing time
+was at least a factor 100 smaller than for a comparable non-AI-based system.
+
+Convection-permitting NWP models at the global scale are currently at the limit of what
+is feasible using conventional NWP techniques. A possible solution is the use of DL
+
+
+using-artificial-intelligence-to-improve
+
+reducing cognitive overload
+handling big datasets
+postmodel bias correction
+
+can-dl-beat-numerical
+
+two core arguments in this regard are the lack of explainability of deep NNs
+and the lack of physical constraints. Furthermore, some scepticism prevails due to the fact that
+researchers have experimented with rather simple NNs which were clearly unsuited to capture
+the complexity of meteorological data and feedback processes, but then extrapolate these results
+to discredit any NN application including the much more powerful DL systems. In their review
+of ‘Deep learning and process understanding for data-driven Earth system science’, Reichstein
+et al. [14] argue that traditional ML approaches might not be optimally suited to address the
+specic data challenges posed by Earth system data. They suggest that ‘deep learning methods
+are needed to cope with complex statistics, multiple outputs, different noise sources and high-
+dimensional spaces [of Earth system data]. New network topologies that not only exploit local
+neighbourhood (even at different scales) but also long-range relationships (for example, for
+teleconnections) are urgently needed, but the exact cause-and-effect relations between variables
+are not clear in advance and need to be discovered.’ As modern DL methods begin to deliver such
+concepts, we take this opportunity to expand on the analysis of [14] and explore the applicability
+of such methods to the NWP workow
+
+The largest NNs have several million
+degrees of freedom which is comparable to operational NWP models.
+
+Once NNs are trained, they can very efciently calculate forecasts
+with new data. Forward propagation in NNs consists only of fast add and multiply operations.
+Therefore, even NNs with O(10 8 ) parameters (i.e. similar complexity as contemporary NWP
+models) can be expected to use far less computing resources than current numerical models.
+The determining factors of the required computational resources in an end-to-end DL weather
+forecasting system are the necessary training cycles and the data processing
+
+t is important to reconsider the objectives of weather forecasting and
+carefully dene the requirements, which must be met by any potential alternative method. Certain
+criteria, which we now consider essential for a ‘good’ weather forecast, may in fact be conceptions,
+which are resulting from our experiences with numerical models, and they may not be applicable
+to forecasting systems based on DL. One particular aspect in this regard is self-consistency of
+forecast results, which is often taken for granted by numerical modellers, even though it is not
+strictly fullled in current NWP forecast systems.
+
+
+big-data-in-weather
+
+Availability of Historical Data:
+Most of the stations do not have long records (historical
+data). The infrequent historical data cannot sufficiently
+give the required patterns that help in forecasting drastic
+weather and extreme climate events; process becomes
+even more complex when more than a single type of data
+is missing at the time that the forecast must be delivered .
+Most of the systems associated with the occurrence need
+dense data networks to sample adequately. The most
+affected data is the upper air data. That result in majority
+of the stations closed down or do not perform a complete
+programme. The systems need upper air observations to
+be able to understand their characteristics appropriately.
+For example the squall lines of West Africa are known to
+form equatorward of the Inter-tropical Convergence Zone
+and African Easterly Jet at 700-600hpa, and pole-ward of
+the Tropical Easterly Jet at 100-150hpa (Carlson, 1969
+and Fortune, 1980). Any efforts to simulate the squall
+lines of West Africa may have to simulate adequately
+these important properties to be able to find the actual
+locations of these key features. The insufficient upper air
+data would be a major obstruction. However, the proxy
+satellite remote sensing data may help in simulating some
+of these properties. The satellite records are not very long
+and may not be able to capture various characteristics of
+the storms. Such data also need calibration
+
+Higher resolution models are fundamental needs of
+weather forecasting for more accurate and extended
+forecasts. Therefore estimating the long-term state of
+climate systems higher-resolution models are essential
+element. Additionally a lot of physics and chemistry
+processes are included in the models so that we can
+observe the very fine features of weather behaviour. The
+operational weather centres should meet all the
+requirements of a mission-critical organization. The
+underlying technology infrastructure should be tightly
+integrated to support simulation and analytics workflows.
+They have to ensure daily forecasts to perform in a very
+slender window of WLPH
