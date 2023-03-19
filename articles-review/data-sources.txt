@@ -115,3 +115,162 @@ DNN. The data is provided by the ECMWF at three-hourly time steps and 0.5° hori
 ized twice daily at 06 and 18 UTC with a 12 hr lead time and small perturbations in the initial conditions. In this
 work, the ensemble mean of the variables is used, since taking the individual ensemble members as inputs would
 not be computationally feasible at present
+
+
+chellenges-and-benchmark-datasets
+
+machine learning has also started in the atmospheric sciences. Such benchmarks allow for the comparison of machine 
+learning tools and approaches in a quantitative way and enable a separation of concerns for domain and machine learning 
+scientists. However, a clear definition of benchmark datasets for weather and climate applications is missing with 
+the result that many domain scientists are confused. In this paper, we equip the domain of atmospheric sciences with a 
+recipe for how to build proper benchmark datasets, a (nonexclusive) list of domain-specific challenges for machine 
+learning is pre- sented, and it is elaborated where and what benchmark datasets will be needed to tackle these challenges. 
+
+ai-in-weather-climate-prediction
+
+in-situ measurements, and indirect measurements. In-
+situ measurements directly measure the desired quantity at a given location, for
+example temperature or windspeed. This is done on the ground with weather
+stations, in the upper air with weather-balloons, dropsonds and aircraft, and at
+sea with ships and buoys. Indirect measurements measure the desired quanti-
+ties indirectly and remotely, therefore they are often described under the term
+remote sensing. They rely on indirect quantities, for example electromagnetic
+spectra at a certain wavelength, in order to infer the actual quantity (for exam-
+ple temperature)
+
+Reanalysis datasets solve some of the shortcomings of both remote-sensing
+based an in-situ measurements. They aim to provide the best guess of the at-
+mospheric state an a complete global 3d-grid, without any missing elds. This
+is accomplished via combining a NWP model with all available observations.
+The observations form the basis for the best-guess. However, due to the incom-
+pleteness of the observations (insufcient coverage, not all variables measured,
+potentially missing data), the observations are combined with a background-
+guess. This background guess comes from a short (usually a couple of hours)
+forecast made by a NWP model
+In principle one could thus use the archived analyses of operational forecasts.
+However, since the NWP models change over time, these archives are not con-
+sistent and thus hard to use. Therefore, renalaysis datasets are made by several
+forecast centers over the world
+
+The most
+widely used reanalysis datasets are the ECMWF reanalysis series (most recent
+version ERA5 [42]), and the NCEP/DOE Reanalysis [43] (most recent ver-
+sion II), which cover the period 1979-present
+For machine-learning based applications, reanalysis datasets are very con-
+venient due to their consistent data-formats (xed global grids) and because
+15
+they already have dealt with a lot of the problems both of in-situ measure-
+ments and satellite-based observations. However, they also have to be used
+with care, and should in no way interpreted as the “truth”. They both suffer
+from observations errors, and since they are partly based on numerical models,
+they suffer form errors in these models, especially in regions were observations
+are sparse or completely unavailable. Additionally, even though the model and
+data-assimilation scheme is the same for the whole period, the available ob-
+servations change over time, which can cause spurious trends and also sudden
+jumps in certain variables.
+Finally, when put in the context of data-driven prediction, every method
+that uses reanalysis data actually cannot replace NWP models completely,
+since a NWP model is always needed for the reanalysis.
+
+
+era5-land
+
+Framed within the Copernicus Climate Change Service (C3S) of the European Commission, the Eu-
+ropean Centre for Medium-Range Weather Forecasts (ECMWF) is producing an enhanced global dataset for the
+land component of the fth generation of European ReAnalysis (ERA5), hereafter referred to as ERA5-Land
+Once completed, the period covered will span from 1950 to the present, with continuous updates to support land
+monitoring applications. ERA5-Land describes the evolution of the water and energy cycles over land in a con-
+sistent manner over the production period, which, among others, could be used to analyse trends and anomalies.
+This is achieved through global high-resolution numerical integrations of the ECMWF land surface model driven
+by the downscaled meteorological forcing from the ERA5 climate reanalysis, including an elevation correction
+for the thermodynamic near-surface state
+
+evaluation-of-era5
+
+ERA5 is the fth generation reanalysis from ECMWF. It pro-
+vides several improvements compared to ERA-I, as detailed
+by Hersbach and Dee (2016). The analysis is produced at a
+1-hourly time step using a signicantly more advanced 4D-
+var assimilation scheme. Its horizontal resolution is approx-
+imately 30 km and it computes atmospheric variables at 139
+pressure levels. Data for the 1979–2018 period were released
+in March 2019. The 1950–1978 period is expected to be re-
+leased in the summer of 2019. This paper only looks at 1979–
+2018 because outputs of reanalysis prior to 1979 have been
+put into question due to the more limited availability of data
+to be assimilated, and notably from earth-observing satel-
+lites (e.g. Bengtsson et al., 2004). While ERA5 may solve
+some of these problems, it is believed that a careful evalua-
+tion of inhomogeneity in ERA5 time series would be needed
+before using pre-1979 data. ERA5 precipitation and temper-
+ature were downloaded and aggregated to the daily time step
+for this work.
+
+
+evaluation-of-weather-data
+
+There are three main classes of weather data with tradi-
+tional use cases for each: “typical” weather data (representative
+of some location over an arbitrary period of time) often used
+for design and performance conditions over the life of a build-
+ing, “actual” weather data (at a specic location for a specic
+period of time) used for simulation calibration to energy bills,
+and “future” weather data used for adaptive control of a build-
+ing. There are a multitude of representative weather datasets
+for each class, among the most popular of which include: the
+Typical Meteorological Year (TMY2 [2], TMY3 [3]), International
+Weather for Energy Calculation (IWEC) [4] datasets, the world’s
+largest active archive of weather data at the National Oceanic
+and Atmospheric Administration’s (NOAA) National Climatic Data
+Center (NCDC)
+
+
+comparison-of-weather-station-and-climate
+
+In situ measurements from weather stations are oen regarded as the gold-standard in epidemiological studies 1 .
+ough generally considered representative of the actual ambient conditions and individual’s exposure, their
+broader application in environmental epidemiology is oen constrained by inhomogeneous records and the
+sparse density of meteorological stations. In addition, the geographic proximity of the measurements to the popu-
+lation under study is not always guaranteed
+
+In recent years, data from climate reanalysis are routinely being applied as pseudo-observations in sectoral
+impacts assessments 6,7 . Reanalysis data products are obtained by runs of global or regional weather forecasting
+models under observationally constrained scenarios via data assimilation 8,9 . ese products oer an immediate
+advantage over in situ measurements by providing consistent historical records of numerous meteorological
+variables, spanning the whole globe at various spatial and temporal resolutions. A number of global forecasting
+and research centres make their quality-controlled reanalysis data products freely available. However, their usage
+in health impact assessment has been limited and oen been restricted to regional scale studies 
+
+We rst examined the correlation between the ERA5-Land and weather stations’ temperature at each location
+in our study. Figure 2 shows a high correlation in most regions across the world, with a median of Pearson r of
+0.987, and 94% of cities with a score higher than 0.9. However, while the correlation is very high in high-income
+regions, it drops noticeably in few locations, especially in tropical and sub-tropical countries, such as the Philip-
+pines, Central America (Costa Rica, Panama), Ecuador, Colombia, and parts of northern Brazil (see Fig. S2 in
+SI for the country-specic distribution of city-specic correlations)
+
+In summary, our study provides the rst comprehensive comparison between reanalysis and station-based
+data for modelling temperature-mortality associations at a global scale. Our statistical assessments have a poten-
+tial to inform the wider research community about the relative performance of meteorological variables and
+indices derived from reanalysis data in wider epidemiological analyses.
+
+
+impact-assessment-for-building-datasets
+
+In terms of research that focused on monthly criteria, Bhandari et al. found that, when using
+different weather datasets, the annual energy consumption could vary around ± 7%, but up to ± 40%
+when monthly analysis was performed
+
+The correlation R (3) is used to show how strongly the two elds are related, and it ranges from
+− 1 to 1. The centered root-mean-squared difference RMS di f f (4) measures the degree of adjustment in
+amplitude. The closer to 0, the more similar the patterns are. Both indexes provide complementary
+information quantifying the correspondence between the two elds, but to have a more complete
+characterization, their variances are also necessary, which are represented by their standard deviations
+
+With the available data, the results obtained in this study suggested that for this models,
+some of the weather parameter data could be obtained from third-party weather sources, avoiding
+the installation of on-site sensors, as they had a low inuence on the simulation results. This is
+the case of the relative humidity, wind direction, and even diffuse horizontal irradiation, the sensor
+being very expensive. On the other hand, to obtain the wind speed and outdoor temperature data,
+which are the weather parameters that were shown to be the most inuential in the models’ energy
+performance, we recommend the installation of an anemometer and a temperature sensor near the
+building

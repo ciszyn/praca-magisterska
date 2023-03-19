@@ -29,3 +29,12 @@ regards to applications for short-range prediction, and downscaling or post-proc
 Several papers on bias correction of temperature and air pressure were present, as well as
 studies on radiation, both using photovoltaic application and emulating this scheme in
 NWP models.
+
+
+development-and-application-ml-in
+
+Various metrics were used in different studies, such as root mean square error (RMSE),
+correlation coefcient (CORR), mean square error (MSE), mean absolute percentage error
+(MAPE), index of agreement (IOA), normalized root mean square error (NRMSE), and
+so on. According to the metric availability calculated, two indicators were available for
+model performance analysis: CORR (63.9%) and RMSE (73.8%).

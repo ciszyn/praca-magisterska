@@ -140,3 +140,48 @@ linear relationship that exists between the historical data
 (temperature, wind speed, humidity, etc.,) supplied to the
 system during the training phase and on that basis, make a
 prediction of what the temperature would be in future.
+
+
+applications-in-atmospheric-environments
+
+AI applications for the atmospheric environment verify the high efficiency of the algorithms,
+and also reveal their unique ability to extract knowledge from the scientific domain of interest and
+to help us understand and manage environmental problems. On this basis, it would be recommended
+that such an analysis be carried out in cases where problems related to the atmospheric environment
+and quality of life are concerned, in order to better inform policy and decision makers about the
+constrains of their decisions. In addition, such methods may provide services related to public noti-
+fication, warning and alerts with the necessary scientific competence, on the basis of forecasts.
+
+
+development-and-applications-ml-in
+
+The idea in current research applying ML models to atmospheric prediction is to stay at
+the application level. Most research has simply used ML models as a “black box” predictor
+or added sophisticated designs as a data processor, e.g., variable selection or transforma-
+tion [ 123 –127 ], predicted target decomposition [128 –132 ], and spatiotemporal information
+addition [107 , 133 – 136 ]. Another application method is the ensemble approach [137 , 138 ].
+Few studies have improved the internal structure of predictive models according to spe-
+cic atmospheric pollution problems. In the articial intelligence eld, many classical DL
+structure models have been proposed based on specic problems, such as target detection
+(faster R-CNN algorithm) [139] and semantic segmentation (FCN algorithm) [140]. When
+considering atmospheric pollution prediction, ML models also need “customization” for
+model structure design, rather than simply designing the pre-process for input data and
+predictive targets, or hyperparameter optimization modication inside ML models.
+
+weather-prediction-using-data-mining
+
+This system presents a first glance on a project to build a
+numerical weather prediction model in local weather. Such
+models are usually complex and will take significant time
+and resources to accomplish. Collect and have all required
+data and build a historical dataset of weather, precipitation
+and all possible related attributes. It accepts all complex
+parameters as input and generates the intelligent patterns
+while training and it uses the same patterns to generate the
+forecasts
+
+
+weather-forecast-prediction-data-mining
+
+In this the C5 decision tree classification algorithm was used to generate decision trees and rules for classifying weather parameters
+such as maximum temperature, minimum temperature, rainfall, evaporation and wind speed in terms of the month and years.

@@ -41,3 +41,38 @@ a lower skill than ensemble weather forecast models in predicting
 forecast uncertainty, it is computationally very ecient and outper-
 forms a range of alternative methods that do not involve performing
 numerical forecasts. 
+
+
+challenges-and-benchmark-datasets
+
+weather and climate prediction based on ml
+hybrid modelling and coupling
+uncertainty quantification and representation
+physical constraints
+extreme values prediction
+model postprocessing and downscaling
+air quality data interpolation
+fusion of various datasets
+detection of weather phenomena and pollution prediction
+nowcasting applications
+transfer learning
+missing data interpolation
+online and reinforcement learning
+
+
+a-novel-approach-for-weather-prediction
+
+We have analyzed and studied two different cases of climate change of Chattisgarh,
+India region. The reason behind taking Chattisgarh region is because that particular
+climate goes sudden change in its environment frequently. So, it is interesting to apply
+some rule for prediction of climate activities to forecast some of the interesting
+occurrences patterns.
+
+
+tackling-climate-change-with-ml
+
+Enabling Low-Carbon Electricity
+Forecasting supply and demand.
+Accelerating materials science
+Modeling emissions
+Transportation

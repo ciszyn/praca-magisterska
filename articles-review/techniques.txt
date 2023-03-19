@@ -121,3 +121,116 @@ and orecast errors. The experiments validate the new approach, and
 illustrates how it is able to estimate model errors, indicate best model
 congurations, and pinpoint to those physical packages that infuence
 most the WRF prediction accuracy
+
+
+exploiting-ai-environmental-sciences
+
+AI subdisciplines such as deep learning use mathematical methods that are closely related to data assimilation (DA), 
+statistical modeling, and data fusion methods already used by forecasters and Earth science researchers. These methods 
+have the common foundation of being essentially based on optimal estimation theory (Geer 2019, 2021). For example,
+Hsieh and Tang (1998) showed close similarities between neural networks (NNs) and varia- tional DA. However, 
+there are differences in how the techniques are currently applied. A key characteristic of DA is the acknowledgment of
+the presence of dynamics, which is typically realized via the use of a numerical model, and cycling to follow a "true state" 
+observed by sparse and uncertain observations. The paramount aim of DA is to estimate this true state.
+
+
+ai-in-weather-and-climate-prediction
+
+nowcasting
+short, medium range
+subseasonal, seasonal
+near term climate prediction
+climate prediction
+
+Lorenz63, Lorenz96
+    - simple models
+    - low dimensionality
+    - easy to understand and study
+
+NWP, GCM
+    - hard to understand
+    - complex
+    - high dimensionality
+
+One approach is to identify
+“weak” parts of numerical models, such as certain parameterization schemes,
+and improve or replace them with data-driven methods. Examples includes
+“short-cutting” radiation calculations, which can be done very accurately with
+numerical methods, but only at high cost [46–48] as well as replacing param-
+eterizations for unresolved processes (for example vertical air movement on
+scales unresolved by the numerical model) [49, 50]. For NWP purposes, ma-
+chine learning techniques can also be used to supplement numerical weather
+forecasts, in the form of post-processing and forecast interpretation techniques
+
+Another, more fundamental approach is to predict the motion of the atmo-
+sphere directly with machine-learning based methods. In this case, the state of
+atmosphere at time t (and potentially also other parts of the climate system) is
+represented as a data-vector ~xt , where ~xt could for example represent gridded
+temperature for the whole globe at a certain height. The goal is then to predict
+~xt f uture , given either the current state ~xt , or the current and several previous
+states
+
+development-and-applications-ml-in
+
+atmospheric prediction methods
+can be classied into two main types: statistical models (including machine learning (ML)
+models and typical statistical models such as Land-Use Regression [3] and Geographically
+Weighted Regression (GWR) [ 4,5]), and numerical models (e.g., chemical transport mod-
+els [6], box models, Lagrangian/Eulerian Models, Computational Fluid Dynamics (CFD)
+models and Gaussian models [ 7]).
+
+
+data-mining-techniques-for-weather-prediction
+
+Synoptic weather prediction: It is the traditional approach
+in weather prediction. Synoptic refers to the observation of
+different weather elements within the specific time of
+observation. In order to keep track of the changing
+weather, a meteorological center prepares a series of
+synoptic charts every day, which forms the very basic of
+weather forecasts. It involves huge collection and analysis
+of observational data obtained from thousands of weather
+stations
+
+numerical:
+statistical:
+
+
+analysis-of-data-mining
+decision-tree-for-weather-prediction
+WEKA
+
+
+complex-hybrid-models
+
+In the study, we introduced a new practical application of
+NN techniques to complex environmental numerical modeling.
+Using NNs allowed us to design and formulate a new paradigm
+in environmental numerical modeling. We introduced a new
+type of a complex hybrid environmental numerical model—a
+HGCM—based on a synergetic combination of deterministic
+modeling and the machine learning techniques within such a
+model. This approach uses neural networks as a statistical or
+machine learning technique to develop highly accurate and fast
+emulations for the slowest deterministic model components
+(model physics parameterizations). 
+
+
+correcting-weather-and-climate-models
+
+fter initialization from a realistic snapshot of the atmosphere,
+weather and climate models inevitably develop prediction errors compared to the real world. This
+decreases the usefulness of forecasts. These errors arise from the coarse resolution of the numerical
+models and from the uncertain treatment of small-scale processes. We propose a method to reduce these
+errors by training a machine learning model to correct for them as the atmospheric model proceeds.
+We show that a random forest can make reasonably skillful predictions of the required correction using
+a snapshot of the model state as input. When we make a forecast with the machine-learning corrected
+model, equally skillful predictions of important midtropospheric and surface variables are possible half-
+a-day to a day further into the future. The pattern of precipitation predicted by the machine learning
+corrected model is also more realistic, with a decrease in excessive rainfall over high mountains. On the
+other hand, the corrected model develops larger errors in temperature in the high latitudes, particularly in
+the lower stratosphere.
+
+In order to estimate the atmospheric model biases across seasons and the diurnal cycle, we perform a 2-year
+hindcast simulation in which the prognostic state is continuously nudged toward an observational analysis
+(Figure 1). Specifically, a linear relaxation term is added to the prognostic equations of certain variables:

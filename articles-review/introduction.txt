@@ -88,3 +88,48 @@ understanding of complex atmospheric processes restrict
 the extent of accurate weather forecasting to a 10 day pe-
 riod, beyond which weather forecasts are signicantly un-
 reliable
+
+applications-in-atmospheric-environments
+
+The problem of assessing, managing and forecasting air quality (AQ) has been in the top of
+the environmental policy and management agenda for decades, and contemporary urban develop-
+ment has made it more intense and severe in terms of quality of life degradation. As this problem
+requires sufficient knowledge of the scientific domain of interest, and advanced capabilities for the
+identification and forecasting of key parameters affecting decision making, it is essential to formu-
+late and apply methodologies that will lead to the materialisation of both goals
+
+
+ai-in-weather-and-climate-prediction
+
+Weather and climate prediction is dominated by high dimensionality, interac-
+tions on many different spatial and temporal scales and chaotic dynamics. This
+makes many problems in the eld quite complex ones, and also state-of-the-art
+numerical models are - despite their immense computational costs - not suf-
+cient for many applications. Therefore, it is appealing to use emerging new
+technologies such as articial intelligence to tackle these problems.
+We show that it is possible to use deep neural networks to emulate the full
+dynamics of a strongly simplied general circulation model, providing both
+good forecasts of the model state several days ahead as well as stable long-term
+climate timeseries. This method partly also works on more complex and real-
+istic models, but only for forecasting the model’s weather several days ahead,
+not for creating climate runs. It is sufcient to use 50-100 years of data for
+training the networks. The same neural network method can be combined with
+singular value decomposition from numerical ensemble weather forecasting in
+order to generate probabilistic ensemble forecasts with the neural network
+
+
+data-mining-techniques-for-weather-prediction
+
+Data mining [13] is a process which finds useful patterns from
+large amount of data. Data mining can also be defined as the
+process of extracting implicit, previously unknown and useful
+information and knowledge from large quantities of noisy,
+ambiguous, random, incomplete data for practical application.
+It is a powerful new technology with great potential to help
+companies focus on the most important information in their
+databases. It uses machine learning, statistical and visualization
+technique to discover and predict knowledge in a form which is
+understandable to the user. Prediction is the most important
+technique of data mining which employs a set of pre-classified
+examples to develop a model that can classify the data and
+discover relationship between independent and dependent data.

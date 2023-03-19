@@ -84,3 +84,35 @@ radiative transfer. Advances in capturing the diurnal cycle of convection (e.g. 
 turbulent transports in the planetary boundary layer (e.g. [38]) and in simulating the bulk
 properties of hydrometeors (e.g. [39]), i.e. clouds and precipitation, are only a small sample of
 recent progress in tuning physical parameterization schemes.
+
+
+ai-in-weather-and-climate-prediction
+
+The motions of the atmosphere (and of the ocean) are physically described by
+the fundamentals of uid dynamics. The basis are the 3-dimensional Navier-
+Stokes equations, as set of nonlinear differential equations. Together with
+other equations describing energy transfer and conservation and a hydrostatic
+approximation they are often referred to as the “primitive equations” in the
+context of weather and climate models. As no general solution to the Navier-
+Stokes equations is known, they can only be solved in an approximate way with
+discrete numerical methods. Due to their non-linearity, this requires the use of
+so-called closure schemes. These form, together with processes not covered
+by uid dynamics (for example radiation), the parameterization schemes of
+the numerical model. While the Navier-Stokes equations are exact, the param-
+eterization schemes are not - or at least not purely - based on physical laws.
+These inexact parameterization schemes, together with the error induced by
+numerically discretizing the primitive equations, make the models imperfect,
+and thus lead to errors in the solutions provided by the models (for example a
+weather forecast or climate simulation).
+In NWP, another major error source comes from the estimation of the ini-
+tial condition of a forecast. In order to make an accurate prediction, not only
+a good enough model of the atmosphere is needed, but also a good estima-
+tion of the current state of the atmosphere, which forms the initial condition of
+the model. This is accomplished with data-assimilation methods that combine
+observations and numerical models [16].
+While there are some differences between NWP models and climate mod-
+els, for example climate models do not have data-assimilation schemes, and
+slightly more focus on energy-conservation than NWP models, they are very
+similar, since they fundamentally rely on modeling of atmospheric ows (and
+other components of the climate system). Therefore, methods developed for
+one can often be used also for the other.

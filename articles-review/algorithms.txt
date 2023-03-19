@@ -72,3 +72,27 @@ O(1–5 km) compared to x O ∼ (10 km) in global models) provide added value
 meteorological features on ner scales. The output of ensemble simulations can be used to
 estimate forecast uncertainties which are of major interest especially for high impact weather
 situations, or for the renewable energy sector [19,20] (see also §7)
+
+daily-weather-forecasting
+
+Artificial Neural Network, Ensemble
+Neural Network, Backpropagation Network, Radial Basis
+Function Network, General Regression Neural Network,
+Genetic Algorithm, Multilayer Perceptron, Fuzzy clustering
+
+use-of-artificial-neural-network-in-data-mining
+
+Artificial Neural Network, Ensemble
+Neural Network, Backpropagation Network, Radial Basis
+Function Network, General Regression Neural Network,
+Genetic Algorithm, Multilayer Perceptron, Fuzzy clustering
+
+
+application-of-data-mining
+
+n this work the C5 decision tree classification
+algorithm was used to generate decision trees and rules
+for classifying weather parameters such as maximum
+temperature, minimum temperature, rainfall,
+evaporation and wind speed in terms of the month and
+year.
