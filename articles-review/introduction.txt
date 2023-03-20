@@ -19,7 +19,6 @@ and is now rapidly spreading to other application domains. DL is a purely data-d
 technique, which discovers relations—often intractable by explicit analytic or physical
 analysis—between the input and output data, by training on reference input datasets and
 corresponding labelled output data. Several training algorithms are emerging, but the
-Remote Sens. 2021, 13, 3209 3 of 12
 backpropagation algorithm has been the most popular one for many years [ 25 ]. Given the
 ever-increasing availability of “big data” and computing power—particularly on dedicated
 hardware such as GPUs—needed for the training of the DL networks, the discovery of

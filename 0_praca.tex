@@ -9,26 +9,39 @@
 \usepackage[page]{appendix} 
 \usepackage{booktabs}
 \usepackage{fancyhdr}
+\usepackage{ragged2e}
 \usepackage[backend=bibtex]{biblatex}
+\usepackage{indentfirst}
 
 \nocite{*}
 \addbibresource{bibliography.bib}
+
 
 \fancypagestyle{phdthesis}{
 \fancyhead[C]{\thepage}
 }
 
-\hyphenpenalty=10000
-\widowpenalty=10000
-\clubpenalty=10000
+% \hyphenpenalty=10000
+% \widowpenalty=10000
+% \clubpenalty=10000
 
 \begin{document}
+
+% \justifying
 
 \begin{titlepage}
     \includepdf{titlepage.pdf}
 \end{titlepage}
 
 \tableofcontents
+\pagebreak
+
+\section*{Abstrakt}
+
+\noindent
+{\bf Słowa kluczowe:} Uczenie maszynowe, Uczenie Głębokie, Sieci neuronowe,
+ERA5, Prognozowanie pogody, Sztuczna inteligencja
+\pagebreak
 
 \include{1_wstep.tex}
 \include{2_przeglad_literatury.tex}
@@ -38,7 +51,19 @@
 \include{6_wyniki.tex}
 \include{7_analiza_wynikow.tex}
 \include{8_wnioski.tex}
+
 \section*{Skróty}
+
+\raggedright{}
+
+AI - sztuczna inteligencja
+
+DL - uczenie głębokie
+
+ML - uczenie maszynowe
+
+NWP - numeryczne prognozowanie pogody
+
 \pagebreak
 \printbibliography[title={Bibliografia}]
 \include{9_appendix.tex}

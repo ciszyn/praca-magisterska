@@ -25,12 +25,96 @@
 % underscores the reliability and validity of your research findings.
 \section{Wstęp}
 
+Sztuczna inteligencja (AI) jako gwałtownie rozwijająca się 
+dziedziną informatyki znajduję coraz więcej zastosowań w 
+problemach modelujących zachowanie środowiska które nas otacza. 
+Nowe algorytmy oraz metody stosowane w zakresie AI mają coraz
+większy wpływ na społeczeństwo oraz na sposób w jaki interpretujemy,
+przetwarzamy i wykorzystujemy dostępne dane. Wykorzystanie metod
+sztucznej inteligencji pozwala na przeanalizowanie dużych ilości
+danych, oraz na odnajdowanie i wzięcie pod uwagę skomplikowanych związków
+i informacji w nich ukrytych. Możliwość zastosowania metod AI względem 
+szerokiego zakresu typu danych, oraz wszechstronność algorytmów jest jednym z 
+powodów które umożliwiają zastosowanie ich w celach prognozowania oraz modelowania
+pogody. Rosnące zapotrzebowania na dokładne oraz długoterminowe przewidywanie
+w zakresie monitorowania klimatu, wieloletnich oraz krótkoterminowych prognoz
+pogody skłania do wykorzystywania coraz to nowych algorytmów i podejść
+do problemu przewidywania pogody. Wykorzystanie AI może skutkować jednocześnie 
+zwiększeniem efektywności w wykorzystaniu zasobów obliczeniowych, zmniejszeniem
+ilości wkładu ludzkiego oraz zwiększeniem jakości prognoz.
+
+Jedną z metod która szczególnie w ostatnich latach zyskała popularność w zakresie
+AI jest uczenie głębokie (DL). Zastosowanie DL poprzez uczenie sieci neuronowych
+znajduje szerokie zastosowanie w rozpoznawaniu i procesowaniu obrazów, wideo oraz
+mowy. Wykorzystaniu propagacji wstecznej w algorytmie uczenia sieci neuronowych
+pozwala na szybkie i mniej obciążające stworzenie modelu, przynajmniej w porównaniu
+z tradycyjnymi metodami numerycznymi wykorzystywanymi w celach przewidywaniu pogody.
+
+Rozwijające się zbiory danych opisujące parametry opisujące pogodę 
+pozwalają na wykorzystywanie algorytmów i metod z zakresu uczenia maszynowego (ML)
+oraz AI. W ostatnich latach można zaobserwować wzrost wykorzystania tych metod
+przez organizacje klimatyczne oraz coraz więcej badań związanych z wykorzystaniem
+AI w numerycznym prognozowaniu pogody, jak i zupełnym zastąpieniu numerycznych
+prognoz pogodowych (NWP) poprzez 
+AI.
+
 % Background and context: Begin by providing some background 
 % information on the topic of weather prediction and the application 
 % of artificial intelligence and machine learning techniques in this area. 
 % This could include a brief overview of the current state of the field, the 
 % challenges that exist, and the potential benefits of using these techniques.
-\subsection{Kontekst}
+\subsection{Kontekst i zastosowania}
+
+Monitorowanie i przewidywanie pogody znajduje zastosowanie w dziedzinach takich
+jak agrokultura, kontrolowanie stanu zanieczyszczeń powietrza, 
+przewidywanie warunków drogowych w celu zwiększenia bezpieczeństwa drogowego,
+przewidywanie rozprzestrzeniania się pożarów naturalnych,
+przewidywanie katastrof naturalnych, zastosowanie odnawialnych źródeł energi,
+oraz wiele innych. Dokładne przewidywanie warunków pogodowych ma krytyczne znaczenie
+dla prawidłowego funkcjonowania wielu organizacji. Amerykańskie centra
+informacji o środowisku szacują wielkość zniszczeń wynikających z działania
+pagody w 2015 roku na 7.9 miliardów dolarów\cite{using-artificial-intelligence-to-improve}.
+Z drugiej strony możliwości prognozowania nasłonecznienia dają szansę na zaoszczędzenie
+455 milionów dolarów do 2040 w ramach wykorzystania odnawialnych źródeł energii.
+
+Porozumienie paryskie jest prawnie wiążącą umową międzynarodową,
+której celem jest ograniczenie globalnego ocieplenia o 1.5$^{\circ}$C
+do 2050 roku w porównaniu do poziomów przedindustrialnych. Wykorzystanie
+uczenia maszynowego mogłoby pozwolić na bardziej przemyślane zarządzanie
+gospodarką energetyczną oraz wykorzystanie źródeł energii odnawialnych.
+
+Dotychczas najczęściej stosowanym podejściem do celów prognozowania
+pogody są algorytmy numeryczne bazujące na rozwiązywaniu równań różniczkowych
+charakteryzujących zachowanie atmosfery i pogody. Skomplikowana natura
+problemu oraz fakt że równania opisujące dynamikę cieczy oraz termodynamikę
+cechują się chaotycznością sprawiają że numeryczne symulacje komputerowe
+nie zawsze osiągają wymaganą dokładność, a ich złożoność obliczeniowa
+wymaga dużych klastrów komputerowych w celu osiągnięcia celu.
+
+Chociaż duże sieci neuronowe wykorzystywane do prognozowania pogody
+mogą zawierać kilka milionów parametrów, co jest porównywalne z modelami
+NWP\cite{can-dl-beat-numerical}, to wykorzystanie takiego modelu już po traningu
+jest mało wymagająca obliczeniowo i można się spodziewać o wiele mniejszych wymagań
+obliczeniowych do wykorzystywania takiego modelu. Co więcej, maksymalna rozdzielczość
+modeli NWP stosowanych do globalnych prognoz nie przekracza 5km, 
+co może skutkować pominięciem lokalnych zjawisk. Algorytmy AI dają możliwość
+parametryzowania i brania pod uwagę zjawisk o charakterze lokalnym.
+
+W ostatnich latach zaobserwowano wzrastającą tendencę do stosowania hybrydowych
+algorytmów bazujących na modelach numerycznych, ale także uczeniu maszynowym
+wspomagającym w inicjalizacji modelu, parametryzacji modelu, korygowaniu
+wyników generowanych przez model oraz szacowaniu pewności wygenerowanej
+predykcji. Zastosowanie modeli bazujących czysto na wykorzystywaniu uczenia
+maszynowego dotychczas wykazuje gorszą dokładność od podejść hybrydowych.
+Największym problemem w tworzeniu modeli AI w celu predykcji pogody jest
+zachowanie ograniczeń fizycznych, które nie są bezpośrednio częścią modelu,
+w przeciwieństwie do algorytmów NWP.
+
+Wykorzystanie uczenia głębokiego wiążę się z możliwością zastosowania 
+zaawansowanych algorytmów które znalazły już zastosowanie w innych dziedzinach.
+Sieci neuronowe umożliwiłiby wykorzystanie Transfer Learning, umożliwiający
+wydobycie ze zbioru danych podstawowych relacji i charakterystyk,
+
 
 % Problem statement: Clearly articulate the research problem you are 
 % addressing, and explain why it is important. This could involve discussing 
