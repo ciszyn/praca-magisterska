@@ -2,28 +2,45 @@
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage[utf8]{inputenc}                                      
+\usepackage{csquotes}
 \usepackage[T1]{fontenc} 
 \usepackage{amsmath,amsfonts,amssymb,amsthm}
 \usepackage{graphicx} 
 \usepackage{hyperref}
 \usepackage[page]{appendix} 
 \usepackage{booktabs}
-\usepackage{fancyhdr}
-\usepackage{ragged2e}
+% \usepackage{fancyhdr}
+% \usepackage{ragged2e}
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{indentfirst}
+\usepackage{setspace}
+% \usepackage{float}
+% \onehalfspacing 
+% ^ this one is important if you will have too little pages
+% on average you can gain 1/3 more
+% so maybe 60 pages will be enough?
+
+\usepackage[polish,british]{babel} 
+\usepackage{lmodern}
+\usepackage{graphicx} 
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\frenchspacing
+\tolerance=1
+\emergencystretch=\maxdimen{}
 
 \nocite{*}
 \addbibresource{bibliography.bib}
 
 
-\fancypagestyle{phdthesis}{
-\fancyhead[C]{\thepage}
-}
+% \fancypagestyle{phdthesis}{
+% \fancyhead[C]{\thepage}
+% }
 
-% \hyphenpenalty=10000
-% \widowpenalty=10000
-% \clubpenalty=10000
+\hyphenpenalty=100000
+\widowpenalty=100000
+\clubpenalty=100000
 
 \begin{document}
 
@@ -63,6 +80,14 @@ DL - uczenie głębokie
 ML - uczenie maszynowe
 
 NWP - numeryczne prognozowanie pogody
+
+GAN - generative adversarial network
+
+ECMWF - Europejskie Centrum Średnioterminowych Prognoz Pogody
+
+MSE - błąd średniokwadratowy
+
+MAE - błąd absolutny
 
 \pagebreak
 \printbibliography[title={Bibliografia}]
