@@ -9,29 +9,22 @@
 \usepackage{hyperref}
 \usepackage[page]{appendix} 
 \usepackage{booktabs}
-% \usepackage{fancyhdr}
-% \usepackage{ragged2e}
-\usepackage[backend=bibtex]{biblatex}
+\usepackage{hyperref}
+\usepackage[backend=bibtex,maxcitenames=10,mincitenames=2]{biblatex}
 \usepackage{indentfirst}
 \usepackage{setspace}
-% \usepackage{float}
-\onehalfspacing 
-% ^ this one is important if you will have too little pages
-% on average you can gain 1/3 more
-% so maybe 60 pages will be enough?
+\onehalfspacing{}
 
 \usepackage[polish,british]{babel} 
 \usepackage{lmodern}
 \usepackage{graphicx} 
-\usepackage{hyperref}
 \usepackage{booktabs}
-
 \frenchspacing
 \tolerance=1
 \emergencystretch=\maxdimen{}
 
 \nocite{*}
-\addbibresource{bibliography.bib}
+\addbibresource{bibliography}
 
 
 % \fancypagestyle{phdthesis}{
@@ -87,7 +80,11 @@ ECMWF - Europejskie Centrum Średnioterminowych Prognoz Pogody
 
 MSE - błąd średniokwadratowy
 
+RMSE - pierwiastek błędu średniokwadratowego
+
 MAE - błąd absolutny
+
+IoT - internet rzeczy
 
 \pagebreak
 \printbibliography[title={Bibliografia}]

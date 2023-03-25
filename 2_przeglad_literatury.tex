@@ -47,11 +47,119 @@ w publikacjach dotyczących algorytmów przewidywania pogody
 \cite{ml-in-weather-prediction}. Okazuje się że w artykułach traktujących o
 metodach NWP najczęściej występującą frazą jest "prognozowanie wiatru". Innymi 
 często występującymi sformuowaniami były "modele ensemble", "asymilacja danych",
-"warunki ekstremalne". Z kolei dla artykułów dotyczących uczenia maszynowego
+"warunki ekstremalne". Pośród analizowanych artykułów słowo wiatr pojawiło się
+ponad 200 razy, najczęściej w odniesieniu do źródeł odnawialnej energii i badań
+w przewidywaniu siły wiatru. Słowo opady pojawiło się prawie 150 razy, zazwyczaj
+odnosząc się do wykorzystania w prognozowaniu krótkoterminowym, post-processingu, czy
+downscaling. 
+
+Z kolei dla artykułów dotyczących uczenia maszynowego
 w dziedzinie klimatu najczęściej występujące frazy to "zmiana klimatu", 
 "wpływ na klimat", "warunki ekstremalne". Okazuje się że o wiele częstsze było
 wystąpienie określenia "globalne modele klimatyczne" niż "regionalne modele 
 klimatyczne". 
+
+Wśród istniejących publikacji popularnymi tematami są także korekcja odchylenia 
+temperatury i ciśnienia atmosferycznego, analiza promieniowania słonecznego w celach
+zasilania instalacji fotowoltaicznych.
+
+\subsubsection*{Wyniki analizowanych źródeł}
+
+\Citeauthor*{machine-learning-for-applied-weather-prediction}
+\cite{machine-learning-for-applied-weather-prediction} stworzyli system 
+o nazwie DICast podnoszący dokładność modeli numerycznych o 10-15\% przy pomocy
+uczenia maszynowego. Zaletą zastosowanego przez nich podejścia jest możliwość
+użycia małego zbioru danych do treningu oraz dynamicznej aktualizacji do 
+najnowszych informacji.
+
+Badania podsumowane w  przez  \Citeauthor*{ai-revolutionises-weather-prediction}
+\cite{ai-revolutionises-weather-prediction}
+stwierdzają polepszenie dokładności metod numerycznych ulepszonych przy
+pomocy ML w stosunku do bazowych modeli. Odnotowane polepszenie wyników
+sięgało 12.4\% dla wilgotności, 5.2\% dla prędkości wiatru, 17.0\% dla
+temperatury.
+
+\Citeauthor*{weather-monitoring-using-artificial-intelligence}\cite{weather-monitoring-using-artificial-intelligence}
+wybrali regresję liniową do modelowania pogody i zaobserwowali 3.5 procentową
+dewiację dla prognozy na następny dzień.
+
+Porównanie wielu modelów, w tym sieci neuronowej, sieci radialnej, 
+drzew GBT, regresji liniowej i lasu losowego przez 
+\Citeauthor*{developing-machine-learning-algorithms}
+\cite{developing-machine-learning-algorithms} wskazuje na 
+najlepsze wyniki uzyskiwane przez sieć neuronową. Osiągnęła ona 
+współczynnik korelacji równy 84.62\% w zadaniu prognozowania
+pogody z miesięcznym wyprzedzeniem. Także \Citeauthor*{weather-forecasting-using-dl} 
+\cite{weather-forecasting-using-dl} wskazuje na dobrą dokładność
+sieci neuronowych podczas prognozowania opadów.
+
+\Citeauthor*{ml-applied-to-weather-forecasting}
+\cite{ml-applied-to-weather-forecasting} wnioskuje że metody 
+numeryczne są w stanie osiągnąć lepsze wyniki dla prognoz 
+krótkoterminowych, lecz różnica dla prognoz długoterminowych
+nie była już tak znaczna. Proponowanym wytłumaczeniem tego jest
+brak stabilności modeli NWP i akumulacja błędów dla dłuższych 
+okresów czasu. Z kolei uczenie maszynowe zdaje się być bardziej
+odporne na perturbacje w warunkach początkowych i zachowuje 
+stabilne wyniki nawet dla prognoz długoterminowych.
+
+Mimo wszystko kwestia zastąpienia NWP przez metody uczenia maszynowego
+wciąż nie jest roztrzygnięta jak wskazuje \Citeauthor*{can-dl-beat-numerical}
+\cite{can-dl-beat-numerical}. Artykuł ten szacuje jakość prognoz 
+deterministycznych publikowanych przez ECMWF na 80\% dokładności w przewidywaniu
+poziomu ciśnienia na przełomie 7 dni. Z kolei temperatura może być 
+prognozowana z błędem średnio-kwadratowym równym 2 stopnie. Wśród wymienionych
+zastosowań uczenia głębokiego było szacowanie dystrybucji parametrów przy pomocy 
+sieci rekurencyjnej i konwolucyjnej. Innym zastosowaniem było uchwycenie
+niepewności z obserwacji w kontekście prognozowania opadów.
+
+Jednym z bardziej wszechstronnych źródeł porównujących aż 24 modele z zakresu
+uczenia maszynowego był \Citeauthor*{comparison-of-ml-methods}\cite{comparison-of-ml-methods}.
+W tej pracy autor porównywał wybrane modele w celu przewidywania energii fotowoltaicznej
+na następny dzień bazując na algorytmach NWP. W tym celu zastosowane było pięć metryk
+weryfikacyjnych. Najlepszym modelem w przedstawionym problemie okazała się regresja 
+kernel-ridge, wykazująca się także najdłuższym czasem treningu i wysokim zużyciem pamięci.
+Algorytmem zalecanym do wykorzystania praktycznego był perceptron wielowarstwowy (MLP)
+osiągający zbliżone wyniki do regresji kernel-ridge, lecz wymagający o wiele mniej zasobów.
+Co więcej, jednym z wniosków tej pracy jest duże znaczenie wyboru zmiennych w danych wejściowych
+na jakość wytrenowanego modelu. Powiększenie danych o dodatkowe informacje przyniosło
+wyniki lepsze o 13.1\% w porównaniu do podstawowych zestawów atrybutów. Dalsze polepszenie
+mogło być uzyskane poprzez dostrojenie hiperparametrów, umożliwiające zmniejszenie 
+RMSE o 3.1\%. Dostosowanie hiperparametrów miało większy wpływ w algorytmach opartych
+na drzewach decyzyjnych niż MLP, gradient boosting czy regresji. 
+
+Kolejnym artykułem z tej dziedziny jest \Citeauthor*{coupling-data-science}\cite{coupling-data-science}
+analizujący wartość nasłonecznienia. Głównym problemem napotkanym podczas
+badań okazało się być znalezienie dobrej równowagi pomiędzy płynnością zmian a 
+momentalnymi anomaliami w przewidywanych wartościach. Zastosowanie algorytmów
+preferujących ciągłość kończyło się dążeniem prognozy do średniej wartości i 
+dużymi błędami podczas zachmurzonych i słonecznych dni. Tak więc dalsza analiza 
+wartości odstających i możliwości ich przewidywania jest potrzebna.
+
+\Citeauthor{development-and-application-of-ml-in}\cite{development-and-application-of-ml-in}
+zwraca uwagę na potrzebę dostosowania algorytmów AI do problemów związanych z prognozowaniem
+pogody. Aspektem branym szczególnie pod uwagę w tej pracy jest wykorzystanie uczenia
+maszynowego w celu przewidywania poziomu zanieczyszczeń powietrza. Większość
+badań w celu dostosowania algorytmu do swoich danych stosuje dostrajanie hiperparametrów,
+preprocessing lub wykorzystywanie modeli ensemble. 
+
+Niektóre analizowane podejścia wykorzystują dość proste algorytmy w celu analizy
+problemu. Tak na przykład \Citeauthor{weather-forecast-prediction-data-mining}
+\cite{weather-forecast-prediction-data-mining} wykorzystuje drzewa decyzyjne C5 
+aby prognozować temperaturę maksymalną, temperaturę minimalną, opady, prędkość wiatru
+oraz odparowanie wody. Zastosowany algorytm wykorzystany został w celu tworzenia prognoz
+na przekroju miesięcy i lat. Ilustruje to, że nawet proste modele AI są w stanie 
+przynieść porządane wyniki, choć niekoniecznie mogące konkurować z dokładnością i 
+złożonością algorytmów NWP.
+
+Zastosowanie uczenia maszynowego w celach predykcji pogody znajduje zastosowanie
+w sytuacjach w których ilość zasobów obliczeniowych jest ograniczona. Tak więc
+\Citeauthor{weather-forecasting-using-ml}\cite{weather-forecasting-using-ml} wykorzystuje
+mikrokontrolery przeprowadzające analizę w czasie rzeczywistym bazując na odczytach z 
+czujników. Podobnie \Citeauthor{smart-weather-forecasting}\cite{smart-weather-forecasting}
+proponuje wykorzystanie internetu rzeczy (IoT) aby zbierać i przetwarzać dane z różnych lokacji.
+Dane gromadzone w czasie rzeczywistym mają potencjał rozszerzyć istniejące zbiory danych
+i w konsekwencji polepszyć dokładność trenowanych modeli.
 
 % Theoretical framework: Identify and discuss any theoretical frameworks that are 
 % relevant to your research, and explain how these frameworks have been applied in 

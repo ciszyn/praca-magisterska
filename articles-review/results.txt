@@ -81,31 +81,40 @@ systems cannot be answered at this point.
 
 comparison-of-machine-learning-methods
 
-This paper presents a comparison of 24 easy-to-applicable machine learning (ML) models for 
-day-ahead photovoltaic (PV) power fore- casting based on numerical weather predictions (NWP). 
-The models are tested for two-years data of 16 Hungarian ground-mounted PV plants and evaluated 
-by five commonly used verification metrics. In addition to the models, the selection of the 
-predictors and the significance of the hyperparameter are also examined. The main findings 
-of this study are summarized as follows:
-The overall most accurate model is kernel ridge (KR), but it has an extremely long training time 
-and high memory usage. The multilayer perceptron (MLP, the basic type of feedforward neural networks) 
-has an almost identical accuracy with significantly lower training time; thus, this model is 
-recommended for practical applications. How- ever, KR is worthy for further, more specified investigations.
-• Input data selection is even more important than model selection. Extending the basic NWP outputs with the 
-angles calculated from the position of the Sun (elevation, azimuth, and declination) and the time-shifted and 
-averaged versions of the global horizontal irradi- ance (GHI) leads to an RMSE reduction of 13.1% compared to the
-basic input case that only uses the GHI, ambient temperature and wind speed as predictors. Moreover, using only 
-daily mean GHI forecasts and the Sun position angles as predictors increases RMSE by only 1.5% compared to the 
-best input case that relies on a full set of 15-min GHI forecasts. In other words, the added value of high- 
-resolution irradiance forecasts is limited for PV power forecasting in a day-ahead time horizon.
-Hyperparameter tuning is essential to exploit the full potential of the ML models, as the best RMSE achieved without 
-tuning is 3.1% higher than the best with tuning. The more robust models (e.g., MLP, gradient boosting regressor) 
-are quite accurate even without tuning, while for some other models (e.g., lasso, decision tree), training is a must, 
-as they have enormous errors with their default parameters. Overall, tuning equalizes the RMSE of the different models 
-compared to the default case.
-The overall best results (tuned KR or MLP with the complex pre- dictors) has 13.9% lower RMSE than the simplest 
-solution, i.e., the linear regression fitted on the basic NWP data. The importance of the ML model and input 
-selection falls into the same range as model chain selection for physical irradiance-to-power conversion [10].
+This paper presents a comparison of 24 easy-to-applicable machine learning 
+(ML) models for day-ahead photovoltaic (PV) power fore- casting based on 
+numerical weather predictions (NWP). The models are tested for two-years data 
+of 16 Hungarian ground-mounted PV plants and evaluated by five commonly used 
+verification metrics. In addition to the models, the selection of the 
+predictors and the significance of the hyperparameter are also examined. 
+The main findings of this study are summarized as follows: The overall most 
+accurate model is kernel ridge (KR), but it has an extremely long training time 
+and high memory usage. The multilayer perceptron (MLP, the basic type of 
+feedforward neural networks) has an almost identical accuracy with significantly 
+lower training time; thus, this model is recommended for practical applications. 
+How- ever, KR is worthy for further, more specified investigations.
+• Input data selection is even more important than model selection. 
+Extending the basic NWP outputs with the angles calculated from the position 
+of the Sun (elevation, azimuth, and declination) and the time-shifted and 
+averaged versions of the global horizontal irradi- ance (GHI) leads to an 
+RMSE reduction of 13.1% compared to the basic input case that only uses the 
+GHI, ambient temperature and wind speed as predictors. Moreover, using only 
+daily mean GHI forecasts and the Sun position angles as predictors increases 
+RMSE by only 1.5% compared to the best input case that relies on a full set 
+of 15-min GHI forecasts. In other words, the added value of high- 
+resolution irradiance forecasts is limited for PV power forecasting in a day-ahead 
+time horizon. Hyperparameter tuning is essential to exploit the full potential 
+of the ML models, as the best RMSE achieved without tuning is 3.1% higher than 
+the best with tuning. The more robust models (e.g., MLP, gradient boosting 
+regressor) are quite accurate even without tuning, while for some other models 
+(e.g., lasso, decision tree), training is a must, as they have enormous errors 
+with their default parameters. Overall, tuning equalizes the RMSE of the different 
+models compared to the default case.
+The overall best results (tuned KR or MLP with the complex pre- dictors) has 
+13.9% lower RMSE than the simplest solution, i.e., the linear regression fitted 
+on the basic NWP data. The importance of the ML model and input 
+selection falls into the same range as model chain selection for physical 
+irradiance-to-power conversion [10].
 
 
 survey-on-weather-forecasting
