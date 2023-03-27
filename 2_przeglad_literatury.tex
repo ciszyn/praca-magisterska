@@ -49,7 +49,11 @@ analitycznego tych równań, koniecznością jest rozwiązanie numeryczne. Proce
 w zbyt małej skali aby być ujęte podczas dyskretyzacji przestrzeni muszą być opisywane za pomocą
 parametryzacji próbujących przybliżyć ich w wpływ na ogólne rozwiązanie. W wielu przypadkach 
 dodatkowe uproszczenia i zaokrąglenia są brane pod uwagę w celu uproszczenia procesu
-rozwiązywania.
+rozwiązywania. Niektóre modele globalne i prawie wszystkie modele lokalne stosują 
+metodę różnic skończonych we wszystkich stopniach swobody systemu, a niektóre modele globalne
+wykorzystują metodę różnic skończonych w kierunku pionowym a metody spektralne w kierunku równoległym
+do powierzchni ziemi. Krok czasu stosowany w stosunku do modeli globalnych jest wielkości dziesiątek
+minut, a w przypadku prognoz lokalnych w zakresie jednej do czterech minut.
 
 Ze względu na chaotyczną charakterystykę równań opisujących pogodę, małe zmiany w warunkach początkowych
 mogą skutkować odstającymi od siebie wynikami. W celu opisania i przewidywania błędu prognozy pogody 
@@ -59,9 +63,17 @@ Dlatego zbiór wielu modeli zainicjowanych z nieznacznie różniącymi się waru
 jest stosowany do sprawdzenia jak bardzo uzyskane wyniki mogą się różnić i nadania dokładności do 
 stworzonej prognozy.
 
+Wczesne metody specyfikacji warunków początkowych opierały się na analizie graficznych wykresów 
+pogodowych. Następnie różne metody interpolacji danych były zastąpione przez algorytmy
+asymilacji danych oparte na teorii sterowania optymalnego. Obliczanie rzeczywistych wartości
+opisujących atmosferę może być opisane jako wnioskowane Bayesowskie oparte na wynikach pomiarów
+oraz ich niepewnościach. Te obliczenia skoncentrowane na minimalizacji obiektywnej funkcji 
+są przeprowadzane w cztero-wymiarowej przestrzeni aby otrzymać fizycznie możliwy wynik
+równomiernie rozłożony w trzech wymiarach przestrzennych i czasie.
+
 W praktyce wykorzystanie modeli NWP w celach predykcji pogody wymaga asymilacji dużej ilości
 danych pochodzących z różnych źródeł. Metodą wykorzystywaną dzisiaj w celu wprowadzenia
-danych jest asymilacja 4D-Var. W tym algorytmie dla każdego typu obserwacji tworzony jest
+danych jest asymilacja 4D-Var (używana od 1980 roku). W tym algorytmie dla każdego typu obserwacji tworzony jest
 operator obserwacji pozwalający wewnętrznym parametrom modelu NWP na odniesienie się
 do poszczególnego typu obserwacji. Podczas procesu asymilacji danych parametry wewnętrzne
 modelu są dostosowywane aby jak najlepiej odzwierciedlić rzeczywiste warunki pogodowe.
@@ -71,8 +83,39 @@ z obserwacji satelitarnych o dużej gęstości. Rozdzielczość danych pochodzą
 satelitarnych znacznie przekracza możliwości dotychczas używanych modeli stworzonych przez
 ECMWF posiadających rozdzielczość horyzontalną równą 9 km. Co więcej w przypadku modeli
 ensemble w celach zmniejszenia kosztów obliczeniowych rozdzielczość jest zmniejszana do 18 km.
+Procesy które nie mogą być wiernie odzwierciedlone przez symulację
+ze wzlędu na zbyt małą rozdzielczość NWP podlegają parametryzacji.
+Do takich procesów zalicza się: formowanie się chmur, ilość promieni słonecznych docierających do 
+podłoża, opór aerodynamiczny szczytów górskich czy formowanie się kropolek wody.
 
+Ostateczny wynik przeprowadzonej symulacji NWP musi być jeszcze dodatkowo wzbogacony przez zastosowanie
+statystyk wyjścia modelu (MOS). W ramach tego prognozowany stan modelu opisywany poprzez skomplikowane
+parametry jest zamieniany na wielkości łatwo interpretowalne przez ludzie. Co więcej metody numeryczne
+wykorzystują przybliżoną siatkę modelującą atmosferę, która musi być zinterpolowana w celu uzyskania
+wyniku dla konkretnej lokalizacji. W tych celach często stosuje się wielokrotne zastosowanie 
+regresji liniowej. Krok ten dodatkowo umożliwia zniwelowanie błędów nawarstwionych przez model i wzięcie
+pod uwagę sparametryzowanych zjawisk.
 
+Jednym z większych problemów NWP jest nieliniowo wzrastający błąd ograniczający długość prognozy.
+Ponieważ modele NWP dokonują predykcji w sposób stopniowy, prognozując stan systemu dla następnego
+kroku, żeby później otrzymany wynik dodać do danych wejściowych i kontynuować obliczenia, otrzymane błędy
+mają tendencję do akumulacji wraz ze wzrostem długości symulacji.
+Limit dla wydarzeń o małej skali jest szacowany na dni, bądź godziny, zaś zdarzenia o dużej skali
+mogą być prognozowane z aż 2 tygodniowym wyprzedzeniem. Szacuje się że błąd akumulowany przez 
+model NWP ulega zdwukrotnieniu z każdymi pięcioma dniami.
+
+W porównaniu z wieloma innymi dziedzinami w których numeryczne prognozowanie jest stosowane,
+NWP ma przewagę pod względem częstotliwości z którą jest wykorzystywane. Prognozy są generowane
+w ten sposób z częstotliwością dzienną i na poziomie globalnym. Dokładność tworzonych predykcji jest
+dobrze znana i sposoby wzmocnienia aktualnie stosowanych algorytmów mogą być sprawdzone z dużą
+efektywnością. Modele NWP wciąż są ulepszane, a rozwój technologiczny i naukowy być może pozwoli
+w przyszłości tworzyć modele bazujące na danych zbieranych z rozdzielczością sięgającą 1 km. Co więcej
+możliwe że w najbliższej przyszłości utworzone zostaną modele rozwiązujące sprzężone symulacje
+dla atmosfery, lądu oraz oceanu\cite{nwp-the-quiet-revolution}.
+
+Dzisiejsze komputery używane do NWP sięgają mocy obliczeniowej równej jednego petaflop-a ($10^{15}$ operacji
+zmiennoprzecinkowych) na sekundę. Szacuje się że systemy komputerowe stosowane przez ECMWF mają zużycie energii
+sięgające 10 MVA, a dalszy rozwój i zwiększenie modeli mogłoby wymagać 10-krotne zwiększenie pobieranej mocy.
 
 \subsubsection{Metody uczenia maszynowego}
 
