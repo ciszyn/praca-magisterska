@@ -31,7 +31,48 @@ algoritmach prognozowania pogody.
 % improve accuracy.
 \subsection{Tło teoretyczne}
 
+
 \subsubsection{Metody NWP}
+
+Pierwsze próby "odręcznych" modeli NWP były zainicjowane przez Lewis Fry Richardson-a w 1922 roku i 
+były zainspirowane ideą przewidywania pogody za pomocą sformułowanych praw fizyki. Sformułowanie
+nieliniowych równań różniczkowych opisujących pogodę tworzyło problem z wartością początkową bazującą
+na bierzących pomiarach pogody. W celu osiągnięcia zamierzonego celu interakcje z dziedziny 
+termodynamiki, dynamiki, procesów chemicznych jak i biologicznych muszą być wzięte pod uwagę.
+Pierwsze komputerowo wspomagane prognozy pogody były tworzone już w 1950 roku, lecz dopiero
+w 1970 roku wraz z rozwojem superkomputerów rozwiązanie pełnego zbioru równań było możliwe.
+
+Podstawowymi równaniami opisującymi zachowanie pogody są równania Naviera-Stokesa, równania zachowania
+masy, pierwsza zasada termodynamiki i równanie Clapeyrona. Za pomocą nich stan wiatru, ciśnienia,
+gęstości, temperatury może być zamodelowany opisując stan atmosfery. Ze względu na brak rozwiązania
+analitycznego tych równań, koniecznością jest rozwiązanie numeryczne. Procesy fizyczne występujące
+w zbyt małej skali aby być ujęte podczas dyskretyzacji przestrzeni muszą być opisywane za pomocą
+parametryzacji próbujących przybliżyć ich w wpływ na ogólne rozwiązanie. W wielu przypadkach 
+dodatkowe uproszczenia i zaokrąglenia są brane pod uwagę w celu uproszczenia procesu
+rozwiązywania.
+
+Ze względu na chaotyczną charakterystykę równań opisujących pogodę, małe zmiany w warunkach początkowych
+mogą skutkować odstającymi od siebie wynikami. W celu opisania i przewidywania błędu prognozy pogody 
+rozwinięte zostały modele ensemble. Nieliniowa złożoność systemu oznacza że podejścia opisu
+dokładności prognozy bazujące na metodach czysto statystycznych nie przynoszą upragnionych wyników.
+Dlatego zbiór wielu modeli zainicjowanych z nieznacznie różniącymi się warunkami początkowymi
+jest stosowany do sprawdzenia jak bardzo uzyskane wyniki mogą się różnić i nadania dokładności do 
+stworzonej prognozy.
+
+W praktyce wykorzystanie modeli NWP w celach predykcji pogody wymaga asymilacji dużej ilości
+danych pochodzących z różnych źródeł. Metodą wykorzystywaną dzisiaj w celu wprowadzenia
+danych jest asymilacja 4D-Var. W tym algorytmie dla każdego typu obserwacji tworzony jest
+operator obserwacji pozwalający wewnętrznym parametrom modelu NWP na odniesienie się
+do poszczególnego typu obserwacji. Podczas procesu asymilacji danych parametry wewnętrzne
+modelu są dostosowywane aby jak najlepiej odzwierciedlić rzeczywiste warunki pogodowe.
+
+W wielu przypadkach złożoność obliczeniowa NWP wymaga redukcji objętości danych pochodzących
+z obserwacji satelitarnych o dużej gęstości. Rozdzielczość danych pochodzących z odczytów
+satelitarnych znacznie przekracza możliwości dotychczas używanych modeli stworzonych przez
+ECMWF posiadających rozdzielczość horyzontalną równą 9 km. Co więcej w przypadku modeli
+ensemble w celach zmniejszenia kosztów obliczeniowych rozdzielczość jest zmniejszana do 18 km.
+
+
 
 \subsubsection{Metody uczenia maszynowego}
 
@@ -160,6 +201,18 @@ czujników. Podobnie \Citeauthor{smart-weather-forecasting}\cite{smart-weather-f
 proponuje wykorzystanie internetu rzeczy (IoT) aby zbierać i przetwarzać dane z różnych lokacji.
 Dane gromadzone w czasie rzeczywistym mają potencjał rozszerzyć istniejące zbiory danych
 i w konsekwencji polepszyć dokładność trenowanych modeli.
+
+W wielu wymienionych pracach \cite{development-and-application-of-ml-in}
+były zastosowane różne metryki. Wśród najpopularniejszych
+należały RMSE, współczynnik korelacji, MSE, MAE, współczynnik Kappa Cohena,
+znormalizowany pierwiastek z błędu średniokwadratowego (NRMSE).
+
+\Citeauthor*{ai-revolutionises-weather-prediction}\cite{ai-revolutionises-weather-prediction}
+podkreśla kluczowe zastosowanie uczenia maszynowego w procesie asymilacji danych do modeli NWP.
+Jednym z podanych przykładów jest możliwość połączenia zadania pobierania i fuzji danych 
+przez jedną sieć neuronową łączącą dane pochodzące ze zdjęć z satelit geostacjonarnych oraz 
+pomiarów ilości opadów. Inne przykłady obejmują zastosowanie sieci konwolucyjnych do łączenia
+obrazów spektralnych i przestrzennych pochodzących z satelity SEVIRI. 
 
 % Theoretical framework: Identify and discuss any theoretical frameworks that are 
 % relevant to your research, and explain how these frameworks have been applied in 
