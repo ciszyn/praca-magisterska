@@ -168,13 +168,47 @@ zastosowane będą następujące metody regresji z zakresu uczenia maszynowego:
     obserwacji. Po wybraniu najbardziej podobnych obserwacji ze zbioru treningowego wartość funkcji
     celu jest uśredniana.
 
-    \item Regresja Gaussowska - 
-    \item PLS
-    \item Drzewo Decyzyjne
-    \item Las Losowy
-    \item MLP
-    \item RNN
-    \item CNN
+    \item Regresja Gaussowska - jest nie parametryczną formą metody Bayesowskiej do tworzenia
+    predykcji. Zamiast obliczać dystrybucję parametrów funkcji ta metoda może być zastosowana do
+    obliczenia dystrybucji funkcji celu.
+    
+    \item PLS - Partial least squares regression - jest algorytmem wykorzystującym rozkład
+    danych ze względu na analize głównych składowych (PCA) aby w następnym wykorzystać metodę
+    najmniejszych kwadratów do przeprowadzenia regresji.
+
+    \item Drzewo Decyzyjne - jest modelem o strukturze drzewiastej, której celem jest
+    przewidzenie wartości funkcji celu na podstawie podzbioru wartości atrybutów obserwacji. 
+    Drzewa decyzyjne są budowane na podstawie rekursywnego partycjonowania danych treningowych
+    ze względu na atrybut optymalizujący miarę dopasowania drzewa (Gini, zysk informacyjny).
+    Ze względu na różne użyte miary i metody budowania drzewa wyróżnia się algorytmy ID, C4.5,
+    C5.0 oraz CART. W użytej bibliotece sklearn zaimplementowany i użyty jest ten ostatni.
+
+    \item Las Losowy - algorytm w którym tworzona jest duża liczba drzew decyzyjnych poprzez
+    bootstraping and bagging orginalnego zbioru danych. Ostateczna decyzja lasu losowego w 
+    zadaniu regresji jest średnią z wyjścia wszystkich wygenerowanych drzew decyzyjnych.
+
+    \item MLP - perceptron wielowarstwowy. Najprostszy typ sieci neuronowej. Składa się z 
+    warstwy wejściowej, warstw ukrytych oraz warstwy wyjściowej. Każda warstwa składa się
+    z pewnej liczby perceptronów mając naśladować działanie neuronów w ludzkim mózgu.
+    Wartość wyjściowa każdego perceptrona jest obliczana jako wartość funkcji aktywacji z 
+    liniowej kombinacji wartości na wejściu. Każda kolejna warstwa sieci jest gęsto połączona
+    z warstwą poprzednią.
+    Proces uczenia sieci neuronowej polega na zastosowaniu propagacji wstecznej aby dostosować
+    wartości parametrów sieci w celu minimalizacji funkcji błędu określającej jak daleko
+    wyjście sieci odbiega od pożądanej wartości. 
+
+    \item RNN - są klasą sieci neuronowych, w których połączenia pomiędzy węzłami
+    mogą tworzyć cykle, pozwalając na to aby wyjście z niektórych węzłów mogło mieć wpływ na 
+    wejście tych samych węzłów. Ta charakterystyka sieci pozwala na objawiania tymczasowych 
+    zachowań dynamicznych. Wewnętrzny stan sieci rekurencyjnych (pamięć) może być wykorzystywany
+    do przetwarzania danych o zmiennej długości. Znajdują szerokie zastosowanie w rozpoznawaniu
+    pisma lub mowy. Przykładowymi warstwami charakteryzującymi sieci rekurencyjne są LSTM bądź GRU.
+
+    \item CNN - są klasą sieci neuronowych w której wykorzystywane są konwolucje w celu 
+    analizy i preprocesowania danych wejściowych. Pozwalają na przetwarzanie danych wielowymiarowych
+    w ustrukturyzowany sposób. Są często wykorzystywane w celu klasyfikacji obrazów, wideo czy
+    audio. Mogą być jednak używane w stosunku do każdych danych wykazujących zorganizowaną strukturę.
+
 \end{itemize}
 
 % Overview of existing literature: Provide a comprehensive overview of the 
