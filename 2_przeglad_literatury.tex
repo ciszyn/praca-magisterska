@@ -61,7 +61,16 @@ rozwinięte zostały modele ensemble. Nieliniowa złożoność systemu oznacza �
 dokładności prognozy bazujące na metodach czysto statystycznych nie przynoszą upragnionych wyników.
 Dlatego zbiór wielu modeli zainicjowanych z nieznacznie różniącymi się warunkami początkowymi
 jest stosowany do sprawdzenia jak bardzo uzyskane wyniki mogą się różnić i nadania dokładności do 
-stworzonej prognozy.
+stworzonej prognozy. Przykładowa predykcja stworzona przy pomocy metody ensemble znajduje się 
+poniżej\ref{nwp-ensemble}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/multimodel.png}
+    \caption{Przykładowy wynik działania modelu ensemble pochodzący ze strony 
+        \url{https://www.meteoblue.com/pl/pogoda/prognoza/multimodel/katowice_polska_3096472}}
+    \label{nwp-ensemble}
+\end{figure}
 
 Wczesne metody specyfikacji warunków początkowych opierały się na analizie graficznych wykresów 
 pogodowych. Następnie różne metody interpolacji danych były zastąpione przez algorytmy
@@ -117,7 +126,56 @@ Dzisiejsze komputery używane do NWP sięgają mocy obliczeniowej równej jedneg
 zmiennoprzecinkowych) na sekundę. Szacuje się że systemy komputerowe stosowane przez ECMWF mają zużycie energii
 sięgające 10 MVA, a dalszy rozwój i zwiększenie modeli mogłoby wymagać 10-krotne zwiększenie pobieranej mocy.
 
-\subsubsection{Metody uczenia maszynowego}
+
+\subsubsection*{Metody uczenia maszynowego}
+
+Problem prognozowania pogody można opisać przy pomocy metody regresji. Polega ona
+na statystycznym modelowaniu odpowiedzi nieznanych wartości funkcji na podstawie
+znanych wartości zmiennych niezależnych. W ramach przewidywania pogody, za zmienne niezależne
+można przyjąć znane wartości pomiarów atmosferycznych i przy pomocy regresji oszacować 
+wartości przewidywane. Użyteczne mogą być także metody klasyfikacji w celu wykrywania i 
+przewidywania zjawisk pogodowych. W następującej pracy jednak w celu prognozowania pogody
+zastosowane będą następujące metody regresji z zakresu uczenia maszynowego:
+
+
+\begin{itemize}
+    \item SVR - jest metodą regresji wykorzystującą maszynę wektorów nośnych w celu tworzenia
+    predykcji. Opiera się ona na tworzeniu hiperpłaszczyzny mającej na celu z jak największą
+    dokładnością rozdzielenie obserwacji ze zbioru treningowego. Następnie wyznaczone
+    równanie hiperpłaszczyzny jest wykorzystywane do klasyfikacji i liczenia regresji dla naukowych
+    danych.
+
+    Obliczenie równania hiperpłaszczyzny sprowadza się do problemu optymalizacyjnego
+    maksymalizowania odległości hiperpłaszczyzny od punktów należących do poszczególnych klas.
+    Ponad przeprowadzanie regresji liniowej, SVR jest w stanie tworzyć regresji nieliniowe
+    poprzez zastosowanie "kernel trick", niejawnie mapując dziedzinę danych wejściowych na 
+    wielowymiarową przestrzeń o innej charakterystyce.
+    
+    \item Regresja Logistyczna - jest modelem statstycznym przewidującym nastąpienie danego
+    zdarzenia na podstawie obliczenia funkcji logitowej z kombinacji liniowej zmiennych 
+    niezależnych.
+
+    \item SGD - jest metodą trenowania modeli uczenia maszynowego poprzez iteratywną optymalizaję
+    funkcji celu. Zastosowanie SGD uzyskało dobre wyniki w trenowaniu modeli stosowanych
+    do klasyfikacji tekstu i przetwarzaniu języka naturalnego. W ramach tego algorytmu,
+    punkt początkowy wybierany przez użytkownika jest poddawany iteratywnej optymalizacji
+    poprzez wybieranie kierunku największego spadku funkcji błędu. W ten sposób przestrzeń rozwiązań
+    jest przeszukiwana w bardzo efektywny sposób. Niestety zapewnienie globalnego minimum
+    nie jest zawsze zagwarantowane.
+
+    \item KNN - jest prostym modelem który może być stosowany zarówno do regresji jak i klasyfikacji.
+    Polega na wybraniu k najbliższych sąsiadów ze zbioru treningowego aby określić wartość dla nowej
+    obserwacji. Po wybraniu najbardziej podobnych obserwacji ze zbioru treningowego wartość funkcji
+    celu jest uśredniana.
+
+    \item Regresja Gaussowska - 
+    \item PLS
+    \item Drzewo Decyzyjne
+    \item Las Losowy
+    \item MLP
+    \item RNN
+    \item CNN
+\end{itemize}
 
 % Overview of existing literature: Provide a comprehensive overview of the 
 % existing literature on weather prediction and the use of artificial intelligence 
