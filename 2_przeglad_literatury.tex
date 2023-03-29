@@ -349,11 +349,6 @@ przez jedną sieć neuronową łączącą dane pochodzące ze zdjęć z satelit 
 pomiarów ilości opadów. Inne przykłady obejmują zastosowanie sieci konwolucyjnych do łączenia
 obrazów spektralnych i przestrzennych pochodzących z satelity SEVIRI. 
 
-% Theoretical framework: Identify and discuss any theoretical frameworks that are 
-% relevant to your research, and explain how these frameworks have been applied in 
-% previous studies.
-\subsection{Ramy teoretyczne}
-
 % Methodological approaches: Discuss the different methodological approaches 
 % that have been used in previous studies, including the types of data sources used, 
 % the modeling techniques employed, and the evaluation metrics used to measure 
@@ -364,6 +359,31 @@ obrazów spektralnych i przestrzennych pochodzących z satelity SEVIRI.
 % highlighting any strengths or weaknesses in previous studies, and identifying 
 % areas where further research is needed.
 \subsection{Analiza krytyczna}
+
+Jednym z największych wyzwań w analizie algorytmów prognozowania pogody jest ewaluacja 
+stworzonych modeli. Istnieje wiele metrych pozwalających w sposób numeryczny oszacować
+dokładność modelu. Jednak różnice pomiędzy rzeczywistą pogodą a prognozowaną nie zawsze
+mogą być oszacowany w sposób statystyczny. Sposób w jaki warunki atmosferyczne są odbierane
+przez ludzi i w jaki mają wpływ na otaczający nas świat jest bardzo skomplikowany i trudny
+w opisie. Modele dobrze podążające za średnim trendem pogody, lecz nie odnajdujące
+zjawisk skrajnych sprawiają o wiele większe niebezpieczeństwo i straty niż te które
+pomimo większego błędu średniego, są w stanie lepiej przewidywać gwałtowne skoki i spadki
+w warunkach atmosferycznych. Z doświadczeń wynika że często overfitting w stosunku do
+średniego trendu szeregu czasowego, skutkuje w złej wydajności w przewidywaniu
+zjawisk sezonowych i zdarzeń odstających.
+
+Dane zebrane z obserwacji meterologicznych podąża za
+rozkładem normalnym, lecz wiele z nich (tak jak opady, czy wielkość kropli deszczu) 
+\cite{can-dl-beat-numerical} jest bliższa dystrybucji gamma lub beta. Analiza statystyczna
+danych atmosferycznych musi więc brać pod uwagę wiele czynników i różnorodność dostępnych danych.
+
+Co więcej dużo zjawisk wpływających na pogodę ma charakter zarówno krótkoterminowy, jak i 
+długoterminowy. Zjawiska długoterminowe mogą mieć znaczący wpływ na lokalne warunki atmosferyczne,
+nie dość że muszą być brane pod uwagę podczas tworzenia prognoz, to w trakcie tworzenia modeli
+i treningu 
+
+
+
 
 % The contribution of your research: Conclude by discussing how your research 
 % contributes to the current state of knowledge on weather prediction and the 
