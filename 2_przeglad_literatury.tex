@@ -355,11 +355,15 @@ podaje że system MIIDAPS-AI zaprojektowany w celu fuzji i asymilacji danych zos
 przeciągu 10 miesięcy, gdy podobny system stworzony przy pomocy metod tradycyjnych zająłby
 w stworzeniu stukrotnie więcej czasu.
 
-% Methodological approaches: Discuss the different methodological approaches 
-% that have been used in previous studies, including the types of data sources used, 
-% the modeling techniques employed, and the evaluation metrics used to measure 
-% performance.
-\subsection{Podejście metodologiczne}
+\Citeauthor*{ml-applied-to-weather-forecasting}\cite{ml-applied-to-weather-forecasting}
+zwraca uwagę na sposób przygotowania zbioru testowego i treningowego do celów uczenia 
+maszynowego. Poniważ prognozowanie danych nieodłącznie jest związanie z szeregami czasowymi,
+zastosowanie walidacji krzyżowej jest kłopotliwe. Zamiast kroswalidacji zastosowana 
+zasosowanya została walidacja n-fold forward chaining, w którym zbiór testowy składa się 
+z danych należących do okresu bezpośrednio następującego po zbiorze treningowym. Ta metoda
+przynosi o wiele dokładaniejsze wyniki, ponieważ skupia się na przewidywaniu danych 
+z przyszłości bazując na obecnych pomiarach.
+
 
 % Critical analysis: Provide a critical analysis of the existing literature, 
 % highlighting any strengths or weaknesses in previous studies, and identifying 
@@ -435,3 +439,4 @@ skomplikowanych wzorców pogodowych.
 % This could involve discussing the novelty of your approach, the potential 
 % impact of your findings, or the implications for future research.
 \subsection{Wkład pracy}
+
