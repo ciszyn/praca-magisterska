@@ -105,6 +105,20 @@ wyniku dla konkretnej lokalizacji. W tych celach często stosuje się wielokrotn
 regresji liniowej. Krok ten dodatkowo umożliwia zniwelowanie błędów nawarstwionych przez model i wzięcie
 pod uwagę sparametryzowanych zjawisk.
 
+Dodatkowo niektóre parametryzacje także są stopniowo zastępowane przez algorytmy uczenia maszynowego,
+czego przykładem jest obliczanie energi promieniowania w sposób uproszczony
+\cite{ai-in-weather-and-climate-prediction}. Energia promieniowania
+może być w sposób kosztowny obliczona przez modele NWP, lecz zastosowanie ML skutkuje szybszym
+procesem prognozowania.
+
+Przykładowymi modelami prognozowania pogody są Lorenz63 i Lorenz96\cite{ai-in-weather-and-climate-prediction}
+które są najprostsze w opisie,
+które są zaprojektowane z mniejszą ilością stopni swobody. Modele te są łatwe w zrozumieniu i 
+stanowią podstawe do przeprowadzania badań. Ich szybka natura sprawia że ich stosowanie jest dość
+proste, niestety dokładność predykcji jest dość niska. Przeciwieństwem do nich są modele NWP i GCM
+które są bardzo skomplikowane i trudne do zrozumienia, są opisane przez wielowymiarowe równania, oraz
+osiągają większą dokładność.
+
 Jednym z większych problemów NWP jest nieliniowo wzrastający błąd ograniczający długość prognozy.
 Ponieważ modele NWP dokonują predykcji w sposób stopniowy, prognozując stan systemu dla następnego
 kroku, żeby później otrzymany wynik dodać do danych wejściowych i kontynuować obliczenia, otrzymane błędy
@@ -125,7 +139,6 @@ dla atmosfery, lądu oraz oceanu\cite{nwp-the-quiet-revolution}.
 Dzisiejsze komputery używane do NWP sięgają mocy obliczeniowej równej jednego petaflop-a ($10^{15}$ operacji
 zmiennoprzecinkowych) na sekundę. Szacuje się że systemy komputerowe stosowane przez ECMWF mają zużycie energii
 sięgające 10 MVA, a dalszy rozwój i zwiększenie modeli mogłoby wymagać 10-krotne zwiększenie pobieranej mocy.
-
 
 \subsubsection*{Metody uczenia maszynowego}
 
@@ -203,6 +216,7 @@ zastosowane będą następujące metody regresji z zakresu uczenia maszynowego:
     zachowań dynamicznych. Wewnętrzny stan sieci rekurencyjnych (pamięć) może być wykorzystywany
     do przetwarzania danych o zmiennej długości. Znajdują szerokie zastosowanie w rozpoznawaniu
     pisma lub mowy. Przykładowymi warstwami charakteryzującymi sieci rekurencyjne są LSTM bądź GRU.
+    Sieci te zostały specjalne zaprojektowane do celów analizy danych o czasowo zależnej naturze.
 
     \item CNN - są klasą sieci neuronowych w której wykorzystywane są konwolucje w celu 
     analizy i preprocesowania danych wejściowych. Pozwalają na przetwarzanie danych wielowymiarowych
@@ -364,6 +378,27 @@ z danych należących do okresu bezpośrednio następującego po zbiorze trening
 przynosi o wiele dokładaniejsze wyniki, ponieważ skupia się na przewidywaniu danych 
 z przyszłości bazując na obecnych pomiarach.
 
+Jak przytoczone przez \Citeauthor*{ai-revolutionises-weather-prediction}\cite{ai-revolutionises-weather-prediction}
+konwolucyjne sieci neuronowe były pomyślnie użyte w celu przewidzenia zdarzeń ENSO 
+(El Niño Southern Oscillation) wskazujących na epizodyczne odbiegnięcie temperatury oceanów 
+od wartości spodziewanych. Użycie uczenia głębokiego umożliwiło przewidzenie zdarzeń ENSO z 
+wyprzedzeniem równym półtora roku, znacznie przewyższającym możliwości dynamicznych modeli
+fizycznych przewidywania pogody. Bardzo dobre wyniki CNN mogły zostać uzyskane przy pomocy
+transfer learning dzięki czemu ograniczony zbiór treningowy nie sprawił problemu w procesie 
+tworzenia sieci.
+
+Okazuje się że dla prognoz o charakterze bardzo krótkoterminowym odpowiadającym 4-6 godzinom 
+wprzód, bezpośrednia ekstrapolacja predykcji z obserwacji jest bardziej dokładna niż 
+stosowanie modeli NWP\cite{ai-revolutionises-weather-prediction}. W celach nowcasting
+wnioskowanie bezpośrednie ze zdjęć satelitarnych połączone z metodami przepływu optycznego osiąga
+lepsze wyniki niż NWP, w szczególności pod względem zjawisk mających do czynienia z zachmurzeniem,
+jak promieniowanie słoneczne, opady i burze. 
+
+W celu przeprowadzenia badań wiele autorów stosowało różne frameworki implementujące algorytmy uczenia
+maszynowego, z czego najpopularniejszymi był Python\cite{python} i Scikit-learn\cite{sklearn}
+razem z Keras\cite{keras}. Stosowane było także oprogramowanie WEKA udostępniające zarówno interfejs
+graficzny jak i programistyczny w języku JAVA.
+
 
 % Critical analysis: Provide a critical analysis of the existing literature, 
 % highlighting any strengths or weaknesses in previous studies, and identifying 
@@ -433,6 +468,17 @@ ze stacji meteorologicznych
 jest ograniczona a ilość danych historycznych zebranych nie jest wystarczająca do ujęcia 
 skomplikowanych wzorców pogodowych.
 
+Klasyczne modelowanie statystyczne stara się znaleźć równowagę pomiędzy wystarczająco specyficznym
+sformuowaniem ewolucji systemu zależnego czasowo i pozostałymi stopniami swobody aby 
+przystosować się do zmienności danych\cite{can-dl-beat-numerical}. Dla przykładu 
+model korzystający z godzinnych odczytów temperatury zazwyczaj powinien zawierać conajmniej
+dwie składowe periodyczne aby uchwycić cykl dzienny i sezonowy. Dodatkowo mogą występować
+dodatkowe składowe określające zależność temperatury od innych zmiennych. Z drugiej strony
+zbyt rozbudowany model zawierający za dużo składowych może skutkować overfitting-iem.
+Chociaż spodziewa się od algorytmów uczenia maszynowego nauki wielu zależności danych
+w sposób automatycznych, projektowanie struktury i dobranie parametrów algorytmów i
+zbioru danych ma wpływ na stopień rozbudowania modelu.
+
 % The contribution of your research: Conclude by discussing how your research 
 % contributes to the current state of knowledge on weather prediction and the 
 % application of artificial intelligence and machine learning techniques in this area. 
@@ -440,3 +486,26 @@ skomplikowanych wzorców pogodowych.
 % impact of your findings, or the implications for future research.
 \subsection{Wkład pracy}
 
+Niniejsza praca kontynuuje badania poświęcone sprawdzeniu dokładności algorytmów uczenia maszynowego
+w celu prognozowania pogody. Celem przeprowadzonych doświadczeń jest sprawdzenie 
+możliwości wybranych algorytmów za pomocą różnych metryk i porównanie wyników. W założeniu
+otrzymane dane mają przybliżyć możliwości przedstawionych metod oraz stworzyć obszerne porównanie
+poszczególnych podejść. Tak jak wiele poprzednich prac, ta jest nastawiona na stworzenie
+prognoz pogodowych na podstawie danych reanalisis dotyczących określonego zakresu czasowego oraz 
+jednej lokalizacji.
+
+W przeprowadzonych badaniach przestrzegane były zalecenia wystosowane wobec 
+prac dotyczących tworzenia predykcji pogodowych, wraz z myślą metodologi
+wyspecjalizowanej do zadanego tematu.
+
+Uzyskane dane i wyniki są podstawą do wnioskowania o stosowności poszczególnych algorytmów do
+problemu regresji na danych pogodowych. Bezpośrednim celem pracy jest wskazanie najlepszych 
+algorytmów i parametrów do utworzenia prognoz pogodowych przy pomocy uczenia maszynowego.
+Spośród literatury można wyróżnić wiele algorytmów które były stosowane w tym celu i 
+wyraźna ewaluacja ich ze względu na poszczególne miary i wizualizacja uzyskanych efektów zdaje się
+bardzo istatna w przeprowadzeniu dalszych badań.
+
+Ważnym elementem następującej pracy jest także wskazanie możliwości rozwoju
+zastosowanych metod i zaproponowanie ulepszeń mających w zamyśle rozwój dziedziny.
+Poprzez stworzone porównania oraz wnioskując z uzyskanych danych spróbowano także wskazać
+ograniczenia przeprowadzonych działań i niedoskonałości w otrzymanych wynikach.
