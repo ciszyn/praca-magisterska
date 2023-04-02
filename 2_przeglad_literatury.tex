@@ -19,8 +19,8 @@
 
 Jako już dojrzała metodologia, zastosowanie uczenia maszynowego 
 znajduje dużą duże odbicie w wielu artykułach i publikacjach naukowych. 
-Wiele publikacji analizuje zastosowanie AI w hybrydowych jak i czystych 
-algoritmach prognozowania pogody. 
+Wiele publikacji analizuje zastosowanie AI w hybrydowych, jak i czystych 
+algorytmach prognozowania pogody. 
 
 
 % Background information: Begin by providing some background information on 
@@ -37,17 +37,17 @@ algoritmach prognozowania pogody.
 Pierwsze próby "odręcznych" modeli NWP były zainicjowane przez Lewis Fry Richardson-a w 1922 roku i 
 były zainspirowane ideą przewidywania pogody za pomocą sformułowanych praw fizyki. Sformułowanie
 nieliniowych równań różniczkowych opisujących pogodę tworzyło problem z wartością początkową bazującą
-na bierzących pomiarach pogody. W celu osiągnięcia zamierzonego celu interakcje z dziedziny 
-termodynamiki, dynamiki, procesów chemicznych jak i biologicznych muszą być wzięte pod uwagę.
+na bieżących pomiarach pogody. W celu osiągnięcia zamierzonego celu interakcje z dziedziny 
+termodynamiki, dynamiki, procesów chemicznych, jak i biologicznych muszą być wzięte pod uwagę.
 Pierwsze komputerowo wspomagane prognozy pogody były tworzone już w 1950 roku, lecz dopiero
 w 1970 roku wraz z rozwojem superkomputerów rozwiązanie pełnego zbioru równań było możliwe.
 
 Podstawowymi równaniami opisującymi zachowanie pogody są równania Naviera-Stokesa, równania zachowania
 masy, pierwsza zasada termodynamiki i równanie Clapeyrona. Za pomocą nich stan wiatru, ciśnienia,
-gęstości, temperatury może być zamodelowany opisując stan atmosfery. Ze względu na brak rozwiązania
+gęstości, temperatury może być modelowany opisując stan atmosfery. Ze względu na brak rozwiązania
 analitycznego tych równań, koniecznością jest rozwiązanie numeryczne. Procesy fizyczne występujące
-w zbyt małej skali aby być ujęte podczas dyskretyzacji przestrzeni muszą być opisywane za pomocą
-parametryzacji próbujących przybliżyć ich w wpływ na ogólne rozwiązanie. W wielu przypadkach 
+w zbyt małej skali, aby być ujęte podczas dyskretyzacji przestrzeni, muszą być opisywane za pomocą
+parametryzacji próbujących przybliżyć ich wpływ na ogólne rozwiązanie. W wielu przypadkach 
 dodatkowe uproszczenia i zaokrąglenia są brane pod uwagę w celu uproszczenia procesu
 rozwiązywania. Niektóre modele globalne i prawie wszystkie modele lokalne stosują 
 metodę różnic skończonych we wszystkich stopniach swobody systemu, a niektóre modele globalne
@@ -57,10 +57,10 @@ minut, a w przypadku prognoz lokalnych w zakresie jednej do czterech minut.
 
 Ze względu na chaotyczną charakterystykę równań opisujących pogodę, małe zmiany w warunkach początkowych
 mogą skutkować odstającymi od siebie wynikami. W celu opisania i przewidywania błędu prognozy pogody 
-rozwinięte zostały modele ensemble. Nieliniowa złożoność systemu oznacza że podejścia opisu
+rozwinięte zostały modele ensemble. Nieliniowa złożoność systemu oznacza, że podejścia opisu
 dokładności prognozy bazujące na metodach czysto statystycznych nie przynoszą upragnionych wyników.
 Dlatego zbiór wielu modeli zainicjowanych z nieznacznie różniącymi się warunkami początkowymi
-jest stosowany do sprawdzenia jak bardzo uzyskane wyniki mogą się różnić i nadania dokładności do 
+jest stosowany do sprawdzenia jak bardzo uzyskane wyniki mogą się różnić, i nadania dokładności do 
 stworzonej prognozy. Przykładowa predykcja stworzona przy pomocy metody ensemble znajduje się 
 poniżej\ref{nwp-ensemble}.
 
@@ -77,7 +77,7 @@ pogodowych. Następnie różne metody interpolacji danych były zastąpione prze
 asymilacji danych oparte na teorii sterowania optymalnego. Obliczanie rzeczywistych wartości
 opisujących atmosferę może być opisane jako wnioskowane Bayesowskie oparte na wynikach pomiarów
 oraz ich niepewnościach. Te obliczenia skoncentrowane na minimalizacji obiektywnej funkcji 
-są przeprowadzane w cztero-wymiarowej przestrzeni aby otrzymać fizycznie możliwy wynik
+są przeprowadzane w czterowymiarowej przestrzeni, aby otrzymać fizycznie możliwy wynik
 równomiernie rozłożony w trzech wymiarach przestrzennych i czasie.
 
 W praktyce wykorzystanie modeli NWP w celach predykcji pogody wymaga asymilacji dużej ilości
@@ -85,28 +85,28 @@ danych pochodzących z różnych źródeł. Metodą wykorzystywaną dzisiaj w ce
 danych jest asymilacja 4D-Var (używana od 1980 roku). W tym algorytmie dla każdego typu obserwacji tworzony jest
 operator obserwacji pozwalający wewnętrznym parametrom modelu NWP na odniesienie się
 do poszczególnego typu obserwacji. Podczas procesu asymilacji danych parametry wewnętrzne
-modelu są dostosowywane aby jak najlepiej odzwierciedlić rzeczywiste warunki pogodowe.
+modelu są dostosowywane, aby jak najlepiej odzwierciedlić rzeczywiste warunki pogodowe.
 
 W wielu przypadkach złożoność obliczeniowa NWP wymaga redukcji objętości danych pochodzących
 z obserwacji satelitarnych o dużej gęstości. Rozdzielczość danych pochodzących z odczytów
 satelitarnych znacznie przekracza możliwości dotychczas używanych modeli stworzonych przez
-ECMWF posiadających rozdzielczość horyzontalną równą 9 km. Co więcej w przypadku modeli
+ECMWF posiadających rozdzielczość horyzontalną równą 9 km. Co więcej, w przypadku modeli
 ensemble w celach zmniejszenia kosztów obliczeniowych rozdzielczość jest zmniejszana do 18 km.
-Procesy które nie mogą być wiernie odzwierciedlone przez symulację
-ze wzlędu na zbyt małą rozdzielczość NWP podlegają parametryzacji.
+Procesy, które nie mogą być wiernie odzwierciedlone przez symulację
+ze względu na zbyt małą rozdzielczość NWP podlegają parametryzacji.
 Do takich procesów zalicza się: formowanie się chmur, ilość promieni słonecznych docierających do 
-podłoża, opór aerodynamiczny szczytów górskich czy formowanie się kropolek wody.
+podłoża, opór aerodynamiczny szczytów górskich czy formowanie się kropelek wody.
 
 Ostateczny wynik przeprowadzonej symulacji NWP musi być jeszcze dodatkowo wzbogacony przez zastosowanie
 statystyk wyjścia modelu (MOS). W ramach tego prognozowany stan modelu opisywany poprzez skomplikowane
-parametry jest zamieniany na wielkości łatwo interpretowalne przez ludzie. Co więcej metody numeryczne
-wykorzystują przybliżoną siatkę modelującą atmosferę, która musi być zinterpolowana w celu uzyskania
+parametry jest zamieniany na wielkości łatwo interpretowane przez ludzi. Co więcej, metody numeryczne
+wykorzystują przybliżoną siatkę modelującą atmosferę, która musi być interpolowana w celu uzyskania
 wyniku dla konkretnej lokalizacji. W tych celach często stosuje się wielokrotne zastosowanie 
 regresji liniowej. Krok ten dodatkowo umożliwia zniwelowanie błędów nawarstwionych przez model i wzięcie
 pod uwagę sparametryzowanych zjawisk.
 
 Dodatkowo niektóre parametryzacje także są stopniowo zastępowane przez algorytmy uczenia maszynowego,
-czego przykładem jest obliczanie energi promieniowania w sposób uproszczony
+czego przykładem jest obliczanie energii promieniowania w sposób uproszczony
 \cite{ai-in-weather-and-climate-prediction}. Energia promieniowania
 może być w sposób kosztowny obliczona przez modele NWP, lecz zastosowanie ML skutkuje szybszym
 procesem prognozowania.
@@ -114,8 +114,8 @@ procesem prognozowania.
 Przykładowymi modelami prognozowania pogody są Lorenz63 i Lorenz96\cite{ai-in-weather-and-climate-prediction}
 które są najprostsze w opisie,
 które są zaprojektowane z mniejszą ilością stopni swobody. Modele te są łatwe w zrozumieniu i 
-stanowią podstawe do przeprowadzania badań. Ich szybka natura sprawia że ich stosowanie jest dość
-proste, niestety dokładność predykcji jest dość niska. Przeciwieństwem do nich są modele NWP i GCM
+stanowią podstawe do przeprowadzania badań. Ich szybka natura sprawia, że ich stosowanie jest dość
+proste, niestety dokładność predykcji jest dość niska. Przeciwieństwem do nich są modele NWP i GCM,
 które są bardzo skomplikowane i trudne do zrozumienia, są opisane przez wielowymiarowe równania, oraz
 osiągają większą dokładność.
 
@@ -123,17 +123,17 @@ Jednym z większych problemów NWP jest nieliniowo wzrastający błąd ogranicza
 Ponieważ modele NWP dokonują predykcji w sposób stopniowy, prognozując stan systemu dla następnego
 kroku, żeby później otrzymany wynik dodać do danych wejściowych i kontynuować obliczenia, otrzymane błędy
 mają tendencję do akumulacji wraz ze wzrostem długości symulacji.
-Limit dla wydarzeń o małej skali jest szacowany na dni, bądź godziny, zaś zdarzenia o dużej skali
+Limit dla wydarzeń o małej skali jest szacowany na dni bądź godziny, zdarzenia o dużej skali
 mogą być prognozowane z aż 2 tygodniowym wyprzedzeniem. Szacuje się że błąd akumulowany przez 
 model NWP ulega zdwukrotnieniu z każdymi pięcioma dniami.
 
-W porównaniu z wieloma innymi dziedzinami w których numeryczne prognozowanie jest stosowane,
-NWP ma przewagę pod względem częstotliwości z którą jest wykorzystywane. Prognozy są generowane
+W porównaniu z wieloma innymi dziedzinami, w których numeryczne prognozowanie jest stosowane,
+NWP ma przewagę pod względem częstotliwości, z którą jest wykorzystywane. Prognozy są generowane
 w ten sposób z częstotliwością dzienną i na poziomie globalnym. Dokładność tworzonych predykcji jest
 dobrze znana i sposoby wzmocnienia aktualnie stosowanych algorytmów mogą być sprawdzone z dużą
 efektywnością. Modele NWP wciąż są ulepszane, a rozwój technologiczny i naukowy być może pozwoli
 w przyszłości tworzyć modele bazujące na danych zbieranych z rozdzielczością sięgającą 1 km. Co więcej
-możliwe że w najbliższej przyszłości utworzone zostaną modele rozwiązujące sprzężone symulacje
+możliwe, że w najbliższej przyszłości utworzone zostaną modele rozwiązujące sprzężone symulacje
 dla atmosfery, lądu oraz oceanu\cite{nwp-the-quiet-revolution}.
 
 Dzisiejsze komputery używane do NWP sięgają mocy obliczeniowej równej jednego petaflop-a ($10^{15}$ operacji
@@ -152,7 +152,7 @@ zastosowane będą następujące metody regresji z zakresu uczenia maszynowego:
 
 
 \begin{itemize}
-    \item SVR - jest metodą regresji wykorzystującą maszynę wektorów nośnych w celu tworzenia
+    \item SVR — jest metodą regresji wykorzystującą maszynę wektorów nośnych w celu tworzenia
     predykcji. Opiera się ona na tworzeniu hiperpłaszczyzny mającej na celu z jak największą
     dokładnością rozdzielenie obserwacji ze zbioru treningowego. Następnie wyznaczone
     równanie hiperpłaszczyzny jest wykorzystywane do klasyfikacji i liczenia regresji dla naukowych
@@ -164,61 +164,61 @@ zastosowane będą następujące metody regresji z zakresu uczenia maszynowego:
     poprzez zastosowanie "kernel trick", niejawnie mapując dziedzinę danych wejściowych na 
     wielowymiarową przestrzeń o innej charakterystyce.
     
-    \item Regresja Logistyczna - jest modelem statstycznym przewidującym nastąpienie danego
+    \item Regresja Logistyczna — jest modelem statystycznym przewidującym nastąpienie danego
     zdarzenia na podstawie obliczenia funkcji logitowej z kombinacji liniowej zmiennych 
     niezależnych.
 
-    \item SGD - jest metodą trenowania modeli uczenia maszynowego poprzez iteratywną optymalizaję
+    \item SGD — jest metodą trenowania modeli uczenia maszynowego poprzez iteratywną optymalizację
     funkcji celu. Zastosowanie SGD uzyskało dobre wyniki w trenowaniu modeli stosowanych
-    do klasyfikacji tekstu i przetwarzaniu języka naturalnego. W ramach tego algorytmu,
+    do klasyfikacji tekstu i przetwarzaniu języka naturalnego. W ramach tego algorytmu
     punkt początkowy wybierany przez użytkownika jest poddawany iteratywnej optymalizacji
     poprzez wybieranie kierunku największego spadku funkcji błędu. W ten sposób przestrzeń rozwiązań
     jest przeszukiwana w bardzo efektywny sposób. Niestety zapewnienie globalnego minimum
     nie jest zawsze zagwarantowane.
 
-    \item KNN - jest prostym modelem który może być stosowany zarówno do regresji jak i klasyfikacji.
-    Polega na wybraniu k najbliższych sąsiadów ze zbioru treningowego aby określić wartość dla nowej
+    \item KNN — jest prostym modelem, który może być stosowany zarówno do regresji, jak i klasyfikacji.
+    Polega na wybraniu k najbliższych sąsiadów ze zbioru treningowego, aby określić wartość dla nowej
     obserwacji. Po wybraniu najbardziej podobnych obserwacji ze zbioru treningowego wartość funkcji
     celu jest uśredniana.
 
-    \item Regresja Gaussowska - jest nie parametryczną formą metody Bayesowskiej do tworzenia
+    \item Regresja Gaussowska — jest nieparametryczną formą metody Bayesowskiej do tworzenia
     predykcji. Zamiast obliczać dystrybucję parametrów funkcji ta metoda może być zastosowana do
     obliczenia dystrybucji funkcji celu.
     
-    \item PLS - Partial least squares regression - jest algorytmem wykorzystującym rozkład
-    danych ze względu na analize głównych składowych (PCA) aby w następnym wykorzystać metodę
+    \item PLS — Partial least squares regression- jest algorytmem wykorzystującym rozkład
+    danych ze względu na analizie głównych składowych (PCA), aby w następnym wykorzystać metodę
     najmniejszych kwadratów do przeprowadzenia regresji.
 
-    \item Drzewo Decyzyjne - jest modelem o strukturze drzewiastej, której celem jest
+    \item Drzewo Decyzyjne — jest modelem o strukturze drzewiastej, której celem jest
     przewidzenie wartości funkcji celu na podstawie podzbioru wartości atrybutów obserwacji. 
     Drzewa decyzyjne są budowane na podstawie rekursywnego partycjonowania danych treningowych
     ze względu na atrybut optymalizujący miarę dopasowania drzewa (Gini, zysk informacyjny).
     Ze względu na różne użyte miary i metody budowania drzewa wyróżnia się algorytmy ID, C4.5,
     C5.0 oraz CART. W użytej bibliotece sklearn zaimplementowany i użyty jest ten ostatni.
 
-    \item Las Losowy - algorytm w którym tworzona jest duża liczba drzew decyzyjnych poprzez
-    bootstraping and bagging orginalnego zbioru danych. Ostateczna decyzja lasu losowego w 
+    \item Las Losowy — algorytm, w którym tworzona jest duża liczba drzew decyzyjnych poprzez
+    bootstraping i bagging oryginalnego zbioru danych. Ostateczna decyzja lasu losowego w 
     zadaniu regresji jest średnią z wyjścia wszystkich wygenerowanych drzew decyzyjnych.
 
-    \item MLP - perceptron wielowarstwowy. Najprostszy typ sieci neuronowej. Składa się z 
+    \item MLP — perceptron wielowarstwowy. Najprostszy typ sieci neuronowej. Składa się z 
     warstwy wejściowej, warstw ukrytych oraz warstwy wyjściowej. Każda warstwa składa się
-    z pewnej liczby perceptronów mając naśladować działanie neuronów w ludzkim mózgu.
+    z pewnej liczby perceptronów mających naśladować działanie neuronów w ludzkim mózgu.
     Wartość wyjściowa każdego perceptrona jest obliczana jako wartość funkcji aktywacji z 
     liniowej kombinacji wartości na wejściu. Każda kolejna warstwa sieci jest gęsto połączona
     z warstwą poprzednią.
-    Proces uczenia sieci neuronowej polega na zastosowaniu propagacji wstecznej aby dostosować
+    Proces uczenia sieci neuronowej polega na zastosowaniu propagacji wstecznej, aby dostosować
     wartości parametrów sieci w celu minimalizacji funkcji błędu określającej jak daleko
     wyjście sieci odbiega od pożądanej wartości. 
 
-    \item RNN - są klasą sieci neuronowych, w których połączenia pomiędzy węzłami
-    mogą tworzyć cykle, pozwalając na to aby wyjście z niektórych węzłów mogło mieć wpływ na 
-    wejście tych samych węzłów. Ta charakterystyka sieci pozwala na objawiania tymczasowych 
+    \item RNN — są klasą sieci neuronowych, w których połączenia pomiędzy węzłami
+    mogą tworzyć cykle, pozwalając na to, aby wyjście z niektórych węzłów mogło mieć wpływ na 
+    wejście tych samych węzłów. Ta charakterystyka sieci pozwala na objaśnienia tymczasowych 
     zachowań dynamicznych. Wewnętrzny stan sieci rekurencyjnych (pamięć) może być wykorzystywany
     do przetwarzania danych o zmiennej długości. Znajdują szerokie zastosowanie w rozpoznawaniu
     pisma lub mowy. Przykładowymi warstwami charakteryzującymi sieci rekurencyjne są LSTM bądź GRU.
     Sieci te zostały specjalne zaprojektowane do celów analizy danych o czasowo zależnej naturze.
 
-    \item CNN - są klasą sieci neuronowych w której wykorzystywane są konwolucje w celu 
+    \item CNN — są klasą sieci neuronowych, w której wykorzystywane są konwolucje w celu 
     analizy i preprocesowania danych wejściowych. Pozwalają na przetwarzanie danych wielowymiarowych
     w ustrukturyzowany sposób. Są często wykorzystywane w celu klasyfikacji obrazów, wideo czy
     audio. Mogą być jednak używane w stosunku do każdych danych wykazujących zorganizowaną strukturę.
@@ -234,9 +234,9 @@ zastosowane będą następujące metody regresji z zakresu uczenia maszynowego:
 
 Można znaleźć artykuły analizujące najczęściej występujące słowa
 w publikacjach dotyczących algorytmów przewidywania pogody 
-\cite{ml-in-weather-prediction}. Okazuje się że w artykułach traktujących o
+\cite{ml-in-weather-prediction}. Okazuje się, że w artykułach traktujących o
 metodach NWP najczęściej występującą frazą jest "prognozowanie wiatru". Innymi 
-często występującymi sformuowaniami były "modele ensemble", "asymilacja danych",
+często występującymi sformułowaniami były "modele ensemble", "asymilacja danych",
 "warunki ekstremalne". Pośród analizowanych artykułów słowo wiatr pojawiło się
 ponad 200 razy, najczęściej w odniesieniu do źródeł odnawialnej energii i badań
 w przewidywaniu siły wiatru. Słowo opady pojawiło się prawie 150 razy, zazwyczaj
@@ -245,7 +245,7 @@ downscaling.
 
 Z kolei dla artykułów dotyczących uczenia maszynowego
 w dziedzinie klimatu najczęściej występujące frazy to "zmiana klimatu", 
-"wpływ na klimat", "warunki ekstremalne". Okazuje się że o wiele częstsze było
+"wpływ na klimat", "warunki ekstremalne". Okazuje się, że o wiele częstsze było
 wystąpienie określenia "globalne modele klimatyczne" niż "regionalne modele 
 klimatyczne". 
 
@@ -270,7 +270,7 @@ sięgało 12.4\% dla wilgotności, 5.2\% dla prędkości wiatru, 17.0\% dla
 temperatury.
 
 \Citeauthor*{weather-monitoring-using-artificial-intelligence}\cite{weather-monitoring-using-artificial-intelligence}
-wybrali regresję liniową do modelowania pogody i zaobserwowali 3.5 procentową
+wybrali regresję liniową do modelowania pogody i zaobserwowali 3.5-procentową
 dewiację dla prognozy na następny dzień.
 
 Porównanie wielu modelów, w tym sieci neuronowej, sieci radialnej, 
@@ -289,12 +289,12 @@ numeryczne są w stanie osiągnąć lepsze wyniki dla prognoz
 krótkoterminowych, lecz różnica dla prognoz długoterminowych
 nie była już tak znaczna. Proponowanym wytłumaczeniem tego jest
 brak stabilności modeli NWP i akumulacja błędów dla dłuższych 
-okresów czasu. Z kolei uczenie maszynowe zdaje się być bardziej
+okresów. Z kolei uczenie maszynowe zdaje się bardziej
 odporne na perturbacje w warunkach początkowych i zachowuje 
 stabilne wyniki nawet dla prognoz długoterminowych.
 
 Mimo wszystko kwestia zastąpienia NWP przez metody uczenia maszynowego
-wciąż nie jest roztrzygnięta jak wskazuje \Citeauthor*{can-dl-beat-numerical}
+wciąż nie jest rozstrzygnięta jak wskazuje \Citeauthor*{can-dl-beat-numerical}
 \cite{can-dl-beat-numerical}. Artykuł ten szacuje jakość prognoz 
 deterministycznych publikowanych przez ECMWF na 80\% dokładności w przewidywaniu
 poziomu ciśnienia na przełomie 7 dni. Z kolei temperatura może być 
@@ -320,7 +320,7 @@ na drzewach decyzyjnych niż MLP, gradient boosting czy regresji.
 
 Kolejnym artykułem z tej dziedziny jest \Citeauthor*{coupling-data-science}\cite{coupling-data-science}
 analizujący wartość nasłonecznienia. Głównym problemem napotkanym podczas
-badań okazało się być znalezienie dobrej równowagi pomiędzy płynnością zmian a 
+badań okazało się znalezienie dobrej równowagi pomiędzy płynnością zmian a 
 momentalnymi anomaliami w przewidywanych wartościach. Zastosowanie algorytmów
 preferujących ciągłość kończyło się dążeniem prognozy do średniej wartości i 
 dużymi błędami podczas zachmurzonych i słonecznych dni. Tak więc dalsza analiza 
@@ -339,15 +339,15 @@ problemu. Tak na przykład \Citeauthor{weather-forecast-prediction-data-mining}
 aby prognozować temperaturę maksymalną, temperaturę minimalną, opady, prędkość wiatru
 oraz odparowanie wody. Zastosowany algorytm wykorzystany został w celu tworzenia prognoz
 na przekroju miesięcy i lat. Ilustruje to, że nawet proste modele AI są w stanie 
-przynieść porządane wyniki, choć niekoniecznie mogące konkurować z dokładnością i 
+przynieść pożądane wyniki, choć niekoniecznie mogące konkurować z dokładnością i 
 złożonością algorytmów NWP.
 
 Zastosowanie uczenia maszynowego w celach predykcji pogody znajduje zastosowanie
 w sytuacjach w których ilość zasobów obliczeniowych jest ograniczona. Tak więc
 \Citeauthor{weather-forecasting-using-ml}\cite{weather-forecasting-using-ml} wykorzystuje
-mikrokontrolery przeprowadzające analizę w czasie rzeczywistym bazując na odczytach z 
+mikro kontrolery przeprowadzające analizę w czasie rzeczywistym, bazując na odczytach z 
 czujników. Podobnie \Citeauthor{smart-weather-forecasting}\cite{smart-weather-forecasting}
-proponuje wykorzystanie internetu rzeczy (IoT) aby zbierać i przetwarzać dane z różnych lokacji.
+proponuje wykorzystanie internetu rzeczy (IoT), aby zbierać i przetwarzać dane z różnych lokacji.
 Dane gromadzone w czasie rzeczywistym mają potencjał rozszerzyć istniejące zbiory danych
 i w konsekwencji polepszyć dokładność trenowanych modeli.
 
@@ -365,18 +365,18 @@ obrazów spektralnych i przestrzennych pochodzących z satelity SEVIRI.
 
 Metody AI są także zachęcające ze względu na prostotę i szybkość tworzenia systemów.
 \Citeauthor*{ai-revolutionises-weather-prediction}\cite{ai-revolutionises-weather-prediction}
-podaje że system MIIDAPS-AI zaprojektowany w celu fuzji i asymilacji danych został stworzony w
-przeciągu 10 miesięcy, gdy podobny system stworzony przy pomocy metod tradycyjnych zająłby
+podaje, że system MIIDAPS-AI zaprojektowany w celu fuzji i asymilacji danych został stworzony w ciągu 10 miesięcy, 
+gdy podobny system stworzony przy pomocy metod tradycyjnych zająłby
 w stworzeniu stukrotnie więcej czasu.
 
 \Citeauthor*{ml-applied-to-weather-forecasting}\cite{ml-applied-to-weather-forecasting}
 zwraca uwagę na sposób przygotowania zbioru testowego i treningowego do celów uczenia 
-maszynowego. Poniważ prognozowanie danych nieodłącznie jest związanie z szeregami czasowymi,
+maszynowego. Ponieważ prognozowanie danych nieodłącznie jest związanie z szeregami czasowymi,
 zastosowanie walidacji krzyżowej jest kłopotliwe. Zamiast kroswalidacji zastosowana 
-zasosowanya została walidacja n-fold forward chaining, w którym zbiór testowy składa się 
+zastosowania została walidacja n-fold forward chaining, w którym zbiór testowy składa się 
 z danych należących do okresu bezpośrednio następującego po zbiorze treningowym. Ta metoda
-przynosi o wiele dokładaniejsze wyniki, ponieważ skupia się na przewidywaniu danych 
-z przyszłości bazując na obecnych pomiarach.
+przynosi o wiele dokładniejsze wyniki, ponieważ skupia się na przewidywaniu danych 
+z przyszłości, bazując na obecnych pomiarach.
 
 Jak przytoczone przez \Citeauthor*{ai-revolutionises-weather-prediction}\cite{ai-revolutionises-weather-prediction}
 konwolucyjne sieci neuronowe były pomyślnie użyte w celu przewidzenia zdarzeń ENSO 
@@ -384,11 +384,11 @@ konwolucyjne sieci neuronowe były pomyślnie użyte w celu przewidzenia zdarze�
 od wartości spodziewanych. Użycie uczenia głębokiego umożliwiło przewidzenie zdarzeń ENSO z 
 wyprzedzeniem równym półtora roku, znacznie przewyższającym możliwości dynamicznych modeli
 fizycznych przewidywania pogody. Bardzo dobre wyniki CNN mogły zostać uzyskane przy pomocy
-transfer learning dzięki czemu ograniczony zbiór treningowy nie sprawił problemu w procesie 
+transfer learning, dzięki czemu ograniczony zbiór treningowy nie sprawił problemu w procesie 
 tworzenia sieci.
 
-Okazuje się że dla prognoz o charakterze bardzo krótkoterminowym odpowiadającym 4-6 godzinom 
-wprzód, bezpośrednia ekstrapolacja predykcji z obserwacji jest bardziej dokładna niż 
+Okazuje się, że dla prognoz o charakterze bardzo krótkoterminowym odpowiadającym 4-6 godzinom 
+wprzód, bezpośrednia ekstrapolacja predykcji z obserwacji jest dokładniejsza niż 
 stosowanie modeli NWP\cite{ai-revolutionises-weather-prediction}. W celach nowcasting
 wnioskowanie bezpośrednie ze zdjęć satelitarnych połączone z metodami przepływu optycznego osiąga
 lepsze wyniki niż NWP, w szczególności pod względem zjawisk mających do czynienia z zachmurzeniem,
@@ -397,7 +397,7 @@ jak promieniowanie słoneczne, opady i burze.
 W celu przeprowadzenia badań wiele autorów stosowało różne frameworki implementujące algorytmy uczenia
 maszynowego, z czego najpopularniejszymi był Python\cite{python} i Scikit-learn\cite{sklearn}
 razem z Keras\cite{keras}. Stosowane było także oprogramowanie WEKA udostępniające zarówno interfejs
-graficzny jak i programistyczny w języku JAVA.
+graficzny, jak i programistyczny w języku JAVA.
 
 
 % Critical analysis: Provide a critical analysis of the existing literature, 
@@ -406,37 +406,37 @@ graficzny jak i programistyczny w języku JAVA.
 \subsection{Analiza krytyczna}
 
 Jednym z największych wyzwań w analizie algorytmów prognozowania pogody jest ewaluacja 
-stworzonych modeli. Istnieje wiele metrych pozwalających w sposób numeryczny oszacować
+stworzonych modeli. Istnieje wiele metryk pozwalających w sposób numeryczny oszacować
 dokładność modelu. Jednak różnice pomiędzy rzeczywistą pogodą a prognozowaną nie zawsze
-mogą być oszacowany w sposób statystyczny. Sposób w jaki warunki atmosferyczne są odbierane
-przez ludzi i w jaki mają wpływ na otaczający nas świat jest bardzo skomplikowany i trudny
-w opisie. Co więcej nie ma jednego bezpośredniego sposobu oszacowania fizycznej spełnialności
+mogą być oszacowany w sposób statystyczny. Sposób, w jaki warunki atmosferyczne są odbierane
+przez ludzi i w jaki mają wpływ na otaczający nas świat, jest bardzo skomplikowany i trudny
+w opisie. Co więcej, nie ma jednego bezpośredniego sposobu oszacowania fizycznej spełnialności
 modelu\cite{deep-learning-for-improving-numerical}.
 Modele dobrze podążające za średnim trendem pogody, lecz nie odnajdujące
-zjawisk skrajnych sprawiają o wiele większe niebezpieczeństwo i straty niż te które
+zjawisk skrajnych sprawiają o wiele większe niebezpieczeństwo i straty niż te, które
 pomimo większego błędu średniego, są w stanie lepiej przewidywać gwałtowne skoki i spadki
-w warunkach atmosferycznych. Z doświadczeń wynika że często overfitting w stosunku do
+w warunkach atmosferycznych. Z doświadczeń wynika, że często overfitting w stosunku do
 średniego trendu szeregu czasowego, skutkuje złą wydajnością w przewidywaniu
 zjawisk sezonowych i zdarzeń odstających.
 
-Powyższy problem jest tym poważniejszy, że zbiory danych na których modele uczenia maszynowego
+Powyższy problem jest tym poważniejszy, że zbiory danych, na których modele uczenia maszynowego
 są trenowane często zawierają dane nie zbalansowane ze względu na warunki ekstremalne, które naturalnie
-występują bardzo żadko, tak więc na przykład model wytrenowany w celu przewidywania
+występują bardzo rzadko, tak więc na przykład model wytrenowany w celu przewidywania
 skrajnych ilości opadów na terenie Niemiec ($> 25mm/m^2$) musi być trenowany na danych 
-zawierających jedynie 10 zdarzeń o danym typie w danych zebranych z 10 lat\cite{can-dl-beat-numerical}.
+zawierających jedynie 10 zdarzeń o danym typie w danych zebranych z 10 lat \cite{can-dl-beat-numerical}.
 
-Dane zebrane z obserwacji meterologicznych podąża za
+Dane zebrane z obserwacji meteorologicznych podąża za
 rozkładem normalnym, lecz wiele z nich (tak jak opady, czy wielkość kropli deszczu) 
 \cite{can-dl-beat-numerical} jest bliższa dystrybucji gamma lub beta. Analiza statystyczna
 danych atmosferycznych musi więc brać pod uwagę wiele czynników i różnorodność dostępnych danych.
 
-Co więcej dużo zjawisk wpływających na pogodę ma charakter zarówno krótkoterminowy, jak i 
+Co więcej, dużo zjawisk wpływających na pogodę ma charakter zarówno krótkoterminowy, jak i 
 długoterminowy. Zjawiska długoterminowe mogą mieć znaczący wpływ na lokalne warunki atmosferyczne,
-nie dość że muszą być brane pod uwagę podczas tworzenia prognoz, to w trakcie tworzenia modeli
+nie dość, że muszą być brane pod uwagę podczas tworzenia prognoz, to w trakcie tworzenia modeli
 i treningu. Zjawiska krótkoterminowe, o długości mniejszej niż okres pomiarowy, mogą z kolei
 brakować w zbiorze danych używanym do treningu. NWP radzi sobie z tym problemem poprzez 
 parametryzacje i symulacje efektów o małej skali. Zastosowanie uczenia maszynowego
-w celu prognozy pogody wymagałoby upewnienia się że stworzone modele są w stanie 
+w celu prognozy pogody wymagałoby upewnienia się, że stworzone modele są w stanie 
 indukować występowanie zjawisk o małej skali ze współzależności pomiędzy innymi obserwowanymi 
 zmiennymi.
 
@@ -444,11 +444,11 @@ Jednym z większych problemów z zastosowaniem ML do prognozowania pogody jest b
 z prawami fizyki bezpośrednio w stosowanej metodzie. Rozwój algorytmów biorących pod uwagę
 zależności fizyczne w procesie trenowania i używania uczenia maszynowego jest jedną z ważnych dziedzin
 rozwoju ML w prognozowaniu pogody. Mimo tego tradycyjne metody NWP także nie są całkowicie spójne
-z prawami fizyki, nawet biorąc pod uwagę że są stworzone na podstawie równań różniczkowych
+z prawami fizyki, nawet biorąc pod uwagę, że są stworzone na podstawie równań różniczkowych
 opisujących zjawiska fizyczne. Dyskretyzacja przestrzeni i przepływów w NWP nie jest zawsze 
-zachowująca masę i energię. Co więcej metody parametryzacji są często heurystykami 
-mającymi na celu jak najdokładniejsze odwzorowanie zjawisk które nie są ujęte w podstawowym modelu.
-Co więcej, wewnętrzna spójność NWP jest naruszona biorąc pod uwagę cały przepływ
+zachowująca masę i energię. Co więcej, metody parametryzacji są często heurystykami 
+mającymi na celu jak najdokładniejsze odwzorowanie zjawisk, które nie są ujęte w podstawowym modelu.
+Co więcej, wewnętrzna spójność NWP jest naruszona, biorąc pod uwagę cały przepływ
 danych i kroki takie jak post-processing, statystyczne metody korekcji danych i metody 
 ensemble.
 
@@ -457,25 +457,25 @@ z argumentów używanych przeciwko temu podejściu. W wielu przypadkach nie tylk
 prognoza jest wymagana, lecz także wytłumaczenie występujących zjawisk, czego DL nie jest w 
 stanie zapewnić. Problemem są także limitowane zasoby przeznaczone do analizowania zastosowania
 uczenia maszynowego do prognozowania pogody. W wielu przypadkach modele używane w pracach
-badających tą tematykę są znacznie mniejsze od modeli NWP które są uruchamiane na superkomputerach.
-Mimo to ML udowadnia że jest w stanie osiągać zadawolającą dokładność na maszynach o znacznie
+badających tę tematykę są znacznie mniejsze od modeli NWP, które są uruchamiane na superkomputerach.
+Mimo to ML udowadnia, że jest w stanie osiągać zadowalającą dokładność na maszynach o znacznie
 mniejszych osiągach.
 
-W wielu przypadkach dostępność danych także okazuje się być problemem. Najbardziej rozbudowane 
-i dogłębne zbiory danych są tworzone przy pomocy modeli NWP które interpolują pomiary atmosferyczne
+W wielu przypadkach dostępność danych także okazuje się problemem. Najbardziej rozbudowane 
+i dogłębne zbiory danych są tworzone przy pomocy modeli NWP, które interpolują pomiary atmosferyczne
 do odpowiedniego formatu tworząc zbiory reanalysis. Dostępność "surowych" danych pomiarowych 
 ze stacji meteorologicznych
-jest ograniczona a ilość danych historycznych zebranych nie jest wystarczająca do ujęcia 
+jest ograniczona, a ilość danych historycznych zebranych nie jest wystarczająca do ujęcia 
 skomplikowanych wzorców pogodowych.
 
-Klasyczne modelowanie statystyczne stara się znaleźć równowagę pomiędzy wystarczająco specyficznym
-sformuowaniem ewolucji systemu zależnego czasowo i pozostałymi stopniami swobody aby 
+Klasyczne modelowanie statystyczne stara się znaleźć równowagę pomiędzy wystarczająco specyficznym
+sformułowaniem ewolucji systemu zależnego czasowo i pozostałymi stopniami swobody, aby 
 przystosować się do zmienności danych\cite{can-dl-beat-numerical}. Dla przykładu 
-model korzystający z godzinnych odczytów temperatury zazwyczaj powinien zawierać conajmniej
-dwie składowe periodyczne aby uchwycić cykl dzienny i sezonowy. Dodatkowo mogą występować
+model korzystający z godzinnych odczytów temperatury zazwyczaj powinien zawierać co najmniej
+dwie składowe periodyczne, aby uchwycić cykl dzienny i sezonowy. Dodatkowo mogą występować
 dodatkowe składowe określające zależność temperatury od innych zmiennych. Z drugiej strony
 zbyt rozbudowany model zawierający za dużo składowych może skutkować overfitting-iem.
-Chociaż spodziewa się od algorytmów uczenia maszynowego nauki wielu zależności danych
+Chociaż spodziewa się od algorytmów uczenia maszynowego nauki wielu zależności danych
 w sposób automatycznych, projektowanie struktury i dobranie parametrów algorytmów i
 zbioru danych ma wpływ na stopień rozbudowania modelu.
 
@@ -501,11 +501,11 @@ wyspecjalizowanej do zadanego tematu.
 Uzyskane dane i wyniki są podstawą do wnioskowania o stosowności poszczególnych algorytmów do
 problemu regresji na danych pogodowych. Bezpośrednim celem pracy jest wskazanie najlepszych 
 algorytmów i parametrów do utworzenia prognoz pogodowych przy pomocy uczenia maszynowego.
-Spośród literatury można wyróżnić wiele algorytmów które były stosowane w tym celu i 
+Spośród literatury można wyróżnić wiele algorytmów, które były stosowane w tym celu i 
 wyraźna ewaluacja ich ze względu na poszczególne miary i wizualizacja uzyskanych efektów zdaje się
-bardzo istatna w przeprowadzeniu dalszych badań.
+bardzo istotna w przeprowadzeniu dalszych badań.
 
 Ważnym elementem następującej pracy jest także wskazanie możliwości rozwoju
 zastosowanych metod i zaproponowanie ulepszeń mających w zamyśle rozwój dziedziny.
-Poprzez stworzone porównania oraz wnioskując z uzyskanych danych spróbowano także wskazać
+Poprzez stworzone porównania oraz wnioskując z uzyskanych danych, spróbowano także wskazać
 ograniczenia przeprowadzonych działań i niedoskonałości w otrzymanych wynikach.

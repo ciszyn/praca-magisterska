@@ -2,22 +2,161 @@
 % the use of the dataset, such as privacy concerns, bias, or limitations 
 % in the data's representativeness.
 \section{Zbiór danych}
+
+Dane wykorzystane w doświadczeniach pochodzą ze zbioru ERA5 opublikowanego przez ECMWF.
+Zbiór ten jest zbiorem reanalysis globalnej pogody pokrywający dane od 1940 roku do dziś.
+ERA5 została stworzona przez Copernicus Climate Change Service (C3S) będącym częścią ECMWF.
+ERA5 zapewnia godzinne estymaty wielu zmiennych pogodowych dotyczących warunków atmosferycznych,
+oceanicznych oraz lądowych. Dane pokrywają ziemię siatką o rozdzielczości 30 km z wertykalnym podziałem
+sięgającym 137 poziomów od powierzchni do 80 km. Dodatkową informacją w zbiorze danych są zmienne
+opisujące niepewność pomiarową zawartych pomiarów. ERA5 udostępnia także dzienne i miesięczne 
+statystyki obliczone na podstawie podstawowych pomiarów.
+
+Ten zbiór wykorzystuje szeroką gamę obserwacji historycznych zebranych razem i przetworzonych
+poprzez zaawansowane techniki asymilacji danych i modelowania numerycznego w celu uzyskania 
+dokładnych estymatów globalnych.
+
+Pomimo bogactwa informacji zaprezentowanego przez zbiór ERA5 posiada on także pewne 
+ograniczenia, które muszą być wzięte pod uwagę podczas jego analizy. Z powodu zmian w systemie
+obserwacyjnym niektóre zmiany nie są spowodowane z przyczyn fizycznych obserwowanego systemu.
+Przykładem takiej zmiany może być wprowadzenie danych dotyczących zakrycia radiowego (ang.
+radio occultation) w 2006 roku przez program COSMIC.
+Co więcej, reprezentacja niektórych zmiennych klimatycznych takich jak przepływy energii
+powierzchniowej mogą nie być wiarygodnie zaprezentowane.
+
+Źródłami odczytów pomiarowych dla zbioru ERA5 były między innymi IASI, 
+ASCAT, CrIS, MWHS, MWHS-2, TMI, SSMIS, AMSR-2, GMI będącymi zaawansowanymi urządzeniami
+służącymi do pomiaru warunków atmosferycznych.
+
+Chociaż zbiór ten udostępnia wyniki modeli ensemble, wnioskuje się, że niepewności 
+prognozowanie są niedostatecznie  reprezentowane. Chociaż zbiór ten jest bardzo ważnym 
+zasobem i kolejnym krokiem w stronę integralnego zbioru pogodowego, to spójność i 
+dokładność globalnie uśrednionej temperatury w górnej stratosferze nie została polepszona
+w stosunku do wcześniej upublicznionych zbiorów danych.
+
+Zbiór danych ERA5 jest wciąż rozwijany, a miesięczne aktualizacje danych są mniej więcej
+z dwumiesięcznym opóźnieniem.
+
 % Data source: Explain where the data came from, whether it 
 % was publicly available or collected specifically for your research. 
 % If you used multiple sources, describe how you combined them and any 
 % challenges you encountered.
 \subsection{Źródło danych}
 
-% Data preprocessing: Describe the steps you took to clean and prepare 
-% the data for analysis, such as removing duplicates, filling in missing 
-% values, and standardizing units. This is an important step in ensuring 
-% the quality and reliability of your results.
-\subsection{Preprocessing}
+Dane wykorzystane w niniejszej pracy zostały pobrane z otwartego źródła, jakim jest
+\href{https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=form}{Copernicus Climate Change Service}.
+Strona ta udostępnia ogólnodostępne API, dzięki któremu każdy użytkownik jest w stanie
+wysłać zapytanie o interesujący go zakres danych. Dzięki temu API możliwe jest sprecyzowanie
+przedziału czasowego, zakresu geograficznego oraz typów zmiennych. Przykładowe zapytanie jest 
+zaprezentowane na następującym listingu \ref{json-listing}.
+
+Strona Copernicus Climate Change Service posiada ponad 180 000 użytkowników z 171 krajów. Sumaryczna
+ilość obsłużonych żądań danych przewyższa 519 milionów, a łączna ilość przesłanych danych wynosi
+w przybliżeniu 125 petabajtów.
+
+Darmowe konto narzuca jednak użytkownikowi limit wielkości danych możliwych do pobrania 
+za pomocą jednego żądania API. W przypadku zbyt dużej ilości danych konieczne
+jest wielorazowe wywołanie zapytania i następne złożenie danych.
+
+\begin{lstlisting}[label=json-listing,caption={Przykładowe zapytanie API CDS Climate Copernicus},language=json]
+{
+    'variable': [
+        '10m_u_component_of_wind', 
+        '10m_v_component_of_wind', 
+        '2m_temperature',
+        'runoff', 
+        'surface_net_solar_radiation', 
+        'surface_net_thermal_radiation',
+        'surface_pressure', 
+        'total_evaporation', 
+        'total_precipitation',
+    ],
+    'year': '2023',
+    'month': '01',
+    'day': '31',
+    'time': [
+        '00:00', '01:00', '02:00',
+        '03:00', '04:00', '05:00',
+        '06:00', '07:00', '08:00',
+        '09:00', '10:00', '11:00',
+        '12:00', '13:00', '14:00',
+        '15:00', '16:00', '17:00',
+        '18:00', '19:00', '20:00',
+        '21:00', '22:00', '23:00',
+    ],
+    'area': [
+        49.91, 18.89, 49.89,
+        18.91,
+    ],
+    'format': 'netcdf.zip',
+}
+\end{lstlisting}
+
+Otrzymane dane są w formacie NetCDF, będącym samo opisującym, niezależnym platformowo formatem
+wyspecjalizowanym do tworzenia i udostępniania danych tablicowych. NetCDF jest otwartym standardem
+stworzonym przez UCAR (University Corporation for Atmospheric Research). Istnieje wiele bibliotek
+wspierających ten format, między innymi dostępne są także w języku Python \cite{python}.
 
 % Data characteristics: Discuss the characteristics of the data, such as 
 % its size, structure, and complexity. If your dataset includes multiple variables, 
 % explain how you selected the variables of interest and any transformations you applied.
 \subsection{Charakterystyka danych}
+
+\subsubsection{Wybrane zmienne}
+
+\begin{itemize}
+    \item Składowa pionowa i pozioma prędkości wiatru — 
+    Składowe skierowane w kierunku wschodnim i północnym zmierzone na wysokości 10 metrów nad poziomem
+    morza i wyrażone w metrach na sekundę.
+
+    \item Temperatura 2 metry nad poziomem ziemi — Temperatura 2 metry nad poziomem ziemi jest
+    obliczana, interpolując pomiędzy najmniejszym poziomem modelu oraz poziomem ziemi biorąc pod
+    uwagę warunki atmosferyczne. Temperatura jest wyrażona w Kelwinach.
+
+    \item Zmiany poziomów cieków wodnych (runoff) — 
+    Pewne ilości wody pochodzące z opadów, topnienia, lub z wód podziemnych pozostają w ziemi, lecz reszta
+    odnajduję ujście poprzez cieki podziemne, bądź poprzez powierzchnię ziemi. Suma tych dwóch
+    odpływów wody daje całkowitą wartość. Całkowita wartość jest zakumulowana z godzinnego
+    okna analizy. Jednostką tej zmiennej jest głębokość opisująca głębokość ilości wody, jeśli byłaby
+    równomiernie rozłożona na kilometr kwadratowy jednej komórki siatki. Ten wskaźnik jest
+    bezpośrednio powiązany z dostępnością wody w glebie i może wskazywać na suszę bądź potopy.
+
+    \item Promieniowanie słoneczne — opisuje ilość promieniowania słonecznego (krótkofalowego), które dociera do 
+    płaszczyzny ziemi (w sposób bezpośredni, jak i poprzez dyfuzję) pomniejszoną o ilość energii
+    odbitej od powierzchni ziemi. Ta zmienna jest agregowana poprzez jedną godzinę i wyrażana w 
+    dżulach na metr kwadratowy.
+
+    \item Promieniowanie termiczne — wielkość charakteryzująca ilość promieniowania termicznego
+    (długofalowego) oddawanego przez ziemię w kierunku pionowym. Atmosfera oraz chmury emitują 
+    promieniowanie w każdym kierunku, z czego pewna część dociera do powierzchni ziemi. Wartość
+    tej zmiennej jest obliczona jako bilans energii oddawanej i otrzymywanej przez ziemię. 
+    Promieniowanie jest akumulowane w godzinnym okresie i wyrażane w dżulach na metr kwadratowy.
+
+    \item Ciśnienie — wyraża ciśnienie atmosferyczne na powierzchni ziemi bądź wody. Wielkość
+    ta wyrażona została w pascalach. Duże zmiany ciśnienia razem ze wzrostem wysokości sprawiają,
+    że trudno wyrazić wartość tej zmiennej ponad górzystymi terenami, więc często średnia wartość
+    ciśnienia na poziomie morza jest używana zamiennie.
+
+    \item Całkowite odparowanie — ta zmienna opisuję zakumulowaną ilość wody odparowaną z powierzchni
+    ziemi w przeciągu jednej godziny. Uwzględnia także transpirację wody z roślin. Wartości ujemne
+    wyrażają odparowanie, a wartości dodatnie kondensację wody. Jednostką tej zmiennej są metry
+    przypadające na metr kwadratowy komórki siatki.
+
+    \item Opady — Ten parametr opisuje ilość opadów deszczu lub śniegu, która spada na powierzchnię ziemi.
+    Wielkość opadów jest wyrażana w metrach przypadających na kilometr kwadratowy komórki siatki.
+    Opady o dużej są przewidywane z formacji chmur, które mogą być ujęte przez model poprzez 
+    analizę poziomów ciśnienia, wilgotności i temperatury. 
+    Opady konwekcyjne są reprezentowane przez procesy
+    o mniejszej skali niż rozdzielczość modelu. Ten parametr nie uwzględnia ilości wody wymienionej
+    podczas formacji mgły, rosy czy opadów ulegających odparowaniu, zanim dotrą do powierzchni ziemi.
+
+\end{itemize}
+
+% Data preprocessing: Describe the steps you took to clean and prepare 
+% the data for analysis, such as removing duplicates, filling in missing 
+% values, and standardizing units. This is an important step in ensuring 
+% the quality and reliability of your results.
+\subsection{Preprocessing}
 
 % Data analysis: Explain the methods you used to analyze the data, 
 % including any statistical techniques, machine learning algorithms, 

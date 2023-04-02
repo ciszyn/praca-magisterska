@@ -1,0 +1,2 @@
+{"rule":"DYWIZ","sentence":"^\\QSVR - jest metodą regresji wykorzystującą maszynę wektorów nośnych w celu tworzenia predykcji.\\E$"}
+{"rule":"ZDANIE_PODRZEDNE_Z_KTORY_LUB_JAKI","sentence":"^\\QStrona ta udostępnia ogólnodostępne API, dzięki któremu każdy użytkownik\\E$"}

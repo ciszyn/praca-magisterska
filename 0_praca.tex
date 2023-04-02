@@ -14,14 +14,15 @@
 \usepackage{indentfirst}
 \usepackage{setspace}
 \usepackage{float}
+\usepackage{listings}
 \onehalfspacing{}
 
-\usepackage[polish,british]{babel} 
+\usepackage[polish]{babel} 
 \usepackage{lmodern}
 \usepackage{graphicx} 
 \usepackage{booktabs}
 \frenchspacing
-\tolerance=1
+\tolerance= 1
 \emergencystretch=\maxdimen{}
 
 \nocite{*}
@@ -32,9 +33,59 @@
 % \fancyhead[C]{\thepage}
 % }
 
-\hyphenpenalty=100000
-\widowpenalty=100000
-\clubpenalty=100000
+\lstset{%
+    % language=Python,
+    % commentstyle=\textit,
+    % identifierstyle=\textsf,
+    % keywordstyle=\sffamily\bfseries,
+    % %captionpos=b,
+    % tabsize=3,
+    % frame=lines,
+    numbers=left,
+    numberstyle=\tiny,
+    % numbersep=5pt,
+    % breaklines=true,
+    % morekeywords={descriptor_gaussian,descriptor,partition,fcm_possibilistic,dataset,my_exception,exception,std,vector},
+    escapeinside={@*}{*@},
+    %texcl=true,
+}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    % backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+\hyphenpenalty= 100000
+\widowpenalty= 100000
+\clubpenalty= 100000
 
 \begin{document}
 
@@ -56,7 +107,7 @@ ERA5, Prognozowanie pogody, Sztuczna inteligencja
 
 \include{1_wstep.tex}
 \include{2_przeglad_literatury.tex}
-\include{3_analiza_problemu.tex}
+% \include{3_analiza_problemu.tex}
 \include{4_zbior_danych.tex}
 \include{5_implementacja.tex}
 \include{6_wyniki.tex}
@@ -67,39 +118,43 @@ ERA5, Prognozowanie pogody, Sztuczna inteligencja
 
 \raggedright{}
 
-AI - sztuczna inteligencja
+AI — sztuczna inteligencja
 
-DL - uczenie głębokie
+DL — uczenie głębokie
 
-ML - uczenie maszynowe
+ML — uczenie maszynowe
 
-NWP - numeryczne prognozowanie pogody
+NWP — numeryczne prognozowanie pogody
 
-GAN - generative adversarial network
+GAN — generative adversarial network
 
-ECMWF - Europejskie Centrum Średnioterminowych Prognoz Pogody
+ECMWF — Europejskie Centrum Średnioterminowych Prognoz Pogody
 
-MSE - błąd średniokwadratowy
+MSE — błąd średniokwadratowy
 
-RMSE - pierwiastek błędu średniokwadratowego
+RMSE — pierwiastek błędu średniokwadratowego
 
-MAE - błąd absolutny
+MAE — błąd absolutny
 
-IoT - internet rzeczy
+IoT — internet rzeczy
 
-MOS - statystyki wyjścia modelu
+MOS — statystyki wyjścia modelu
 
-PCA - analiza głównych składowych
+PCA — analiza głównych składowych
 
-MLP - perceptron wielowarstwowy
+MLP — perceptron wielowarstwowy
 
-RNN - rekurencyjna sieć neuronowa
+RNN — rekurencyjna sieć neuronowa
 
-CNN - konwolucyjna sieć neuronowa
+CNN — konwolucyjna sieć neuronowa
 
-LSTM - long-short term memory
+LSTM — long-short term memory
 
-GRU - gated recurrent unit
+GRU — gated recurrent unit
+
+C3S — Copernicus Climate Change Service
+
+UCAR — University Corporation for Atmospheric Research
 
 \pagebreak
 \printbibliography[title={Bibliografia}]
