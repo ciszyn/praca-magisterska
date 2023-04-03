@@ -206,6 +206,13 @@ nr \ref{statystyki-danych}.
 % the quality and reliability of your results.
 \subsection{Preprocessing}
 
+W ramach preprocessingu wszystkie braki w danych zostały uzupełnione poprzez 
+interpolację danej zmiennej w szeregu czasowym. Co więcej, w celach dalszego
+wykorzystania danych do treningu algorytmów uczenia maszynowego zmienne zostały 
+przeskalowane do przedziału [0, 1], co zapobiega stronniczości modeli ze względu
+na typ parametru. Wszystkie zmienne są typu ilościowego i dalsza obróbka nie była
+potrzebna.
+
 % Data analysis: Explain the methods you used to analyze the data, 
 % including any statistical techniques, machine learning algorithms, 
 % or other models. Discuss the performance of these models and any 

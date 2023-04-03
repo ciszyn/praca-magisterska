@@ -18,3 +18,4 @@ hiperparameterów
 gaussowskiego
 reanalysis
 SVR
+preprocessingu
