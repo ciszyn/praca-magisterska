@@ -102,18 +102,18 @@ wspierających ten format, między innymi dostępne są także w języku Python 
 % explain how you selected the variables of interest and any transformations you applied.
 \subsection{Charakterystyka danych}
 
-\subsubsection{Wybrane zmienne}
+\subsubsection*{Wybrane zmienne}
 
 \begin{itemize}
-    \item Składowa pionowa i pozioma prędkości wiatru — 
+    \item Składowa pionowa i pozioma prędkości wiatru (u10, v10) — 
     Składowe skierowane w kierunku wschodnim i północnym zmierzone na wysokości 10 metrów nad poziomem
     morza i wyrażone w metrach na sekundę.
 
-    \item Temperatura 2 metry nad poziomem ziemi — Temperatura 2 metry nad poziomem ziemi jest
+    \item Temperatura 2 metry nad poziomem ziemi (t2m) — Temperatura 2 metry nad poziomem ziemi jest
     obliczana, interpolując pomiędzy najmniejszym poziomem modelu oraz poziomem ziemi biorąc pod
     uwagę warunki atmosferyczne. Temperatura jest wyrażona w Kelwinach.
 
-    \item Zmiany poziomów cieków wodnych (runoff) — 
+    \item Zmiany poziomów cieków wodnych (ro) — 
     Pewne ilości wody pochodzące z opadów, topnienia, lub z wód podziemnych pozostają w ziemi, lecz reszta
     odnajduję ujście poprzez cieki podziemne, bądź poprzez powierzchnię ziemi. Suma tych dwóch
     odpływów wody daje całkowitą wartość. Całkowita wartość jest zakumulowana z godzinnego
@@ -121,28 +121,28 @@ wspierających ten format, między innymi dostępne są także w języku Python 
     równomiernie rozłożona na kilometr kwadratowy jednej komórki siatki. Ten wskaźnik jest
     bezpośrednio powiązany z dostępnością wody w glebie i może wskazywać na suszę bądź potopy.
 
-    \item Promieniowanie słoneczne — opisuje ilość promieniowania słonecznego (krótkofalowego), które dociera do 
+    \item Promieniowanie słoneczne (ssr) — opisuje ilość promieniowania słonecznego (krótkofalowego), które dociera do 
     płaszczyzny ziemi (w sposób bezpośredni, jak i poprzez dyfuzję) pomniejszoną o ilość energii
     odbitej od powierzchni ziemi. Ta zmienna jest agregowana poprzez jedną godzinę i wyrażana w 
     dżulach na metr kwadratowy.
 
-    \item Promieniowanie termiczne — wielkość charakteryzująca ilość promieniowania termicznego
+    \item Promieniowanie termiczne (str) — wielkość charakteryzująca ilość promieniowania termicznego
     (długofalowego) oddawanego przez ziemię w kierunku pionowym. Atmosfera oraz chmury emitują 
     promieniowanie w każdym kierunku, z czego pewna część dociera do powierzchni ziemi. Wartość
     tej zmiennej jest obliczona jako bilans energii oddawanej i otrzymywanej przez ziemię. 
     Promieniowanie jest akumulowane w godzinnym okresie i wyrażane w dżulach na metr kwadratowy.
 
-    \item Ciśnienie — wyraża ciśnienie atmosferyczne na powierzchni ziemi bądź wody. Wielkość
+    \item Ciśnienie (sp) — wyraża ciśnienie atmosferyczne na powierzchni ziemi bądź wody. Wielkość
     ta wyrażona została w pascalach. Duże zmiany ciśnienia razem ze wzrostem wysokości sprawiają,
     że trudno wyrazić wartość tej zmiennej ponad górzystymi terenami, więc często średnia wartość
     ciśnienia na poziomie morza jest używana zamiennie.
 
-    \item Całkowite odparowanie — ta zmienna opisuję zakumulowaną ilość wody odparowaną z powierzchni
+    \item Całkowite odparowanie (e) — ta zmienna opisuję zakumulowaną ilość wody odparowaną z powierzchni
     ziemi w przeciągu jednej godziny. Uwzględnia także transpirację wody z roślin. Wartości ujemne
     wyrażają odparowanie, a wartości dodatnie kondensację wody. Jednostką tej zmiennej są metry
     przypadające na metr kwadratowy komórki siatki.
 
-    \item Opady — Ten parametr opisuje ilość opadów deszczu lub śniegu, która spada na powierzchnię ziemi.
+    \item Opady (tp) — Ten parametr opisuje ilość opadów deszczu lub śniegu, która spada na powierzchnię ziemi.
     Wielkość opadów jest wyrażana w metrach przypadających na kilometr kwadratowy komórki siatki.
     Opady o dużej są przewidywane z formacji chmur, które mogą być ujęte przez model poprzez 
     analizę poziomów ciśnienia, wilgotności i temperatury. 
@@ -151,6 +151,54 @@ wspierających ten format, między innymi dostępne są także w języku Python 
     podczas formacji mgły, rosy czy opadów ulegających odparowaniu, zanim dotrą do powierzchni ziemi.
 
 \end{itemize}
+
+\subsubsection*{Opis danych}
+
+Dane składają się z 9 wcześniej wymienionych parametrów oraz 12 648 obserwacji godzinnych zebranych
+z przedziału 20 miesięcy. Wszystkie dane pochodzą ze stycznia i zostały pobrane z zakresu 20 lat
+2003 - 2023 roku. Poniższa mapa prezentuje wybraną lokalizację znajdującą się w województwie śląskim -
+Rysunek \ref{map}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/map.png}
+    \caption{Lokalizacja, dla której wybrane zostały dane pogodowe}
+    \label{map}
+\end{figure}
+
+Najważniejsze statystyki zbioru danych zostały także przedstawione w tabeli 
+nr \ref{statystyki-danych}.
+
+\begin{table}[H]
+    \centering
+    \caption{Statystyki zbioru danych} \label{statystyki-danych}
+    \bigskip
+    \begin{tabular}{|p{2cm}|p{2cm}p{2cm}p{2cm}p{2cm}|}
+    \hline\xrowht[()]{.6cm}
+    Zmienna & Średnia & Min & Max & Std \\
+    \hline
+    \hline\xrowht[()]{.6cm}
+    u10 [$m\over{s}$] & 1.11 & -6.94 & 10.15 & 2.64\\
+    \hline\xrowht[()]{.6cm}
+    v10 [$m\over{s}$] & 1.28 & -9.02 & 10.70 & 2.77\\
+    \hline\xrowht[()]{.6cm}
+    t2m [K] & 271.4 & 247.8 & 285.7 & 5.8\\
+    \hline\xrowht[()]{.6cm}
+    e [m] & -1.16E-5 & -1.88E-4 & 4.78E-5 & 1.78E-5\\
+    \hline\xrowht[()]{.6cm}
+    ro [m] & 2E-5 & 3E-6 & 3.74E-4 & 1.4E-5\\
+    \hline\xrowht[()]{.6cm}
+    ssr [$J\over m^2$] & 8.51E4 & -3.12E-2 & 1.05E6 & 1.66E5\\
+    \hline\xrowht[()]{.6cm}
+    str [$J\over m^2$] & -1.28E5 & -4.17E5 & 3.20E4 & 8.64E4\\
+    \hline\xrowht[()]{.6cm}
+    sp [Pa] & 9.73E4 & 9.33E4 & 9.99E4 & 995\\
+    \hline\xrowht[()]{.6cm}
+    tp [m] & 9.77E-5 & 0 & 2.51E-3 & 1.95E-4\\
+
+    \hline
+    \end{tabular}
+    \end{table}
 
 % Data preprocessing: Describe the steps you took to clean and prepare 
 % the data for analysis, such as removing duplicates, filling in missing 
