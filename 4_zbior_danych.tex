@@ -219,67 +219,166 @@ potrzebna.
 % limitations or challenges you encountered.
 \subsection{Analiza danych}
 
+Autokorelacja jest narzędziem specyfikującym występowanie wzorców w danych. Jest ona 
+opisana jako wartość korelacji dyskretnego szeregu czasowego względem tego samego sygnału
+przesuniętego o zadane opóźnienie. Przy pomocy autokorelacji można zauważyć w danych
+występowanie cykli, oraz prędkość z jaką trend szeregu się zmienia.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/autocorrelation.png}
-    \caption{caption}
+    \caption{Autokorelacja wybranych zmiennych względem opóźnienia o wartości od 
+    1 godziny do 96 godzin.}
     \label{autocorrelation}
 \end{figure}
+
+Na rysunku \ref{autocorrelation} zaprezentowane zostały wykresy autokorelacji wybrenago
+zbioru danych na przestrzeni 4 dni. Wyraźnie widać występowanie dziennych cykli i ich wpływ
+na poszczególne pomiary. Wzrost wartości autokorelacji dla przesunięcia będącego
+wielokrotnością doby jest widoczny dla temperatury, odparowania, promieniowania słonecznego i 
+termicznego. Reszta zmiennych wykazuje stały spadek korelacji z rosnącym opóźnieniem. 
+Szczególnie niskie wartości można zaobserwować dla opadów, dla których autokorelacja szyko spada
+poniżej 0.2, co wskazuje na wyjątkowo chaotyczną naturę tego zjawiska.
+
+Przy pomocy zebranych danych można także graficznie pokazać trajektorię zmian dla wybranych zminnych. Na rysunku \ref{temperature} widać zależność pomiędzy szeregiem czasowym temperatury
+oraz kopią tego szeregu przesuniętą o 24 godziny. Wykres potwierdza wartość korelacji 
+wskazaną na rysunku \ref{autocorrelation}. Gradient koloru widoczny na wykresie wskazuję
+progresję wartości temperatury z czasem. Trajektoria dla pierwszych 9 dni jest pokazana 
+na wykresie liniowym z prawej strony. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{images/temperature_scatter.png}
     \includegraphics[width=0.45\textwidth]{images/temperature_line.png}
-    \caption{caption}
+    \caption{Wykresy pokazujące relację pomiędzy wartościami temperatury, a tymi samymi 
+    wartościami przesuniętymi w czasie o 24 godziny.}
     \label{temperature}
 \end{figure}
+
+Podobne zachowanie można także wyróżnić dla ciśnienia oraz reszty zmiennych wykazujących 
+wysoką autokorelację. Jednak w przypadku opadów trajektoria dynamicznych zachowań systemu
+staję się o wiele trudniejsza w śledzeniu, co zostału ukazane na rysunku \ref{pressure-precipitation} porównującym wykresy dla ciśnienia oraz opadów. 
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{images/lorenz.jpeg}
+%     \caption{caption}
+%     \label{line}
+% \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{images/pressure_scatter.png}
     \includegraphics[width=0.45\textwidth]{images/precipitation_scatter.png}
-    \caption{caption}
+    \caption{Zależność ciśnienia (z lewej) oraz opadów (z prawej) względem 
+    swoich przesuniętych kopii.}
     \label{pressure-precipitation}
 \end{figure}
+
+Wartości opadów zdają się bardzo mocno skoncentrowane wokół zera, z wieloma 
+odbiegającymi obserwacjami. W szczególności widać dużo pomiarów w pobliżu 
+osi x i y, co wskazuję na znaczącą ilość pomiarów oznaczających nagły wzrost opadów
+po okresie bez opadów, oraz gwałtowne zaprzestanie opadów.
+
+W celu pokazania dystrybucji zmiennych względem ich opóźnionych szeregów, na następującym 
+wykresie \ref{hex} pokazana została koncentracja pomiarów o wskazanych wartościach.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/autocorrelation_hex.png}
-    \caption{caption}
+    \caption{Dystrybucja pomiarów na wykresie względem orginalnego szeregu czasowego,
+    oraz szeregu przesuniętego o 24 godziny.}
     \label{hex}
 \end{figure}
+
+Na powyższym wykresie \ref{hex} widać duży zakres zmienności promieniowania termicznego
+który jest niezależny od wcześniej zarejestrowanych pomiarów. Z kolei bardzo mała wariancja 
+została zaobserwowana dla odpływów wody, promieniowania słonecznego i opadów, które wskazują 
+jedynie periodyczne odchylenia od zera. W przypadku prędkości wiatru, temperatury oraz 
+ciśnienia widoczna jest wysoka autokorelacja, które została już wcześniej odnotowana. 
+
+Duże wartości autokorelacji są dobrym znakiem wskazującym na możliwości przewidywania przyszłych
+obserwacji jedynie na podstawie obserwacji już zarejestrowanych. W przypadku reszty zmiennych
+potrzebna jest analiza ze względu na korelację pomiędzy parami parametrów obserwacji, w 
+poszukiwaniu dodatkowych zależności.
+
+Na następującym rysunku \ref{matrix} została ukazana wartość korelacji pomiędzy wszystkimi 
+parami zmiennych. W wielu przypadkach odnotowane wartości są dość małe, co wskazuje na brak
+bezpośrednich zależności jednej zmiennej na drugą zmienną. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/correlation_matrix.png}
-    \caption{caption}
+    \caption{Macierz korelacji parametrów}
     \label{matrix}
 \end{figure}
+
+Wyjątkiem na powyższym wykresie jest zależność pomiędzy odparowaniem oraz promieniowaniem 
+słonecznym wskazująca na ujemną korelację. Ponieważ z przyjętej konwencji ujemna ewaporacja
+wskazuję na parowanie wody, ta zależność okazuję się trywialna. 
+
+Brak dalszych korelacji w danych jest dobrą oznaką sygnalizującą brak redundancji danych.
+Niestety oznacza to także że najprawdopodobniej cały zakres parametrów musi być przeanalizowany
+w celu znalezienia szukanych zależności i stworzenia modelu prognozującego. 
+
+W celu dalszej analizy dostępnych danych stworzone zostały wykresy Q-Q, pokazujące normalność
+dystrybucji danych. Wykresy te zostały pokazane na rysunku \ref{qq}. Proste linie dla prędkości 
+wiatru sygnalizują normalność dystrybucji. Pozostałe parametry pomimo bliskiego odwzorowania
+dystrybucji normalnej, posiadają inną charakterystykę. 
+
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/qq.png}
-    \caption{caption}
+    \caption{Wykresy Q-Q}
     \label{qq}
 \end{figure}
+
+Na następującym rysunku \ref{box} pokazującym wykresy pudełkowe widać wartości medianę, pierwszy i trzeci
+kwartyl danych oraz wartości odstające. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/box.png}
-    \caption{caption}
+    \caption{Wykresy pudełkowe wygenerowane dla poszczególnych atrybutów}
     \label{box}
 \end{figure}
+
+Z powyższych wykresów można wnioskować o znaczącej liczbie anomali dla wartości promieniowania słonecznego,
+opadów oraz odparowania. Wartości odstające dla temperatury leżały wyłącznie po lewej stronie dystrybucji,
+poniżej zaobserwowanych pomiarów. Anomalie wskazane tym sposobem wyróżniają pomiary będące poniżej $-18^\circ C$. Co więcej, ponownie można zaobserwować bardzo wąską dystrybucję opadów posiadającą dużo wartości znacznie
+przewyższających wartość oczekiwaną. 
+
+Na rysunku \ref{hist} pokazano histogramy ilustrujące rozkład danych. Potwierdzają one normalność dystrybucji
+dla wartości prędkości wiatru. Pozostałe dystrybucje wykazują się pewną asymetrią, w której duża liczba 
+obserwacji odbiega od centrum dystrybucji wyraźnie w jedną stronę. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/hist.png}
-    \caption{caption}
+    \caption{Histogramy wygenerowane dla poszczególnych atrybutów}
     \label{hist}
 \end{figure}
+
+Ostatnią wizualizacją są wykresy pokazujące przebieg wartości szeregu czasowego w okresie 120 dni, z 
+wartościami zakumulowanymi z czterech dni. Wykresy liniowe na rysunku \ref{line} pokazują zmienność
+danych w czasie. Dla większości zmiennych widzimy charakter oscylacyjny. W przypadku promieniowania 
+słonecznego zaobserwować można także dużą wariacje w danych nawet w małych przedziałach czasu. 
+Dużym wyjątkiem od reszty zmiennych jest wartość odpływu wody, która nie ulega cyklicznym zmianom, lecz
+wykazuje nagłe skoki w wartości i okresy stabilności.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/line.png}
-    \caption{caption}
+    \caption{Wykresy liniowe pokazujące wartość średniej kroczącej z czterech dni na przestrzeni 120 dni}
     \label{line}
 \end{figure}
+
+Pokazane wykresy i przeprowadzona interpretacja wskazują na złożoność dostępnych danych
+i możliwe problemy w ich analizie. Wysoka zmienność obserwacji w czasie oraz mało przewidywalna
+charakterystyka, sprawiają że tworzenie dokładnych prognoz jest wyzwaniem. Co więcej, 
+cykliczność zaobserwowana wśród niektórych zmiennych może sprawiać wyzwanie dla niektórych
+metod uczenia maszynowego, które nie radzą sobie z danymi o dużej częstotliwości zmian. 
+
+Przeprowadzona analiza była jednak tylko wstępem do dalszych badań i wykazuje ograniczone
+możliwości metod czysto statystycznych w modelowaniu pogody.
