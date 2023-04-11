@@ -55,6 +55,16 @@ wykorzystują metodę różnic skończonych w kierunku pionowym a metody spektra
 do powierzchni ziemi. Krok czasu stosowany w stosunku do modeli globalnych jest wielkości dziesiątek
 minut, a w przypadku prognoz lokalnych w zakresie jednej do czterech minut.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/grid.png}
+    \caption[opis dla siatki]{Obraz pokazujący sposób dyskretyzacji przestrzeni
+    na siatkę parametrów\footnotemark}
+    \label{grid}
+\end{figure}
+
+\footnotetext{Źródło: \url{https://en.wikipedia.org/wiki/File:AtmosphericModelSchematic.png}}
+
 Ze względu na chaotyczną charakterystykę równań opisujących pogodę, małe zmiany w warunkach początkowych
 mogą skutkować odstającymi od siebie wynikami. W celu opisania i przewidywania błędu prognozy pogody 
 rozwinięte zostały modele ensemble. Nieliniowa złożoność systemu oznacza, że podejścia opisu
@@ -67,10 +77,10 @@ poniżej\ref{nwp-ensemble}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/multimodel.png}
-    \caption{Przykładowy wynik działania modelu ensemble pochodzący ze strony 
-        \url{https://www.meteoblue.com/pl/pogoda/prognoza/multimodel/katowice_polska_3096472}}
+    \caption[ensemble]{Przykładowy wynik działania modelu ensemble\footnotemark}
     \label{nwp-ensemble}
 \end{figure}
+\footnotetext{Źródło: \url{https://www.meteoblue.com/pl/pogoda/prognoza/multimodel/katowice_polska_3096472}}
 
 Wczesne metody specyfikacji warunków początkowych opierały się na analizie graficznych wykresów 
 pogodowych. Następnie różne metody interpolacji danych były zastąpione przez algorytmy
@@ -122,17 +132,18 @@ osiągają większą dokładność.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{images/lorenz.jpeg}
-    \caption{Wykres pokazujący atraktor lorenza - matematyczny opis chaotycznej 
-    charakterystyki równań różniczkowych wynikających z analizy pogody.}
+    \caption[lorenz]{Wykres pokazujący atraktor lorenza - matematyczny opis chaotycznej 
+    charakterystyki równań różniczkowych wynikających z analizy pogody.\footnotemark}
     \label{lorenz}
 \end{figure}
+\footnotetext{Źródło: \url{https://en.wikipedia.org/wiki/File:A_Trajectory_Through_Phase_Space_in_a_Lorenz_Attractor.gif}}
 
 Jednym z większych problemów NWP jest nieliniowo wzrastający błąd ograniczający długość prognozy.
 Ponieważ modele NWP dokonują predykcji w sposób stopniowy, prognozując stan systemu dla następnego
 kroku, żeby później otrzymany wynik dodać do danych wejściowych i kontynuować obliczenia, otrzymane błędy
 mają tendencję do akumulacji wraz ze wzrostem długości symulacji.
 Limit dla wydarzeń o małej skali jest szacowany na dni bądź godziny, zdarzenia o dużej skali
-mogą być prognozowane z aż 2 tygodniowym wyprzedzeniem. Szacuje się że błąd akumulowany przez 
+mogą być prognozowane z aż 2 tygodniowym wyprzedzeniem. Szacuje się, że błąd akumulowany przez 
 model NWP ulega zdwukrotnieniu z każdymi pięcioma dniami.
 
 W porównaniu z wieloma innymi dziedzinami, w których numeryczne prognozowanie jest stosowane,
@@ -140,12 +151,12 @@ NWP ma przewagę pod względem częstotliwości, z którą jest wykorzystywane. 
 w ten sposób z częstotliwością dzienną i na poziomie globalnym. Dokładność tworzonych predykcji jest
 dobrze znana i sposoby wzmocnienia aktualnie stosowanych algorytmów mogą być sprawdzone z dużą
 efektywnością. Modele NWP wciąż są ulepszane, a rozwój technologiczny i naukowy być może pozwoli
-w przyszłości tworzyć modele bazujące na danych zbieranych z rozdzielczością sięgającą 1 km. Co więcej
-możliwe, że w najbliższej przyszłości utworzone zostaną modele rozwiązujące sprzężone symulacje
+w przyszłości tworzyć modele bazujące na danych zbieranych z rozdzielczością sięgającą 1 km. Co więcej,
+możliwe że w najbliższej przyszłości utworzone zostaną modele rozwiązujące sprzężone symulacje
 dla atmosfery, lądu oraz oceanu\cite{nwp-the-quiet-revolution}.
 
 Dzisiejsze komputery używane do NWP sięgają mocy obliczeniowej równej jednego petaflop-a ($10^{15}$ operacji
-zmiennoprzecinkowych) na sekundę. Szacuje się że systemy komputerowe stosowane przez ECMWF mają zużycie energii
+zmiennoprzecinkowych) na sekundę. Szacuje się, że systemy komputerowe stosowane przez ECMWF mają zużycie energii
 sięgające 10 MVA, a dalszy rozwój i zwiększenie modeli mogłoby wymagać 10-krotne zwiększenie pobieranej mocy.
 
 \subsubsection*{Metody uczenia maszynowego}
@@ -215,7 +226,7 @@ zastosowane będą następujące metody regresji z zakresu uczenia maszynowego:
     liniowej kombinacji wartości na wejściu. Każda kolejna warstwa sieci jest gęsto połączona
     z warstwą poprzednią.
     Proces uczenia sieci neuronowej polega na zastosowaniu propagacji wstecznej, aby dostosować
-    wartości parametrów sieci w celu minimalizacji funkcji błędu określającej jak daleko
+    wartości parametrów sieci, w celu minimalizacji funkcji błędu określającej jak daleko
     wyjście sieci odbiega od pożądanej wartości. 
 
     \item RNN — są klasą sieci neuronowych, w których połączenia pomiędzy węzłami
@@ -361,8 +372,15 @@ i w konsekwencji polepszyć dokładność trenowanych modeli.
 
 W wielu wymienionych pracach \cite{development-and-application-of-ml-in}
 były zastosowane różne metryki. Wśród najpopularniejszych
-należały RMSE, współczynnik korelacji, MSE, MAE, współczynnik Kappa Cohena,
+należały RMSE, współczynnik korelacji (CORR), MSE, MAE, współczynnik Kappa Cohena,
 znormalizowany pierwiastek z błędu średniokwadratowego (NRMSE).
+
+\begin{align*}
+    MAE &= \frac{1}{n}\sum_{i=1}^n |y_i - x_i|\\
+    MSE &= \frac{1}{n}\sum_{i=1}^n (y_i-x_i)^2\\
+    CORR &= \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}
+    {\sqrt{\sum_{i=1}^n (x_i-\overline{x})^2\sum_{i=1}^n (y_i-\overline{y})^2}}
+\end{align*}
 
 \Citeauthor*{ai-revolutionises-weather-prediction}\cite{ai-revolutionises-weather-prediction}
 podkreśla kluczowe zastosowanie uczenia maszynowego w procesie asymilacji danych do modeli NWP.
