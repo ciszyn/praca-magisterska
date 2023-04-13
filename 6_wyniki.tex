@@ -21,94 +21,166 @@
 % standard deviations, and frequency distributions.
 \subsection{Statystyki}
 
+Jak widać na rysunku \ref{mse}, w przypadku każdego algorytmu nastąpił
+spadek dokładności względem danych testowych. W przypadku modelu KNN oraz
+regresji gaussowskiej znikomy błąd na danych treningowych wynika z faktu, 
+że obydwa modele bazują na uczeniu na przykładach i ich ewaluacja na 
+danych treningowych jest niemiarodajna. 
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/mse.png}
-    \caption{}
+    \caption{Błąd średniokwadratowy dla stworzonych modeli}
     \label{mse}
 \end{figure}
+
+Las losowy okazuję się algorytmem, który jest w stanie bardzo dobrze 
+dopasować się do danych treningowych razem z zachowaniem ogólności dla 
+reszty danych, osiągając dobre wyniki na zbiorze testowym. Z kolei RNN, NN
+SVR osiągają zbliżone wartości zarówno dla zbioru treningowego, jak i testowego.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/mae.png}
-    \caption{}
+    \caption{Średni błąd absolutny dla stworzonych modeli}
     \label{mae}
 \end{figure}
+
+Wartości błędu absolutnego osiągają większe wartości od MSE. Co więcej,
+rozbieżność między błędem dla zbioru treningowego i testowego
+przy użyciu metryki MAE staje się mniejsza. Ogólna dystrybucja błędu 
+względem modeli zdaje się podobna.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/corr.png}
-    \caption{}
+    \caption{Współczynnik korelacji dla stworzonych modeli}
     \label{corr}
 \end{figure}
+
+Dla wszystkich modeli współczynnik korelacji pomiędzy wartościami rzeczywistymi 
+a przewidzianymi jest na poziomie przekraczającym 0,9. Wskazuje to na dobre dopasowanie
+modeli do przewidzianych danych, chociaż warto wskazać, że współczynnik
+autokorelacji dla wielu parametrów pozostawał na poziomie powyżej 0,8 dla wartości
+opóźnienia przekraczających parę godzin.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/mse_ranking.png}
-    \caption{}
+    \caption{Ranking stworzonych modeli ze względu na błąd średniokwadratowy}
     \label{mse-ranking}
 \end{figure}
+
+Na wykresie \ref{mse-ranking} widać stworzony ranking ze względu na wartość MSE.
+Najlepszymi algorytmami pod tym względem okazały się SVR, MLP i RNN. Rozbieżność 
+pomiędzy najlepszym modelem a najgorszym wynosiła 0,0057. Algorytmami 
+osiągającymi najgorsze wyniki był KNN i drzewo decyzyjne.
+
+Można przeprowadzić podobną analizę ze względu na MAE, co zostało pokazane na 
+rysunku \ref{mae-ranking}. W tym przypadku o wiele lepsze wyniki 
+otrzymała regresja logistyczna i las losowy, które znajdują się wśród najlepiej 
+ocenionych algorytmów.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/mae_ranking.png}
-    \caption{}
+    \caption{Ranking stworzonych modeli ze względu na średni błąd absolutny}
     \label{mae-ranking}
 \end{figure}
+
+Analiza ze względu na korelację pokazuje bardzo zbliżone wartości dla wszystkich 
+modeli, a kolejność algorytmów w pokazanym rankingu \ref{corr-ranking} jest 
+bardzo podobna do tej ze względu na błąd średniokwadratowy \ref{mse-ranking}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/corr_ranking.png}
-    \caption{}
+    \caption{Ranking stworzonych modeli ze względu na wartość korelacji}
     \label{corr-ranking}
 \end{figure}
+
+W celu dalszego przybliżenia zachowania poszczególnych modeli, stworzone zostały
+zestawienia prawdziwych przebiegów czasowych oraz tych wygenerowanych przez algorytmy
+uczenia maszynowego. Chociaż zaprezentowane metryki dają wstępne zrozumienie
+stopnia dopasowania modeli oraz ich dokładności, to analiza graficzna jest kluczowa
+do zrozumienia, jakie zjawiska są dobrze prognozowane, a jakie stwarzają problemy.
+Przedstawione przebiegi prezentują tygodniowe przebiegi złożone z siedmiu 
+dwudziestoczterogodzinnych prognoz.
+
+\pagebreak
+
+Jednym z najlepiej ocenianych algorytmów była regresja wektorów wspierających.
+W tym przypadku widzimy dobre zachowanie względem przebiegów cyklicznych, takich jak
+promieniowanie słoneczne czy odparowanie. Pod względem promieniowania termicznego
+widoczne jest dobre odwzorowanie wartości średniej szeregu czasowego, lecz problem
+z dopasowaniem do indywidualnych skoków w wartościach.
+
+Nagły skok w wartości opadów został zupełnie pominięty w prognozie i wskazuje 
+na problemy z przewidywaniem nagłych zdarzeń o dużej amplitudzie. 
+
+Zarówno wartości prędkości wiatru, jak i temperatury zostały wiernie odwzorowane
+przez stworzony model, a na poniższych wykresach widać jak linie prognozowanych wartości
+podążają za wartościami przewidywanymi. W przypadku ciśnienia atmosferycznego,
+po nagłym spadku model był w stanie dopasować się ponownie do danych pomiarowych
+i dalej podążać za utworzonym trendem.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/SVR_week.png}
-    \caption{}
+    \caption{Przebiegi czasowe dla algorytmu SVR. Na żółto pokazane zostały dane 
+    rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{svr-week}
 \end{figure}
+
+Dla perceptronu wielowarstwowego widać dużo większą wariancję w wyjściu modelu 
+w zakresie krótkoterminowym. Duże wahania są szczególne widoczne dla wartości odpływów.
+Bardzo możliwe, że charakterystyka oscylacyjna danych wejściowych  
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/MLP_week.png}
-    \caption{}
+    \caption{Przebiegi czasowe dla algorytmu MLP. Na żółto pokazane zostały dane 
+    rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{mlp-week}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/rnn_week.png}
-    \caption{}
+    \caption{Przebiegi czasowe dla algorytmu RNN. Na żółto pokazane zostały dane 
+    rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{rnn-week}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/random_forest_week.png}
-    \caption{}
+    \caption{Przebiegi czasowe dla algorytmu lasu losowego. Na żółto pokazane zostały dane 
+    rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{forest-week}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/regression_week.png}
-    \caption{}
+    \caption{Przebiegi czasowe dla algorytmu regresji logistycznej. Na żółto pokazane zostały dane 
+    rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{regression-week}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/knn_week.png}
-    \caption{}
+    \caption{Przebiegi czasowe dla algorytmu KNN. Na żółto pokazane zostały dane 
+    rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{knn-week}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Decision_tree_week.png}
-    \caption{}
+    \caption{Przebiegi czasowe dla algorytmu drzewa decyzyjnego. Na żółto pokazane zostały dane 
+    rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{tree-week}
 \end{figure}
 
