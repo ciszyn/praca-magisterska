@@ -134,7 +134,9 @@ i dalej podążać za utworzonym trendem.
 
 Dla perceptronu wielowarstwowego widać dużo większą wariancję w wyjściu modelu 
 w zakresie krótkoterminowym. Duże wahania są szczególne widoczne dla wartości odpływów.
-Bardzo możliwe, że charakterystyka oscylacyjna danych wejściowych  
+Bardzo możliwe, że charakterystyka oscylacyjna danych wejściowych wprowadza znaczną
+ilość zakłuceń, a zbyt prosta architektura sieci nie zapewnia możliwości odfiltrowania 
+szumów. 
 
 \begin{figure}[H]
     \centering
@@ -144,6 +146,9 @@ Bardzo możliwe, że charakterystyka oscylacyjna danych wejściowych
     \label{mlp-week}
 \end{figure}
 
+Rekurencyjna architektura sieci neuronowych RNN prezentuje podobne zachowanie 
+generując dane wyjściowe z dużymi wahaniami. Wyniki dla tego modelu zostały zaprezentowane na rysunku \ref{rnn-week}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/rnn_week.png}
@@ -152,6 +157,13 @@ Bardzo możliwe, że charakterystyka oscylacyjna danych wejściowych
     \label{rnn-week}
 \end{figure}
 
+W przypadku lasu losowego, widać duże przesunięcie dla linii odpływów wody. Stworzone prognozy zdecydowanie
+przeceniają wartości rzeczywiste, co może być spowodowane pojedynczymi zdarzeniami w zbiorze treningowym o
+dużej amplitudzie, które mogły zaburzyć proces uczenia modelu.
+
+Można też zauważyć widoczne wahania o charakterze dwudziestoczterogodzinnym w wartościach 
+prędkości wiatru i temperatury, które niekoniecznie odnajdują odzwierciedlenie w danych rzeczywistych.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/random_forest_week.png}
@@ -159,6 +171,11 @@ Bardzo możliwe, że charakterystyka oscylacyjna danych wejściowych
     rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{forest-week}
 \end{figure}
+
+Kolejnym rozważanym modelem jest regresja logistyczna, która wydaje się najlepiej odzwierciedliła 
+zachowania przebiegu temperatury, odparowania i promieniowania słonecznego. Większe wartości 
+błędu dla tego modelu mogą być spowodowane gorszym dopasowaniem względem pozostałych parametrów, dla których
+często prognozowane są nieprawidłowe wahania od rzeczywistego trendu.
 
 \begin{figure}[H]
     \centering
@@ -176,18 +193,25 @@ Bardzo możliwe, że charakterystyka oscylacyjna danych wejściowych
     \label{knn-week}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/Decision_tree_week.png}
-    \caption{Przebiegi czasowe dla algorytmu drzewa decyzyjnego. Na żółto pokazane zostały dane 
-    rzeczywiste, na niebiesko predykcje wygenerowane przez model}
-    \label{tree-week}
-\end{figure}
+Algorytm K najbliższych sąsiadów ma wyraźne trudności w rozpoznawaniu danych wejściowych różniących się od 
+danych zawartych w zbiorze treningowym. Wyraźne odchylenia widoczne są przede wszystkim w przebiegach  
+symbolizujących odpływ i ciśnienie atmosferyczne. Co więcej bardzo dużo opadów zostało fałszywie
+zasygnalizowane. Model KNN okazuje się być niestosowny do problemu prognozowania pogody ze względu
+na brak generalizacji nabytej wiedzy i dostosowania do nowych danych.
+
+\pagebreak
+
+Można także przeanalizować zdolność poszczególnych modeli do regresji względem poszczególnych atrybutów.
+Tak na przykład na rysunku \ref{svr-mse-bar} pokazany został błąd średniokwadratowy dla modelu SVR, który był
+jednym z modeli o najlepszych wynikach. Z przedstawionego wykresu wynika że największy błąd jest generowany
+przez prognozowanie promieniowania termicznego. Problemy w regresji względem tego atrybuty mogą być  
+spowodowane między innymi jego wysoką wariancją i zależnością od procesów fizycznych nie ujętych w zbiorze 
+danych.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_mse_bar.png}
-    \caption{}
+    \caption{Wartości błędu średniokwadratowego dla modelu SVR ze względu na poszczególne atrybuty danych.}
     \label{svr-mse-bar}
 \end{figure}
 
