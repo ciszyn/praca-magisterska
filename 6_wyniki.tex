@@ -203,9 +203,9 @@ na brak generalizacji nabytej wiedzy i dostosowania do nowych danych.
 
 Można także przeanalizować zdolność poszczególnych modeli do regresji względem poszczególnych atrybutów.
 Tak na przykład na rysunku \ref{svr-mse-bar} pokazany został błąd średniokwadratowy dla modelu SVR, który był
-jednym z modeli o najlepszych wynikach. Z przedstawionego wykresu wynika że największy błąd jest generowany
-przez prognozowanie promieniowania termicznego. Problemy w regresji względem tego atrybuty mogą być  
-spowodowane między innymi jego wysoką wariancją i zależnością od procesów fizycznych nie ujętych w zbiorze 
+jednym z modeli o najlepszych wynikach. Z przedstawionego wykresu wynika, że największy błąd jest generowany
+przez prognozowanie promieniowania termicznego. Problemy w regresji względem tego atrybutu mogą być  
+spowodowane między innymi jego wysoką wariancją i zależnością od procesów fizycznych nieujętych w zbiorze 
 danych.
 
 \begin{figure}[H]
@@ -215,89 +215,158 @@ danych.
     \label{svr-mse-bar}
 \end{figure}
 
+Charakterystyka względem średniego błędu absolutnego wskazuje na te same wnioski. Najcięższymi parametrami
+do przewidzenia były wartości promieniowania słonecznego oraz prędkości wiatru. Jednak nie wszystkie
+parametry są jednakowo ujęte poprzez zastosowanie tej metryki. Stosując MAE widać, że błędy 
+uwzględnione w prognozowaniu promieniowania słonecznego są mniejsze niż te wywołane przez ciśnienie
+atmosferyczne oraz ilość opadów. Jest to przykład tego, jak używanie różnych metryk może prowadzić do 
+odmiennych wniosków i być przyczyną odmiennej interpretacji.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_mae_bar.png}
-    \caption{}
+    \caption{Wartości średniego błędu absolutnego dla modelu SVR ze względu na poszczególne atrybuty danych.}
     \label{svr-mae-bar}
 \end{figure}
+
+Ponieważ MSE jest bardziej krytyczną metryką względem krótkotrwałych odchyleń o dużej różnicy względem
+danych rzeczywistych, możemy wnosić, że różnice w danych generowanych dla wartości promieniowania słonecznego
+mają charakter chwilowy, a po porównaniu wykresów szeregów czasowych widać, że największym problem okazuje
+się prognozowanie wartości maksymalnej dla poszczególnych dni.
+
+\pagebreak
 
 % Inferential statistics: Report the results of any inferential 
 % statistical analyses that you conducted to test your research 
 % hypotheses, such as t-tests, ANOVA, regression analysis, or 
 % other statistical tests. Be sure to include the statistical 
 % significance of the results and the effect sizes.
-\subsection{Testy statystyczne}
+\subsection{Analiza dystrybucji i korelacji}
+
+W celach dalszej eksploracji otrzymanych wyników przeprowadzone zostało porównanie dystrybucji 
+rzeczywistych parametrów atmosferycznych z predykcjami wygenerowanymi przez rozpatrywane algorytmy.
+Na poniższym rysunku \ref{real-hist} zostały ponownie przedstawione histogramy dla oryginalnych danych pomiarowych.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/hist.png}
-    \caption{}
+    \caption{Histogramy prezentujące dystrybucję danych rzeczywistych}
     \label{real-hist}
 \end{figure}
+
+Widzimy regularność w przedstawionych danych i choć nie wszystkie atrybuty podążają za dystrybucją normalną 
+oraz występuje skośność w danych, to istnieje jednoznaczny model tworzący istniejące dane.
+
+Nawet inspekcja najlepiej działającego algorytmu, którym jest SVR, pokazuje wady w utworzonych 
+prognozach. Nieregularność dystrybucji danych szczególnie widoczna dla odpływów wody oraz
+ciśnienia atmosferycznego ujawniają syntetyczne pochodzenie wygenerowanych predykcji. 
+Co więcej, odparowanie, promieniowanie termiczne oraz ilość odpadów odbiegają od oryginalnego kształtu
+dystrybucji danych.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_hist.png}
-    \caption{}
+    \caption{Histogramy prezentujące dystrybucję predykcji wygenerowanych przez algorytm SVR.}
     \label{svr-hist}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/dt_hist.png}
-    \caption{}
+    \caption{Histogramy prezentujące dystrybucję predykcji wygenerowanych przez algorytm drzewo decyzyjne.}
     \label{dt-hist}
 \end{figure}
+
+Na rysunku \ref{dt-hist} pokazane zostały analogiczne dystrybucje dla drzewa decyzyjnego. Luki w 
+pewnych zakresach danych oraz brak ciągłości w dystrybucji ujawnia złe modelowanie zjawisk atmosferycznych,
+poprzez nieprawidłowe odwzorowanie danych rzeczywistych. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_qq.png}
-    \caption{}
+    \caption{Wykresy QQ stworzone dla modelu SVR}
     \label{svr-qq}
 \end{figure}
+
+Aby przeprowadzić dalszą analizę, stworzone zostały wykresy QQ pokazane na rysunku \ref{svr-qq} oraz \ref{dt-qq}.
+W przypadku algorytmu SVR większość danych podąża za dystrybucją normalną, nawet w przypadkach,
+gdy dla danych rzeczywistych nie było to prawdą. Wyjątkiem od tego są odparowanie oraz promieniowanie 
+termiczne, które odbiegają od ogólnego trendu i zdają się sumą dwóch dystrybucji normalnych.
+
+Analogiczny wykres dla drzewa decyzyjnego pokazuje chaotyczność w wytworzonych danych, jeszcze raz 
+udowadniając niestosowność zastosowanego algorytmu. Poprzez użycie drzewa decyzyjnego reprodukcja
+rzeczywistych parametrów jest niemożliwa, a utworzone prognozy pogodowe odbiegają od oczekiwanych wartości.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/dt_qq.png}
-    \caption{}
+    \caption{Wykresy QQ stworzone dla modelu drzewa decyzyjnego}
     \label{dt-qq}
 \end{figure}
 
+Kolejnym pokazanym rysunkiem są wykresy pudełkowe dla algorytmu SVR pokazane na zdjęciu \ref{svr-box}. 
+Widzimy na nich o wiele mniejszą ilość
+danych odstających w stosunku do tych samych wykresów wygenerowanych dla danych rzeczywistych. Co więcej,
+większość parametrów zdaje się posiadać symetryczny rozkład, co nie było prawdą dla modelowanych danych.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/svr_box.png}
-    \caption{}
+    \includegraphics[width=.8\textwidth]{images/svr_box.png}
+    \caption{Wykresy pudełkowe dla modelu SVR}
     \label{svr-box}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/svr_autocorr.png}
-    \caption{}
+    \includegraphics[width=.8\textwidth]{images/svr_autocorr.png}
+    \caption{Współczynnik autokorelacji dla SVR dla wartości przesunięcia w zakresie czterech dni}
     \label{svr-autocorr}
 \end{figure}
+
+Obserwując wykresy autokorelacji, możemy także zaobserwować zależności, które nie występowały pierwotnie w 
+zbiorze danych. Pierwotnie szeregi czasowe dla prędkości wiatru nie ujawniały natury cyklicznej, jednak 
+na wykresie \ref{svr-autocorr} widać periodyczne skoki w wartości autokorelacji następujące co jeden dzień.
+Ten sam wniosek może zostać wyciągnięty względem ilości opadów, które dla analizowanego zbioru danych 
+ujawniały jednostajnie spadającą autokorelację, a w tym przypadku widzimy nieregularny przebieg z okresowymi
+skokami. Mimo to wartości dla reszty atrybutów są bardzo bliskie względem symulowanych danych.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/dt_autocorr.png}
-    \caption{}
+    \caption{Współczynnik autokorelacji dla drzewa decyzyjnego dla wartości przesunięcia w zakresie czterech dni}
     \label{dt-autocorr}
 \end{figure}
+
+W przypadku drzewa decyzyjnego, dla którego autokorelacja została ukazana na wykresie \ref{dt-autocorr},
+wygenerowane wykresy pokazują o wiele bardziej losową naturę. Nagłe skoki nie podążają za dziennymi cyklami,
+co może wskazywać na "ślepe" powtarzanie wcześniej zaobserwowanych pomiarów. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_corr_matrix.png}
-    \caption{}
+    \caption{Korelacja pomiędzy parametrami w stworzonych prognozach dla algorytmu SVR}
     \label{svr-corr-matrix}
 \end{figure}
+
+Na powyższym rysunku \ref{svr-corr-matrix} pokazana została korelacja pomiędzy poszczególnymi atrybutami.
+Pokazane wartości są bliskie w wartości do podobnej analizy przeprowadzonej dla danych pomiarowych. 
+Największa korelacja istnieje pomiędzy promieniowaniem słonecznym a odparowaniem i wynosi -0,87 (-0,63 dla
+rzeczywistego zbioru). Poza tym brak bardziej znaczących wartości z pominięciem tp-str, str-ssr i temperaturą
+względem prędkości wiatru. Jednym z odchyleń względem rzeczywistości zdaje się wysoka wartość dla 
+relacji między ciśnieniem atmosferycznym a odpływem cieków wodnych, która nie występuję w naturze.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/dt_corr_matrix.png}
-    \caption{}
+    \caption{Korelacja pomiędzy parametrami w stworzonych prognozach dla drzewa decyzyjnego}
     \label{dt-corr-matrix}
 \end{figure}
+
+Taki sam wykres został stworzony dla drzewa decyzyjnego na rysunku \ref{dt-corr-matrix}. Możemy na nim 
+zaobserwować podobne wzorce, lecz z o wiele większą korelacją pomiędzy poszczególnymi atrybutami. 
+Wartości korelacji sięgają wartości od -0,9 aż do 0,71. Algorytm drzewa decyzyjnego zdaje się 
+bazować swoje wyniki bezpośrednio na relacjach występujących pomiędzy pojedynczymi atrybutami,
+a w rezultacie ignorując głębsze zależności występujące w danych.
 
 
 % Tables and figures: Present your data in tables and figures 
@@ -314,31 +383,45 @@ danych.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/pred_corr.png}
-    \caption{}
+    \caption{Korelacja pomiędzy wynikami stworzonymi poprzez poszczególne modele}
     \label{pred_corr}
 \end{figure}
+
+Porównując modele, można zastosować te same metryki jak w przypadku ewaluacji predykcji względem 
+danych rzeczywistych. Największe wartości korelacji są widoczne pomiędzy modelami SVR, regresji logistycznej,
+lasu losowego, MLP i RNN. Są to wszystkie modele, które w przeprowadzonych eksperymentach uzyskały najlepsze
+rezultaty. Kolejną grupą algorytmów znajdujących się blisko siebie jest regresja gaussowska, PLS oraz CNN,
+które, chociaż nie uzyskały najlepszych rezultatów, znajdowały się wśród algorytmów o średniej wydajności.
+Drzewo decyzyjne będące przykładem najgorszego z rozważanych algorytmów znajduję się w dużej odległości
+od pozostałych modeli.
+
+Podobną analizę można przeprowadzić również ze względu na wartość błędu absolutnego i średniokwadratowego,
+czego wyniki zostały zobrazowane na rysunku \ref{mse-matrix} oraz \ref{mae-matrix}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/mse_matrix.png}
-    \caption{}
+    \caption{Wartość błędu średniokwadratowego pomiędzy wynikami stworzonymi poprzez poszczególne modele}
     \label{mse-matrix}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/mae_matrix.png}
-    \caption{}
+    \caption{Wartość średniego błędu absolutnego pomiędzy wynikami stworzonymi poprzez poszczególne modele}
     \label{mae-matrix}
 \end{figure}
 
+Wszystkie metryki wskazują na podobne rozdysponowanie rozważanych modeli względem siebie. Warto również wskazać
+fakt, że wartość błędu większości modeli względem siebie nie przekraczała wartości błędu względem wartości
+referencyjnych.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/tree.png}
-    \caption{}
-    \label{tree-graph}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/tree.png}
+%     \caption{}
+%     \label{tree-graph}
+% \end{figure}
 
 % Interpretation: Provide an interpretation of your findings and 
 % relate them back to your research questions or hypotheses. Discuss 
