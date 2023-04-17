@@ -132,10 +132,29 @@ i dalej podążać za utworzonym trendem.
     \label{svr-week}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/svr_real.png}
+    \caption{Scatterplot prezentujący relację pomiędzy prognozowanymi wartościami
+    temperatury a wartościami rzeczywistymi dla algorytmu SVR}
+    \label{svr-real}
+\end{figure}
+
+Na powyższym rysunku \ref{svr-real} pokazano relację pomiędzy rzeczywistymi wartościami
+temperatury a wartościami wygenerowanymi przez SVR. Za pomocy gradientu w kolorze wyróżniono postęp
+czasowy obserwacji. Widać liniową zależność, zakłócona paroma grupami obserwacji, dla których
+odchylenie od wartości rzeczywistych jest największe.
+
+W skrajnym przypadku na powyższym rysunku widać wartości odbiegające o nawet 15 stopni względem
+wartości zmierzonych. Warto zanotować także dość dużą wariancję w zbiorze testowym, w którym
+temperatura wahała się w zakresie 25 stopni, chociaż wszystkie obserwacje pochodzą ze stycznia.
+
+\pagebreak
+
 Dla perceptronu wielowarstwowego widać dużo większą wariancję w wyjściu modelu 
 w zakresie krótkoterminowym. Duże wahania są szczególne widoczne dla wartości odpływów.
 Bardzo możliwe, że charakterystyka oscylacyjna danych wejściowych wprowadza znaczną
-ilość zakłuceń, a zbyt prosta architektura sieci nie zapewnia możliwości odfiltrowania 
+ilość zakłóceń, a zbyt prosta architektura sieci nie zapewnia możliwości odfiltrowania 
 szumów. 
 
 \begin{figure}[H]
@@ -428,9 +447,36 @@ referencyjnych.
 % the implications of your results for the broader field of weather 
 % prediction and the use of artificial intelligence and machine learning 
 % techniques in this area.
-\subsection{Interpretacja}
+% \subsection{Interpretacja}
 
 % Limitations: Discuss any limitations of your study that may 
 % have affected the validity or generalizability of your findings. 
 % Be sure to acknowledge any potential sources of bias or confounding variables.
-\subsection{Ograniczenia}
+\subsection{Ograniczenia i możliwy rozwój}
+
+Pierwszym ograniczeniem, którym warto wspomnieć podczas analizy otrzymanych wyników, jest 
+mała liczba zasobów obliczeniowych w celu przeprowadzenia badań. Większe możliwości pozwoliłyby
+na sprawdzenie większych modeli oraz walidację większej ilości hiperparametrów. Co więcej, 
+chociaż dane godzinne zebrane z dwudziestu miesięcy reprezentują dość duże obciążenie
+w obróbce i przetwarzaniu, to trening zaawansowanych modeli wymagałby o wiele większej liczby 
+obserwacji i parametrów uwzględnionych w zbiorze danych.
+
+Co więcej, przeprowadzone badania uwzględniały tylko jedną lokalizację w przeprowadzonej regresji,
+a wpływ zjawisk globalnych został zignorowany. W dalszych analizach potrzeba by było przeanalizować
+obserwacje pogodowe pochodzące z całego regionu, co znacznie powiększyłoby wymiar danych wejściowych
+i przedłużyłoby proces uczenia i testowania.
+
+Możliwym ulepszeniem wartym rozważenia w przyszłych badaniach jest zastosowanie bardziej zaawansowanych
+architektur sieci neuronowych. W niniejszej pracy rozważone zostały sieci konwolucyjne i rekurencyjne.
+Możliwe byłoby zastosowanie podejść hybrydowych o większej liczbie warstw ukrytych. Innym sposobem
+byłoby także zastosowanie wcześniej wytrenowanych sieci w celu użycia uczenia transferowego i utylizacji
+już nabytej wiedzy.
+
+Ponadto, użyty zbiór danych składał się z wcześniej przetworzonych danych i niekoniecznie idealnie
+odwzorowywał rzeczywiste zachowanie warunków pogodowych. Zbiór ERA5 jest zbiorem reanalysis i choć
+zawiera kompleksowy zbiór parametrów i dużą rozdzielczość, to jest zależny od dokładności pomiarowej
+urządzeń użytych do badania atmosfery. Algorytmy syntezy danych użyte w celu interpolacji otrzymanych
+pomiarów do siatki modelowanej przez metody numeryczne także wnoszą pewien stopień błędu.
+
+
+
