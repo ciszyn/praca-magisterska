@@ -108,6 +108,29 @@
 
 \section*{Abstrakt}
 
+Niniejsza praca zajmuję się analizą wykorzystania uczenia maszynowego w zastosowaniach meteorologicznych
+w problemie prognozowania pogody. W celu pokazania działania poszczególnych modeli wykorzystany został
+zbiór danych ERA5 stworzony przez Europejskie Centrum Średnioterminowych Prognoz Pogody zawierający
+dane globalne zasymilowane przez najnowsze modele numeryczne. W celach tej pracy analiza skupiała 
+się na krótkoterminowym prognozowaniu pogody w zakresie 24 godzin,
+a zakres geograficzny analizowanych danych skupiał się na jednej lokalizacji. 
+Stworzone modele zostały poddane wstępnej optymalizacji poprzez dostrajanie wartości hiperparametrów.
+
+Wśród rozważonych modeli znajdowały się SVR, regresja logistyczna, regresja SGD,
+k najbliższych sąsiadów, regresja gaussowska, drzewo decyzyjne, las losowy, sieci neuronowe,
+oraz regresja dekompozycji PLS.
+
+Wśród rozpatrzonych metryk znajdował się błąd średniokwadratowy, średni błąd absolutny oraz współczynnik
+korelacji. Dodatkowo rozpatrzone zostały parametry statystyczne wytworzonych prognoz w porównaniu
+do danych rzeczywistych. Wskutek przeprowadzonych badań stworzone zostało wszechstronne porównanie
+analizowanych modeli względem siebie, a przeprowadzone wnioskowanie poddało analizie 
+mocne i słabe strony poszczególnych podejść.
+
+Dodatkowy nacisk został położony w analizie metod uczenia maszynowego w zastosowaniu razem z 
+tradycyjnymi metodami numerycznymi symulacji pogody. 
+
+\bigskip
+
 \noindent
 {\bf Słowa kluczowe:} Uczenie maszynowe, Uczenie Głębokie, Sieci neuronowe,
 ERA5, Prognozowanie pogody, Sztuczna inteligencja
@@ -166,6 +189,6 @@ UCAR — University Corporation for Atmospheric Research
 
 \pagebreak
 \printbibliography[title={Bibliografia}]
-\include{9_appendix.tex}
+% \include{9_appendix.tex}
 
 \end{document}

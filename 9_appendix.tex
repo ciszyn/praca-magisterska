@@ -1,1 +1,1089 @@
 \section*{Appendix}
+
+\begin{lstlisting}[label=python-listing,caption={Kod źródłowy},language=python]
+import xarray as xr
+import pandas as pd
+
+ds = xr.open_dataset('/content/drive/My Drive/era5/era5_03-19.nc', 
+    engine='netcdf4')
+ds2 = xr.open_dataset('/content/drive/My Drive/era5/era5_20-22.nc', 
+    engine='netcdf4')
+df = ds.to_dataframe()
+df2 = ds2.to_dataframe()
+
+df
+
+df.describe()
+
+df.isna().any()
+empty_columns=[]
+
+for i in list(df.columns):
+    empty_values = df[i].isnull().sum()
+    if empty_values > 0:
+        print(i, empty_values, empty_values / df.shape[0])
+
+df.index
+
+# df.loc[24.0, 49.0]
+df.loc[18.899999618530273, 49.900001525878906]
+
+df.loc[:,:,"2018-01-01 00:00:00"]
+
+"""## Nan handling"""
+
+df.interpolate(inplace=True)
+df2.interpolate(inplace=True)
+for column in df.columns:
+    df[column].fillna(df[column].mean(), inplace=True)
+    df2[column].fillna(df2[column].mean(), inplace=True)
+
+
+for i in list(df.columns):
+    empty_values = df[i].isnull().sum()
+    if empty_values > 0:
+        print(i, empty_values, empty_values / df.shape[0])
+
+"""## Plots"""
+
+df = pd.concat([df, df2])
+df
+
+from statsmodels.graphics import tsaplots
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from math import ceil, sqrt
+
+n = ceil(sqrt(len(df.columns)))
+f, a = plt.subplots(n, n, figsize=(15, 12))
+for column, ax in zip(df.columns, a.ravel()):
+    plot = tsaplots.plot_acf(df[column], lags=range(1, 98), ax=ax)
+    ax.set_title(column)
+plt.subplots_adjust(wspace=.3)
+
+fig, ax = plt.subplots()
+lag = 24
+plt.scatter(df["t2m"][:-lag], df["t2m"][lag:], 
+    c=range(len(df)-lag), s=2)
+ax.set_xlabel("Temperatura [K]")
+ax.set_ylabel("Temperatura [K]")
+
+fig, ax = plt.subplots()
+lag = 24
+length = 200
+plt.plot(df["t2m"][:length], df["t2m"][lag:lag+length])
+ax.set_xlabel("Temperatura [K]")
+ax.set_ylabel("Temperatura [K]")
+
+fig, ax = plt.subplots()
+lag = 24
+plt.scatter(df["sp"][:-lag], df["sp"][lag:], c=range(len(df)-lag), s=2)
+ax.set_xlabel("Cisnienie [Pa]")
+ax.set_ylabel("Cisnienie [Pa]")
+
+import matplotlib.pyplot as plt
+fix, ax = plt.subplots()
+plt.scatter(df["ssr"], df["e"], c = range(len(df)), s=2)
+ax.set_xlabel("Promieniowanie sloneczne [J/m^2]")
+ax.set_ylabel("Odpwarowanie [m]")
+
+fig, ax = plt.subplots()
+lag = 24
+plt.scatter(df["tp"][:-lag], df["tp"][lag:], c=range(len(df)-lag), s=2)
+ax.set_xlabel("Opady [m]")
+ax.set_ylabel("Opady [m]")
+
+n = ceil(sqrt(len(df.columns)))
+f, a = plt.subplots(n, n, figsize=(12, 12))
+lag = 24
+for column, ax in zip(df.columns, a.ravel()):
+    ax.hexbin(df[column][:-lag], df[column][lag:], gridsize=40)
+    ax.set_title(column)
+
+plt.subplots_adjust(wspace=.3)
+plt.subplots_adjust(hspace=.3)
+
+a[1][0].set_xticklabels(a[1][0].get_xticklabels(), rotation=15, ha='center')
+a[2][0].set_xticklabels(a[2][0].get_xticklabels(), rotation=15, ha='center')
+a[2][1].set_xticklabels(a[2][1].get_xticklabels(), rotation=15, ha='center')
+a[2][2].set_xticklabels(a[2][2].get_xticklabels(), rotation=15, ha='center')
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+matrix = df.corr().round(2)
+sns.heatmap(matrix, annot=True, cmap="Blues")
+plt.show()
+
+import math
+import numpy as np
+from scipy.stats import lognorm
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from math import ceil, sqrt
+
+n = ceil(sqrt(len(df.columns)))
+f, a = plt.subplots(n, n, figsize=(15, 12))
+for column, ax in zip(df.columns, a.ravel()):
+    plot = sm.qqplot(df[column], ax=ax)
+    ax.set_title(column)
+    ax.set_xlabel("")
+    ax.set_ylabel("")
+    
+plt.subplots_adjust(wspace=.3)
+
+from scipy.stats import shapiro 
+from scipy.stats import lognorm
+from scipy.stats import kstest
+from scipy.stats import normaltest
+
+#that's just blatant lies
+for column in df.columns:
+    print(column + "  " + str(normaltest(df[column]).pvalue))
+
+import matplotlib.pyplot as plt
+from math import ceil, sqrt
+
+n = ceil(sqrt(len(df.columns)))
+f, a = plt.subplots(n, n, figsize=(15, 12))
+for column, ax in zip(df.columns, a.ravel()):
+    plot = df.boxplot(column=column, ax=ax, figsize=(30, 30))
+plt.subplots_adjust(wspace=.3)
+
+plot = df.hist(bins=20, figsize=(12, 12))
+plot[1][0].set_xticklabels(plot[1][0].get_xticklabels(), 
+    rotation=15, ha='center')
+plot[2][0].set_xticklabels(plot[2][0].get_xticklabels(), 
+    rotation=15, ha='center')
+plot[2][1].set_xticklabels(plot[2][1].get_xticklabels(), 
+    rotation=15, ha='center')
+plot[2][2].set_xticklabels(plot[2][2].get_xticklabels(), 
+    rotation=15, ha='center')
+
+import matplotlib.pyplot as plt
+from math import ceil, sqrt
+
+timeframe = 3000
+
+n = ceil(sqrt(len(df.columns)))
+f, a = plt.subplots(n, n, figsize=(12, 12))
+for column, ax in zip(df.columns, a.ravel()):
+    plot = df[column][:timeframe].rolling(window=92)
+        .mean().plot(ax=ax)
+    ax.set_xticklabels([])
+    ax.set_xlabel("time")
+    ax.set_title(column)
+plt.subplots_adjust(wspace=.3)
+
+"""## Scaling"""
+
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+import numpy as np
+from joblib import dump, load
+
+scaler = MinMaxScaler()
+
+df[df.columns] = scaler.fit_transform(df[df.columns])
+df2[df2.columns] = scaler.transform(df2[df2.columns])
+
+df.head()
+
+dump(scaler, '/content/drive/My Drive/era5/standard_scaler.bin', 
+    compress=True)
+df.to_csv('/content/drive/My Drive/era5/weather.csv', 
+    compression="gzip")
+df2.to_csv('/content/drive/My Drive/era5/weather2.csv', 
+    compression="gzip")
+
+"""# Classification
+
+## Data reading
+"""
+
+import pandas as pd
+from tensorflow.keras.preprocessing import timeseries_dataset_from_array
+import numpy as np
+
+def prepare_single_location_data(test=False, additional=False):
+    if test:
+        df = pd.read_csv('/content/drive/My Drive/era5/weather2.csv', 
+            compression='gzip', index_col=[0, 1, 2])
+    elif(additional==False):
+        df = pd.read_csv('/content/drive/My Drive/era5/weather.csv', 
+            compression='gzip', index_col=[0, 1, 2])
+    else:
+        df = pd.read_csv('/content/drive/My Drive/era5/weather3.csv', 
+            compression='gzip', index_col=[0, 1, 2])
+        df = df.to_numpy()
+        X = timeseries_dataset_from_array(df, None, sequence_length=96, 
+            sequence_stride=24, sampling_rate=1, start_index=0, end_index=len(df)-24, batch_size=None)
+        y = timeseries_dataset_from_array(df, None, sequence_length=24, 
+            sequence_stride=24, sampling_rate=1, start_index=96, batch_size=None)
+    return X, y
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+X, y = prepare_single_location_data()
+X, y = np.array(list(X)), np.array(list(y))
+
+X_test, y_test = prepare_single_location_data(True)
+X_test, y_test = np.array(list(X_test)), np.array(list(y_test))
+
+"""## Neural networks"""
+
+from keras.engine import input_layer
+from sklearn.base import BaseEstimator
+from keras.models import Sequential 
+from keras.layers import Dense 
+from keras.layers import GRU
+from keras.layers import Concatenate, Reshape, Conv2D, 
+    MaxPooling2D, Flatten
+from keras import Input, Model
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+from keras.callbacks import EarlyStopping, ModelCheckpoint
+
+class RNN(BaseEstimator):
+    def __init__(self, epochs=10, layer1=[16, 16], layer2=[16, 16], 
+        loss="mean_squared_error", optimizer="adam", metrics="MSE"):
+    self._estimator_type = "regressor"
+    self.epochs = epochs
+    self.layer1 = layer1
+    self.layer2 = layer2
+    self.loss = loss
+    self.optimizer = optimizer
+    self.metrics = metrics
+
+    def fit(self, X, y, params=None):
+    if params == None:
+        params = {
+            "epochs": self.epochs,
+            "layer1": self.layer1,
+            "layer2": self.layer2,
+            "loss": self.loss,
+            "optimizer": self.optimizer,
+            "metrics": self.metrics
+        }
+
+    n_epochs = params["epochs"] or self.epochs
+    n_layer1 = params["layer1"] or self.layer1
+    n_layer2 = params["layer2"] or self.layer2
+    loss_function = params["loss"] or "mean_squared_error"
+    optimizer_function = params["optimizer"] or "adam"
+    metrics = params["metrics"] or "MSE"
+
+    input = Input(shape=(X.shape[1], X.shape[2]))
+
+    x = GRU(n_layer1[0], return_sequences=True)(input)
+    for n_layer in n_layer1[1:]:
+        x = GRU(n_layer, return_sequences=True)(x)
+    x = Flatten()(x)
+    for n_layer in n_layer2:
+        x = Dense(n_layer)(x)
+    x = Dense(y.shape[1])(x)
+
+    output = x
+
+    self.model = Model(inputs=[input], outputs=[output])
+    self.model.compile(loss=loss_function, optimizer=optimizer_function, 
+        metrics=metrics) 
+    self.model.build(input_shape=(X.shape[1], X.shape[2]))
+
+    self.model.fit(X, y, epochs=n_epochs, batch_size=1, verbose=0)
+    return self
+
+    def predict(self, X):
+    y = self.model.predict(X)
+    return y
+
+    def save(self, path):
+    self.model.save(path)
+
+    def score(self, X, y):
+    return mean_squared_error(self.predict(X), y)
+
+    def get_params(self, deep=True):
+    return {
+            "epochs": self.epochs,
+            "layer1": self.layer1,
+            "layer2": self.layer2,
+            "loss": self.loss,
+            "optimizer": self.optimizer,
+            "metrics": self.metrics
+        }
+
+from keras.engine import input_layer
+from sklearn.base import BaseEstimator
+from keras.models import Sequential 
+from keras.layers import Dense 
+from keras.layers import GRU
+from keras.layers import Concatenate, Reshape, Conv2D, 
+    MaxPooling2D, Flatten
+from keras import Input, Model
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
+class CNN(BaseEstimator):
+    def __init__(self, epochs=10, layer1=[16, 16], layer2=[16, 16], 
+        loss="mean_squared_error", optimizer="adam", metrics="MSE"):
+    self._estimator_type = "regressor"
+    self.epochs = epochs
+    self.layer1 = layer1
+    self.layer2 = layer2
+    self.loss = loss
+    self.optimizer = optimizer
+    self.metrics = metrics
+
+    def fit(self, X, y, params=None):
+    if params == None:
+        params = {
+            "epochs": self.epochs,
+            "layer1": self.layer1,
+            "layer2": self.layer2,
+            "loss": self.loss,
+            "optimizer": self.optimizer,
+            "metrics": self.metrics
+        }
+
+    n_epochs = params["epochs"] or self.epochs
+    n_layer1 = params["layer1"] or self.layer1
+    n_layer2 = params["layer2"] or 16
+    loss_function = params["loss"] or "mean_squared_error"
+    optimizer_function = params["optimizer"] or "adam"
+    metrics = params["metrics"] or "MSE"
+
+    input = Input(shape=(X.shape[1], X.shape[2]))
+
+    x = Reshape((96, 9, 1))(input)
+
+    x = Conv2D(n_layer1[0], (3, 3), input_shape=(96, 9, 1))(x)
+
+    for n_layer in n_layer1[1:]:
+        x = Conv2D(n_layer, (3, 3))(x)
+
+    x = Flatten()(x)
+
+    for n_layer in n_layer2:
+        x = Dense(n_layer)(x)
+        x = Dense(n_layer)(x)
+    x = Dense(y.shape[1])(x)
+
+    output = x
+
+    self.model = Model(inputs=[input], outputs=[output])
+    self.model.compile(loss=loss_function, optimizer=optimizer_function, 
+        metrics=metrics) 
+    self.model.build(input_shape=(X.shape[1], X.shape[2]))
+    self.model.fit(X, y, epochs=n_epochs, batch_size=1, verbose=0)
+    return self
+
+    def predict(self, X):
+    y = self.model.predict(X)
+    return y
+
+    def save(self, path):
+    self.model.save(path)
+
+    def score(self, X, y):
+    return mean_squared_error(self.predict(X), y)
+
+    def get_params(self, deep=True):
+    return {
+            "epochs": self.epochs,
+            "layer1": self.layer1,
+            "layer2": self.layer2,
+            "loss": self.loss,
+            "optimizer": self.optimizer,
+            "metrics": self.metrics
+        }
+
+from keras.engine import input_layer
+from sklearn.base import BaseEstimator
+from keras.models import Sequential 
+from keras.layers import Dense 
+from keras.layers import GRU
+from keras.layers import Concatenate, Reshape, Conv2D, 
+    MaxPooling2D, Flatten
+from keras import Input, Model
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
+class NN(BaseEstimator):
+    def __init__(self, epochs=10, layer1=[16, 16], loss="mean_squared_error", 
+        optimizer="adam", metrics="MSE"):
+    self._estimator_type = "regressor"
+    self.epochs = epochs
+    self.layer1 = layer1
+    self.loss = loss
+    self.optimizer = optimizer
+    self.metrics = metrics
+
+    def fit(self, X, y, params=None):
+    if params == None:
+        params = {
+            "epochs": self.epochs,
+            "layer1": self.layer1,
+            "loss": self.loss,
+            "optimizer": self.optimizer,
+            "metrics": self.metrics
+        }
+
+    n_epochs = params["epochs"] or self.epochs
+    n_layer1 = params["layer1"] or self.layer1
+    loss_function = params["loss"] or "mean_squared_error"
+    optimizer_function = params["optimizer"] or "adam"
+    metrics = params["metrics"] or "MSE"
+
+    input = Input(shape=(X.shape[1], X.shape[2]))
+
+    x = Flatten()(input)
+
+    for n_layer in n_layer1:
+        x = Dense(n_layer)(x)
+    x = Dense(y.shape[1])(x)
+
+    output = x
+
+    self.model = Model(inputs=[input], outputs=[output])
+    self.model.compile(loss=loss_function, optimizer=optimizer_function, 
+        metrics=metrics) 
+    self.model.build(input_shape=(X.shape[1], X.shape[2]))
+    self.model.fit(X, y, epochs=n_epochs, batch_size=1, verbose=0)
+    return self
+
+    def predict(self, X):
+    y = self.model.predict(X)
+    return y
+
+    def save(self, path):
+    self.model.save(path)
+
+    def score(self, X, y):
+    return mean_squared_error(self.predict(X), y)
+
+    def get_params(self, deep=True):
+    return {
+            "epochs": self.epochs,
+            "layer1": self.layer1,
+            "loss": self.loss,
+            "optimizer": self.optimizer,
+            "metrics": self.metrics
+        }
+
+"""## Voting"""
+
+from sklearn.base import BaseEstimator, TransformerMixin
+
+class Reshaper(BaseEstimator, TransformerMixin):
+    def fit(self, X, y=None):
+    return self
+    
+    def transform(self, X, y=None):
+    shape = X.shape
+    return X.reshape(shape[0], shape[1] * shape[2])
+
+import numpy as np
+from sklearn.preprocessing import normalize
+
+class MultioutputVotingRegressor(BaseEstimator):
+    def __init__(self, estimators, filter, weights=None):
+    self.estimators = estimators
+    self.filter = filter
+    if weights == None:
+        self.weights = [1. / len(self.filter)] * len(self.filter)
+    else:
+        self.weights = weights
+
+    def fit(self, X, y=None):
+    for weight, name in self.weights, self.estimators:
+        if name in self.filter:
+        weight = 1. / self.estimators[name].score(X, y)
+    self.weights = normalize(self.weights)
+
+    def predict(self, X):
+    results = []
+    for name in self.estimators:
+        if name in self.filter:
+        results.append(self.estimators[name].predict(X))
+    return np.average(results, axis=0, weights=self.weights)
+    
+    def score(self, X, y):
+    return mean_squared_error(self.predict(X), y)
+    
+    def transform(self, X, y=None):
+    return self.predict(X)
+
+"""## Classification"""
+
+from sklearn.experimental import enable_halving_search_cv 
+from sklearn import tree, svm, linear_model, neighbors, 
+    gaussian_process, cross_decomposition, ensemble, neural_network
+from sklearn.multioutput import MultiOutputRegressor
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+from sklearn.pipeline import Pipeline
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, HalvingGridSearchCV
+import pandas as pd
+from joblib import dump, load
+from os import path
+from keras.models import load_model
+from matplotlib import pyplot as plt
+import numpy as np
+import warnings
+
+warnings.filterwarnings("ignore")
+
+
+df = pd.DataFrame()
+individual_scores = [pd.DataFrame() for i in range(9)]
+
+
+clfs = {
+    "Logistic Regression": Pipeline([('reshaper', Reshaper()), ('clf', MultiOutputRegressor(GridSearchCV(linear_model.Ridge(), {"solver": ('svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga', 'lbfgs')})))]),
+    "SVR": Pipeline([('reshaper', Reshaper()), 
+        ("clf", MultiOutputRegressor(GridSearchCV(svm.SVR(), 
+            {"kernel": ('linear', 'poly', 'rbf', 'sigmoid'), 
+            "C": (0.1, 1., 10), "epsilon": (0.01, 0.1, 1)})))]),
+    "SGD": Pipeline([('reshaper', Reshaper()), 
+        ('clf', MultiOutputRegressor(GridSearchCV(linear_model.SGDRegressor(), 
+            {"penalty": ('l2', 'l1', 'elasticnet'), 
+            "loss": ('squared_error', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive')})))]),
+    "KNN": Pipeline([('reshaper', Reshaper()), ('clf', GridSearchCV(neighbors.KNeighborsRegressor(), {"weights": ("unifor", "distance"), "algorithm": ('ball_tree', 'kd_tree', 'brute'), "p": (1, 2, 3, 4)}))]),
+    "Gaussian": Pipeline([('reshaper', Reshaper()), ('clf', GridSearchCV(gaussian_process.GaussianProcessRegressor(normalize_y=True), {"alpha": (1e-10, 1e-5, .01, .1), "n_restarts_optimizer": (0, 1, 2, 3, 4)}))]),
+    "PLS": Pipeline([('reshaper', Reshaper()), ('clf', cross_decomposition.PLSRegression())]),
+    "Decision Tree": Pipeline([('reshaper', Reshaper()), ('clf', GridSearchCV(tree.DecisionTreeRegressor(), {"splitter": ("best", "random"), "min_samples_leaf": (1, 2, 3, 4), "max_depth": (None, 5, 10, 15, 20)}))]),
+    "Random Forest": Pipeline([('reshaper', Reshaper()), ('clf', ensemble.RandomForestRegressor())]),
+    "MLP": Pipeline([('reshaper', Reshaper()), ('clf', GridSearchCV(neural_network.MLPRegressor(), {'activation': ('identity', 'logistic', 'tanh', 'relu'), "solver": ('lbfgs', 'sgd', 'adam')}))]),
+    "RNN": HalvingGridSearchCV(RNN(), {"epochs": (10, 15), 
+                                "layer1": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32]
+                                ), 
+                                "layer2": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32]
+                                )}, cv=3, verbose=3),
+    "CNN": HalvingGridSearchCV(CNN(), {"epochs": (10, 15, 20), 
+                                "layer1": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32],
+                                    [64, 64, 64],
+                                    [128, 128, 64]
+                                ), 
+                                "layer2": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32],
+                                    [64, 64, 64],
+                                    [128, 128, 64]
+                                )}, cv=3, verbose=3),
+    "NN": HalvingGridSearchCV(NN(), {"epochs": (10, 15, 20), 
+                                "layer1": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32],
+                                    [64, 64, 64],
+                                    [128, 128, 64],
+                                    [128, 128, 64, 32]
+                                )}, cv=3, verbose=3)
+}
+
+voting = MultioutputVotingRegressor(estimators=clfs, filter=['SVR', 'Logistic Regression', 'SGD', 'PLS', 'Random Forest', 'MLP', 'RNN', 'CNN', 'NN'])
+
+f, a = plt.subplots(12, 9, figsize=(50, 50))
+n = 0
+
+for name, clf in clfs.items():
+    print(name)
+    reshaper = Reshaper()
+    y_learning, y_testing = reshaper.fit_transform(y), reshaper.fit_transform(y_test)
+
+    filename = "/content/drive/My Drive/era5/classifiers/" + name
+
+    if path.exists(filename):
+    print("loaded")
+    if name == "RNN" or name == "NN" or name == "CNN":
+        clf = load_model(filename)
+    else:
+        clf = load(filename)
+    clfs[name] = clf
+    else:
+    print("training")
+    clf = clf.fit(X, y_learning)
+
+    predicted_train = clf.predict(X)
+    predicted_test = clf.predict(X_test)
+
+    df = df.append({
+        "Name": name,
+        "MSE train": mean_squared_error(predicted_train, y_learning),
+        "MAE train": mean_absolute_error(predicted_train, y_learning),
+        "CORR train": np.corrcoef(predicted_train.flatten(), y_learning.flatten())[0][1],
+        "MSE test": mean_squared_error(predicted_test, y_testing),
+        "MAE test": mean_absolute_error(predicted_test, y_testing),
+        "CORR test": np.corrcoef(predicted_test.flatten(), y_testing.flatten())[0][1]
+    }, ignore_index=True)
+
+    for i in range(9):
+    individual_scores[i] = individual_scores[i].append({
+        "Name": name,
+        "MSE train": mean_squared_error(predicted_train[:][i::9], y_learning[:][i::9]),
+        "MAE train": mean_absolute_error(predicted_train[:][i::9], y_learning[:][i::9]),
+        "CORR train": np.corrcoef(predicted_train[:][i::9], y_learning[:][i::9]),
+        "MSE test": mean_squared_error(predicted_test[:][i::9], y_testing[:][i::9]),
+        "MAE test": mean_absolute_error(predicted_test[:][i::9], y_testing[:][i::9]),
+        "CORR test": np.corrcoef(predicted_test[:][i::9], y_testing[:][i::9]),
+    }, ignore_index=True)
+
+    columns =["u10", "v10", "t2m", "e", "ro", "ssr", "str", "sp", "tp"]
+    y_predicted = clf.predict(X_test)
+    for i in range(9):
+    a[n, i].set_title(name + " - " + columns[i])
+    a[n, i].plot(y_predicted.flatten()[i::9])
+    a[n, i].plot(y_testing.flatten()[i::9])
+    n += 1
+    try:
+    print(clf[1].best_params_)
+    except:
+    print("exception")
+
+    if not path.exists(filename) and (name == "RNN" or name == "NN" or name == "CNN"):
+    clf.best_estimator_.save(filename)
+    elif not path.exists(filename):
+    dump(clf, filename)
+    # clf.best_estimator_.save(filename)
+
+# df = df.append({
+#   "Name": "Ensemble",
+#   "MSE train": mean_squared_error(voting.predict(X), y_learning),
+#   "MAE train": mean_absolute_error(voting.predict(X), y_learning),
+#   "CORR train": np.corrcoef(voting.predict(X), y_learning),
+#   "MSE test": mean_squared_error(voting.predict(X_test), y_testing),
+#   "MAE test": mean_absolute_error(voting.predict(X_test), y_testing),
+#   "CORR test": np.corrcoef(voting.predict(X_test), y_testing)
+# }, ignore_index=True)
+
+df
+
+import seaborn as sns
+
+df = df.set_index("Name")
+f, ax = plt.subplots(figsize=(5, 6))
+sns.heatmap(df[["MSE train", "MSE test"]], annot=True, linewidths=.5, ax=ax, cmap="Blues")
+
+import seaborn as sns
+
+f, ax = plt.subplots(figsize=(5, 6))
+sns.heatmap(df[["MAE train", "MAE test"]], annot=True, linewidths=.5, ax=ax, cmap="Blues")
+
+import seaborn as sns
+
+f, ax = plt.subplots(figsize=(5, 6))
+sns.heatmap(df[["CORR train", "CORR test"]], annot=True, linewidths=.5, ax=ax, cmap="Blues")
+
+f, a = plt.subplots(figsize=(10, 10))
+
+df.sort_values('MSE test', inplace=True, ascending=False)
+df.plot.barh(y='MSE test', ax=a)
+
+f, a = plt.subplots(figsize=(10, 10))
+
+df.sort_values('MAE test', inplace=True, ascending=False)
+df.plot.barh(y='MAE test', ax=a)
+
+f, a = plt.subplots(figsize=(10, 10))
+
+df.sort_values('CORR test', inplace=True, ascending=True)
+df.plot.barh(y='CORR test', ax=a)
+
+X_test.shape
+
+"""## Random day prediction"""
+
+from random import randint
+
+f, a = plt.subplots(12, 9, figsize=(50, 50))
+
+day = randint(0, 88)
+
+for n, name in enumerate(clfs):
+    clf = clfs[name]
+    y_predicted = clf.predict(X_test)[day]
+    for i in range(9):
+    a[n, i].set_title(name + " - " + columns[i])
+    a[n, i].plot(y_predicted.flatten()[i::9])
+    a[n, i].plot(y_testing[day].flatten()[i::9])
+
+"""## Random week prediction"""
+
+from random import randint
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from joblib import dump, load
+import pandas as pd
+
+
+scaler = load('/content/drive/My Drive/era5/standard_scaler.bin')
+scaler.feature_names_in_
+
+f, a = plt.subplots(12, 9, figsize=(50, 50))
+
+day = 21
+print(day)
+
+y_comparison = y_testing[day:day+7].reshape(168, 9)
+y_comparison = scaler.inverse_transform(y_comparison)
+
+for n, name in enumerate(clfs):
+    clf = clfs[name]
+    y_predicted = clf.predict(X_test)[day:day+7].reshape(168, 9)
+    y_predicted = scaler.inverse_transform(y_predicted)
+
+    df = pd.DataFrame(y_predicted)
+    for i in range(9):
+    a[n, i].set_title(name + " - " + columns[i])
+    a[n, i].plot(y_predicted.flatten()[i::9])
+    a[n, i].plot(y_comparison.flatten()[i::9])
+
+f, a = plt.subplots(3, 3, figsize=(15, 12))
+name = "Decision Tree"
+clf = clfs[name]
+y_predicted = clf.predict(X_test)[day:day+7].reshape(168, 9)
+y_predicted = scaler.inverse_transform(y_predicted)
+df = pd.DataFrame(y_predicted)
+for i, ax in enumerate(a.ravel()):
+    ax.set_title(name + " - " + columns[i])
+    ax.plot(y_predicted.flatten()[i::9])
+    ax.plot(y_comparison.flatten()[i::9])
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from random import randint
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from joblib import dump, load
+import pandas as pd
+
+df = pd.DataFrame()
+df["real"] = pd.DataFrame(y_test.flatten())
+
+for n, name in enumerate(clfs):
+    clf = clfs[name]
+    y_predicted = clf.predict(X_test).flatten()
+
+    df[name] = pd.DataFrame(y_predicted)
+# df
+
+f, a = plt.subplots(figsize=(15, 15))
+matrix = df.corr().round(2)
+for name1 in df.columns:
+    for name2 in df.columns:
+    matrix[name1][name2] = mean_absolute_error(df[name1], df[name2])
+sns.heatmap(matrix, annot=True, cmap="Blues")
+plt.show()
+# matrix
+
+import math
+import numpy as np
+from scipy.stats import lognorm
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from math import ceil, sqrt
+
+scaler = load('/content/drive/My Drive/era5/standard_scaler.bin')
+scaler.feature_names_in_
+
+name = "SVR"
+clf = clfs[name]
+y_predicted = clf.predict(X_test).reshape(2136, 9)
+y_predicted = scaler.inverse_transform(y_predicted)
+
+df = pd.DataFrame(y_predicted)
+df_real = pd.DataFrame(scaler.inverse_transform(y_test.reshape(2136, 9)))
+
+df.columns = ["u10", 'v10', 't2m', 'e', 'ro', 'ssr', 'str', 'sp', 'tp']
+df_real.columns = ["u10", 'v10', 't2m', 'e', 'ro', 'ssr', 'str', 'sp', 'tp']
+
+fig, ax = plt.subplots()
+plt.scatter(df["t2m"], df_real["t2m"], s=2, c=range(len(df["t2m"])))
+ax.set_xlabel("Temperatura rzeczywista [K]")
+ax.set_ylabel("Temperatura prognozowana [K]")
+
+plot = df.hist(bins=20, figsize=(12, 12))
+plot[1][0].set_xticklabels(plot[1][0].get_xticklabels(), rotation=15, ha='center')
+plot[2][0].set_xticklabels(plot[2][0].get_xticklabels(), rotation=15, ha='center')
+plot[2][1].set_xticklabels(plot[2][1].get_xticklabels(), rotation=15, ha='center')
+plot[2][2].set_xticklabels(plot[2][2].get_xticklabels(), rotation=15, ha='center')
+
+n = ceil(sqrt(len(df.columns)))
+f, a = plt.subplots(n, n, figsize=(15, 12))
+for column, ax in zip(df.columns, a.ravel()):
+    plot = sm.qqplot(df[column], ax=ax)
+    ax.set_title(column)
+    ax.set_xlabel("")
+    ax.set_ylabel("")
+    
+plt.subplots_adjust(wspace=.3)
+
+n = ceil(sqrt(len(df.columns)))
+f, a = plt.subplots(n, n, figsize=(15, 12))
+for column, ax in zip(df.columns, a.ravel()):
+    plot = df.boxplot(column=column, ax=ax, figsize=(30, 30))
+plt.subplots_adjust(wspace=.3)
+
+from statsmodels.graphics import tsaplots
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from math import ceil, sqrt
+
+n = ceil(sqrt(len(df.columns)))
+f, a = plt.subplots(n, n, figsize=(15, 12))
+for column, ax in zip(df.columns, a.ravel()):
+    plot = tsaplots.plot_acf(df[column], lags=range(1, 98), ax=ax)
+    ax.set_title(column)
+plt.subplots_adjust(wspace=.3)
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+matrix = df.corr().round(2)
+sns.heatmap(matrix, annot=True, cmap="Blues")
+plt.show()
+
+import matplotlib
+import re
+from sklearn import tree
+
+import graphviz 
+dot_data = tree.export_graphviz(clfs["Decision Tree"][1].best_estimator_, out_file='tree.dot') 
+# df.columns
+
+import math
+import numpy as np
+from scipy.stats import lognorm
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from math import ceil, sqrt
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
+scaler = load('/content/drive/My Drive/era5/standard_scaler.bin')
+scaler.feature_names_in_
+
+name = "SVR"
+clf = clfs[name]
+y_predicted = clf.predict(X_test).reshape(2136, 9)
+
+df = pd.DataFrame(y_predicted)
+df_real = pd.DataFrame(y_test.reshape(2136, 9))
+
+df.columns = ["u10", 'v10', 't2m', 'e', 'ro', 'ssr', 'str', 'sp', 'tp']
+df_real.columns = ["u10", 'v10', 't2m', 'e', 'ro', 'ssr', 'str', 'sp', 'tp']
+
+df_real
+
+mse = [mean_squared_error(df[column], df_real[column]) for column in df.columns]
+mse = pd.DataFrame(mse)
+
+mse.index = df.columns
+mse.plot.barh()
+
+import math
+import numpy as np
+from scipy.stats import lognorm
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from math import ceil, sqrt
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
+scaler = load('/content/drive/My Drive/era5/standard_scaler.bin')
+scaler.feature_names_in_
+
+name = "SVR"
+clf = clfs[name]
+y_predicted = clf.predict(X_test).reshape(2136, 9)
+
+df = pd.DataFrame(y_predicted)
+df_real = pd.DataFrame(y_test.reshape(2136, 9))
+
+df.columns = ["u10", 'v10', 't2m', 'e', 'ro', 'ssr', 'str', 'sp', 'tp']
+df_real.columns = ["u10", 'v10', 't2m', 'e', 'ro', 'ssr', 'str', 'sp', 'tp']
+
+df_real
+
+mae = [mean_absolute_error(df[column], df_real[column]) for column in df.columns]
+mae = pd.DataFrame(mae)
+
+mae.index = df.columns
+mae.plot.barh()
+
+"""# 2023"""
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+# !pip install importlib-metadata==4.13.0
+
+import xarray as xr
+import pandas as pd
+
+df = pd.DataFrame()
+
+for i in range(1, 10):
+    ds = xr.open_dataset('/content/drive/My Drive/era5/data' + str(i) + '.nc', engine='netcdf4')
+    df = df.append(ds.to_dataframe())
+
+df.sort_values(by='time', inplace=True)
+
+df
+
+df.interpolate(inplace=True)
+for column in df.columns:
+    df[column].fillna(df[column].mean(), inplace=True)
+
+
+for i in list(df.columns):
+    empty_values = df[i].isnull().sum()
+    if empty_values > 0:
+        print(i, empty_values, empty_values / df.shape[0])
+
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+import numpy as np
+from joblib import dump, load
+
+scaler = load('/content/drive/My Drive/era5/standard_scaler.bin')
+
+df[df.columns] = scaler.fit_transform(df[df.columns])
+
+df.head()
+
+df.to_csv('/content/drive/My Drive/era5/weather3.csv', compression="gzip")
+
+X, y = prepare_single_location_data(additional=True)
+X, y = np.array(list(X)), np.array(list(y))
+
+from sklearn.experimental import enable_halving_search_cv 
+from sklearn import tree, svm, linear_model, neighbors, gaussian_process, cross_decomposition, ensemble, neural_network
+from sklearn.multioutput import MultiOutputRegressor
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+from sklearn.pipeline import Pipeline
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, HalvingGridSearchCV
+import pandas as pd
+from joblib import dump, load
+from os import path
+from keras.models import load_model
+from matplotlib import pyplot as plt
+import numpy as np
+
+df = pd.DataFrame()
+individual_scores = [pd.DataFrame() for i in range(9)]
+
+clfs = {
+    "SVR": Pipeline([('reshaper', Reshaper()), ("clf", MultiOutputRegressor(GridSearchCV(svm.SVR(), {"kernel": ('linear', 'poly', 'rbf', 'sigmoid'), "C": (0.1, 1., 10), "epsilon": (0.01, 0.1, 1)})))]),
+    "Logistic Regression": Pipeline([('reshaper', Reshaper()), ('clf', MultiOutputRegressor(GridSearchCV(linear_model.Ridge(), {"solver": ('svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga', 'lbfgs')})))]),
+    "SGD": Pipeline([('reshaper', Reshaper()), ('clf', MultiOutputRegressor(GridSearchCV(linear_model.SGDRegressor(), {"penalty": ('l2', 'l1', 'elasticnet'), "loss": ('squared_error', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive')})))]),
+    "KNN": Pipeline([('reshaper', Reshaper()), ('clf', GridSearchCV(neighbors.KNeighborsRegressor(), {"weights": ("unifor", "distance"), "algorithm": ('ball_tree', 'kd_tree', 'brute'), "p": (1, 2, 3, 4)}))]),
+    "Gaussian": Pipeline([('reshaper', Reshaper()), ('clf', GridSearchCV(gaussian_process.GaussianProcessRegressor(normalize_y=True), {"alpha": (1e-10, 1e-5, .01, .1), "n_restarts_optimizer": (0, 1, 2, 3, 4)}))]),
+    "PLS": Pipeline([('reshaper', Reshaper()), ('clf', cross_decomposition.PLSRegression())]),
+    "Decision Tree": Pipeline([('reshaper', Reshaper()), ('clf', GridSearchCV(tree.DecisionTreeRegressor(), {"splitter": ("best", "random"), "min_samples_leaf": (1, 2, 3, 4), "max_depth": (None, 5, 10, 15, 20)}))]),
+    "Random Forest": Pipeline([('reshaper', Reshaper()), ('clf', ensemble.RandomForestRegressor())]),
+    "MLP": Pipeline([('reshaper', Reshaper()), ('clf', GridSearchCV(neural_network.MLPRegressor(), {'activation': ('identity', 'logistic', 'tanh', 'relu'), "solver": ('lbfgs', 'sgd', 'adam')}))]),
+    "RNN": HalvingGridSearchCV(RNN(), {"epochs": (10, 15), 
+                                "layer1": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32]
+                                ), 
+                                "layer2": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32]
+                                )}, cv=3, verbose=3),
+    "CNN": HalvingGridSearchCV(CNN(), {"epochs": (10, 15, 20), 
+                                "layer1": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32],
+                                    [64, 64, 64],
+                                    [128, 128, 64]
+                                ), 
+                                "layer2": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32],
+                                    [64, 64, 64],
+                                    [128, 128, 64]
+                                )}, cv=3, verbose=3),
+    "NN": HalvingGridSearchCV(NN(), {"epochs": (10, 15, 20), 
+                                "layer1": (
+                                    [32, 32],
+                                    [32, 32, 32],
+                                    [64, 32],
+                                    [64, 64, 64],
+                                    [128, 128, 64],
+                                    [128, 128, 64, 32]
+                                )}, cv=3, verbose=3)
+}
+
+# voting = MultioutputVotingRegressor(estimators=clfs, filter=['SVR', 'Logistic Regression', 'SGD', 'PLS', 'Random Forest', 'MLP', 'RNN', 'CNN', 'NN'])
+
+reshaper = Reshaper()
+f, a = plt.subplots(12, 9, figsize=(50, 50))
+n = 0
+y = reshaper.fit_transform(y)
+
+
+for name, clf in clfs.items():
+    print(name)
+
+    filename = "/content/drive/My Drive/era5/classifiers/" + name
+
+    if name == "RNN" or name == "NN" or name == "CNN":
+    clf = load_model(filename)
+    else:
+    clf = load(filename)
+    clfs[name] = clf
+
+    predicted = clf.predict(X)
+
+    df = df.append({
+        "Name": name,
+        "MSE": mean_squared_error(predicted, y),
+        "MAE": mean_absolute_error(predicted, y)
+    }, ignore_index=True)
+
+    for i in range(9):
+    individual_scores[i] = individual_scores[i].append({
+        "Name": name,
+        "MSE test": mean_squared_error(predicted[:][i::9], y[:][i::9]),
+        "MAE test": mean_absolute_error(predicted[:][i::9], y[:][i::9])
+    }, ignore_index=True)
+
+    columns =["u10", "v10", "t2m", "e", "ro", "ssr", "str", "sp", "tp"]
+    for i in range(9):
+    a[n, i].set_title(name + " - " + columns[i])
+    a[n, i].plot(predicted.flatten()[i::9])
+    a[n, i].plot(y.flatten()[i::9])
+    n += 1
+
+df
+
+f, a = plt.subplots(1, 2, figsize=(15, 15))
+
+df.plot.bar(x='Name', y='MSE', ax=a[0])
+df.plot.bar(x='Name', y='MAE', ax=a[1])
+
+f, a = plt.subplots(9, 2, figsize=(15, 30))
+
+for i, df in enumerate(individual_scores):
+    df.plot.bar(x='Name', y='MSE ', ax=a[i, 0])
+    df.plot.bar(x='Name', y='MAE test', ax=a[i, 1])
+\end{lstlisting}
