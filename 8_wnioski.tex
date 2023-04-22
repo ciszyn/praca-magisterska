@@ -12,41 +12,41 @@
 
 \section{Wnioski}
 
-% Provide a critical analysis: Provide a critical analysis of the models 
+% Provide a~critical analysis: Provide a~critical analysis of the models 
 % that did not perform well, highlighting both their strengths and limitations. 
 % Be honest and transparent about the performance of these models, and 
 % explain how this impacts the overall results of your research.
 \subsection{Analiza wyników}
 
 Najlepszymi algorytmami okazały się regresja wektorów wspierających, perceptron
-wielowarstwowy, sieć rekurencyjna, las losowy i regresja logistyczna. Te modele
-wykazały podobieństwo względem siebie w sposobie, w jakim tworzyły predykcje 
+wielowarstwowy, sieć rekurencyjna, las losowy i~regresja logistyczna. Te modele
+wykazały podobieństwo względem siebie w~sposobie, w~jakim tworzyły predykcje 
 pogodowe. Pod względem każdej metryki regresor SVR otrzymywał najmniejsze 
 wartości błędu oraz największe wartości korelacji. Dla algorytmów 
 o małej wartości błędu dystrybucja danych prognozowanych odzwierciedlała
 charakterystykę danych rzeczywistych.
 
-Chociaż stworzone modele wykazywały bardzo dobre właściwości w śledzeniu
-trendów atmosferycznych, to występowały także problemy związane z 
+Chociaż stworzone modele wykazywały bardzo dobre właściwości w~śledzeniu
+trendów atmosferycznych, to występowały także problemy związane z~
 predykcją gwałtownych zjawisk. To zachowanie mogłoby zostać zredukowane
-poprzez zawarcie danych z szerszego zakresu geograficznego, co pomogłoby 
+poprzez zawarcie danych z~szerszego zakresu geograficznego, co pomogłoby 
 w analizie rozchodzenia się zjawisk pogodowych. 
 
-Dla wszystkich stworzonych modeli były widoczne dzienne cykle pogodowe, w przypadku
+Dla wszystkich stworzonych modeli były widoczne dzienne cykle pogodowe, w~przypadku
 uwzględnienia większego zakresu czasu niż miesiąc styczeń moglibyśmy się spodziewać
-także cyklów rocznych w utworzonych prognozach pogodowych.
+także cyklów rocznych w~utworzonych prognozach pogodowych.
 
 Dla algorytmów, które osiągały większe wartości błędu, to jest KNN, drzewo decyzyjne
 oraz regresja gaussowska widać słabe dopasowanie do danych rzeczywistych ze zbioru 
 testowego, które najprawdopodobniej wynika ze zbyt dużego dopasowania do zbioru treningowego.
-Modele te w wielu przypadkach powtarzały przebiegi, które były już wcześniej
-zaobserwowane w zbiorze treningowym. Co więcej, analiza dystrybucji danych utworzonych
+Modele te w~wielu przypadkach powtarzały przebiegi, które były już wcześniej
+zaobserwowane w~zbiorze treningowym. Co więcej, analiza dystrybucji danych utworzonych
 przez te modele wskazuje na bardzo nieregularne rozmieszczenie obserwacji.
 
-Spośród rozważanych parametrów pogodowych, najcięższym w modelowaniu okazał
+Spośród rozważanych parametrów pogodowych, najcięższym w~modelowaniu okazał
 się atrybut reprezentujący promieniowanie termiczne, oraz prędkość wiatru.
 Wartości promieniowania słonecznego, temperatury, odparowania, ciśnienia 
-atmosferycznego i opadów miały porównywalne poziomy błędu.
+atmosferycznego i~opadów miały porównywalne poziomy błędu.
 
 % Identify areas for improvement: Based on your analysis of the models, 
 % identify areas where improvements could be made in future research. 
@@ -55,21 +55,21 @@ atmosferycznego i opadów miały porównywalne poziomy błędu.
 \subsection{Możliwości poprawy}
 
 Pierwszą możliwością rozwoju zastosowanego podejścia jest utylizacja większej ilości
-danych w procesie uczenia modeli. Zbiór ERA5 zawiera dane pochodzące z całego świata
-na przestrzeni wielu lat, które mogłyby być wykorzystane i wzięte pod uwagę podczas
+danych w~procesie uczenia modeli. Zbiór ERA5 zawiera dane pochodzące z~całego świata
+na przestrzeni wielu lat, które mogłyby być wykorzystane i~wzięte pod uwagę podczas
 eksploracji danych. 
 
 Kolejną możliwością do dalszych badań jest optymalizacja otrzymanych modeli poprzez 
-zastosowanie bardziej zaawansowanych algorytmów i tworzenie modeli ensemble
-zbierających wiedzę zawartą w wielu modelach w celu tworzenia lepszych 
-predykcji. Dodatkową opcją byłaby optymalizacja zbioru modeli wchodzących w skład
-modelu ensemble pod względem zbioru walidacyjnego i sprawdzenie, czy efekty 
+zastosowanie bardziej zaawansowanych algorytmów i~tworzenie modeli ensemble
+zbierających wiedzę zawartą w~wielu modelach w~celu tworzenia lepszych 
+predykcji. Dodatkową opcją byłaby optymalizacja zbioru modeli wchodzących w~skład
+modelu ensemble pod względem zbioru walidacyjnego i~sprawdzenie, czy efekty 
 optymalizacji przynoszą skutki względem zbioru testowego.
 
-Jednymi z lepiej prezentujących się algorytmów były głębokie sieci neuronowe,
-obiecującym podejściem zdaje się zastosowanie uczenia transferowego w celach 
-wykorzystania wiedzy zawartej w istniejącej już sieci w kontekście nowego problemu.
-Wykorzystanie bardziej zaawansowanych architektur składających się z warstw konwolucyjnych
+Jednymi z~lepiej prezentujących się algorytmów były głębokie sieci neuronowe,
+obiecującym podejściem zdaje się zastosowanie uczenia transferowego w~celach 
+wykorzystania wiedzy zawartej w~istniejącej już sieci w~kontekście nowego problemu.
+Wykorzystanie bardziej zaawansowanych architektur składających się z~warstw konwolucyjnych
 oraz rekurencyjnych także oferuje prawdopodobne polepszenie efektywności wyników.
 
 
@@ -80,22 +80,22 @@ oraz rekurencyjnych także oferuje prawdopodobne polepszenie efektywności wynik
 % of these techniques.
 \subsection{Wpływ przeprowadzonych badań}
 
-W niniejszej pracy zostały pokazane i porównane różne modele z zakresu uczenia
-maszynowego i zostały wyróżnione te, których zastosowanie skutkuje 
+W niniejszej pracy zostały pokazane i~porównane różne modele z~zakresu uczenia
+maszynowego i~zostały wyróżnione te, których zastosowanie skutkuje 
 osiągnięciem najlepszych wyników. Na podstawie przeprowadzonej analizy 
 możliwe jest stworzenie wstępnych rekomendacji co do implementacji
 modeli uczenia maszynowego do prognozowania pogody. Uzyskane wyniki są linią bazową
-dla dalszych rozważań i dają możliwość porównania otrzymanych wyników.
+dla dalszych rozważań i~dają możliwość porównania otrzymanych wyników.
 
 Otrzymane wyniki, chociaż pokazują dość dobre zachowanie utworzonych modeli, wskazują na to,
 że celu uzyskania większej dokładności zalecane jest wykorzystanie bardziej 
-rozbudowanego zbioru danych zawierającego więcej atrybutów i obserwacji, którego
+rozbudowanego zbioru danych zawierającego więcej atrybutów i~obserwacji, którego
 zakres geograficzny pokrywa cały region, dla którego tworzone są prognozy pogodowe.
 
-Uzyskane wyniki wskazują na potrzebę przeprowadzenia dalszej analizy i pogłębienia
-wiedzy związanej z zastosowaniem ML w prognozowaniu pogody, jak i także 
+Uzyskane wyniki wskazują na potrzebę przeprowadzenia dalszej analizy i~pogłębienia
+wiedzy związanej z~zastosowaniem ML w~prognozowaniu pogody, jak i~także 
 rozwoju nowych algorytmów mogących sprostać skomplikowanemu charakterowi danych 
-atmosferycznych. Zastosowanie metod czysty opartych na ML daje dobre rezultaty i 
-dalsze wcielanie ich w hybrydowych modelach NWP jest bardzo obiecującym 
-zakresem w rozwoju dziedziny.
+atmosferycznych. Zastosowanie metod czysty opartych na ML daje dobre rezultaty i~
+dalsze wcielanie ich w~hybrydowych modelach NWP jest bardzo obiecującym 
+zakresem w~rozwoju dziedziny.
 

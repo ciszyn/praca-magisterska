@@ -18,7 +18,7 @@ df.describe()
 df.isna().any()
 empty_columns=[]
 
-for i in list(df.columns):
+for i~in list(df.columns):
     empty_values = df[i].isnull().sum()
     if empty_values > 0:
         print(i, empty_values, empty_values / df.shape[0])
@@ -39,7 +39,7 @@ for column in df.columns:
     df2[column].fillna(df2[column].mean(), inplace=True)
 
 
-for i in list(df.columns):
+for i~in list(df.columns):
     empty_values = df[i].isnull().sum()
     if empty_values > 0:
         print(i, empty_values, empty_values / df.shape[0])
@@ -536,7 +536,7 @@ warnings.filterwarnings("ignore")
 
 
 df = pd.DataFrame()
-individual_scores = [pd.DataFrame() for i in range(9)]
+individual_scores = [pd.DataFrame() for i~in range(9)]
 
 
 clfs = {
@@ -628,7 +628,7 @@ for name, clf in clfs.items():
         "CORR test": np.corrcoef(predicted_test.flatten(), y_testing.flatten())[0][1]
     }, ignore_index=True)
 
-    for i in range(9):
+    for i~in range(9):
     individual_scores[i] = individual_scores[i].append({
         "Name": name,
         "MSE train": mean_squared_error(predicted_train[:][i::9], y_learning[:][i::9]),
@@ -641,7 +641,7 @@ for name, clf in clfs.items():
 
     columns =["u10", "v10", "t2m", "e", "ro", "ssr", "str", "sp", "tp"]
     y_predicted = clf.predict(X_test)
-    for i in range(9):
+    for i~in range(9):
     a[n, i].set_title(name + " - " + columns[i])
     a[n, i].plot(y_predicted.flatten()[i::9])
     a[n, i].plot(y_testing.flatten()[i::9])
@@ -713,7 +713,7 @@ day = randint(0, 88)
 for n, name in enumerate(clfs):
     clf = clfs[name]
     y_predicted = clf.predict(X_test)[day]
-    for i in range(9):
+    for i~in range(9):
     a[n, i].set_title(name + " - " + columns[i])
     a[n, i].plot(y_predicted.flatten()[i::9])
     a[n, i].plot(y_testing[day].flatten()[i::9])
@@ -743,7 +743,7 @@ for n, name in enumerate(clfs):
     y_predicted = scaler.inverse_transform(y_predicted)
 
     df = pd.DataFrame(y_predicted)
-    for i in range(9):
+    for i~in range(9):
     a[n, i].set_title(name + " - " + columns[i])
     a[n, i].plot(y_predicted.flatten()[i::9])
     a[n, i].plot(y_comparison.flatten()[i::9])
@@ -935,7 +935,7 @@ import pandas as pd
 
 df = pd.DataFrame()
 
-for i in range(1, 10):
+for i~in range(1, 10):
     ds = xr.open_dataset('/content/drive/My Drive/era5/data' + str(i) + '.nc', engine='netcdf4')
     df = df.append(ds.to_dataframe())
 
@@ -948,7 +948,7 @@ for column in df.columns:
     df[column].fillna(df[column].mean(), inplace=True)
 
 
-for i in list(df.columns):
+for i~in list(df.columns):
     empty_values = df[i].isnull().sum()
     if empty_values > 0:
         print(i, empty_values, empty_values / df.shape[0])
@@ -984,7 +984,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 df = pd.DataFrame()
-individual_scores = [pd.DataFrame() for i in range(9)]
+individual_scores = [pd.DataFrame() for i~in range(9)]
 
 clfs = {
     "SVR": Pipeline([('reshaper', Reshaper()), ("clf", MultiOutputRegressor(GridSearchCV(svm.SVR(), {"kernel": ('linear', 'poly', 'rbf', 'sigmoid'), "C": (0.1, 1., 10), "epsilon": (0.01, 0.1, 1)})))]),
@@ -1060,7 +1060,7 @@ for name, clf in clfs.items():
         "MAE": mean_absolute_error(predicted, y)
     }, ignore_index=True)
 
-    for i in range(9):
+    for i~in range(9):
     individual_scores[i] = individual_scores[i].append({
         "Name": name,
         "MSE test": mean_squared_error(predicted[:][i::9], y[:][i::9]),
@@ -1068,7 +1068,7 @@ for name, clf in clfs.items():
     }, ignore_index=True)
 
     columns =["u10", "v10", "t2m", "e", "ro", "ssr", "str", "sp", "tp"]
-    for i in range(9):
+    for i~in range(9):
     a[n, i].set_title(name + " - " + columns[i])
     a[n, i].plot(predicted.flatten()[i::9])
     a[n, i].plot(y.flatten()[i::9])

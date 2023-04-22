@@ -9,17 +9,17 @@
 % used to preprocess the data.
 \subsection{Przygotowanie danych}
 
-W celu stworzenia zbioru testowego i treningowego zbiór danych został podzielony
-na dwie części, a poszczególne obserwacja zostały połączone w krótsze serie danych.
+W celu stworzenia zbioru testowego i~treningowego zbiór danych został podzielony
+na dwie części, a~poszczególne obserwacja zostały połączone w~krótsze serie danych.
 Reorganizacja danych została dokonana poprzez zastosowanie przesuwnego okna próbkującego
-dane z krokiem 24 godzin. W ten sposób na każde 96 godzin obserwacji przypada 24 godziny predykcji
-będące odczekiwanym wynikiem działania modelu. Próbkowanie zostało zastosowane z nakładaniem się,
-co znaczy, że dane będące w jednym kroku wyjściem, w następnym kroku są używane jako dane wejściowe.
+dane z~krokiem 24 godzin. W~ten sposób na każde 96 godzin obserwacji przypada 24 godziny predykcji
+będące odczekiwanym wynikiem działania modelu. Próbkowanie zostało zastosowane z~nakładaniem się,
+co znaczy, że dane będące w~jednym kroku wyjściem, w~następnym kroku są używane jako dane wejściowe.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/division.png}
-    \caption{Sposób podziału zbioru danych na dane wejściowe i wyjściowe}
+    \caption{Sposób podziału zbioru danych na dane wejściowe i~wyjściowe}
     \label{division}
 \end{figure}
 
@@ -34,23 +34,23 @@ dwie metody przeszukiwania przestrzeni możliwych wartości zostały zastosowane
 
 \begin{itemize}
     \item Grid Search — działa poprzez wyczerpujące przeszukiwanie 
-    przestrzeni dostępnych parametrów i wybiera hiperparametry maksymalizujące
-    średnią dokładność z walidacji krzyżowej dokonanej na zbiorze treningowym.
+    przestrzeni dostępnych parametrów i~wybiera hiperparametry maksymalizujące
+    średnią dokładność z~walidacji krzyżowej dokonanej na zbiorze treningowym.
     \item Halving Grid Search — zoptymalizowana czasowo wersja Grid Search
     przydzielająca początkowo ograniczone ilości zasobów (mniejszą ilość
-    danych). W miarę ewaluacji algorytmu iteracyjnie pomniejszany jest zbiór
-    rozważanych hiperparametrów, a najlepszy dobór ewaluowany jest na coraz większym
+    danych). W~miarę ewaluacji algorytmu iteracyjnie pomniejszany jest zbiór
+    rozważanych hiperparametrów, a~najlepszy dobór ewaluowany jest na coraz większym
     zbiorze danych.
 \end{itemize}
 
-Niektóre z wykorzystanych modeli nie są przystosowane do przeprowadzania 
-regresji z wielowymiarowym wyjściem, przez co konieczne jest stworzenie strategii,
-w której dla każdy wymiar wyjściowy wymaga stworzenia osobnego modelu. W tym przypadku
+Niektóre z~wykorzystanych modeli nie są przystosowane do przeprowadzania 
+regresji z~wielowymiarowym wyjściem, przez co konieczne jest stworzenie strategii,
+w której dla każdy wymiar wyjściowy wymaga stworzenia osobnego modelu. W~tym przypadku
 dostrajanie hiperparametrów jest wykonywane osobno dla każdego wymiaru. Wśród
-algorytmów, w których brakuje wsparcia dla wielowymiarowego wyjścia, należą: 
+algorytmów, w~których brakuje wsparcia dla wielowymiarowego wyjścia, należą: 
 SVR, Regresja logiczna oraz SGD.
 
-Rozważane wartości hiperparametrów zostały zilustrowane w tabeli \ref{hiperparametry}.
+Rozważane wartości hiperparametrów zostały zilustrowane w~tabeli \ref{hiperparametry}.
 
 \begin{table}[H]
     \centering
@@ -135,9 +135,9 @@ Rozważane wartości hiperparametrów zostały zilustrowane w tabeli \ref{hiperp
 \end{table}
 
 Na poniższym rysunku \ref{arch} pokazano uproszczone architektury sieci głębokich.
-Podczas procesu przeszukiwania hiperparametrów jednym z celów optymalizacji 
-było znalezienie właściwej liczby i wielkości warstw konwolucyjnych, rekurencyjnych
-i w pełni połączonych.
+Podczas procesu przeszukiwania hiperparametrów jednym z~celów optymalizacji 
+było znalezienie właściwej liczby i~wielkości warstw konwolucyjnych, rekurencyjnych
+i w~pełni połączonych.
 
 \begin{figure}[H]
     \centering
@@ -153,12 +153,12 @@ i w pełni połączonych.
 \subsection{Ewaluacja jakości modelu}
 
 Stworzone wytrenowane modele zostały ewaluowane na zbiorze testowym złożonym
-z danych meteorologicznych pochodzących ze stycznia z lat 2020 - 2022.
-W celu porównania uzyskanych wyników stworzono zestawienia i wykresy pokazujące
+z danych meteorologicznych pochodzących ze stycznia z~lat 2020 - 2022.
+W celu porównania uzyskanych wyników stworzono zestawienia i~wykresy pokazujące
 korelację, błąd średniokwadratowy oraz błąd bezwzględny poszczególnych modeli.
 
 % Code availability: Consider making your code available to others, 
-% and provide a link or repository where readers can access the code 
+% and provide a~link or repository where readers can access the code 
 % you developed. This can facilitate replication of your research and 
 % allow others to build upon your work.
 \subsection{Dostępność kodu}

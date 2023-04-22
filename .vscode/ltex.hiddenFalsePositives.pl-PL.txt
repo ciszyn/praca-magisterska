@@ -1,3 +1,3 @@
-{"rule":"DYWIZ","sentence":"^\\QSVR - jest metodą regresji wykorzystującą maszynę wektorów nośnych w celu tworzenia predykcji.\\E$"}
+{"rule":"DYWIZ","sentence":"^\\QSVR - jest metodą regresji wykorzystującą maszynę wektorów nośnych w~celu tworzenia predykcji.\\E$"}
 {"rule":"ZDANIE_PODRZEDNE_Z_KTORY_LUB_JAKI","sentence":"^\\QStrona ta udostępnia ogólnodostępne API, dzięki któremu każdy użytkownik\\E$"}
-{"rule":"DYWIZ","sentence":"^\\QGrid Search - działa poprzez wyczerpujące przeszukiwanie przestrzeni dostępnych parametrów i wybiera hiperparametry maksymalizujące średnią dokładność z walidacji krzyżowej dokonanej na zbiorze treningowym.\\E$"}
+{"rule":"DYWIZ","sentence":"^\\QGrid Search - działa poprzez wyczerpujące przeszukiwanie przestrzeni dostępnych parametrów i~wybiera hiperparametry maksymalizujące średnią dokładność z~walidacji krzyżowej dokonanej na zbiorze treningowym.\\E$"}

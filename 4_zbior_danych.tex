@@ -3,24 +3,24 @@
 % in the data's representativeness.
 \section{Zbiór danych}
 
-Dane wykorzystane w doświadczeniach pochodzą ze zbioru ERA5 opublikowanego przez ECMWF.
+Dane wykorzystane w~doświadczeniach pochodzą ze zbioru ERA5 opublikowanego przez ECMWF.
 Zbiór ten jest zbiorem reanalysis globalnej pogody pokrywający dane od 1940 roku do dziś.
 ERA5 została stworzona przez Copernicus Climate Change Service (C3S) będącym częścią ECMWF.
 ERA5 zapewnia godzinne estymaty wielu zmiennych pogodowych dotyczących warunków atmosferycznych,
-oceanicznych oraz lądowych. Dane pokrywają ziemię siatką o rozdzielczości 30 km z wertykalnym podziałem
-sięgającym 137 poziomów od powierzchni do 80 km. Dodatkową informacją w zbiorze danych są zmienne
-opisujące niepewność pomiarową zawartych pomiarów. ERA5 udostępnia także dzienne i miesięczne 
+oceanicznych oraz lądowych. Dane pokrywają ziemię siatką o~rozdzielczości 30 km z~wertykalnym podziałem
+sięgającym 137 poziomów od powierzchni do 80 km. Dodatkową informacją w~zbiorze danych są zmienne
+opisujące niepewność pomiarową zawartych pomiarów. ERA5 udostępnia także dzienne i~miesięczne 
 statystyki obliczone na podstawie podstawowych pomiarów.
 
-Ten zbiór wykorzystuje szeroką gamę obserwacji historycznych zebranych razem i przetworzonych
-poprzez zaawansowane techniki asymilacji danych i modelowania numerycznego w celu uzyskania 
+Ten zbiór wykorzystuje szeroką gamę obserwacji historycznych zebranych razem i~przetworzonych
+poprzez zaawansowane techniki asymilacji danych i~modelowania numerycznego w~celu uzyskania 
 dokładnych estymatów globalnych.
 
 Pomimo bogactwa informacji zaprezentowanego przez zbiór ERA5 posiada on także pewne 
-ograniczenia, które muszą być wzięte pod uwagę podczas jego analizy. Z powodu zmian w systemie
-obserwacyjnym niektóre zmiany nie są spowodowane z przyczyn fizycznych obserwowanego systemu.
+ograniczenia, które muszą być wzięte pod uwagę podczas jego analizy. Z~powodu zmian w~systemie
+obserwacyjnym niektóre zmiany nie są spowodowane z~przyczyn fizycznych obserwowanego systemu.
 Przykładem takiej zmiany może być wprowadzenie danych dotyczących zakrycia radiowego (ang.
-radio occultation) w 2006 roku przez program COSMIC.
+radio occultation) w~2006 roku przez program COSMIC.
 Co więcej, reprezentacja niektórych zmiennych klimatycznych takich jak przepływy energii
 powierzchniowej mogą nie być wiarygodnie zaprezentowane.
 
@@ -30,11 +30,11 @@ służącymi do pomiaru warunków atmosferycznych.
 
 Chociaż zbiór ten udostępnia wyniki modeli ensemble, wnioskuje się, że niepewności 
 prognozowanie są niedostatecznie  reprezentowane. Chociaż zbiór ten jest bardzo ważnym 
-zasobem i kolejnym krokiem w stronę integralnego zbioru pogodowego, to spójność i 
-dokładność globalnie uśrednionej temperatury w górnej stratosferze nie została polepszona
+zasobem i~kolejnym krokiem w~stronę integralnego zbioru pogodowego, to spójność i~
+dokładność globalnie uśrednionej temperatury w~górnej stratosferze nie została polepszona
 w stosunku do wcześniej upublicznionych zbiorów danych.
 
-Zbiór danych ERA5 jest wciąż rozwijany, a miesięczne aktualizacje danych są mniej więcej
+Zbiór danych ERA5 jest wciąż rozwijany, a~miesięczne aktualizacje danych są mniej więcej
 z dwumiesięcznym opóźnieniem.
 
 % Data source: Explain where the data came from, whether it 
@@ -43,20 +43,20 @@ z dwumiesięcznym opóźnieniem.
 % challenges you encountered.
 \subsection{Źródło danych}
 
-Dane wykorzystane w niniejszej pracy zostały pobrane z otwartego źródła, jakim jest
+Dane wykorzystane w~niniejszej pracy zostały pobrane z~otwartego źródła, jakim jest
 \href{https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=form}{Copernicus Climate Change Service}.
-Strona ta udostępnia ogólnodostępne API, dzięki któremu, każdy użytkownik jest w stanie
-wysłać zapytanie o interesujący go zakres danych. Dzięki temu API możliwe jest sprecyzowanie
+Strona ta udostępnia ogólnodostępne API, dzięki któremu, każdy użytkownik jest w~stanie
+wysłać zapytanie o~interesujący go zakres danych. Dzięki temu API możliwe jest sprecyzowanie
 przedziału czasowego, zakresu geograficznego oraz typów zmiennych. Przykładowe zapytanie jest 
 zaprezentowane na następującym listingu \ref{json-listing}.
 
-Strona Copernicus Climate Change Service posiada ponad 180 000 użytkowników z 171 krajów. Sumaryczna
-ilość obsłużonych żądań danych przewyższa 519 milionów, a łączna ilość przesłanych danych wynosi
-w przybliżeniu 125 petabajtów.
+Strona Copernicus Climate Change Service posiada ponad 180 000 użytkowników z~171 krajów. Sumaryczna
+ilość obsłużonych żądań danych przewyższa 519 milionów, a~łączna ilość przesłanych danych wynosi
+w~przybliżeniu 125 petabajtów.
 
 Darmowe konto narzuca jednak użytkownikowi limit wielkości danych możliwych do pobrania 
-za pomocą jednego żądania API. W przypadku zbyt dużej ilości danych konieczne
-jest wielorazowe wywołanie zapytania i następne złożenie danych.
+za pomocą jednego żądania API. W~przypadku zbyt dużej ilości danych konieczne
+jest wielorazowe wywołanie zapytania i~następne złożenie danych.
 
 \begin{lstlisting}[label=json-listing,caption={Przykładowe zapytanie API CDS Climate Copernicus},language=json]
 {
@@ -92,10 +92,10 @@ jest wielorazowe wywołanie zapytania i następne złożenie danych.
 }
 \end{lstlisting}
 
-Otrzymane dane są w formacie NetCDF, będącym samo opisującym, niezależnym platformowo formatem
-wyspecjalizowanym do tworzenia i udostępniania danych tablicowych. NetCDF jest otwartym standardem
+Otrzymane dane są w~formacie NetCDF, będącym samo opisującym, niezależnym platformowo formatem
+wyspecjalizowanym do tworzenia i~udostępniania danych tablicowych. NetCDF jest otwartym standardem
 stworzonym przez UCAR (University Corporation for Atmospheric Research). Istnieje wiele bibliotek
-wspierających ten format, między innymi dostępne są także w języku Python \cite{python}.
+wspierających ten format, między innymi dostępne są także w~języku Python \cite{python}.
 
 % Data characteristics: Discuss the characteristics of the data, such as 
 % its size, structure, and complexity. If your dataset includes multiple variables, 
@@ -105,58 +105,58 @@ wspierających ten format, między innymi dostępne są także w języku Python 
 \subsubsection*{Wybrane zmienne}
 
 \begin{itemize}
-    \item Składowa pionowa i pozioma prędkości wiatru (u10, v10) — 
-    Składowe skierowane w kierunku wschodnim i północnym zmierzone na wysokości 10 metrów nad poziomem
-    morza i wyrażone w metrach na sekundę.
+    \item Składowa pionowa i~pozioma prędkości wiatru (u10, v10) — 
+    Składowe skierowane w~kierunku wschodnim i~północnym zmierzone na wysokości 10 metrów nad poziomem
+    morza i~wyrażone w~metrach na sekundę.
 
     \item Temperatura 2 metry nad poziomem ziemi (t2m) — Temperatura 2 metry nad poziomem ziemi jest
     obliczana, interpolując pomiędzy najmniejszym poziomem modelu oraz poziomem ziemi biorąc pod
-    uwagę warunki atmosferyczne. Temperatura jest wyrażona w Kelwinach.
+    uwagę warunki atmosferyczne. Temperatura jest wyrażona w~Kelwinach.
 
     \item Zmiany poziomów cieków wodnych (ro) — 
-    Pewne ilości wody pochodzące z opadów, topnienia, lub z wód podziemnych pozostają w ziemi, lecz reszta
+    Pewne ilości wody pochodzące z~opadów, topnienia, lub z~wód podziemnych pozostają w~ziemi, lecz reszta
     odnajduję ujście poprzez cieki podziemne, bądź poprzez powierzchnię ziemi. Suma tych dwóch
-    odpływów wody daje całkowitą wartość. Całkowita wartość jest zakumulowana z godzinnego
+    odpływów wody daje całkowitą wartość. Całkowita wartość jest zakumulowana z~godzinnego
     okna analizy. Jednostką tej zmiennej jest głębokość opisująca głębokość ilości wody, jeśli byłaby
     równomiernie rozłożona na kilometr kwadratowy jednej komórki siatki. Ten wskaźnik jest
-    bezpośrednio powiązany z dostępnością wody w glebie i może wskazywać na suszę bądź potopy.
+    bezpośrednio powiązany z~dostępnością wody w~glebie i~może wskazywać na suszę bądź potopy.
 
     \item Promieniowanie słoneczne (ssr) — opisuje ilość promieniowania słonecznego (krótkofalowego), które dociera do 
-    płaszczyzny ziemi (w sposób bezpośredni, jak i poprzez dyfuzję) pomniejszoną o ilość energii
-    odbitej od powierzchni ziemi. Ta zmienna jest agregowana poprzez jedną godzinę i wyrażana w 
+    płaszczyzny ziemi (w~sposób bezpośredni, jak i~poprzez dyfuzję) pomniejszoną o~ilość energii
+    odbitej od powierzchni ziemi. Ta zmienna jest agregowana poprzez jedną godzinę i~wyrażana w~
     dżulach na metr kwadratowy.
 
     \item Promieniowanie termiczne (str) — wielkość charakteryzująca ilość promieniowania termicznego
-    (długofalowego) oddawanego przez ziemię w kierunku pionowym. Atmosfera oraz chmury emitują 
-    promieniowanie w każdym kierunku, z czego pewna część dociera do powierzchni ziemi. Wartość
-    tej zmiennej jest obliczona jako bilans energii oddawanej i otrzymywanej przez ziemię. 
-    Promieniowanie jest akumulowane w godzinnym okresie i wyrażane w dżulach na metr kwadratowy.
+    (długofalowego) oddawanego przez ziemię w~kierunku pionowym. Atmosfera oraz chmury emitują 
+    promieniowanie w~każdym kierunku, z~czego pewna część dociera do powierzchni ziemi. Wartość
+    tej zmiennej jest obliczona jako bilans energii oddawanej i~otrzymywanej przez ziemię. 
+    Promieniowanie jest akumulowane w~godzinnym okresie i~wyrażane w~dżulach na metr kwadratowy.
 
     \item Ciśnienie (sp) — wyraża ciśnienie atmosferyczne na powierzchni ziemi bądź wody. Wielkość
-    ta wyrażona została w pascalach. Duże zmiany ciśnienia razem ze wzrostem wysokości sprawiają,
+    ta wyrażona została w~pascalach. Duże zmiany ciśnienia razem ze wzrostem wysokości sprawiają,
     że trudno wyrazić wartość tej zmiennej ponad górzystymi terenami, więc często średnia wartość
     ciśnienia na poziomie morza jest używana zamiennie.
 
-    \item Całkowite odparowanie (e) — ta zmienna opisuję zakumulowaną ilość wody odparowaną z powierzchni
-    ziemi w przeciągu jednej godziny. Uwzględnia także transpirację wody z roślin. Wartości ujemne
-    wyrażają odparowanie, a wartości dodatnie kondensację wody. Jednostką tej zmiennej są metry
+    \item Całkowite odparowanie (e) — ta zmienna opisuję zakumulowaną ilość wody odparowaną z~powierzchni
+    ziemi w~przeciągu jednej godziny. Uwzględnia także transpirację wody z~roślin. Wartości ujemne
+    wyrażają odparowanie, a~wartości dodatnie kondensację wody. Jednostką tej zmiennej są metry
     przypadające na metr kwadratowy komórki siatki.
 
     \item Opady (tp) — Ten parametr opisuje ilość opadów deszczu lub śniegu, która spada na powierzchnię ziemi.
-    Wielkość opadów jest wyrażana w metrach przypadających na kilometr kwadratowy komórki siatki.
-    Opady o dużej skali są przewidywane z formacji chmur, które mogą być ujęte przez model poprzez 
-    analizę poziomów ciśnienia, wilgotności i temperatury. 
+    Wielkość opadów jest wyrażana w~metrach przypadających na kilometr kwadratowy komórki siatki.
+    Opady o~dużej skali są przewidywane z~formacji chmur, które mogą być ujęte przez model poprzez 
+    analizę poziomów ciśnienia, wilgotności i~temperatury. 
     Opady konwekcyjne są reprezentowane przez procesy
-    o mniejszej skali niż rozdzielczość modelu. Ten parametr nie uwzględnia ilości wody wymienionej
+    o~mniejszej skali niż rozdzielczość modelu. Ten parametr nie uwzględnia ilości wody wymienionej
     podczas formacji mgły, rosy czy opadów ulegających odparowaniu, zanim dotrą do powierzchni ziemi.
 
 \end{itemize}
 
 \subsubsection*{Opis danych}
 
-Dane składają się z 9 wcześniej wymienionych parametrów oraz 12 648 obserwacji godzinnych zebranych
-z przedziału 20 miesięcy. Wszystkie dane pochodzą ze stycznia i zostały pobrane z zakresu 20 lat
-2003 - 2023 roku. Poniższa mapa prezentuje wybraną lokalizację znajdującą się w województwie śląskim — Rysunek \ref{map}.
+Dane składają się z~9 wcześniej wymienionych parametrów oraz 12 648 obserwacji godzinnych zebranych
+z przedziału 20 miesięcy. Wszystkie dane pochodzą ze stycznia i~zostały pobrane z~zakresu 20 lat
+2003 - 2023 roku. Poniższa mapa prezentuje wybraną lokalizację znajdującą się w~województwie śląskim — Rysunek \ref{map}.
 
 \begin{figure}[H]
     \centering
@@ -165,7 +165,7 @@ z przedziału 20 miesięcy. Wszystkie dane pochodzą ze stycznia i zostały pobr
     \label{map}
 \end{figure}
 
-Najważniejsze statystyki zbioru danych zostały także przedstawione w tabeli 
+Najważniejsze statystyki zbioru danych zostały także przedstawione w~tabeli 
 nr \ref{statystyki-danych}.
 
 \begin{table}[H]
@@ -205,11 +205,11 @@ nr \ref{statystyki-danych}.
 % the quality and reliability of your results.
 \subsection{Preprocessing}
 
-W ramach preprocessingu wszystkie braki w danych zostały uzupełnione poprzez 
-interpolację danej zmiennej w szeregu czasowym. Co więcej, w celach dalszego
+W ramach preprocessingu wszystkie braki w~danych zostały uzupełnione poprzez 
+interpolację danej zmiennej w~szeregu czasowym. Co więcej, w~celach dalszego
 wykorzystania danych do treningu algorytmów uczenia maszynowego zmienne zostały 
 przeskalowane do przedziału [0, 1], co zapobiega stronniczości modeli ze względu
-na typ parametru. Wszystkie zmienne są typu ilościowego i dalsza obróbka nie była
+na typ parametru. Wszystkie zmienne są typu ilościowego i~dalsza obróbka nie była
 potrzebna.
 
 % Data analysis: Explain the methods you used to analyze the data, 
@@ -218,45 +218,45 @@ potrzebna.
 % limitations or challenges you encountered.
 \subsection{Analiza danych}
 
-Autokorelacja jest narzędziem specyfikującym występowanie wzorców w danych. Jest ona 
+Autokorelacja jest narzędziem specyfikującym występowanie wzorców w~danych. Jest ona 
 opisana jako wartość korelacji dyskretnego szeregu czasowego względem tego samego sygnału
-przesuniętego o zadane opóźnienie. Przy pomocy autokorelacji można zauważyć w danych
-występowanie cykli, oraz prędkość z jaką trend szeregu się zmienia.
+przesuniętego o~zadane opóźnienie. Przy pomocy autokorelacji można zauważyć w~danych
+występowanie cykli, oraz prędkość z~jaką trend szeregu się zmienia.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/autocorrelation.png}
-    \caption{Autokorelacja wybranych zmiennych względem opóźnienia o wartości od 
+    \caption{Autokorelacja wybranych zmiennych względem opóźnienia o~wartości od 
     1 godziny do 96 godzin.}
     \label{autocorrelation}
 \end{figure}
 
 Na rysunku \ref{autocorrelation} zaprezentowane zostały wykresy autokorelacji wybranego
-zbioru danych na przestrzeni 4 dni. Wyraźnie widać występowanie dziennych cykli i ich wpływ
+zbioru danych na przestrzeni 4 dni. Wyraźnie widać występowanie dziennych cykli i~ich wpływ
 na poszczególne pomiary. Wzrost wartości autokorelacji dla przesunięcia będącego
-wielokrotnością doby jest widoczny dla temperatury, odparowania, promieniowania słonecznego i 
-termicznego. Reszta zmiennych wykazuje stały spadek korelacji z rosnącym opóźnieniem. 
+wielokrotnością doby jest widoczny dla temperatury, odparowania, promieniowania słonecznego i~
+termicznego. Reszta zmiennych wykazuje stały spadek korelacji z~rosnącym opóźnieniem. 
 Szczególnie niskie wartości można zaobserwować dla opadów, dla których autokorelacja szybko spada
 poniżej 0.2, co wskazuje na wyjątkowo chaotyczną naturę tego zjawiska.
 
 Przy pomocy zebranych danych można także graficznie pokazać trajektorię zmian dla wybranych zmiennych. Na rysunku \ref{temperature} widać zależność pomiędzy szeregiem czasowym temperatury
-oraz kopią tego szeregu przesuniętą o 24 godziny. Wykres potwierdza wartość korelacji 
+oraz kopią tego szeregu przesuniętą o~24 godziny. Wykres potwierdza wartość korelacji 
 wskazaną na rysunku \ref{autocorrelation}. Gradient koloru widoczny na wykresie wskazuję
-progresję wartości temperatury z czasem. Trajektoria dla pierwszych 9 dni jest pokazana 
-na wykresie liniowym z prawej strony. 
+progresję wartości temperatury z~czasem. Trajektoria dla pierwszych 9 dni jest pokazana 
+na wykresie liniowym z~prawej strony. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth]{images/temperature_scatter.png}
     \includegraphics[width=0.45\textwidth]{images/temperature_line.png}
-    \caption{Wykresy pokazujące relację pomiędzy wartościami temperatury, a tymi samymi 
-    wartościami przesuniętymi w czasie o 24 godziny.}
+    \caption{Wykresy pokazujące relację pomiędzy wartościami temperatury, a~tymi samymi 
+    wartościami przesuniętymi w~czasie o~24 godziny.}
     \label{temperature}
 \end{figure}
 
 Podobne zachowanie można także wyróżnić dla ciśnienia oraz reszty zmiennych wykazujących 
-wysoką autokorelację. Jednak w przypadku opadów trajektoria dynamicznych zachowań systemu
-staję się o wiele trudniejsza w śledzeniu, co zostało ukazane na rysunku \ref{pressure-precipitation} porównującym wykresy dla ciśnienia oraz opadów. 
+wysoką autokorelację. Jednak w~przypadku opadów trajektoria dynamicznych zachowań systemu
+staję się o~wiele trudniejsza w~śledzeniu, co zostało ukazane na rysunku \ref{pressure-precipitation} porównującym wykresy dla ciśnienia oraz opadów. 
 
 % \begin{figure}[H]
 %     \centering
@@ -274,35 +274,35 @@ staję się o wiele trudniejsza w śledzeniu, co zostało ukazane na rysunku \re
     \label{pressure-precipitation}
 \end{figure}
 
-Wartości opadów zdają się bardzo mocno skoncentrowane wokół zera, z wieloma 
-odbiegającymi obserwacjami. W szczególności widać dużo pomiarów w pobliżu 
-osi x i y, co wskazuję na znaczącą ilość pomiarów oznaczających nagły wzrost opadów
+Wartości opadów zdają się bardzo mocno skoncentrowane wokół zera, z~wieloma 
+odbiegającymi obserwacjami. W~szczególności widać dużo pomiarów w~pobliżu 
+osi x i~y, co wskazuję na znaczącą ilość pomiarów oznaczających nagły wzrost opadów
 po okresie bez opadów, oraz gwałtowne zaprzestanie opadów.
 
 W celu pokazania dystrybucji zmiennych względem ich opóźnionych szeregów, na następującym 
-wykresie \ref{hex} pokazana została koncentracja pomiarów o wskazanych wartościach.
+wykresie \ref{hex} pokazana została koncentracja pomiarów o~wskazanych wartościach.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/autocorrelation_hex.png}
     \caption{Dystrybucja pomiarów na wykresie względem oryginalnego szeregu czasowego,
-    oraz szeregu przesuniętego o 24 godziny.}
+    oraz szeregu przesuniętego o~24 godziny.}
     \label{hex}
 \end{figure}
 
 Na powyższym wykresie \ref{hex} widać duży zakres zmienności promieniowania termicznego,
-który jest niezależny od wcześniej zarejestrowanych pomiarów. Z kolei bardzo mała wariancja 
-została zaobserwowana dla odpływów wody, promieniowania słonecznego i opadów, które wskazują 
-jedynie periodyczne odchylenia od zera. W przypadku prędkości wiatru, temperatury oraz 
+który jest niezależny od wcześniej zarejestrowanych pomiarów. Z~kolei bardzo mała wariancja 
+została zaobserwowana dla odpływów wody, promieniowania słonecznego i~opadów, które wskazują 
+jedynie periodyczne odchylenia od zera. W~przypadku prędkości wiatru, temperatury oraz 
 ciśnienia widoczna jest wysoka autokorelacja, która została już wcześniej odnotowana. 
 
 Duże wartości autokorelacji są dobrym znakiem wskazującym na możliwości przewidywania przyszłych
-obserwacji jedynie na podstawie obserwacji już zarejestrowanych. W przypadku reszty zmiennych
-potrzebna jest analiza ze względu na korelację pomiędzy parami parametrów obserwacji, w 
+obserwacji jedynie na podstawie obserwacji już zarejestrowanych. W~przypadku reszty zmiennych
+potrzebna jest analiza ze względu na korelację pomiędzy parami parametrów obserwacji, w~
 poszukiwaniu dodatkowych zależności.
 
 Na następującym rysunku \ref{matrix} została ukazana wartość korelacji pomiędzy wszystkimi 
-parami zmiennych. W wielu przypadkach odnotowane wartości są dość małe, co wskazuje na brak
+parami zmiennych. W~wielu przypadkach odnotowane wartości są dość małe, co wskazuje na brak
 bezpośrednich zależności jednej zmiennej na drugą zmienną. 
 
 \begin{figure}[H]
@@ -313,21 +313,21 @@ bezpośrednich zależności jednej zmiennej na drugą zmienną.
 \end{figure}
 
 Wyjątkiem na powyższym wykresie jest zależność pomiędzy odparowaniem oraz promieniowaniem 
-słonecznym wskazująca na ujemną korelację. Ponieważ z przyjętej konwencji ujemna ewaporacja
+słonecznym wskazująca na ujemną korelację. Ponieważ z~przyjętej konwencji ujemna ewaporacja
 wskazuję na parowanie wody, ta zależność okazuję się trywialna. Poniższy rysunek
-\ref{e-ssr} pokazuje, jak wartość odparowania zmienia się z rosnącą energią
+\ref{e-ssr} pokazuje, jak wartość odparowania zmienia się z~rosnącą energią
 promieniowania słonecznego.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/e-ssr.png}
-    \caption{Zależność pomiędzy odparowaniem a promieniowaniem słonecznym}
+    \caption{Zależność pomiędzy odparowaniem a~promieniowaniem słonecznym}
     \label{e-ssr}
 \end{figure}
 
-Brak dalszych korelacji w danych jest dobrą oznaką sygnalizującą brak redundancji danych.
+Brak dalszych korelacji w~danych jest dobrą oznaką sygnalizującą brak redundancji danych.
 Niestety oznacza to także że najprawdopodobniej cały zakres parametrów musi być przeanalizowany
-w celu znalezienia szukanych zależności i stworzenia modelu prognozującego. 
+w celu znalezienia szukanych zależności i~stworzenia modelu prognozującego. 
 
 W celu dalszej analizy dostępnych danych stworzone zostały wykresy Q-Q, pokazujące normalność
 dystrybucji danych. Wykresy te zostały pokazane na rysunku \ref{qq}. Proste linie dla prędkości 
@@ -342,7 +342,7 @@ dystrybucji normalnej, posiadają inną charakterystykę.
     \label{qq}
 \end{figure}
 
-Na następującym rysunku \ref{box} pokazującym wykresy pudełkowe widać wartości mediany, pierwszego i trzeciego
+Na następującym rysunku \ref{box} pokazującym wykresy pudełkowe widać wartości mediany, pierwszego i~trzeciego
 kwartylu danych oraz wartości odstające. 
 
 \begin{figure}[H]
@@ -352,14 +352,14 @@ kwartylu danych oraz wartości odstające.
     \label{box}
 \end{figure}
 
-Z powyższych wykresów można wnioskować o znaczącej liczbie anomalii dla wartości promieniowania słonecznego,
+Z powyższych wykresów można wnioskować o~znaczącej liczbie anomalii dla wartości promieniowania słonecznego,
 opadów oraz odparowania. Wartości odstające dla temperatury leżały wyłącznie po lewej stronie dystrybucji,
 poniżej zaobserwowanych pomiarów. Anomalie wskazane tym sposobem wyróżniają pomiary będące poniżej $-18^\circ C$. Co więcej, ponownie można zaobserwować bardzo wąską dystrybucję opadów posiadającą dużo wartości znacznie
 przewyższających wartość oczekiwaną. 
 
 Na rysunku \ref{hist} pokazano histogramy ilustrujące rozkład danych. Potwierdzają one normalność dystrybucji
-dla wartości prędkości wiatru. Pozostałe dystrybucje wykazują się pewną asymetrią, w której duża liczba 
-obserwacji odbiega od centrum dystrybucji wyraźnie w jedną stronę. 
+dla wartości prędkości wiatru. Pozostałe dystrybucje wykazują się pewną asymetrią, w~której duża liczba 
+obserwacji odbiega od centrum dystrybucji wyraźnie w~jedną stronę. 
 
 \begin{figure}[H]
     \centering
@@ -368,25 +368,25 @@ obserwacji odbiega od centrum dystrybucji wyraźnie w jedną stronę.
     \label{hist}
 \end{figure}
 
-Ostatnią wizualizacją są wykresy pokazujące przebieg wartości szeregu czasowego w okresie 120 dni, z 
-wartościami zakumulowanymi z czterech dni. Wykresy liniowe na rysunku \ref{line} pokazują zmienność
-danych w czasie. Dla większości zmiennych widzimy charakter oscylacyjny. W przypadku promieniowania 
-słonecznego zaobserwować można także dużą wariancję w danych nawet w małych przedziałach czasu. 
+Ostatnią wizualizacją są wykresy pokazujące przebieg wartości szeregu czasowego w~okresie 120 dni, z~
+wartościami zakumulowanymi z~czterech dni. Wykresy liniowe na rysunku \ref{line} pokazują zmienność
+danych w~czasie. Dla większości zmiennych widzimy charakter oscylacyjny. W~przypadku promieniowania 
+słonecznego zaobserwować można także dużą wariancję w~danych nawet w~małych przedziałach czasu. 
 Dużym wyjątkiem od reszty zmiennych jest wartość odpływu wody, która nie ulega cyklicznym zmianom, lecz
-wykazuje nagłe skoki w wartości i okresy stabilności.
+wykazuje nagłe skoki w~wartości i~okresy stabilności.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/line.png}
-    \caption{Wykresy liniowe pokazujące wartość średniej kroczącej z czterech dni na przestrzeni 120 dni}
+    \caption{Wykresy liniowe pokazujące wartość średniej kroczącej z~czterech dni na przestrzeni 120 dni}
     \label{line}
 \end{figure}
 
-Pokazane wykresy i przeprowadzona interpretacja wskazują na złożoność dostępnych danych
-i możliwe problemy w ich analizie. Wysoka zmienność obserwacji w czasie oraz mało przewidywalna
+Pokazane wykresy i~przeprowadzona interpretacja wskazują na złożoność dostępnych danych
+i możliwe problemy w~ich analizie. Wysoka zmienność obserwacji w~czasie oraz mało przewidywalna
 charakterystyka, sprawiają, że tworzenie dokładnych prognoz jest wyzwaniem. Co więcej, 
 cykliczność zaobserwowana wśród niektórych zmiennych może sprawiać wyzwanie dla niektórych
-metod uczenia maszynowego, które nie radzą sobie z danymi o dużej częstotliwości zmian. 
+metod uczenia maszynowego, które nie radzą sobie z~danymi o~dużej częstotliwości zmian. 
 
-Przeprowadzona analiza była jednak tylko wstępem do dalszych badań i wykazuje ograniczone
-możliwości metod czysto statystycznych w modelowaniu pogody.
+Przeprowadzona analiza była jednak tylko wstępem do dalszych badań i~wykazuje ograniczone
+możliwości metod czysto statystycznych w~modelowaniu pogody.
