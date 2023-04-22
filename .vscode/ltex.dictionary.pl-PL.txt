@@ -19,3 +19,9 @@ gaussowskiego
 reanalysis
 SVR
 preprocessingu
+UCAR
+sparametryzowanych
+parametryzacje
+zdwukrotnieniu
+konwolucyjnej
+CORR

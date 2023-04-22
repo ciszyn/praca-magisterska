@@ -45,7 +45,7 @@ z dwumiesięcznym opóźnieniem.
 
 Dane wykorzystane w niniejszej pracy zostały pobrane z otwartego źródła, jakim jest
 \href{https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=form}{Copernicus Climate Change Service}.
-Strona ta udostępnia ogólnodostępne API, dzięki któremu każdy użytkownik jest w stanie
+Strona ta udostępnia ogólnodostępne API, dzięki któremu, każdy użytkownik jest w stanie
 wysłać zapytanie o interesujący go zakres danych. Dzięki temu API możliwe jest sprecyzowanie
 przedziału czasowego, zakresu geograficznego oraz typów zmiennych. Przykładowe zapytanie jest 
 zaprezentowane na następującym listingu \ref{json-listing}.
@@ -144,7 +144,7 @@ wspierających ten format, między innymi dostępne są także w języku Python 
 
     \item Opady (tp) — Ten parametr opisuje ilość opadów deszczu lub śniegu, która spada na powierzchnię ziemi.
     Wielkość opadów jest wyrażana w metrach przypadających na kilometr kwadratowy komórki siatki.
-    Opady o dużej są przewidywane z formacji chmur, które mogą być ujęte przez model poprzez 
+    Opady o dużej skali są przewidywane z formacji chmur, które mogą być ujęte przez model poprzez 
     analizę poziomów ciśnienia, wilgotności i temperatury. 
     Opady konwekcyjne są reprezentowane przez procesy
     o mniejszej skali niż rozdzielczość modelu. Ten parametr nie uwzględnia ilości wody wymienionej
@@ -156,8 +156,7 @@ wspierających ten format, między innymi dostępne są także w języku Python 
 
 Dane składają się z 9 wcześniej wymienionych parametrów oraz 12 648 obserwacji godzinnych zebranych
 z przedziału 20 miesięcy. Wszystkie dane pochodzą ze stycznia i zostały pobrane z zakresu 20 lat
-2003 - 2023 roku. Poniższa mapa prezentuje wybraną lokalizację znajdującą się w województwie śląskim -
-Rysunek \ref{map}.
+2003 - 2023 roku. Poniższa mapa prezentuje wybraną lokalizację znajdującą się w województwie śląskim — Rysunek \ref{map}.
 
 \begin{figure}[H]
     \centering
@@ -232,15 +231,15 @@ występowanie cykli, oraz prędkość z jaką trend szeregu się zmienia.
     \label{autocorrelation}
 \end{figure}
 
-Na rysunku \ref{autocorrelation} zaprezentowane zostały wykresy autokorelacji wybrenago
+Na rysunku \ref{autocorrelation} zaprezentowane zostały wykresy autokorelacji wybranego
 zbioru danych na przestrzeni 4 dni. Wyraźnie widać występowanie dziennych cykli i ich wpływ
 na poszczególne pomiary. Wzrost wartości autokorelacji dla przesunięcia będącego
 wielokrotnością doby jest widoczny dla temperatury, odparowania, promieniowania słonecznego i 
 termicznego. Reszta zmiennych wykazuje stały spadek korelacji z rosnącym opóźnieniem. 
-Szczególnie niskie wartości można zaobserwować dla opadów, dla których autokorelacja szyko spada
+Szczególnie niskie wartości można zaobserwować dla opadów, dla których autokorelacja szybko spada
 poniżej 0.2, co wskazuje na wyjątkowo chaotyczną naturę tego zjawiska.
 
-Przy pomocy zebranych danych można także graficznie pokazać trajektorię zmian dla wybranych zminnych. Na rysunku \ref{temperature} widać zależność pomiędzy szeregiem czasowym temperatury
+Przy pomocy zebranych danych można także graficznie pokazać trajektorię zmian dla wybranych zmiennych. Na rysunku \ref{temperature} widać zależność pomiędzy szeregiem czasowym temperatury
 oraz kopią tego szeregu przesuniętą o 24 godziny. Wykres potwierdza wartość korelacji 
 wskazaną na rysunku \ref{autocorrelation}. Gradient koloru widoczny na wykresie wskazuję
 progresję wartości temperatury z czasem. Trajektoria dla pierwszych 9 dni jest pokazana 
@@ -257,7 +256,7 @@ na wykresie liniowym z prawej strony.
 
 Podobne zachowanie można także wyróżnić dla ciśnienia oraz reszty zmiennych wykazujących 
 wysoką autokorelację. Jednak w przypadku opadów trajektoria dynamicznych zachowań systemu
-staję się o wiele trudniejsza w śledzeniu, co zostału ukazane na rysunku \ref{pressure-precipitation} porównującym wykresy dla ciśnienia oraz opadów. 
+staję się o wiele trudniejsza w śledzeniu, co zostało ukazane na rysunku \ref{pressure-precipitation} porównującym wykresy dla ciśnienia oraz opadów. 
 
 % \begin{figure}[H]
 %     \centering
@@ -286,16 +285,16 @@ wykresie \ref{hex} pokazana została koncentracja pomiarów o wskazanych wartoś
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/autocorrelation_hex.png}
-    \caption{Dystrybucja pomiarów na wykresie względem orginalnego szeregu czasowego,
+    \caption{Dystrybucja pomiarów na wykresie względem oryginalnego szeregu czasowego,
     oraz szeregu przesuniętego o 24 godziny.}
     \label{hex}
 \end{figure}
 
-Na powyższym wykresie \ref{hex} widać duży zakres zmienności promieniowania termicznego
+Na powyższym wykresie \ref{hex} widać duży zakres zmienności promieniowania termicznego,
 który jest niezależny od wcześniej zarejestrowanych pomiarów. Z kolei bardzo mała wariancja 
 została zaobserwowana dla odpływów wody, promieniowania słonecznego i opadów, które wskazują 
 jedynie periodyczne odchylenia od zera. W przypadku prędkości wiatru, temperatury oraz 
-ciśnienia widoczna jest wysoka autokorelacja, które została już wcześniej odnotowana. 
+ciśnienia widoczna jest wysoka autokorelacja, która została już wcześniej odnotowana. 
 
 Duże wartości autokorelacji są dobrym znakiem wskazującym na możliwości przewidywania przyszłych
 obserwacji jedynie na podstawie obserwacji już zarejestrowanych. W przypadku reszty zmiennych
@@ -343,8 +342,8 @@ dystrybucji normalnej, posiadają inną charakterystykę.
     \label{qq}
 \end{figure}
 
-Na następującym rysunku \ref{box} pokazującym wykresy pudełkowe widać wartości medianę, pierwszy i trzeci
-kwartyl danych oraz wartości odstające. 
+Na następującym rysunku \ref{box} pokazującym wykresy pudełkowe widać wartości mediany, pierwszego i trzeciego
+kwartylu danych oraz wartości odstające. 
 
 \begin{figure}[H]
     \centering
@@ -353,7 +352,7 @@ kwartyl danych oraz wartości odstające.
     \label{box}
 \end{figure}
 
-Z powyższych wykresów można wnioskować o znaczącej liczbie anomali dla wartości promieniowania słonecznego,
+Z powyższych wykresów można wnioskować o znaczącej liczbie anomalii dla wartości promieniowania słonecznego,
 opadów oraz odparowania. Wartości odstające dla temperatury leżały wyłącznie po lewej stronie dystrybucji,
 poniżej zaobserwowanych pomiarów. Anomalie wskazane tym sposobem wyróżniają pomiary będące poniżej $-18^\circ C$. Co więcej, ponownie można zaobserwować bardzo wąską dystrybucję opadów posiadającą dużo wartości znacznie
 przewyższających wartość oczekiwaną. 
@@ -372,7 +371,7 @@ obserwacji odbiega od centrum dystrybucji wyraźnie w jedną stronę.
 Ostatnią wizualizacją są wykresy pokazujące przebieg wartości szeregu czasowego w okresie 120 dni, z 
 wartościami zakumulowanymi z czterech dni. Wykresy liniowe na rysunku \ref{line} pokazują zmienność
 danych w czasie. Dla większości zmiennych widzimy charakter oscylacyjny. W przypadku promieniowania 
-słonecznego zaobserwować można także dużą wariacje w danych nawet w małych przedziałach czasu. 
+słonecznego zaobserwować można także dużą wariancję w danych nawet w małych przedziałach czasu. 
 Dużym wyjątkiem od reszty zmiennych jest wartość odpływu wody, która nie ulega cyklicznym zmianom, lecz
 wykazuje nagłe skoki w wartości i okresy stabilności.
 
@@ -385,7 +384,7 @@ wykazuje nagłe skoki w wartości i okresy stabilności.
 
 Pokazane wykresy i przeprowadzona interpretacja wskazują na złożoność dostępnych danych
 i możliwe problemy w ich analizie. Wysoka zmienność obserwacji w czasie oraz mało przewidywalna
-charakterystyka, sprawiają że tworzenie dokładnych prognoz jest wyzwaniem. Co więcej, 
+charakterystyka, sprawiają, że tworzenie dokładnych prognoz jest wyzwaniem. Co więcej, 
 cykliczność zaobserwowana wśród niektórych zmiennych może sprawiać wyzwanie dla niektórych
 metod uczenia maszynowego, które nie radzą sobie z danymi o dużej częstotliwości zmian. 
 

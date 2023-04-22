@@ -32,7 +32,7 @@ algorytmach prognozowania pogody.
 \subsection{Tło teoretyczne}
 
 
-\subsubsection{Metody NWP}
+\subsubsection*{Metody NWP}
 
 Pierwsze próby "odręcznych" modeli NWP były zainicjowane przez Lewis Fry Richardson-a w 1922 roku i 
 były zainspirowane ideą przewidywania pogody za pomocą sformułowanych praw fizyki. Sformułowanie
@@ -44,7 +44,7 @@ w 1970 roku wraz z rozwojem superkomputerów rozwiązanie pełnego zbioru równa
 
 Podstawowymi równaniami opisującymi zachowanie pogody są równania Naviera-Stokesa, równania zachowania
 masy, pierwsza zasada termodynamiki i równanie Clapeyrona. Za pomocą nich stan wiatru, ciśnienia,
-gęstości, temperatury może być modelowany opisując stan atmosfery. Ze względu na brak rozwiązania
+gęstości, temperatury może być modelowany, opisując stan atmosfery. Ze względu na brak rozwiązania
 analitycznego tych równań, koniecznością jest rozwiązanie numeryczne. Procesy fizyczne występujące
 w zbyt małej skali, aby być ujęte podczas dyskretyzacji przestrzeni, muszą być opisywane za pomocą
 parametryzacji próbujących przybliżyć ich wpływ na ogólne rozwiązanie. W wielu przypadkach 
@@ -70,9 +70,9 @@ mogą skutkować odstającymi od siebie wynikami. W celu opisania i przewidywani
 rozwinięte zostały modele ensemble. Nieliniowa złożoność systemu oznacza, że podejścia opisu
 dokładności prognozy bazujące na metodach czysto statystycznych nie przynoszą upragnionych wyników.
 Dlatego zbiór wielu modeli zainicjowanych z nieznacznie różniącymi się warunkami początkowymi
-jest stosowany do sprawdzenia jak bardzo uzyskane wyniki mogą się różnić, i nadania dokładności do 
+jest stosowany do sprawdzenia jak bardzo uzyskane wyniki mogą się różnić i nadania dokładności do 
 stworzonej prognozy. Przykładowa predykcja stworzona przy pomocy metody ensemble znajduje się 
-poniżej\ref{nwp-ensemble}.
+poniżej — rysunek \ref{nwp-ensemble}.
 
 \begin{figure}[H]
     \centering
@@ -84,7 +84,7 @@ poniżej\ref{nwp-ensemble}.
 
 Wczesne metody specyfikacji warunków początkowych opierały się na analizie graficznych wykresów 
 pogodowych. Następnie różne metody interpolacji danych były zastąpione przez algorytmy
-asymilacji danych oparte na teorii sterowania optymalnego. Obliczanie rzeczywistych wartości
+asymilacji danych opartych na teorii sterowania optymalnego. Obliczanie rzeczywistych wartości
 opisujących atmosferę może być opisane jako wnioskowane Bayesowskie oparte na wynikach pomiarów
 oraz ich niepewnościach. Te obliczenia skoncentrowane na minimalizacji obiektywnej funkcji 
 są przeprowadzane w czterowymiarowej przestrzeni, aby otrzymać fizycznie możliwy wynik
@@ -102,7 +102,7 @@ z obserwacji satelitarnych o dużej gęstości. Rozdzielczość danych pochodzą
 satelitarnych znacznie przekracza możliwości dotychczas używanych modeli stworzonych przez
 ECMWF posiadających rozdzielczość horyzontalną równą 9 km. Co więcej, w przypadku modeli
 ensemble w celach zmniejszenia kosztów obliczeniowych rozdzielczość jest zmniejszana do 18 km.
-Procesy, które nie mogą być wiernie odzwierciedlone przez symulację
+Procesy, które nie mogą być wiernie odzwierciedlone przez symulację,
 ze względu na zbyt małą rozdzielczość NWP podlegają parametryzacji.
 Do takich procesów zalicza się: formowanie się chmur, ilość promieni słonecznych docierających do 
 podłoża, opór aerodynamiczny szczytów górskich czy formowanie się kropelek wody.
@@ -121,10 +121,9 @@ czego przykładem jest obliczanie energii promieniowania w sposób uproszczony
 może być w sposób kosztowny obliczona przez modele NWP, lecz zastosowanie ML skutkuje szybszym
 procesem prognozowania.
 
-Przykładowymi modelami prognozowania pogody są Lorenz63 i Lorenz96\cite{ai-in-weather-and-climate-prediction}
-które są najprostsze w opisie,
-które są zaprojektowane z mniejszą ilością stopni swobody. Modele te są łatwe w zrozumieniu i 
-stanowią podstawe do przeprowadzania badań. Ich szybka natura sprawia, że ich stosowanie jest dość
+Przykładowymi modelami prognozowania pogody są Lorenz63 i Lorenz96\cite{ai-in-weather-and-climate-prediction},
+które są najprostsze w opisie i są zaprojektowane z mniejszą ilością stopni swobody. Modele te są łatwe w zrozumieniu i 
+stanowią podstawie do przeprowadzania badań. Ich szybka natura sprawia, że ich stosowanie jest dość
 proste, niestety dokładność predykcji jest dość niska. Przeciwieństwem do nich są modele NWP i GCM,
 które są bardzo skomplikowane i trudne do zrozumienia, są opisane przez wielowymiarowe równania, oraz
 osiągają większą dokładność.
@@ -152,8 +151,8 @@ w ten sposób z częstotliwością dzienną i na poziomie globalnym. Dokładnoś
 dobrze znana i sposoby wzmocnienia aktualnie stosowanych algorytmów mogą być sprawdzone z dużą
 efektywnością. Modele NWP wciąż są ulepszane, a rozwój technologiczny i naukowy być może pozwoli
 w przyszłości tworzyć modele bazujące na danych zbieranych z rozdzielczością sięgającą 1 km. Co więcej,
-możliwe że w najbliższej przyszłości utworzone zostaną modele rozwiązujące sprzężone symulacje
-dla atmosfery, lądu oraz oceanu\cite{nwp-the-quiet-revolution}.
+możliwe, że w najbliższej przyszłości utworzone zostaną modele rozwiązujące sprzężone symulacje
+dla atmosfery, lądu oraz oceanu \cite{nwp-the-quiet-revolution}.
 
 Dzisiejsze komputery używane do NWP sięgają mocy obliczeniowej równej jednego petaflop-a ($10^{15}$ operacji
 zmiennoprzecinkowych) na sekundę. Szacuje się, że systemy komputerowe stosowane przez ECMWF mają zużycie energii
@@ -393,7 +392,7 @@ Metody AI są także zachęcające ze względu na prostotę i szybkość tworzen
 \Citeauthor*{ai-revolutionises-weather-prediction}\cite{ai-revolutionises-weather-prediction}
 podaje, że system MIIDAPS-AI zaprojektowany w celu fuzji i asymilacji danych został stworzony w ciągu 10 miesięcy, 
 gdy podobny system stworzony przy pomocy metod tradycyjnych zająłby
-w stworzeniu stukrotnie więcej czasu.
+w stworzeniu o wiele więcej czasu.
 
 \Citeauthor*{ml-applied-to-weather-forecasting}\cite{ml-applied-to-weather-forecasting}
 zwraca uwagę na sposób przygotowania zbioru testowego i treningowego do celów uczenia 
@@ -451,7 +450,7 @@ występują bardzo rzadko, tak więc na przykład model wytrenowany w celu przew
 skrajnych ilości opadów na terenie Niemiec ($> 25mm/m^2$) musi być trenowany na danych 
 zawierających jedynie 10 zdarzeń o danym typie w danych zebranych z 10 lat \cite{can-dl-beat-numerical}.
 
-Dane zebrane z obserwacji meteorologicznych podąża za
+Dane zebrane z obserwacji meteorologicznych podążają za
 rozkładem normalnym, lecz wiele z nich (tak jak opady, czy wielkość kropli deszczu) 
 \cite{can-dl-beat-numerical} jest bliższa dystrybucji gamma lub beta. Analiza statystyczna
 danych atmosferycznych musi więc brać pod uwagę wiele czynników i różnorodność dostępnych danych.
@@ -474,7 +473,7 @@ z prawami fizyki, nawet biorąc pod uwagę, że są stworzone na podstawie równ
 opisujących zjawiska fizyczne. Dyskretyzacja przestrzeni i przepływów w NWP nie jest zawsze 
 zachowująca masę i energię. Co więcej, metody parametryzacji są często heurystykami 
 mającymi na celu jak najdokładniejsze odwzorowanie zjawisk, które nie są ujęte w podstawowym modelu.
-Co więcej, wewnętrzna spójność NWP jest naruszona, biorąc pod uwagę cały przepływ
+Dalej, wewnętrzna spójność NWP jest naruszona, biorąc pod uwagę cały przepływ
 danych i kroki takie jak post-processing, statystyczne metody korekcji danych i metody 
 ensemble.
 
@@ -489,7 +488,7 @@ mniejszych osiągach.
 
 W wielu przypadkach dostępność danych także okazuje się problemem. Najbardziej rozbudowane 
 i dogłębne zbiory danych są tworzone przy pomocy modeli NWP, które interpolują pomiary atmosferyczne
-do odpowiedniego formatu tworząc zbiory reanalysis. Dostępność "surowych" danych pomiarowych 
+do odpowiedniego formatu, tworząc zbiory reanalysis. Dostępność "surowych" danych pomiarowych 
 ze stacji meteorologicznych
 jest ograniczona, a ilość danych historycznych zebranych nie jest wystarczająca do ujęcia 
 skomplikowanych wzorców pogodowych.

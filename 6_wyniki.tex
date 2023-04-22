@@ -165,7 +165,7 @@ szumów.
     \label{mlp-week}
 \end{figure}
 
-Rekurencyjna architektura sieci neuronowych RNN prezentuje podobne zachowanie 
+Rekurencyjna architektura sieci neuronowych RNN prezentuje podobne zachowanie, 
 generując dane wyjściowe z dużymi wahaniami. Wyniki dla tego modelu zostały zaprezentowane na rysunku \ref{rnn-week}
 
 \begin{figure}[H]
@@ -176,7 +176,7 @@ generując dane wyjściowe z dużymi wahaniami. Wyniki dla tego modelu zostały 
     \label{rnn-week}
 \end{figure}
 
-W przypadku lasu losowego, widać duże przesunięcie dla linii odpływów wody. Stworzone prognozy zdecydowanie
+W przypadku lasu losowego widać duże przesunięcie dla linii odpływów wody. Stworzone prognozy zdecydowanie
 przeceniają wartości rzeczywiste, co może być spowodowane pojedynczymi zdarzeniami w zbiorze treningowym o
 dużej amplitudzie, które mogły zaburzyć proces uczenia modelu.
 
@@ -191,7 +191,7 @@ prędkości wiatru i temperatury, które niekoniecznie odnajdują odzwierciedlen
     \label{forest-week}
 \end{figure}
 
-Kolejnym rozważanym modelem jest regresja logistyczna, która wydaje się najlepiej odzwierciedliła 
+Kolejnym rozważanym modelem jest regresja logistyczna, która wydaje się, najlepiej odzwierciedliła 
 zachowania przebiegu temperatury, odparowania i promieniowania słonecznego. Większe wartości 
 błędu dla tego modelu mogą być spowodowane gorszym dopasowaniem względem pozostałych parametrów, dla których
 często prognozowane są nieprawidłowe wahania od rzeczywistego trendu.
@@ -214,8 +214,8 @@ często prognozowane są nieprawidłowe wahania od rzeczywistego trendu.
 
 Algorytm K najbliższych sąsiadów ma wyraźne trudności w rozpoznawaniu danych wejściowych różniących się od 
 danych zawartych w zbiorze treningowym. Wyraźne odchylenia widoczne są przede wszystkim w przebiegach  
-symbolizujących odpływ i ciśnienie atmosferyczne. Co więcej bardzo dużo opadów zostało fałszywie
-zasygnalizowane. Model KNN okazuje się być niestosowny do problemu prognozowania pogody ze względu
+symbolizujących odpływ i ciśnienie atmosferyczne. Co więcej, bardzo dużo opadów zostało fałszywie
+zasygnalizowane. Model KNN okazuje się niestosowny do problemu prognozowania pogody ze względu
 na brak generalizacji nabytej wiedzy i dostosowania do nowych danych.
 
 \pagebreak
@@ -383,7 +383,7 @@ relacji między ciśnieniem atmosferycznym a odpływem cieków wodnych, która n
 
 Taki sam wykres został stworzony dla drzewa decyzyjnego na rysunku \ref{dt-corr-matrix}. Możemy na nim 
 zaobserwować podobne wzorce, lecz z o wiele większą korelacją pomiędzy poszczególnymi atrybutami. 
-Wartości korelacji sięgają wartości od -0,9 aż do 0,71. Algorytm drzewa decyzyjnego zdaje się 
+Wartości korelacji sięgają wartości od $-0,9$ aż do $0,71$. Algorytm drzewa decyzyjnego zdaje się 
 bazować swoje wyniki bezpośrednio na relacjach występujących pomiędzy pojedynczymi atrybutami,
 a w rezultacie ignorując głębsze zależności występujące w danych.
 

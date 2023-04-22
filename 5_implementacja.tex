@@ -33,13 +33,13 @@ W celu znalezienie hiperparametrów zapewniających najlepszą dokładność mod
 dwie metody przeszukiwania przestrzeni możliwych wartości zostały zastosowane:
 
 \begin{itemize}
-    \item Grid Search - działa poprzez wyczerpujące przeszukiwanie 
+    \item Grid Search — działa poprzez wyczerpujące przeszukiwanie 
     przestrzeni dostępnych parametrów i wybiera hiperparametry maksymalizujące
     średnią dokładność z walidacji krzyżowej dokonanej na zbiorze treningowym.
-    \item Halving Grid Search - zoptymalizowana czasowo wersja Grid Search
+    \item Halving Grid Search — zoptymalizowana czasowo wersja Grid Search
     przydzielająca początkowo ograniczone ilości zasobów (mniejszą ilość
-    danych). W miarę ewaluacji algorytmu, iteracyjnie pomniejszany jest zbiór
-    rozważanych hiperparamtrów, a najlepszy dobór ewaluowany jest na coraz większym
+    danych). W miarę ewaluacji algorytmu iteracyjnie pomniejszany jest zbiór
+    rozważanych hiperparametrów, a najlepszy dobór ewaluowany jest na coraz większym
     zbiorze danych.
 \end{itemize}
 
