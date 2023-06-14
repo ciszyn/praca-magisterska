@@ -3,6 +3,9 @@
 % frameworks, or any other tools that you found useful.
 \section{Implementacja}
 
+W rozdziale tym omówiono sposoby, w jakie zbiór danych został przygotowany 
+do przetwarzania przez zaproponowane modele, jak i opis stworzonych architektur sieci głębokich. Przedstawiony został także zakres hiperparametrów rozważanych dla poszczególnych modeli i sposób ewaluacji otrzymanych wyników.
+
 % Data preparation: Discuss the data preparation steps you took, 
 % including data cleaning, feature selection, and data normalization. 
 % Explain how you handled missing values and outliers, and any techniques 
@@ -19,7 +22,7 @@ co znaczy, że dane będące w~jednym kroku wyjściem, w~następnym kroku są u�
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/division.png}
-    \caption{Sposób podziału zbioru danych na dane wejściowe i~wyjściowe}
+    \caption[Podział zbioru danych]{Sposób podziału zbioru danych na dane wejściowe i~wyjściowe}
     \label{division}
 \end{figure}
 
@@ -134,7 +137,7 @@ Rozważane wartości hiperparametrów zostały zilustrowane w~tabeli \ref{hiperp
     \end{tabular}
 \end{table}
 
-Na poniższym rysunku \ref{arch} pokazano uproszczone architektury sieci głębokich.
+Na rysunku \ref{arch} pokazano uproszczone architektury sieci głębokich.
 Podczas procesu przeszukiwania hiperparametrów jednym z~celów optymalizacji 
 było znalezienie właściwej liczby i~wielkości warstw konwolucyjnych, rekurencyjnych
 i w~pełni połączonych.
@@ -142,7 +145,7 @@ i w~pełni połączonych.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/architectures.png}
-    \caption[opis dla siatki]{Rysunki poglądowe stworzonych architektur sieci
+    \caption[Architektury sieci głębokich]{Rysunki poglądowe stworzonych architektur sieci
     głębokich}
     \label{arch}
 \end{figure}
@@ -165,4 +168,6 @@ korelację, błąd średniokwadratowy oraz błąd bezwzględny poszczególnych m
 
 Przeprowadzone badania zostały zaimplementowane przy pomocy notatnika Jupyter
 \cite{jupyter}, przy pomocy platformy Colab \cite{colab}. Odpowiedni projekt
-Jupyter Notebook powinien być dostępny poprzez \url{https://colab.research.google.com/drive/1Fm1UZYe36pVOuCa8jpCKAUoyUJyf3Zmp?usp=sharing}.
+Jupyter Notebook jest dostępny poprzez \url{https://colab.research.google.com/drive/1Fm1UZYe36pVOuCa8jpCKAUoyUJyf3Zmp?usp=sharing}.
+
+\pagebreak

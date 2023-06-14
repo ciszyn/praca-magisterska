@@ -18,7 +18,7 @@
 \section{Przegląd literatury}
 
 Jako już dojrzała metodologia, zastosowanie uczenia maszynowego 
-znajduje dużą duże odbicie w~wielu artykułach i~publikacjach naukowych. 
+znajduje duże odbicie w~wielu artykułach i~publikacjach naukowych. 
 Wiele publikacji analizuje zastosowanie AI w~hybrydowych, jak i~czystych 
 algorytmach prognozowania pogody. 
 
@@ -34,7 +34,7 @@ algorytmach prognozowania pogody.
 
 \subsubsection*{Metody NWP}
 
-Pierwsze próby "odręcznych" modeli NWP były zainicjowane przez Lewis Fry Richardson-a w~1922 roku i~
+Pierwsze próby „odręcznych'' modeli NWP były zainicjowane przez Lewis Fry Richardson-a w~1922 roku i~
 były zainspirowane ideą przewidywania pogody za pomocą sformułowanych praw fizyki. Sformułowanie
 nieliniowych równań różniczkowych opisujących pogodę tworzyło problem z~wartością początkową bazującą
 na bieżących pomiarach pogody. W~celu osiągnięcia zamierzonego celu interakcje z~dziedziny 
@@ -51,14 +51,14 @@ parametryzacji próbujących przybliżyć ich wpływ na ogólne rozwiązanie. W~
 dodatkowe uproszczenia i~zaokrąglenia są brane pod uwagę w~celu uproszczenia procesu
 rozwiązywania. Niektóre modele globalne i~prawie wszystkie modele lokalne stosują 
 metodę różnic skończonych we wszystkich stopniach swobody systemu, a~niektóre modele globalne
-wykorzystują metodę różnic skończonych w~kierunku pionowym a~metody spektralne w~kierunku równoległym
+wykorzystują metodę różnic skończonych w~kierunku pionowym, a~metody spektralne w~kierunku równoległym
 do powierzchni ziemi. Krok czasu stosowany w~stosunku do modeli globalnych jest wielkości dziesiątek
 minut, a~w~przypadku prognoz lokalnych w~zakresie jednej do czterech minut.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/grid.png}
-    \caption[opis dla siatki]{Obraz pokazujący sposób dyskretyzacji przestrzeni
+    \caption[Dyskretyzacja siatki parametrów]{Obraz pokazujący sposób dyskretyzacji przestrzeni
     na siatkę parametrów\footnotemark}
     \label{grid}
 \end{figure}
@@ -72,12 +72,12 @@ dokładności prognozy bazujące na metodach czysto statystycznych nie przynosz�
 Dlatego zbiór wielu modeli zainicjowanych z~nieznacznie różniącymi się warunkami początkowymi
 jest stosowany do sprawdzenia jak bardzo uzyskane wyniki mogą się różnić i~nadania dokładności do 
 stworzonej prognozy. Przykładowa predykcja stworzona przy pomocy metody ensemble znajduje się 
-poniżej — rysunek \ref{nwp-ensemble}.
+na rysunku \ref{nwp-ensemble}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/multimodel.png}
-    \caption[ensemble]{Przykładowy wynik działania modelu ensemble\footnotemark}
+    \caption[Wynik modelu ensemble]{Przykładowy wynik działania modelu ensemble\footnotemark}
     \label{nwp-ensemble}
 \end{figure}
 \footnotetext{Źródło: \url{https://www.meteoblue.com/pl/pogoda/prognoza/multimodel/katowice_polska_3096472}}
@@ -131,7 +131,7 @@ osiągają większą dokładność.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{images/lorenz.jpeg}
-    \caption[lorenz]{Wykres pokazujący atraktor lorenza - matematyczny opis chaotycznej 
+    \caption[Atraktor Lorenza]{Wykres pokazujący atraktor lorenza - matematyczny opis chaotycznej 
     charakterystyki równań różniczkowych wynikających z~analizy pogody.\footnotemark}
     \label{lorenz}
 \end{figure}
@@ -179,7 +179,7 @@ zastosowane będą następujące metody regresji z~zakresu uczenia maszynowego:
     Obliczenie równania hiperpłaszczyzny sprowadza się do problemu optymalizacyjnego
     maksymalizowania odległości hiperpłaszczyzny od punktów należących do poszczególnych klas.
     Ponad przeprowadzanie regresji liniowej, SVR jest w~stanie tworzyć regresji nieliniowe
-    poprzez zastosowanie "kernel trick", niejawnie mapując dziedzinę danych wejściowych na 
+    poprzez zastosowanie „kernel trick'', niejawnie mapując dziedzinę danych wejściowych na 
     wielowymiarową przestrzeń o~innej charakterystyce.
     
     \item Regresja Logistyczna — jest modelem statystycznym przewidującym nastąpienie danego
@@ -253,19 +253,19 @@ zastosowane będą następujące metody regresji z~zakresu uczenia maszynowego:
 Można znaleźć artykuły analizujące najczęściej występujące słowa
 w publikacjach dotyczących algorytmów przewidywania pogody 
 \cite{ml-in-weather-prediction}. Okazuje się, że w~artykułach traktujących o
-metodach NWP najczęściej występującą frazą jest "prognozowanie wiatru". Innymi 
-często występującymi sformułowaniami były "modele ensemble", "asymilacja danych",
-"warunki ekstremalne". Pośród analizowanych artykułów słowo wiatr pojawiło się
+metodach NWP najczęściej występującą frazą jest „prognozowanie wiatru''. Innymi 
+często występującymi sformułowaniami były „modele ensemble'', „asymilacja danych'',
+„warunki ekstremalne''. Pośród analizowanych artykułów słowo wiatr pojawiło się
 ponad 200 razy, najczęściej w~odniesieniu do źródeł odnawialnej energii i~badań
 w przewidywaniu siły wiatru. Słowo opady pojawiło się prawie 150 razy, zazwyczaj
 odnosząc się do wykorzystania w~prognozowaniu krótkoterminowym, post-processingu, czy
 downscaling. 
 
 Z kolei dla artykułów dotyczących uczenia maszynowego
-w dziedzinie klimatu najczęściej występujące frazy to "zmiana klimatu", 
-"wpływ na klimat", "warunki ekstremalne". Okazuje się, że o~wiele częstsze było
-wystąpienie określenia "globalne modele klimatyczne" niż "regionalne modele 
-klimatyczne". 
+w dziedzinie klimatu najczęściej występujące frazy to „zmiana klimatu'', 
+„wpływ na klimat'', „warunki ekstremalne''. Okazuje się, że o~wiele częstsze było
+wystąpienie określenia „globalne modele klimatyczne'' niż „regionalne modele 
+klimatyczne''. 
 
 Wśród istniejących publikacji popularnymi tematami są także korekcja odchylenia 
 temperatury i~ciśnienia atmosferycznego, analiza promieniowania słonecznego w~celach
@@ -374,12 +374,12 @@ były zastosowane różne metryki. Wśród najpopularniejszych
 należały RMSE, współczynnik korelacji (CORR), MSE, MAE, współczynnik Kappa Cohena,
 znormalizowany pierwiastek z~błędu średniokwadratowego (NRMSE).
 
-\begin{align*}
+\begin{align}
     MAE &= \frac{1}{n}\sum_{i=1}^n |y_i - x_i|\\
     MSE &= \frac{1}{n}\sum_{i=1}^n (y_i-x_i)^2\\
     CORR &= \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}
     {\sqrt{\sum_{i=1}^n (x_i-\overline{x})^2\sum_{i=1}^n (y_i-\overline{y})^2}}
-\end{align*}
+\end{align}
 
 \Citeauthor*{ai-revolutionises-weather-prediction}\cite{ai-revolutionises-weather-prediction}
 podkreśla kluczowe zastosowanie uczenia maszynowego w~procesie asymilacji danych do modeli NWP.
@@ -419,7 +419,7 @@ wnioskowanie bezpośrednie ze zdjęć satelitarnych połączone z~metodami przep
 lepsze wyniki niż NWP, w~szczególności pod względem zjawisk mających do czynienia z~zachmurzeniem,
 jak promieniowanie słoneczne, opady i~burze. 
 
-W celu przeprowadzenia badań wiele autorów stosowało różne frameworki implementujące algorytmy uczenia
+W celu przeprowadzenia badań wiele autorów stosowało różne frameworki i~języki implementujące algorytmy uczenia
 maszynowego, z~czego najpopularniejszymi był Python\cite{python} i~Scikit-learn\cite{sklearn}
 razem z~Keras\cite{keras}. Stosowane było także oprogramowanie WEKA udostępniające zarówno interfejs
 graficzny, jak i~programistyczny w~języku JAVA.
@@ -459,7 +459,7 @@ Co więcej, dużo zjawisk wpływających na pogodę ma charakter zarówno krótk
 długoterminowy. Zjawiska długoterminowe mogą mieć znaczący wpływ na lokalne warunki atmosferyczne,
 nie dość, że muszą być brane pod uwagę podczas tworzenia prognoz, to w~trakcie tworzenia modeli
 i~treningu. Zjawiska krótkoterminowe, o~długości mniejszej niż okres pomiarowy, mogą z~kolei
-brakować w~zbiorze danych używanym do treningu. NWP radzi sobie z~tym problemem poprzez 
+być nieobecne w~zbiorze danych używanym do treningu. NWP radzi sobie z~tym problemem poprzez 
 parametryzacje i~symulacje efektów o~małej skali. Zastosowanie uczenia maszynowego
 w celu prognozy pogody wymagałoby upewnienia się, że stworzone modele są w~stanie 
 indukować występowanie zjawisk o~małej skali ze współzależności pomiędzy innymi obserwowanymi 
@@ -488,7 +488,7 @@ mniejszych osiągach.
 
 W wielu przypadkach dostępność danych także okazuje się problemem. Najbardziej rozbudowane 
 i dogłębne zbiory danych są tworzone przy pomocy modeli NWP, które interpolują pomiary atmosferyczne
-do odpowiedniego formatu, tworząc zbiory reanalysis. Dostępność "surowych" danych pomiarowych 
+do odpowiedniego formatu, tworząc zbiory reanalysis. Dostępność „surowych'' danych pomiarowych 
 ze stacji meteorologicznych
 jest ograniczona, a~ilość danych historycznych zebranych nie jest wystarczająca do ujęcia 
 skomplikowanych wzorców pogodowych.
@@ -510,7 +510,7 @@ w sposób automatycznych, projektowanie struktury i~dobranie parametrów algoryt
 % impact of your findings, or the implications for future research.
 \subsection{Wkład pracy}
 
-Niniejsza praca kontynuuje badania poświęcone sprawdzeniu dokładności algorytmów uczenia maszynowego
+Niniejsza praca kontynuuje badania poświęcone dokładności algorytmów uczenia maszynowego
 w celu prognozowania pogody. Celem przeprowadzonych doświadczeń jest sprawdzenie 
 możliwości wybranych algorytmów za pomocą różnych metryk i~porównanie wyników. W~założeniu
 otrzymane dane mają przybliżyć możliwości przedstawionych metod oraz stworzyć obszerne porównanie
@@ -529,7 +529,9 @@ Spośród literatury można wyróżnić wiele algorytmów, które były stosowan
 wyraźna ewaluacja ich ze względu na poszczególne miary i~wizualizacja uzyskanych efektów zdaje się
 bardzo istotna w~przeprowadzeniu dalszych badań.
 
-Ważnym elementem następującej pracy jest także wskazanie możliwości rozwoju
+Ważnym elementem przedstawionym w niniejszej pracy jest wskazanie możliwości rozwoju
 zastosowanych metod i~zaproponowanie ulepszeń mających w~zamyśle rozwój dziedziny.
 Poprzez stworzone porównania oraz wnioskując z~uzyskanych danych, spróbowano także wskazać
 ograniczenia przeprowadzonych działań i~niedoskonałości w~otrzymanych wynikach.
+
+\pagebreak

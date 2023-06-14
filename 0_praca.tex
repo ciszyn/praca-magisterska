@@ -21,6 +21,7 @@
 \usepackage{array}
 \usepackage{wasysym}
 \usepackage[polish]{babel}
+\usepackage[nottoc,numbib]{tocbibind}
 
 \newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
 
@@ -52,6 +53,7 @@
     % frame=lines,
     numbers=left,
     numberstyle=\tiny,
+    % basicstyle=\tiny,
     % numbersep=5pt,
     % breaklines=true,
     % morekeywords={descriptor_gaussian,descriptor,partition,fcm_possibilistic,dataset,my_exception,exception,std,vector},
@@ -64,7 +66,7 @@
 \definecolor{delim}{RGB}{20,105,176}
 \colorlet{numb}{magenta!60!black}
 \lstdefinelanguage{json}{
-    basicstyle=\normalfont\ttfamily,
+    basicstyle=\small\ttfamily,
     numbers=left,
     numberstyle=\scriptsize,
     stepnumber=1,
@@ -104,15 +106,19 @@
     \includepdf{titlepage.pdf}
 \end{titlepage}
 
+\clearpage% Manually insert \clearpage
+\let\clearpage\relax% Remove \clearpage functionality
+\vspace*{-2cm}% Insert needed vertical retraction
+
 \tableofcontents
 \pagebreak
 
 \section*{Abstrakt}
 
 Niniejsza praca zajmuję się analizą wykorzystania uczenia maszynowego w~zastosowaniach meteorologicznych
-w problemie prognozowania pogody. W~celu pokazania działania poszczególnych modeli wykorzystany został
+w problemie prognozowania pogody. W~celu interpretacji działania poszczególnych modeli wykorzystany został
 zbiór danych ERA5 stworzony przez Europejskie Centrum Średnioterminowych Prognoz Pogody zawierający
-dane globalne zasymilowane przez najnowsze modele numeryczne. W~celach tej pracy analiza skupiała 
+dane globalne zasymilowane przez najnowsze modele numeryczne. Analiza skupiała 
 się na krótkoterminowym prognozowaniu pogody w~zakresie 24 godzin,
 a zakres geograficzny analizowanych danych skupiał się na jednej lokalizacji. 
 Stworzone modele zostały poddane wstępnej optymalizacji poprzez dostrajanie wartości hiperparametrów.
@@ -191,7 +197,16 @@ UCAR — University Corporation for Atmospheric Research
 CORR — współczynnik korelacji
 
 \pagebreak
-\printbibliography[title={Bibliografia}]
+\printbibliography[title={Bibliografia}]\label{sec:bibliography}
+\addcontentsline{toc}{section}{Bibliografia}
 % \include{9_appendix.tex}
+
+\pagebreak
+
+\listoftables
+
+\listoffigures
+
+\pagebreak
 
 \end{document}

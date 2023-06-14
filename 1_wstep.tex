@@ -23,7 +23,8 @@
 % prediction. You also emphasize that your results are 
 % comparable to those obtained by other approaches, which 
 % underscores the reliability and validity of your research findings.
-\section{Wstęp}
+\section*{Wstęp}\label{sec:intro}
+\addcontentsline{toc}{section}{\nameref{sec:intro}}
 
 Sztuczna inteligencja (AI) jako gwałtownie rozwijająca się 
 dziedziną informatyki znajduje coraz więcej zastosowań w~
@@ -68,7 +69,8 @@ wartą analizy.
 % of artificial intelligence and machine learning techniques in this area. 
 % This could include a~brief overview of the current state of the field, the 
 % challenges that exist, and the potential benefits of using these techniques.
-\subsection{Kontekst i~zastosowania}
+\subsection*{Kontekst i~zastosowania}\label{subsec:context}
+\addcontentsline{toc}{subsection}{\nameref{subsec:context}}
 
 Monitorowanie i~przewidywanie pogody znajduje zastosowanie w~dziedzinach takich
 jak agrokultura, kontrolowanie stanu zanieczyszczeń powietrza, 
@@ -117,8 +119,8 @@ zachowanie ograniczeń fizycznych, które nie są bezpośrednio częścią model
 w przeciwieństwie do algorytmów NWP. Co więcej, sposób, w~jaki sieci neuronowe
 analizują dane pogodowe, jest niemożliwy do interpretacji, chociaż istnieją
 metody próbujące zwizualizować jakie cechy w~danych wejściowych są interpretowane
-przez sieć neuronową, w~wielu przypadkach NN mogą być traktowane jako "czarna 
-skrzynka" przetwarzająca dane wejściowe na pożądane wyniki. Trudności powiązane
+przez sieć neuronową, w~wielu przypadkach NN mogą być traktowane jako „czarna 
+skrzynka'' przetwarzająca dane wejściowe na pożądane wyniki. Trudności powiązane
 z wykorzystaniem uczenia maszynowego do prognozowania pogody to także skomplikowane
 statystyki analizowanych danych, wiele źródeł szumu danych oraz wysoka wymiarowość
 danych opisujących pogodę.
@@ -139,7 +141,8 @@ bądź też przy pomocy AI.
 % Research objectives: Clearly state the objectives of your research, 
 % including any hypotheses you are testing or research questions you 
 % are exploring. This helps the reader understand the scope and focus of your work.
-\subsection{Cele pracy}
+\subsection*{Cele pracy}\label{subsec:goals}
+\addcontentsline{toc}{subsection}{\nameref{subsec:goals}}
 
 
 Niniejsza praca jest poświęcona analizie i~ewaluacji zastosowania modelów 
@@ -147,15 +150,14 @@ z zakresu uczenia maszynowego w~celach prognozowania zjawisk pogodowych oraz
 modelowania pogody. Szczególny nacisk został położony na porównanie wybranych
 modeli oraz na analizę wyników ze względu na możliwą poprawę. Dodatkowo 
 porównana została efektywność algorytmów AI ze względu na analizowane zmienne.
-
 Ponieważ nie wszystkie analizowane algorytmy okazały się odpowiednie do postawionego
-zadania, przeanalizowane zostały także wady wybranych algorytmów i~możliwe poprawy
-mogące przynieść lepsze wyniki.
+zadania, przeanalizowane zostały także wady wybranych algorytmów.
 
 % Research methods: Provide an overview of the research methods you have used, 
 % including the data sources you have used, the models you have developed, 
 % and the evaluation metrics you have used to measure performance.
-\subsection{Metody badania}
+\subsection*{Metody badania}\label{subsec:methods}
+\addcontentsline{toc}{subsection}{\nameref{subsec:methods}}
 
 W przeprowadzonych badaniach wykorzystano zbiór danych meteorologicznych ERA5
 zgromadzony przez Europejskie Centrum Średnioterminowych Prognoz Pogody (ECMWF)
@@ -165,8 +167,8 @@ prędkość wiatru, temperaturę, promieniowanie słoneczne, ciśnienie, opady, 
 zmiany poziomów cieków wodnych. Chociaż ERA5 zawiera informacje sięgające 1940
 roku i~pokrywające całą ziemię siatką o~rozdzielczości 30 km, 
 to w~celach badań zostały one ograniczone do jednej lokacji z~przedziału czasowego 
-2003 - 2023 roku i~zawiera jedynie obserwacje z~jednego miesiąca- stycznia. 
-Wykorzystany zbiór danych jest zbiorem reanalysis- bazuje on na 
+2003 - 2023 roku i~zawiera jedynie obserwacje z~jednego miesiąca — stycznia. 
+Wykorzystany zbiór danych jest zbiorem reanalysis — bazuje on na 
 danych historycznych rozszerzonych przy pomocy zaawansowanych metod modelowania i~
 algorytmów asymilacji danych.
 
@@ -195,14 +197,15 @@ ich predykcji względem rzeczywistych wartości.
 % field of artificial intelligence and machine learning. This could 
 % include highlighting the novelty of your approach, the potential 
 % impact of your findings, or the implications for future research.
-\subsection{Wkład w~dziedzinę}
+\subsection*{Wkład w~dziedzinę}\label{subsec:impact}
+\addcontentsline{toc}{subsection}{\nameref{subsec:impact}}
 
 Uzyskane wyniki mają na celu wnieść głębsze zrozumienie zastosowań i~wartości 
 poszczególnych modeli z~zakresu uczenia maszynowego w~ramach prognozowania pogody.
 Ta praca ma na celu wpisanie się w~szersze starania mające wskazać możliwości
 w zastosowaniu algorytmów statystycznych i~AI w~modelowaniu pogody. Opierając
 się na pracach stosujących wyżej wymienione algorytmy w~celach wzbogacenia
-tradycyjnych metod prognozowania, jak i~także na pracach usiłujących wykorzystać AI
+tradycyjnych metod prognozowania, jak i~na pracach usiłujących wykorzystać AI
 do kompleksowej analizy pogody, praca ta pokazuje wyniki uzyskane dla wybranego
 regionu i~zamierza przybliżyć informacje zawarte w~zbiorze danych ERA5 przy pomocy
 ograniczonego podzbioru.
@@ -218,3 +221,5 @@ gama zastosowań tych napędza dalszy rozwój i~zachęca do tworzenia coraz to w
 i bardziej skomplikowanych architektur mogących uporać się ze skomplikowanymi problemami.
 Co więcej, promowanie publikacji zbiorów danych do wykorzystania w~ramach uczenia
 maszynowego i~ich analizy jest kluczowym czynnikiem w~dalszym rozwoju dziedziny.
+
+\pagebreak

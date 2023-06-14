@@ -16,6 +16,8 @@
 % questions or hypotheses.
 \section{Wyniki}
 
+Następujący rozdział porównuje otrzymane wyniki dla rozważanych modeli i dokonuje analizy ze względu na dokładność wygenerowanych predykcji. Przeprowadzona analiza została przeprowadzona ze względu na ogólną wartość dokładności, lecz także biorąc pod uwagę charakterystykę poszczególnych zmiennych.
+
 % Descriptive statistics: Provide descriptive statistics that 
 % summarize the main characteristics of your data, such as means, 
 % standard deviations, and frequency distributions.
@@ -29,8 +31,8 @@ danych treningowych jest niemiarodajna.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/mse.png}
-    \caption{Błąd średniokwadratowy dla stworzonych modeli}
+    \includegraphics[width=0.9\textwidth]{images/mse.png}
+    \caption[Błąd średniokwadratowy]{Błąd średniokwadratowy dla stworzonych modeli}
     \label{mse}
 \end{figure}
 
@@ -41,8 +43,8 @@ SVR osiągają zbliżone wartości zarówno dla zbioru treningowego, jak i~testo
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/mae.png}
-    \caption{Średni błąd absolutny dla stworzonych modeli}
+    \includegraphics[width=0.9\textwidth]{images/mae.png}
+    \caption[Średni błąd absolutny]{Średni błąd absolutny dla stworzonych modeli}
     \label{mae}
 \end{figure}
 
@@ -53,12 +55,12 @@ względem modeli zdaje się podobna.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/corr.png}
-    \caption{Współczynnik korelacji dla stworzonych modeli}
+    \includegraphics[width=0.9\textwidth]{images/corr.png}
+    \caption[Współczynnik korelacji]{Współczynnik korelacji dla stworzonych modeli}
     \label{corr}
 \end{figure}
 
-Dla wszystkich modeli współczynnik korelacji pomiędzy wartościami rzeczywistymi 
+Dla wszystkich modeli współczynnik korelacji pomiędzy wartościami rzeczywistymi, 
 a przewidzianymi jest na poziomie przekraczającym 0,9. Wskazuje to na dobre dopasowanie
 modeli do przewidzianych danych, chociaż warto wskazać, że współczynnik
 autokorelacji dla wielu parametrów pozostawał na poziomie powyżej 0,8 dla wartości
@@ -67,7 +69,7 @@ opóźnienia przekraczających parę godzin.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/mse_ranking.png}
-    \caption{Ranking stworzonych modeli ze względu na błąd średniokwadratowy}
+    \caption[Ranking ze względu na MSE]{Ranking stworzonych modeli ze względu na błąd średniokwadratowy}
     \label{mse-ranking}
 \end{figure}
 
@@ -84,7 +86,7 @@ ocenionych algorytmów.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/mae_ranking.png}
-    \caption{Ranking stworzonych modeli ze względu na średni błąd absolutny}
+    \caption[Ranking ze względu na MAE]{Ranking stworzonych modeli ze względu na średni błąd absolutny}
     \label{mae-ranking}
 \end{figure}
 
@@ -95,7 +97,7 @@ bardzo podobna do tej ze względu na błąd średniokwadratowy \ref{mse-ranking}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/corr_ranking.png}
-    \caption{Ranking stworzonych modeli ze względu na wartość korelacji}
+    \caption[Ranking ze względu na korelację]{Ranking stworzonych modeli ze względu na wartość korelacji}
     \label{corr-ranking}
 \end{figure}
 
@@ -127,7 +129,7 @@ i dalej podążać za utworzonym trendem.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/SVR_week.png}
-    \caption{Przebiegi czasowe dla algorytmu SVR. Na żółto pokazane zostały dane 
+    \caption[Przebiegi czasowe dla SVR]{Przebiegi czasowe dla algorytmu SVR. Na żółto pokazane zostały dane 
     rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{svr-week}
 \end{figure}
@@ -135,7 +137,7 @@ i dalej podążać za utworzonym trendem.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_real.png}
-    \caption{Scatterplot prezentujący relację pomiędzy prognozowanymi wartościami
+    \caption[Scatterplot dla SVR]{Scatterplot prezentujący relację pomiędzy prognozowanymi wartościami
     temperatury a~wartościami rzeczywistymi dla algorytmu SVR}
     \label{svr-real}
 \end{figure}
@@ -160,7 +162,7 @@ szumów.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/MLP_week.png}
-    \caption{Przebiegi czasowe dla algorytmu MLP. Na żółto pokazane zostały dane 
+    \caption[Przebiegi czasowe dla MLP]{Przebiegi czasowe dla algorytmu MLP. Na żółto pokazane zostały dane 
     rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{mlp-week}
 \end{figure}
@@ -171,7 +173,7 @@ generując dane wyjściowe z~dużymi wahaniami. Wyniki dla tego modelu zostały 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/rnn_week.png}
-    \caption{Przebiegi czasowe dla algorytmu RNN. Na żółto pokazane zostały dane 
+    \caption[Przebiegi czasowe dla RNN]{Przebiegi czasowe dla algorytmu RNN. Na żółto pokazane zostały dane 
     rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{rnn-week}
 \end{figure}
@@ -186,7 +188,7 @@ prędkości wiatru i~temperatury, które niekoniecznie odnajdują odzwierciedlen
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/random_forest_week.png}
-    \caption{Przebiegi czasowe dla algorytmu lasu losowego. Na żółto pokazane zostały dane 
+    \caption[Przebiegi czasowe dla lasu losowego]{Przebiegi czasowe dla algorytmu lasu losowego. Na żółto pokazane zostały dane 
     rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{forest-week}
 \end{figure}
@@ -199,7 +201,7 @@ często prognozowane są nieprawidłowe wahania od rzeczywistego trendu.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/regression_week.png}
-    \caption{Przebiegi czasowe dla algorytmu regresji logistycznej. Na żółto pokazane zostały dane 
+    \caption[Przebiegi czasowe dla regresji logistycznej]{Przebiegi czasowe dla algorytmu regresji logistycznej. Na żółto pokazane zostały dane 
     rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{regression-week}
 \end{figure}
@@ -207,7 +209,7 @@ często prognozowane są nieprawidłowe wahania od rzeczywistego trendu.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/knn_week.png}
-    \caption{Przebiegi czasowe dla algorytmu KNN. Na żółto pokazane zostały dane 
+    \caption[Przebiegi czasowe dla KNN]{Przebiegi czasowe dla algorytmu KNN. Na żółto pokazane zostały dane 
     rzeczywiste, na niebiesko predykcje wygenerowane przez model}
     \label{knn-week}
 \end{figure}
@@ -230,7 +232,7 @@ danych.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_mse_bar.png}
-    \caption{Wartości błędu średniokwadratowego dla modelu SVR ze względu na poszczególne atrybuty danych.}
+    \caption[Błąd średniokwadratowy dla SVR]{Wartości błędu średniokwadratowego dla modelu SVR ze względu na poszczególne atrybuty danych.}
     \label{svr-mse-bar}
 \end{figure}
 
@@ -244,7 +246,7 @@ odmiennych wniosków i~być przyczyną odmiennej interpretacji.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_mae_bar.png}
-    \caption{Wartości średniego błędu absolutnego dla modelu SVR ze względu na poszczególne atrybuty danych.}
+    \caption[Średni błąd absolutny dla SVR]{Wartości średniego błędu absolutnego dla modelu SVR ze względu na poszczególne atrybuty danych.}
     \label{svr-mae-bar}
 \end{figure}
 
@@ -269,7 +271,7 @@ Na poniższym rysunku \ref{real-hist} zostały ponownie przedstawione histogramy
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/hist.png}
-    \caption{Histogramy prezentujące dystrybucję danych rzeczywistych}
+    \caption[Histogramy dla danych rzeczywistych]{Histogramy prezentujące dystrybucję danych rzeczywistych}
     \label{real-hist}
 \end{figure}
 
@@ -285,14 +287,14 @@ dystrybucji danych.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_hist.png}
-    \caption{Histogramy prezentujące dystrybucję predykcji wygenerowanych przez algorytm SVR.}
+    \caption[Histogramy dla SVR]{Histogramy prezentujące dystrybucję predykcji wygenerowanych przez algorytm SVR.}
     \label{svr-hist}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/dt_hist.png}
-    \caption{Histogramy prezentujące dystrybucję predykcji wygenerowanych przez algorytm drzewo decyzyjne.}
+    \caption[Histogramy dla drzewa decyzyjnego]{Histogramy prezentujące dystrybucję predykcji wygenerowanych przez algorytm drzewo decyzyjne.}
     \label{dt-hist}
 \end{figure}
 
@@ -303,7 +305,7 @@ poprzez nieprawidłowe odwzorowanie danych rzeczywistych.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_qq.png}
-    \caption{Wykresy QQ stworzone dla modelu SVR}
+    \caption[Wykresy Q-Q dla SVR]{Wykresy QQ stworzone dla modelu SVR}
     \label{svr-qq}
 \end{figure}
 
@@ -319,7 +321,7 @@ rzeczywistych parametrów jest niemożliwa, a~utworzone prognozy pogodowe odbieg
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/dt_qq.png}
-    \caption{Wykresy QQ stworzone dla modelu drzewa decyzyjnego}
+    \caption[Wykresy Q-Q dla drzewa decyzyjnego]{Wykresy QQ stworzone dla modelu drzewa decyzyjnego}
     \label{dt-qq}
 \end{figure}
 
@@ -331,14 +333,14 @@ większość parametrów zdaje się posiadać symetryczny rozkład, co nie było
 \begin{figure}[H]
     \centering
     \includegraphics[width=.8\textwidth]{images/svr_box.png}
-    \caption{Wykresy pudełkowe dla modelu SVR}
+    \caption[Wykresy pudełkowe dla SVR]{Wykresy pudełkowe dla modelu SVR}
     \label{svr-box}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=.8\textwidth]{images/svr_autocorr.png}
-    \caption{Współczynnik autokorelacji dla SVR dla wartości przesunięcia w~zakresie czterech dni}
+    \caption[Autokorelacja dla SVR]{Współczynnik autokorelacji dla SVR dla wartości przesunięcia w~zakresie czterech dni}
     \label{svr-autocorr}
 \end{figure}
 
@@ -352,18 +354,18 @@ skokami. Mimo to wartości dla reszty atrybutów są bardzo bliskie względem sy
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/dt_autocorr.png}
-    \caption{Współczynnik autokorelacji dla drzewa decyzyjnego dla wartości przesunięcia w~zakresie czterech dni}
+    \caption[Autokorelacja dla drzewa decyzyjnego]{Współczynnik autokorelacji dla drzewa decyzyjnego dla wartości przesunięcia w~zakresie czterech dni}
     \label{dt-autocorr}
 \end{figure}
 
 W przypadku drzewa decyzyjnego, dla którego autokorelacja została ukazana na wykresie \ref{dt-autocorr},
 wygenerowane wykresy pokazują o~wiele bardziej losową naturę. Nagłe skoki nie podążają za dziennymi cyklami,
-co może wskazywać na "ślepe" powtarzanie wcześniej zaobserwowanych pomiarów. 
+co może wskazywać na „ślepe'' powtarzanie wcześniej zaobserwowanych pomiarów. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/svr_corr_matrix.png}
-    \caption{Korelacja pomiędzy parametrami w~stworzonych prognozach dla algorytmu SVR}
+    \caption[Korelacja dla SVR]{Korelacja pomiędzy parametrami w~stworzonych prognozach dla algorytmu SVR}
     \label{svr-corr-matrix}
 \end{figure}
 
@@ -377,7 +379,7 @@ relacji między ciśnieniem atmosferycznym a~odpływem cieków wodnych, która n
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/dt_corr_matrix.png}
-    \caption{Korelacja pomiędzy parametrami w~stworzonych prognozach dla drzewa decyzyjnego}
+    \caption[Korelacja dla drzewa decyzyjnego]{Korelacja pomiędzy parametrami w~stworzonych prognozach dla drzewa decyzyjnego}
     \label{dt-corr-matrix}
 \end{figure}
 
@@ -401,8 +403,8 @@ a w~rezultacie ignorując głębsze zależności występujące w~danych.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/pred_corr.png}
-    \caption{Korelacja pomiędzy wynikami stworzonymi poprzez poszczególne modele}
+    \includegraphics[width=\textwidth]{images/correlation_matrix2.png}
+    \caption[Korelacja ze względu na model]{Korelacja pomiędzy wynikami stworzonymi poprzez poszczególne modele}
     \label{pred_corr}
 \end{figure}
 
@@ -419,15 +421,15 @@ czego wyniki zostały zobrazowane na rysunku \ref{mse-matrix} oraz \ref{mae-matr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/mse_matrix.png}
-    \caption{Wartość błędu średniokwadratowego pomiędzy wynikami stworzonymi poprzez poszczególne modele}
+    \includegraphics[width=\textwidth]{images/mse_matrix2.png}
+    \caption[Błąd średniokwadratowy ze względu na model]{Wartość błędu średniokwadratowego pomiędzy wynikami stworzonymi poprzez poszczególne modele}
     \label{mse-matrix}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/mae_matrix.png}
-    \caption{Wartość średniego błędu absolutnego pomiędzy wynikami stworzonymi poprzez poszczególne modele}
+    \includegraphics[width=\textwidth]{images/mae_matrix2.png}
+    \caption[Średni błąd absolutny ze względu na model]{Wartość średniego błędu absolutnego pomiędzy wynikami stworzonymi poprzez poszczególne modele}
     \label{mae-matrix}
 \end{figure}
 
@@ -478,5 +480,5 @@ zawiera kompleksowy zbiór parametrów i~dużą rozdzielczość, to jest zależn
 urządzeń użytych do badania atmosfery. Algorytmy syntezy danych użyte w~celu interpolacji otrzymanych
 pomiarów do siatki modelowanej przez metody numeryczne także wnoszą pewien stopień błędu.
 
-
+\pagebreak
 

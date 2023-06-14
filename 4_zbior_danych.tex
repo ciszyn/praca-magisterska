@@ -48,7 +48,7 @@ Dane wykorzystane w~niniejszej pracy zostały pobrane z~otwartego źródła, jak
 Strona ta udostępnia ogólnodostępne API, dzięki któremu, każdy użytkownik jest w~stanie
 wysłać zapytanie o~interesujący go zakres danych. Dzięki temu API możliwe jest sprecyzowanie
 przedziału czasowego, zakresu geograficznego oraz typów zmiennych. Przykładowe zapytanie jest 
-zaprezentowane na następującym listingu \ref{json-listing}.
+zaprezentowane na listingu \ref{json-listing}.
 
 Strona Copernicus Climate Change Service posiada ponad 180 000 użytkowników z~171 krajów. Sumaryczna
 ilość obsłużonych żądań danych przewyższa 519 milionów, a~łączna ilość przesłanych danych wynosi
@@ -152,6 +152,8 @@ wspierających ten format, między innymi dostępne są także w~języku Python 
 
 \end{itemize}
 
+\pagebreak
+
 \subsubsection*{Opis danych}
 
 Dane składają się z~9 wcześniej wymienionych parametrów oraz 12 648 obserwacji godzinnych zebranych
@@ -161,7 +163,7 @@ z przedziału 20 miesięcy. Wszystkie dane pochodzą ze stycznia i~zostały pobr
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/map.png}
-    \caption{Lokalizacja, dla której wybrane zostały dane pogodowe}
+    \caption[Wybrana lokalizacja]{Lokalizacja, dla której wybrane zostały dane pogodowe}
     \label{map}
 \end{figure}
 
@@ -226,7 +228,7 @@ występowanie cykli, oraz prędkość z~jaką trend szeregu się zmienia.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/autocorrelation.png}
-    \caption{Autokorelacja wybranych zmiennych względem opóźnienia o~wartości od 
+    \caption[Autokorelacja danych]{Autokorelacja wybranych zmiennych względem opóźnienia o~wartości od 
     1 godziny do 96 godzin.}
     \label{autocorrelation}
 \end{figure}
@@ -249,7 +251,7 @@ na wykresie liniowym z~prawej strony.
     \centering
     \includegraphics[width=0.45\textwidth]{images/temperature_scatter.png}
     \includegraphics[width=0.45\textwidth]{images/temperature_line.png}
-    \caption{Wykresy pokazujące relację pomiędzy wartościami temperatury, a~tymi samymi 
+    \caption[Korelacja temperatury]{Wykresy pokazujące relację pomiędzy wartościami temperatury, a~tymi samymi 
     wartościami przesuniętymi w~czasie o~24 godziny.}
     \label{temperature}
 \end{figure}
@@ -269,7 +271,7 @@ staję się o~wiele trudniejsza w~śledzeniu, co zostało ukazane na rysunku \re
     \centering
     \includegraphics[width=0.45\textwidth]{images/pressure_scatter.png}
     \includegraphics[width=0.45\textwidth]{images/precipitation_scatter.png}
-    \caption{Zależność ciśnienia (z lewej) oraz opadów (z prawej) względem 
+    \caption[Korelacja ciśnienia]{Zależność ciśnienia (z lewej) oraz opadów (z prawej) względem 
     swoich przesuniętych kopii.}
     \label{pressure-precipitation}
 \end{figure}
@@ -285,7 +287,7 @@ wykresie \ref{hex} pokazana została koncentracja pomiarów o~wskazanych wartoś
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/autocorrelation_hex.png}
-    \caption{Dystrybucja pomiarów na wykresie względem oryginalnego szeregu czasowego,
+    \caption[Dystrybucja szeregu przesuniętego]{Dystrybucja pomiarów na wykresie względem oryginalnego szeregu czasowego,
     oraz szeregu przesuniętego o~24 godziny.}
     \label{hex}
 \end{figure}
@@ -308,7 +310,7 @@ bezpośrednich zależności jednej zmiennej na drugą zmienną.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/correlation_matrix.png}
-    \caption{Macierz korelacji parametrów}
+    \caption[Macierz korelacji parametrów]{Macierz korelacji parametrów}
     \label{matrix}
 \end{figure}
 
@@ -321,12 +323,12 @@ promieniowania słonecznego.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/e-ssr.png}
-    \caption{Zależność pomiędzy odparowaniem a~promieniowaniem słonecznym}
+    \caption[Korelacja odparowania i promieniowania słonecznego]{Zależność pomiędzy odparowaniem a~promieniowaniem słonecznym}
     \label{e-ssr}
 \end{figure}
 
 Brak dalszych korelacji w~danych jest dobrą oznaką sygnalizującą brak redundancji danych.
-Niestety oznacza to także że najprawdopodobniej cały zakres parametrów musi być przeanalizowany
+Niestety oznacza to także, że najprawdopodobniej cały zakres parametrów musi być przeanalizowany
 w celu znalezienia szukanych zależności i~stworzenia modelu prognozującego. 
 
 W celu dalszej analizy dostępnych danych stworzone zostały wykresy Q-Q, pokazujące normalność
@@ -338,7 +340,7 @@ dystrybucji normalnej, posiadają inną charakterystykę.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/qq.png}
-    \caption{Wykresy Q-Q}
+    \caption[Wykresy Q-Q]{Wykresy Q-Q}
     \label{qq}
 \end{figure}
 
@@ -348,7 +350,7 @@ kwartylu danych oraz wartości odstające.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/box.png}
-    \caption{Wykresy pudełkowe wygenerowane dla poszczególnych atrybutów}
+    \caption[Wykresy pudełkowe]{Wykresy pudełkowe wygenerowane dla poszczególnych atrybutów}
     \label{box}
 \end{figure}
 
@@ -364,7 +366,7 @@ obserwacji odbiega od centrum dystrybucji wyraźnie w~jedną stronę.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/hist.png}
-    \caption{Histogramy wygenerowane dla poszczególnych atrybutów}
+    \caption[Histogramy]{Histogramy wygenerowane dla poszczególnych atrybutów}
     \label{hist}
 \end{figure}
 
@@ -378,7 +380,7 @@ wykazuje nagłe skoki w~wartości i~okresy stabilności.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/line.png}
-    \caption{Wykresy liniowe pokazujące wartość średniej kroczącej z~czterech dni na przestrzeni 120 dni}
+    \caption[Wykresy liniowe]{Wykresy liniowe pokazujące wartość średniej kroczącej z~czterech dni na przestrzeni 120 dni}
     \label{line}
 \end{figure}
 
@@ -390,3 +392,5 @@ metod uczenia maszynowego, które nie radzą sobie z~danymi o~dużej częstotliw
 
 Przeprowadzona analiza była jednak tylko wstępem do dalszych badań i~wykazuje ograniczone
 możliwości metod czysto statystycznych w~modelowaniu pogody.
+
+\pagebreak

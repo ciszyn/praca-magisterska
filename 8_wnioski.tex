@@ -10,13 +10,13 @@
 % include issues related to data quality or quantity, inappropriate 
 % algorithmic choices, or parameter settings.
 
-\section{Wnioski}
+\section*{Wnioski}\label{sec:conclusions}
+\addcontentsline{toc}{section}{\nameref{sec:conclusions}}
 
 % Provide a~critical analysis: Provide a~critical analysis of the models 
 % that did not perform well, highlighting both their strengths and limitations. 
 % Be honest and transparent about the performance of these models, and 
 % explain how this impacts the overall results of your research.
-\subsection{Analiza wyników}
 
 Najlepszymi algorytmami okazały się regresja wektorów wspierających, perceptron
 wielowarstwowy, sieć rekurencyjna, las losowy i~regresja logistyczna. Te modele
@@ -52,7 +52,9 @@ atmosferycznego i~opadów miały porównywalne poziomy błędu.
 % identify areas where improvements could be made in future research. 
 % This could include exploring different algorithms, feature engineering, 
 % or using alternative data sources.
-\subsection{Możliwości poprawy}
+\subsection*{Możliwości poprawy}\label{subsec:possibilities}
+\addcontentsline{toc}{subsection}{\nameref{subsec:possibilities}}
+
 
 Pierwszą możliwością rozwoju zastosowanego podejścia jest utylizacja większej ilości
 danych w~procesie uczenia modeli. Zbiór ERA5 zawiera dane pochodzące z~całego świata
@@ -66,6 +68,8 @@ predykcji. Dodatkową opcją byłaby optymalizacja zbioru modeli wchodzących w~
 modelu ensemble pod względem zbioru walidacyjnego i~sprawdzenie, czy efekty 
 optymalizacji przynoszą skutki względem zbioru testowego.
 
+\addcontentsline{toc}{subsection}{Wpływ przeprowadzonych badań}
+
 Jednymi z~lepiej prezentujących się algorytmów były głębokie sieci neuronowe,
 obiecującym podejściem zdaje się zastosowanie uczenia transferowego w~celach 
 wykorzystania wiedzy zawartej w~istniejącej już sieci w~kontekście nowego problemu.
@@ -78,7 +82,7 @@ oraz rekurencyjnych także oferuje prawdopodobne polepszenie efektywności wynik
 % and the field of weather prediction in general. Consider how these 
 % results may impact future research or the practical applications 
 % of these techniques.
-\subsection{Wpływ przeprowadzonych badań}
+\subsection*{Wpływ przeprowadzonych badań}\label{subsec:ending}
 
 W niniejszej pracy zostały pokazane i~porównane różne modele z~zakresu uczenia
 maszynowego i~zostały wyróżnione te, których zastosowanie skutkuje 
@@ -99,3 +103,4 @@ atmosferycznych. Zastosowanie metod czysty opartych na ML daje dobre rezultaty i
 dalsze wcielanie ich w~hybrydowych modelach NWP jest bardzo obiecującym 
 zakresem w~rozwoju dziedziny.
 
+\pagebreak
